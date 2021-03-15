@@ -1,0 +1,7 @@
+{
+  "{src,test}/**/*.ts": [
+    "yarn prettier:write",
+    "git add",
+    "yarn test -- --bail --findRelatedTests"
+  ]
+}
