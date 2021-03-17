@@ -19,12 +19,12 @@ export interface FeedObject {
   type: FeedType;
   title: string;
   link: string;
-  lang: string;
+  language: string;
   generator: string;
   /* Seconds from epoch */
   pubDate: number;
-  /* date string */
-  lastBuildDate: string;
+  /* seconds from epoch */
+  lastBuildDate: number;
 
   itunesType: TODO;
   itunesCategory: TODO[];
@@ -33,7 +33,7 @@ export interface FeedObject {
 
   value: TODO;
 
-  pubsub: boolean;
+  pubsub: false | { hub: string; self: string };
   itunesAuthor: string;
   itunesOwnerEmail: string;
   itunesOwnerName: string;
@@ -60,22 +60,24 @@ export interface FeedObject {
   oldestItemPubDate: number;
 }
 
-interface Episode {
+export interface Episode {
   title: string;
   link: string;
+  itunesDuration: number;
+  itunesEpisode: number;
   itunesEpisodeType: TODO;
-  itunesSeason: TODO;
   itunesExplicit: 0 | 1;
+  itunesImage: string;
+  itunesSeason: TODO;
   enclosure: TODO;
   /* Seconds from epoch */
   pubDate: number;
   guid: string;
   description: string;
-  itunesImage: string;
   image: string;
-  itunesDuration: number;
-  podcastTranscripts: TODO;
-  podcastChapters: TODO;
+  podcastChapters?: TODO;
+  podcastSoundbites?: TODO;
+  podcastTranscripts?: TODO;
 }
 
 // Parse out all of the links from an atom entry and see which ones are WebSub links
@@ -150,7 +152,7 @@ export function findPubSubLinks(channel: any) {
 }
 
 // Make the url safe for storing
-export function sanitizeUrl(url: string) {
+export function sanitizeUrl(url?: string) {
   let newUrl = "";
 
   if (typeof url !== "string") return "";
@@ -197,7 +199,7 @@ export function pubDateToTimestamp(pubDate: number | string | Date) {
 }
 
 // Get a mime-type string for an unknown media enclosure
-export function guessEnclosureType(url: string) {
+export function guessEnclosureType(url = ""): string {
   if (url.includes(".m4v")) {
     return "video/mp4";
   }
@@ -255,7 +257,7 @@ export function timeToSeconds(timeString: string) {
   return seconds;
 }
 
-export function twoDotOhCompliant(feedObject: FeedObject, phase: number, feat: string) {
+export function twoDotOhCompliant(feedObject: Partial<FeedObject>, phase: number, feat: string) {
   /* eslint-disable no-underscore-dangle */
   // eslint-disable-next-line no-param-reassign
   feedObject.__phase = feedObject.__phase || {};
@@ -271,4 +273,12 @@ export function twoDotOhCompliant(feedObject: FeedObject, phase: number, feat: s
 export function log(...args: any[]) {
   // eslint-disable-next-line no-console
   console.log(...args);
+}
+
+export function notUndefined<T>(x: T | undefined): x is T {
+  return x !== undefined;
+}
+
+export function firstIfArray<T>(maybeArr: T | T[]): T {
+  return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
 }

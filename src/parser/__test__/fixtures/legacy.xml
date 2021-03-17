@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Podcasting 2.0 Namespace Example</title>
+    <description>This is a fake show that exists only as an example of the "podcast" namespace tag usage.</description>
+    <link>http://example.com/podcast</link>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <language>en-US</language>
+    <generator>Freedom Controller</generator>
+    <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+    <lastBuildDate>Fri, 09 Oct 2020 04:30:38 GMT</lastBuildDate>
+    <managingEditor>john@example.com (John Doe)</managingEditor>
+    <webMaster>support@example.com (Tech Support)</webMaster>
+    <image>
+      <url>https://example.com/images/pci_avatar-massive.jpg</url>
+      <title>Podcast Feed Template</title>
+      <link>https://example.com/show</link>
+    </image>
+
+    <itunes:author>John Doe</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:category text="News"/>
+    <itunes:category text="Technology"/>
+
+    <itunes:image>https://example.com/images/pci_avatar-massive.jpg</itunes:image>
+
+    <item>
+      <title>Episode 3 - The Future</title>
+      <description>&lt;p&gt;A look into the future of podcasting and how we get to Podcasting 2.0!&lt;/p&gt;</description>
+      <link>https://example.com/podcast/ep0003</link>
+      <guid isPermaLink="true">https://example.com/ep0003</guid>
+      <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+      <author>John Doe (john@example.com)</author>
+      <itunes:image>https://example.com/ep0003/artMd.jpg</itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+      <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+    </item>
+
+    <item>
+      <title>Episode 2 - The Present</title>
+      <description>&lt;p&gt;Where are we at now in the podcasting era. What are the current challenges?&lt;/p&gt;</description>
+      <link>https://example.com/podcast/ep0002</link>
+      <guid isPermaLink="true">https://example.com/ep0002</guid>
+      <pubDate>Thu, 08 Oct 2020 04:30:38 GMT</pubDate>
+      <author>John Doe (john@example.com)</author>
+      <itunes:image>https://example.com/ep0002/artMd.jpg</itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+      <enclosure url="https://mp3s.nashownotes.com/PC20-16-2020-12-18-Final.mp3" length="67080717" type="audio/mpeg"/>
+    </item>
+
+    <item>
+      <title>Episode 1 - The Past</title>
+      <description>&lt;p&gt;How did podcasting get started? What was it like in the beginning?&lt;/p&gt;</description>
+      <link>https://example.com/podcast/ep0001</link>
+      <guid isPermaLink="true">https://example.com/ep0001</guid>
+      <pubDate>Wed, 07 Oct 2020 04:30:38 GMT</pubDate>
+      <author>John Doe (john@example.com)</author>
+      <itunes:image>https://example.com/ep0001/artMd.jpg</itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+      <enclosure url="https://mp3s.nashownotes.com/PC20-15-2020-12-11-Final.mp3" length="71234813" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>

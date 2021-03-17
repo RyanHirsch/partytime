@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -6,9 +7,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
+  Episode,
+  FeedObject,
   FeedType,
   findPubSubLinks,
   guessEnclosureType,
+  notUndefined,
   pubDateToTimestamp,
   timeToSeconds,
 } from "./shared";
@@ -16,20 +20,24 @@ import {
 export function parseAtom(theFeed: any) {
   const timeStarted = Math.floor(Date.now() / 1000);
 
-  const feedObj: any = {};
-  feedObj.type = FeedType.ATOM;
+  const feedObj: Partial<FeedObject> = {
+    type: FeedType.ATOM,
+    title: theFeed.feed.title,
+    link: theFeed.feed.link,
+    description: theFeed.feed.subtitle,
+    language: theFeed.feed.language,
+    generator: theFeed.feed.generator,
+    pubDate: theFeed.feed.updated,
+    lastBuildDate: theFeed.feed.updated,
+    itunesType: theFeed.feed["itunes:type"],
+    itunesCategory: theFeed.feed["itunes:category"],
+    itunesNewFeedUrl: theFeed.feed["itunes:new-feed-url"],
+    pubsub: findPubSubLinks(theFeed.feed),
+    items: [],
+  };
 
   // Key attributes
-  feedObj.title = theFeed.feed.title;
-  feedObj.link = theFeed.feed.link;
-  feedObj.description = theFeed.feed.subtitle;
-  feedObj.language = theFeed.feed.language;
-  feedObj.generator = theFeed.feed.generator;
-  feedObj.pubDate = theFeed.feed.updated;
-  feedObj.lastBuildDate = theFeed.feed.updated;
-  feedObj.itunesType = theFeed.feed["itunes:type"];
-  feedObj.itunesCategory = theFeed.feed["itunes:category"];
-  feedObj.itunesNewFeedUrl = theFeed.feed["itunes:new-feed-url"];
+
   if (typeof theFeed.feed.author === "object" && typeof theFeed.feed.author.name === "string") {
     feedObj.itunesAuthor = theFeed.feed.author.name;
     feedObj.itunesOwnerName = theFeed.feed.author.name;
@@ -38,33 +46,30 @@ export function parseAtom(theFeed: any) {
     feedObj.itunesOwnerEmail = theFeed.feed.author.email;
   }
 
-  // Pubsub links?
-  feedObj.pubsub = findPubSubLinks(theFeed.feed);
-
   // Feed title
   if (Array.isArray(theFeed.feed.title)) {
     feedObj.title = theFeed.feed.title[0];
   }
-  if (typeof feedObj.title === "object" && typeof feedObj.title["#text"] === "string") {
-    feedObj.title = feedObj.title["#text"];
+  if (typeof theFeed.title === "object" && typeof theFeed.title["#text"] === "string") {
+    feedObj.title = theFeed.title["#text"];
   }
   if (typeof feedObj.title !== "string") {
     feedObj.title = "";
   }
 
   // Feed description
-  if (Array.isArray(feedObj.description)) {
-    feedObj.description = feedObj.description[0];
+  if (Array.isArray(theFeed.description)) {
+    feedObj.description = theFeed.description[0];
   }
-  if (typeof feedObj.description === "object") {
-    if (typeof feedObj.description["#text"] === "string") {
-      feedObj.description = feedObj.description["#text"];
+  if (typeof theFeed.description === "object") {
+    if (typeof theFeed.description["#text"] === "string") {
+      feedObj.description = theFeed.description["#text"];
     }
-    if (typeof feedObj.description["#html"] === "string") {
-      feedObj.description = feedObj.description["#text"];
+    if (typeof theFeed.description["#html"] === "string") {
+      feedObj.description = theFeed.description["#text"];
     }
   }
-  if (typeof feedObj.description !== "string") {
+  if (typeof theFeed.description !== "string") {
     feedObj.description = "";
   }
 
@@ -72,16 +77,16 @@ export function parseAtom(theFeed: any) {
   if (Array.isArray(theFeed.feed.link)) {
     feedObj.link = theFeed.feed.link[0];
   }
-  if (typeof feedObj.link === "object") {
-    if (typeof feedObj.link["#text"] !== "undefined") {
-      feedObj.link = feedObj.link["#text"];
-    } else if (typeof feedObj.link.attr["@_href"] !== "undefined") {
-      feedObj.link = feedObj.link.attr["@_href"];
-    } else if (typeof feedObj.url !== "undefined" && feedObj.url === "string") {
-      feedObj.link = feedObj.url;
+  if (typeof theFeed.link === "object") {
+    if (typeof theFeed.link["#text"] !== "undefined") {
+      feedObj.link = theFeed.link["#text"];
+    } else if (typeof theFeed.link.attr["@_href"] !== "undefined") {
+      feedObj.link = theFeed.link.attr["@_href"];
+    } else if (typeof theFeed.url !== "undefined" && theFeed.url === "string") {
+      feedObj.link = theFeed.url;
     }
   }
-  if (typeof feedObj.link !== "string") {
+  if (typeof theFeed.link !== "string") {
     feedObj.link = "";
   }
 
@@ -89,8 +94,8 @@ export function parseAtom(theFeed: any) {
   if (Array.isArray(theFeed.feed.generator)) {
     feedObj.generator = theFeed.feed.generator[0];
   }
-  if (typeof feedObj.generator === "object" && typeof feedObj.generator["#text"] !== "undefined") {
-    feedObj.generator = feedObj.generator["#text"];
+  if (typeof theFeed.generator === "object" && typeof theFeed.generator["#text"] !== "undefined") {
+    feedObj.generator = theFeed.generator["#text"];
   }
 
   if (typeof feedObj.generator !== "string") {
@@ -101,8 +106,8 @@ export function parseAtom(theFeed: any) {
   feedObj.explicit = 0;
   if (
     typeof theFeed.feed["itunes:explicit"] === "string" &&
-    (theFeed.feed["itunes:explicit"].toLowerCase() == "yes" ||
-      theFeed.feed["itunes:explicit"].toLowerCase() == "true")
+    (theFeed.feed["itunes:explicit"].toLowerCase() === "yes" ||
+      theFeed.feed["itunes:explicit"].toLowerCase() === "true")
   ) {
     feedObj.explicit = 1;
   }
@@ -124,143 +129,129 @@ export function parseAtom(theFeed: any) {
     feedObj.image = theFeed.feed.image.url;
   }
   if (
-    typeof feedObj.image === "undefined" &&
-    typeof feedObj.itunesImage !== "undefined" &&
-    feedObj.itunesImage != ""
+    typeof theFeed.image === "undefined" &&
+    typeof theFeed.itunesImage !== "undefined" &&
+    theFeed.itunesImage
   ) {
-    feedObj.image = feedObj.itunesImage;
+    feedObj.image = theFeed.itunesImage;
   }
-
-  // The feed object must have an array of items even if it's blank
-  feedObj.items = [];
 
   //------------------------------------------------------------------------
   // Are there even any items to get
   if (typeof theFeed.feed.entry !== "undefined") {
-    // Make sure the item element is always an array
-    if (!Array.isArray(theFeed.feed.entry)) {
-      const newItem = [];
-      newItem[0] = theFeed.feed.entry;
-      theFeed.feed.entry = newItem;
-    }
-
     // Items
-    let i = 0;
-    feedObj.items = [];
-    theFeed.feed.entry.forEach(function (item: any) {
-      // console.log(item);
+    feedObj.items = getEntryItems(theFeed)
+      .map((item: any): Episode | undefined => {
+        // console.log(item);
 
-      // Bail-out conditions
-      //-------------------
-      // Item id/guid missing
-      if (typeof item.id === "undefined" || item.id == "") {
-        return;
-      }
-      // No enclosures
-      const enclosures = findAtomItemEnclosures(item);
-      if (!Array.isArray(enclosures) || enclosures.length === 0) {
-        return;
-      }
+        // Bail-out conditions
+        //-------------------
+        // Item id/guid missing
+        if (typeof item.id === "undefined" || !item.id) {
+          return undefined;
+        }
+        // No enclosures
+        const enclosures = findAtomItemEnclosures(item);
+        if (!Array.isArray(enclosures) || enclosures.length === 0) {
+          return undefined;
+        }
 
-      // Set up the preliminary feed object properties
-      feedObj.items[i] = {
-        title: item.title,
-        link: "",
-        itunesEpisode: item["itunes:episode"],
-        itunesEpisodeType: item["itunes:episodeType"],
-        itunesExplicit: 0,
-        enclosure: enclosures[0],
-        pubDate: pubDateToTimestamp(item.updated),
-        guid: item.id,
-        description: item.content,
-        image: feedObj.image,
-      };
+        // Set up the preliminary feed object properties
+        const newFeedItem: Episode = {
+          title: item.title,
+          link: "",
+          itunesEpisodeType: item["itunes:episodeType"],
+          itunesExplicit: 0,
+          itunesDuration: 0,
+          itunesSeason: null,
+          itunesEpisode: 0,
+          itunesImage: "",
+          enclosure: enclosures[0],
+          pubDate: pubDateToTimestamp(item.updated),
+          guid: item.id,
+          description: "",
+          image: feedObj.image ?? "",
+          podcastChapters: null,
+          podcastSoundbites: null,
+          podcastTranscripts: null,
+        };
 
-      // Item title
-      if (Array.isArray(feedObj.items[i].title)) {
-        feedObj.items[i].title = feedObj.items[i].title[0];
-      }
-      if (
-        typeof feedObj.items[i].title === "object" &&
-        typeof feedObj.items[i].title["#text"] !== "undefined"
-      ) {
-        feedObj.items[i].title = feedObj.items[i].title["#text"];
-      }
-      if (typeof feedObj.items[i].title !== "string") {
-        feedObj.items[i].title = "";
-      }
-      if (typeof item["itunes:title"] === "string" && item["itunes:title"] != "") {
-        feedObj.items[i].title = item["itunes:title"];
-      }
-      feedObj.items[i].title = feedObj.items[i].title.trim();
+        // Item title
+        if (Array.isArray(item.title)) {
+          newFeedItem.title = item.title[0];
+        }
+        if (typeof item.title === "object" && typeof item.title["#text"] !== "undefined") {
+          newFeedItem.title = item.title["#text"];
+        }
+        if (typeof item.title !== "string") {
+          newFeedItem.title = "";
+        }
+        if (typeof item["itunes:title"] === "string" && item["itunes:title"]) {
+          newFeedItem.title = item["itunes:title"];
+        }
+        newFeedItem.title = item.title.trim();
 
-      // Item link
-      const itemLinks = findAtomItemAlternateLinks(item);
-      if (itemLinks && itemLinks.length > 0) {
-        feedObj.items[i].link = itemLinks[0];
-      }
+        // Item link
+        const itemLinks = findAtomItemAlternateLinks(item);
+        if (itemLinks && itemLinks.length > 0) {
+          newFeedItem.link = itemLinks[0];
+        }
 
-      // Item description
-      if (typeof item["itunes:summary"] === "string" && item["itunes:summary"] != "") {
-        feedObj.items[i].description = item["itunes:summary"];
-      }
-      if (typeof item.description !== "undefined" && item.description != "") {
-        if (typeof item.description["content:encoded"] === "string") {
-          feedObj.items[i].description = item.description["content:encoded"];
+        // Item description
+        if (typeof item["itunes:summary"] === "string" && item["itunes:summary"]) {
+          newFeedItem.description = item["itunes:summary"];
+        }
+        if (typeof item.description !== "undefined" && item.description) {
+          if (typeof item.description["content:encoded"] === "string") {
+            newFeedItem.description = item.description["content:encoded"];
+          } else {
+            newFeedItem.description = item.description;
+          }
+        }
+
+        if (typeof item.description === "string") {
+          newFeedItem.description = item.description.trim();
         } else {
-          feedObj.items[i].description = item.description;
+          const content = Array.isArray(item.content) ? item.content[0] : item.content;
+          if (typeof content === "object" && typeof content["#text"] === "string") {
+            newFeedItem.description = content["#text"];
+          }
         }
-      }
-      if (Array.isArray(item.content)) {
-        item.content = item.content[0];
-      }
-      if (typeof item.content === "object" && typeof item.content["#text"] === "string") {
-        feedObj.items[i].description = item.content["#text"];
-      }
-      if (typeof feedObj.items[i].description === "string") {
-        feedObj.items[i].description = feedObj.items[i].description.trim();
-      } else {
-        feedObj.items[i].description = "";
-      }
 
-      // Itunes specific stuff
-      if (
-        typeof item["itunes:explicit"] === "string" &&
-        (item["itunes:explicit"].toLowerCase() == "yes" ||
-          item["itunes:explicit"].toLowerCase() == "true")
-      ) {
-        feedObj.items[i].itunesExplicit = 1;
-      }
-      if (typeof item["itunes:explicit"] === "boolean" && item["itunes:explicit"]) {
-        feedObj.items[i].itunesExplicit = 1;
-      }
-      if (
-        typeof item["itunes:duration"] !== "undefined" &&
-        typeof item["itunes:duration"] === "string"
-      ) {
-        feedObj.items[i].itunesDuration = timeToSeconds(item["itunes:duration"]);
-        if (isNaN(feedObj.items[i].itunesDuration)) {
-          feedObj.items[i].itunesDuration = 0;
+        // Itunes specific stuff
+        if (
+          typeof item["itunes:explicit"] === "string" &&
+          (item["itunes:explicit"].toLowerCase() === "yes" ||
+            item["itunes:explicit"].toLowerCase() === "true")
+        ) {
+          newFeedItem.itunesExplicit = 1;
         }
-      } else {
-        feedObj.items[i].itunesDuration = 0;
-      }
-      if (typeof feedObj.items[i].itunesEpisode === "string") {
-        feedObj.items[i].itunesEpisode = feedObj.items[i].itunesEpisode.replace(/\D/g, "");
-        if (feedObj.items[i].itunesEpisode != "") {
-          feedObj.items[i].itunesEpisode = parseInt(feedObj.items[i].itunesEpisode);
+        if (typeof item["itunes:explicit"] === "boolean" && item["itunes:explicit"]) {
+          newFeedItem.itunesExplicit = 1;
         }
-      }
-      if (typeof feedObj.items[i].itunesEpisode !== "number") {
-        delete feedObj.items[i].itunesEpisode;
-      }
+        if (
+          typeof item["itunes:duration"] !== "undefined" &&
+          typeof item["itunes:duration"] === "string"
+        ) {
+          newFeedItem.itunesDuration = timeToSeconds(item["itunes:duration"]);
+          if (Number.isNaN(newFeedItem.itunesDuration)) {
+            newFeedItem.itunesDuration = 0;
+          }
+        }
 
-      i++;
-    });
+        if (typeof item["itunes:episode"] === "string") {
+          const parsedEpisodeString = item["itunes:episode"].replace(/\D/g, "");
+          if (parsedEpisodeString) {
+            newFeedItem.itunesEpisode = parseInt(parsedEpisodeString, 10);
+          }
+        }
+        return newFeedItem;
+      })
+      .filter(notUndefined);
 
     // Get the pubdate of the most recent item
     let mostRecentPubDate = 0;
-    feedObj.items.forEach(function (item: any) {
+    feedObj.items.forEach((item: any) => {
       const thisPubDate = pubDateToTimestamp(item.updated);
       if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
@@ -270,7 +261,7 @@ export function parseAtom(theFeed: any) {
 
     // Get the pubdate of the oldest item
     let oldestPubDate = mostRecentPubDate;
-    feedObj.items.forEach(function (item: any) {
+    feedObj.items.forEach((item: any) => {
       const thisPubDate = pubDateToTimestamp(item.updated);
       if (thisPubDate < oldestPubDate && thisPubDate > 0) {
         oldestPubDate = thisPubDate;
@@ -292,6 +283,13 @@ export function parseAtom(theFeed: any) {
   }
 
   return feedObj;
+}
+
+function getEntryItems(theFeed: any): any[] {
+  if (!Array.isArray(theFeed.feed.entry)) {
+    return [theFeed.feed.entry];
+  }
+  return theFeed.feeed.entry;
 }
 
 // Parse out all of the links from an atom entry and see which ones are enclosures
@@ -317,12 +315,12 @@ function findAtomItemEnclosures(entry: any) {
         // Set the length
         enclosure.length = 0;
         if (typeof item.attr["@_length"] === "string") {
-          enclosure.length = parseInt(item.attr["@_length"]);
+          enclosure.length = parseInt(item.attr["@_length"], 10);
         }
         if (typeof item.attr["@_length"] === "number") {
           enclosure.length = item.attr["@_length"];
         }
-        if (isNaN(enclosure.length) || typeof enclosure.length === "undefined") {
+        if (Number.isNaN(enclosure.length) || typeof enclosure.length === "undefined") {
           enclosure.length = 0;
         }
 
@@ -350,22 +348,22 @@ function findAtomItemEnclosures(entry: any) {
 
     // console.log(item);
 
-    if (item.attr["@_rel"] !== "enclosure") return;
+    if (item.attr["@_rel"] !== "enclosure") return [];
 
     // Set the url
-    if (typeof item.attr["@_href"] !== "string") return;
-    if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
+    if (typeof item.attr["@_href"] !== "string") return [];
+    if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return [];
     enclosure.url = item.attr["@_href"];
 
     // Set the length
     enclosure.length = 0;
     if (typeof item.attr["@_length"] === "string") {
-      enclosure.length = parseInt(item.attr["@_length"]);
+      enclosure.length = parseInt(item.attr["@_length"], 10);
     }
     if (typeof item.attr["@_length"] === "number") {
       enclosure.length = item.attr["@_length"];
     }
-    if (isNaN(enclosure.length) || typeof enclosure.length === "undefined") {
+    if (Number.isNaN(enclosure.length) || typeof enclosure.length === "undefined") {
       enclosure.length = 0;
     }
 
@@ -415,14 +413,14 @@ function findAtomItemAlternateLinks(entry: any) {
     const item = entry.link;
 
     // console.log(item);
-    if (typeof item.attr !== "object") return;
+    if (typeof item.attr !== "object") return [];
 
     if (typeof item.attr["@_rel"] === "string") {
-      if (item.attr["@_rel"] !== "alternate") return;
+      if (item.attr["@_rel"] !== "alternate") return [];
 
       // Set the url
-      if (typeof item.attr["@_href"] !== "string") return;
-      if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
+      if (typeof item.attr["@_href"] !== "string") return [];
+      if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return [];
 
       // Push this url on the array
       alternates.push(item.attr["@_href"]);

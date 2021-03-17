@@ -1,7 +1,11 @@
 import fetch from "node-fetch";
+import * as fs from "fs";
+import * as path from "path";
+import stringify from "fast-json-stable-stringify";
 
 import { log } from "./logger";
 import { parseFeed } from "./parser";
+import { FeedObject } from "./parser/shared";
 
 const feeds = [
   { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
@@ -66,10 +70,11 @@ const feeds = [
   // { name: "The Her Freedom Podcast", url: "http://herfreedomaudio.blogspot.de/atom.xml" },
 ];
 
-async function checkAll() {
-  for (let i = 0; i < feeds.length; i++) {
+async function checkAll(): Promise<void> {
+  for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
     log(`Parsing ${name}: ${url}`);
+    // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
 }
@@ -77,11 +82,25 @@ async function checkAll() {
 async function getFeed(url: string): Promise<void> {
   const response = await fetch(url);
   const xml = await response.text();
-  const feedObject = parseFeed(xml);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const feedObject: FeedObject = parseFeed(xml);
+  fs.writeFileSync(
+    path.resolve(
+      __dirname,
+      "..",
+      `results/${feedObject.title.toLowerCase().replace(/\s+/g, "-").replace(/'/g, "")}.json`
+    ),
+    stringify(feedObject)
+  );
+  // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
   log(feedObject.__phase);
 }
 
-checkAll();
+// eslint-disable-next-line no-console
+checkAll().then(
+  () => console.log("done"),
+  (err) => console.error(err)
+);
 
 // class HTTPResponseError extends Error {
 //   constructor(response, ...args) {
