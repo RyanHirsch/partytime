@@ -140,11 +140,6 @@ export function parseRss(theFeed: any) {
   if (typeof feedObj.itunesOwnerEmail !== "string") feedObj.itunesOwnerEmail = "";
   if (typeof feedObj.itunesOwnerName !== "string") feedObj.itunesOwnerName = "";
 
-  // Duplicate pubdate?
-  if (Array.isArray(feedObj.pubDate)) {
-    [feedObj.pubDate] = feedObj.pubDate;
-  }
-
   // Duplicate language?
   if (Array.isArray(feedObj.language)) {
     [feedObj.language] = feedObj.language;
@@ -645,25 +640,29 @@ export function parseRss(theFeed: any) {
     feedObj.oldestItemPubDate = oldestPubDate;
   }
 
+  // Duplicate pubdate?
+  let pubDate = firstIfArray(theFeed.rss.channel.pubDate);
   // Make sure we have a valid pubdate if possible
-  // eslint-disable-next-line eqeqeq
-  if (theFeed.rss.channel.pubDate === "" || feedObj.pubDate == 0 || Number.isNaN(feedObj.pubDate)) {
-    if (typeof feedObj.lastBuildDate !== "string") {
-      feedObj.pubDate = 0;
-    } else {
-      feedObj.pubDate = feedObj.lastBuildDate;
-    }
+  if (typeof pubDate === "string") {
+    pubDate = pubDateToTimestamp(pubDate);
   }
-  if (typeof feedObj.pubDate === "string") {
-    feedObj.pubDate = pubDateToTimestamp(feedObj.pubDate);
+
+  // eslint-disable-next-line eqeqeq
+  if (!pubDate || Number.isNaN(pubDate)) {
+    if (typeof feedObj.lastBuildDate !== "string") {
+      pubDate = 0;
+    } else {
+      pubDate = feedObj.lastBuildDate;
+    }
   }
   if (
     typeof feedObj.newestItemPubDate === "number" &&
-    // eslint-disable-next-line eqeqeq
-    (typeof feedObj.pubDate !== "number" || feedObj.pubDate == 0)
+    (typeof pubDate !== "number" || pubDate === 0)
   ) {
-    feedObj.pubDate = feedObj.newestItemPubDate;
+    pubDate = feedObj.newestItemPubDate;
   }
+
+  feedObj.pubDate = pubDate;
 
   // eslint-disable-next-line no-underscore-dangle
   feedObj.__phase = phaseSupport;
