@@ -9,7 +9,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import { mergeWith, concat } from "ramda";
+import { mergeWith, concat, mergeDeepRight } from "ramda";
 import {
   FeedType,
   findPubSubLinks,
@@ -267,12 +267,12 @@ export function parseRss(theFeed: any) {
   // Locked
   const locked = phase1.locked(theFeed);
   feedObj = mergeWith(concat, feedObj, locked.feedUpdate);
-  phaseSupport = mergeWith(concat, phaseSupport, locked.phaseUpdate);
+  phaseSupport = mergeDeepRight(phaseSupport, locked.phaseUpdate);
 
   // Funding
   const funding = phase1.funding(theFeed);
   feedObj = mergeWith(concat, feedObj, funding.feedUpdate);
-  phaseSupport = mergeWith(concat, phaseSupport, funding.phaseUpdate);
+  phaseSupport = mergeDeepRight(phaseSupport, funding.phaseUpdate);
   // #endregion
 
   // #region Phase 2
@@ -329,8 +329,6 @@ export function parseRss(theFeed: any) {
         });
       }
     }
-
-    // console.log(feedObj.value);
   }
   // #endregion
 
@@ -357,7 +355,6 @@ export function parseRss(theFeed: any) {
 
     feedObj.items = theFeed.rss.channel.item
       .map((item: any): Episode | undefined => {
-        // console.log(item);
         let itemguid = "";
 
         // If there is no enclosure, just skip this item and move on to the next
@@ -529,7 +526,7 @@ export function parseRss(theFeed: any) {
 
         const transcripts = phase1.transcripts(item);
         newFeedItem = mergeWith(concat, newFeedItem, transcripts.itemUpdate);
-        phaseSupport = mergeWith(concat, phaseSupport, transcripts.phaseUpdate);
+        phaseSupport = mergeDeepRight(phaseSupport, transcripts.phaseUpdate);
         // #endregion
 
         // Chapters Phase 1
@@ -563,8 +560,6 @@ export function parseRss(theFeed: any) {
                 duration: soundbite.attr["@_duration"],
                 title: soundbite["#text"],
               });
-              // console.log(soundbite);
-              // console.log(feedObj.items[i].podcastSoundbites);
             }
           });
         } else if (
@@ -580,8 +575,6 @@ export function parseRss(theFeed: any) {
             duration: item["podcast:soundbite"].attr["@_duration"],
             title: item["podcast:soundbite"]["#text"],
           };
-          // console.log(item["podcast:soundbite"]);
-          // console.log(feedObj.items[i].podcastSoundbites);
         }
         return newFeedItem;
       })
@@ -594,7 +587,6 @@ export function parseRss(theFeed: any) {
       if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
       }
-      // console.log(item.pubDate + ": " + pubDateToTimestamp(item.pubDate));
     });
     feedObj.newestItemPubDate = mostRecentPubDate;
 
@@ -605,7 +597,6 @@ export function parseRss(theFeed: any) {
       if (thisPubDate < oldestPubDate && thisPubDate > 0) {
         oldestPubDate = thisPubDate;
       }
-      // console.log(item.pubDate + ": " + pubDateToTimestamp(item.pubDate));
     });
     feedObj.oldestItemPubDate = oldestPubDate;
   }

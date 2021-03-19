@@ -14,8 +14,8 @@
     "test": "jest",
     "lint": "eslint --ext .js,.ts src/",
     "test:watch": "jest --watch",
-    "dev": "ts-node -r tsconfig-paths/register src/index.ts",
-    "dev:watch": "ts-node-dev --respawn --no-notify src/index.ts"
+    "dev": "ts-node -r tsconfig-paths/register src/dev.ts",
+    "dev:watch": "ts-node-dev --respawn --no-notify src/dev.ts"
   },
   "devDependencies": {
     "@types/he": "^1.1.1",
@@ -42,7 +42,6 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "fast-json-stable-stringify": "^2.1.0",
     "fast-xml-parser": "^3.18.0",
