@@ -1,6 +1,6 @@
 {
   "name": "podcast-partytime",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,7 @@
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
     "start": "node dist/index.js",
     "prebuild": "rimraf dist",
+    "prepublishOnly": "yarn lint && yarn test && yarn build",
     "build": "tsc",
     "test": "jest",
     "lint": "eslint --ext .js,.ts src/",
