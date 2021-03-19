@@ -71,7 +71,7 @@ function handleValidFeed(xml: string) {
   }
 
   if (!feedObj) {
-    console.log("Parsing failed...");
+    console.error("Parsing failed...");
     return null;
   }
 

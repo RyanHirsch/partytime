@@ -1,3 +1,3 @@
-export function log(...args: any[]) {
+export function log(...args: any[]): void {
   console.log(...args);
 }

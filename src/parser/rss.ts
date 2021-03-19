@@ -18,6 +18,7 @@ import {
   pubDateToTimestamp,
   sanitizeUrl,
   timeToSeconds,
+  TODO,
   twoDotOhCompliant,
 } from "./shared";
 import type { FeedObject, Episode } from "./shared";
@@ -263,35 +264,15 @@ export function parseRss(theFeed: any) {
 
   // #region Phase 1
 
-  // Locked?
+  // Locked
   const locked = phase1.locked(theFeed);
   feedObj = mergeWith(concat, feedObj, locked.feedUpdate);
   phaseSupport = mergeWith(concat, phaseSupport, locked.phaseUpdate);
 
   // Funding
-  if (typeof theFeed.rss.channel["podcast:funding"] === "object") {
-    twoDotOhCompliant(feedObj, 1, "funding");
-
-    let fundingMessage = "";
-    if (
-      typeof theFeed.rss.channel["podcast:funding"]["#text"] === "string" &&
-      theFeed.rss.channel["podcast:funding"]["#text"] !== ""
-    ) {
-      fundingMessage = theFeed.rss.channel["podcast:funding"]["#text"];
-    }
-    if (
-      typeof theFeed.rss.channel["podcast:funding"].attr["@_url"] === "string" &&
-      theFeed.rss.channel["podcast:funding"].attr["@_url"] !== ""
-    ) {
-      feedObj.podcastFunding = {
-        message: fundingMessage,
-        url: theFeed.rss.channel["podcast:funding"].attr["@_url"],
-      };
-    }
-
-    // console.log(feedObj.podcastFunding);
-  }
-
+  const funding = phase1.funding(theFeed);
+  feedObj = mergeWith(concat, feedObj, funding.feedUpdate);
+  phaseSupport = mergeWith(concat, phaseSupport, funding.phaseUpdate);
   // #endregion
 
   // #region Phase 2
@@ -398,7 +379,7 @@ export function parseRss(theFeed: any) {
           return undefined;
         }
 
-        const newFeedItem: Episode = {
+        let newFeedItem: Episode = {
           title: item.title,
           link: item.link,
           itunesImage: "",
@@ -544,23 +525,12 @@ export function parseRss(theFeed: any) {
           newFeedItem.enclosure.type = guessEnclosureType(enclosure.attr["@_url"]);
         }
 
-        // Transcripts Phase 1
-        if (Array.isArray(item["podcast:transcript"])) {
-          // eslint-disable-next-line prefer-destructuring, no-param-reassign
-          item["podcast:transcript"] = item["podcast:transcript"][0];
-        }
-        if (
-          typeof item["podcast:transcript"] !== "undefined" &&
-          typeof item["podcast:transcript"].attr === "object" &&
-          typeof item["podcast:transcript"].attr["@_url"] === "string"
-        ) {
-          twoDotOhCompliant(feedObj, 1, "transcript");
+        // #region Item Phase 1
 
-          newFeedItem.podcastTranscripts = {
-            url: item["podcast:transcript"].attr["@_url"],
-            type: 0,
-          };
-        }
+        const transcripts = phase1.transcripts(item);
+        newFeedItem = mergeWith(concat, newFeedItem, transcripts.itemUpdate);
+        phaseSupport = mergeWith(concat, phaseSupport, transcripts.phaseUpdate);
+        // #endregion
 
         // Chapters Phase 1
         if (
@@ -698,19 +668,63 @@ export const phase1 = {
       }
     }
 
-    return {
-      feedUpdate,
-      phaseUpdate,
-    };
+    return { feedUpdate, phaseUpdate };
+  },
+
+  funding: (theFeed: RSSFeed) => {
+    const node = theFeed.rss.channel["podcast:funding"];
+    const feedUpdate: any = {};
+    const phaseUpdate: PhaseUpdate = { 1: {} };
+
+    if (typeof node === "object") {
+      phaseUpdate[1].funding = true;
+
+      const message = getText(node);
+      const url = getAttribute(node, "url");
+
+      if (url) {
+        feedUpdate.podcastFunding = {
+          message: message ?? "",
+          url,
+        };
+      }
+    }
+    return { feedUpdate, phaseUpdate };
+  },
+
+  transcripts: (item: TODO) => {
+    const node = firstIfArray(item["podcast:transcript"]);
+    const itemUpdate: any = {};
+    const phaseUpdate: PhaseUpdate = { 1: {} };
+
+    const url = getAttribute(node, "url");
+
+    if (url) {
+      phaseUpdate[1].transcript = true;
+
+      itemUpdate.podcastTranscripts = {
+        url,
+        type: 0,
+      };
+    }
+
+    return { itemUpdate, phaseUpdate };
   },
 };
 
 function getText(node: { "#text": string }): string {
-  return node["#text"].trim();
+  if (typeof node["#text"] === "string") {
+    return node["#text"].trim();
+  }
+  return "";
 }
 
 function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
-  if (typeof node.attr[`@_${name}`] === "string") {
+  if (
+    typeof node !== "undefined" &&
+    typeof node.attr === "object" &&
+    typeof node.attr[`@_${name}`] === "string"
+  ) {
     return node.attr[`@_${name}`].trim();
   }
   return null;

@@ -7,7 +7,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type TODO = any;
+export type TODO = any;
 
 export enum FeedType {
   RSS = 0,
