@@ -1,6 +1,6 @@
 .jest
 .vscode
-dist/dev.js*
+dist/dev.*
 results
 scripts
 .dockerignore

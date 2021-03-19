@@ -4,7 +4,7 @@ import * as path from "path";
 import stringify from "fast-json-stable-stringify";
 
 import { log } from "./logger";
-import { parseFeed } from "./parser";
+import parseFeed from "./index";
 import { FeedObject } from "./parser/shared";
 
 const feeds = [
