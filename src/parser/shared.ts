@@ -115,6 +115,10 @@ export interface Episode {
   podcastPeople?: Person[];
 }
 
+export interface PhaseUpdate {
+  [p: number]: { [k: string]: boolean };
+}
+
 // Parse out all of the links from an atom entry and see which ones are WebSub links
 export function findPubSubLinks(channel: any) {
   const pubsublinks = {
@@ -292,18 +296,6 @@ export function timeToSeconds(timeString: string) {
   return seconds;
 }
 
-export function twoDotOhCompliant(feedObject: Partial<FeedObject>, phase: number, feat: string) {
-  /* eslint-disable no-underscore-dangle */
-  // eslint-disable-next-line no-param-reassign
-  feedObject.__phase = feedObject.__phase || {};
-  // eslint-disable-next-line no-param-reassign
-  feedObject.__phase[phase] = feedObject.__phase[phase] || [];
-
-  if (!feedObject.__phase[phase].includes(feat)) {
-    feedObject.__phase[phase].push(feat);
-  }
-  /* eslint-enable no-underscore-dangle */
-}
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function log(...args: any[]) {
   // eslint-disable-next-line no-console
@@ -316,6 +308,10 @@ export function notUndefined<T>(x: T | undefined): x is T {
 
 export function firstIfArray<T>(maybeArr: T | T[]): T {
   return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
+}
+
+export function ensureArray<T>(maybeArr: T | T[]): T[] {
+  return Array.isArray(maybeArr) ? maybeArr : [maybeArr];
 }
 
 export function getText(node: { "#text": string }): string {

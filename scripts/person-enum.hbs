@@ -10,16 +10,20 @@ export enum PersonRole {
 {{/each}}
 }
 
-export const PersonTaxonomy = new Map<PersonGroup, string[]>([
+/*
+export const PersonTaxonomy:Record<PersonGroup, Record<
+  PersonRole,
+  { role: string; description: string }>
+> = {
 {{#each grouped}}
-  [
-    PersonGroup.{{@key}},
-    [
+  [PersonGroup.{{@key}}]: {
     {{#each this}}
-      /* {{description}} */
-      "{{role}}",
+      [PersonRole.{{sanitizedRole}}] : {
+        description: "{{description}}",
+        role: "{{role}}",
+      },
     {{/each}}
-    ],
-  ],
+  },
 {{/each}}
-]);
+};
+*/

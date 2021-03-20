@@ -15,10 +15,10 @@ import {
   findPubSubLinks,
   firstIfArray,
   guessEnclosureType,
+  PhaseUpdate,
   pubDateToTimestamp,
   sanitizeUrl,
   timeToSeconds,
-  twoDotOhCompliant,
 } from "./shared";
 import type { FeedObject, Episode } from "./shared";
 import { updateFeed, updateItem } from "./phase";
@@ -44,7 +44,7 @@ export function parseRss(theFeed: any) {
     categories: [],
     value: {},
   };
-  let phaseSupport: any = {};
+  let phaseSupport: PhaseUpdate = {};
 
   // Clean the title
   if (typeof feedObj.title === "string") {
@@ -260,18 +260,12 @@ export function parseRss(theFeed: any) {
   feedObj = mergeWith(concat, feedObj, feedResult.feedUpdate);
   phaseSupport = mergeDeepRight(phaseSupport, feedResult.phaseUpdate);
 
-  // #region Phase 2
-
-  // #endregion
-
-  // #region Phase 3
-
   // Value block
   if (
     typeof theFeed.rss.channel["podcast:value"] !== "undefined" &&
     typeof theFeed.rss.channel["podcast:value"].attr !== "undefined"
   ) {
-    twoDotOhCompliant(feedObj, 3, "value");
+    // twoDotOhCompliant(feedObj, 3, "value");
 
     // Get the model
     feedObj.value.model = {
@@ -284,7 +278,7 @@ export function parseRss(theFeed: any) {
     feedObj.value.destinations = [];
     if (typeof theFeed.rss.channel["podcast:value"]["podcast:valueRecipient"] === "object") {
       const valueRecipients = theFeed.rss.channel["podcast:value"]["podcast:valueRecipient"];
-      twoDotOhCompliant(feedObj, 3, "valueRecipient");
+      // twoDotOhCompliant(feedObj, 3, "valueRecipient");
 
       if (Array.isArray(valueRecipients)) {
         valueRecipients.forEach(function (item) {
@@ -509,7 +503,7 @@ export function parseRss(theFeed: any) {
           typeof item["podcast:chapters"].attr === "object" &&
           typeof item["podcast:chapters"].attr["@_url"] === "string"
         ) {
-          twoDotOhCompliant(feedObj, 1, "chapters");
+          // twoDotOhCompliant(feedObj, 1, "chapters");
 
           newFeedItem.podcastChapters = {
             url: item["podcast:chapters"].attr["@_url"],
@@ -519,7 +513,7 @@ export function parseRss(theFeed: any) {
 
         // Soundbites
         if (Array.isArray(item["podcast:soundbite"])) {
-          twoDotOhCompliant(feedObj, 1, "soundbites");
+          // twoDotOhCompliant(feedObj, 1, "soundbites");
 
           newFeedItem.podcastSoundbites = [];
           item["podcast:soundbite"].forEach(function (soundbite: any) {
@@ -542,7 +536,7 @@ export function parseRss(theFeed: any) {
           typeof item["podcast:soundbite"].attr["@_startTime"] !== "undefined" &&
           typeof item["podcast:soundbite"].attr["@_duration"] !== "undefined"
         ) {
-          twoDotOhCompliant(feedObj, 1, "soundbites");
+          // twoDotOhCompliant(feedObj, 1, "soundbites");
 
           newFeedItem.podcastSoundbites = {
             startTime: item["podcast:soundbite"].attr["@_startTime"],
@@ -604,7 +598,13 @@ export function parseRss(theFeed: any) {
 
   feedObj.pubDate = pubDate;
 
-  // eslint-disable-next-line no-underscore-dangle
-  feedObj.__phase = phaseSupport;
+  if (Object.keys(phaseSupport).length > 0) {
+    // eslint-disable-next-line no-underscore-dangle
+    feedObj.__phase = Object.entries(phaseSupport).reduce(
+      (phases, [phase, kv]) => ({ ...phases, [phase]: Object.keys(kv) }),
+      {}
+    );
+  }
+
   return feedObj;
 }

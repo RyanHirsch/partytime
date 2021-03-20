@@ -2,13 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { concat, mergeDeepRight, mergeWith } from "ramda";
-import { firstIfArray, getAttribute, getText } from "./shared";
-import type { Episode, FeedObject, RSSFeed, TODO } from "./shared";
+import { ensureArray, firstIfArray, getAttribute, getText, Person } from "./shared";
+import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "./shared";
+import { PersonGroup, PersonRole } from "./person-enum";
 // ["podcast:location"];
-
-interface PhaseUpdate {
-  [p: number]: { [k: string]: boolean };
-}
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -109,25 +106,45 @@ const funding: FeedUpdate = {
 const person: FeedUpdate | ItemUpdate = {
   phase: 2,
   tag: "person",
-  supportCheck: (node: TODO) => Boolean(getText(node)),
+  // As long as one of the person tags has text, well consider it valid
+  supportCheck: (node) => ensureArray(node).some((n) => Boolean(getText(n))),
   fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
-    const update: Partial<FeedObject> | Partial<Episode> = {};
-    const name = getText(node);
-    const openStreetMaps = getAttribute(node, "osm");
-    const geoUri = getAttribute(node, "geo");
-    if (name) {
-      update.podcastLocation = {
-        name,
-      };
+    const update = {
+      podcastPeople: [] as Person[],
+    };
 
-      if (openStreetMaps) {
-        update.podcastLocation.osm = openStreetMaps;
-      }
+    const groups = Object.values(PersonGroup);
+    const roles = Object.values(PersonRole);
 
-      if (geoUri) {
-        update.podcastLocation.geo = geoUri;
+    ensureArray(node).forEach((personNode) => {
+      const name = getText(personNode);
+      const role =
+        roles.find((r) => r.toLowerCase() === getAttribute(personNode, "role")?.toLowerCase()) ??
+        PersonRole.Host;
+      const group =
+        groups.find((g) => g.toLowerCase() === getAttribute(personNode, "group")?.toLowerCase()) ??
+        PersonGroup.Cast;
+      const img = getAttribute(personNode, "img");
+      const href = getAttribute(personNode, "href");
+
+      if (name) {
+        const personObj: Person = {
+          name,
+          role,
+          group,
+        };
+
+        if (img) {
+          personObj.image = img;
+        }
+        if (href) {
+          personObj.href = href;
+        }
+
+        update.podcastPeople.push(personObj);
       }
-    }
+    });
+
     return update;
   },
 };
