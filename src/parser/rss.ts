@@ -18,16 +18,10 @@ import {
   pubDateToTimestamp,
   sanitizeUrl,
   timeToSeconds,
-  TODO,
   twoDotOhCompliant,
 } from "./shared";
 import type { FeedObject, Episode } from "./shared";
-
-interface RSSFeed {
-  rss: {
-    channel: any;
-  };
-}
+import { updateFeed, updateItem } from "./phase";
 
 export function parseRss(theFeed: any) {
   if (typeof theFeed.rss.channel === "undefined") {
@@ -262,28 +256,11 @@ export function parseRss(theFeed: any) {
     feedObj.link = "";
   }
 
-  // #region Phase 1
-
-  // Locked
-  const locked = phase1.locked(theFeed);
-  feedObj = mergeWith(concat, feedObj, locked.feedUpdate);
-  phaseSupport = mergeDeepRight(phaseSupport, locked.phaseUpdate);
-
-  // Funding
-  const funding = phase1.funding(theFeed);
-  feedObj = mergeWith(concat, feedObj, funding.feedUpdate);
-  phaseSupport = mergeDeepRight(phaseSupport, funding.phaseUpdate);
-  // #endregion
+  const feedResult = updateFeed(theFeed);
+  feedObj = mergeWith(concat, feedObj, feedResult.feedUpdate);
+  phaseSupport = mergeDeepRight(phaseSupport, feedResult.phaseUpdate);
 
   // #region Phase 2
-
-  if (typeof theFeed.rss.channel["podcast:location"] === "string") {
-    twoDotOhCompliant(feedObj, 2, "location");
-  }
-
-  if (typeof theFeed.rss.channel["podcast:person"] === "string") {
-    twoDotOhCompliant(feedObj, 2, "person");
-  }
 
   // #endregion
 
@@ -524,9 +501,6 @@ export function parseRss(theFeed: any) {
 
         // #region Item Phase 1
 
-        const transcripts = phase1.transcripts(item);
-        newFeedItem = mergeWith(concat, newFeedItem, transcripts.itemUpdate);
-        phaseSupport = mergeDeepRight(phaseSupport, transcripts.phaseUpdate);
         // #endregion
 
         // Chapters Phase 1
@@ -576,6 +550,11 @@ export function parseRss(theFeed: any) {
             title: item["podcast:soundbite"]["#text"],
           };
         }
+
+        const itemResult = updateItem(item);
+        newFeedItem = mergeWith(concat, feedObj, itemResult.itemUpdate);
+        phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
+
         return newFeedItem;
       })
       .filter((x: Episode | undefined) => x);
@@ -628,95 +607,4 @@ export function parseRss(theFeed: any) {
   // eslint-disable-next-line no-underscore-dangle
   feedObj.__phase = phaseSupport;
   return feedObj;
-}
-
-interface PhaseUpdate {
-  [p: number]: { [k: string]: boolean };
-}
-export const phase1 = {
-  locked: (theFeed: RSSFeed) => {
-    const node = theFeed.rss.channel["podcast:locked"];
-    const lockedValues = ["yes", "true"];
-
-    const feedUpdate: any = { podcastLocked: 0 };
-    const phaseUpdate: PhaseUpdate = { 1: {} };
-
-    if (typeof node === "object") {
-      phaseUpdate[1].locked = true;
-
-      const lockedText = getText(node).toLowerCase();
-      const owner = getAttribute(node, "owner");
-      const email = getAttribute(node, "email");
-
-      if (lockedValues.includes(lockedText)) {
-        feedUpdate.podcastLocked = 1;
-      }
-      if (owner) {
-        feedUpdate.podcastOwner = owner;
-      }
-      if (email) {
-        feedUpdate.podcastOwner = email;
-      }
-    }
-
-    return { feedUpdate, phaseUpdate };
-  },
-
-  funding: (theFeed: RSSFeed) => {
-    const node = theFeed.rss.channel["podcast:funding"];
-    const feedUpdate: any = {};
-    const phaseUpdate: PhaseUpdate = { 1: {} };
-
-    if (typeof node === "object") {
-      phaseUpdate[1].funding = true;
-
-      const message = getText(node);
-      const url = getAttribute(node, "url");
-
-      if (url) {
-        feedUpdate.podcastFunding = {
-          message: message ?? "",
-          url,
-        };
-      }
-    }
-    return { feedUpdate, phaseUpdate };
-  },
-
-  transcripts: (item: TODO) => {
-    const node = firstIfArray(item["podcast:transcript"]);
-    const itemUpdate: any = {};
-    const phaseUpdate: PhaseUpdate = { 1: {} };
-
-    const url = getAttribute(node, "url");
-
-    if (url) {
-      phaseUpdate[1].transcript = true;
-
-      itemUpdate.podcastTranscripts = {
-        url,
-        type: 0,
-      };
-    }
-
-    return { itemUpdate, phaseUpdate };
-  },
-};
-
-function getText(node: { "#text": string }): string {
-  if (typeof node["#text"] === "string") {
-    return node["#text"].trim();
-  }
-  return "";
-}
-
-function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
-  if (
-    typeof node !== "undefined" &&
-    typeof node.attr === "object" &&
-    typeof node.attr[`@_${name}`] === "string"
-  ) {
-    return node.attr[`@_${name}`].trim();
-  }
-  return null;
 }

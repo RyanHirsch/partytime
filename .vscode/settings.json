@@ -5,5 +5,8 @@
     "prebuild",
     "precommit",
     "respawn"
-  ]
+  ],
+  "[hbs]": {
+    "editor.formatOnSave": false
+  }
 }

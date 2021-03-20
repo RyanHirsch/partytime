@@ -6,8 +6,37 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
+import { PersonGroup, PersonRole } from "./person-enum";
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
+
+export interface RSSFeed {
+  rss: {
+    channel: any;
+  };
+}
+
+export interface Location {
+  /* This is meant for podcast apps to display the name of the location that the podcast is about. */
+  name: string;
+  /* From an OpenStreetMap query. If a value is given for osm it must contain both 'type' and 'id'. */
+  osm?: string;
+  /* A geo URI, conformant to RFC 5870 */
+  geo?: string;
+}
+
+export interface Person {
+  name: string;
+  /* Used to identify what role the person serves on the show or episode. This should be a reference to an official role within the Podcast Taxonomy Project list */
+  role: PersonRole;
+  /* This should be a reference to an official group within the Podcast Taxonomy Project list */
+  group: PersonGroup;
+  /* This is the url of a picture or avatar of the person */
+  image?: string;
+  /* The url to a relevant resource of information about the person, such as a homepage or third-party profile platform. */
+  href?: string;
+}
 
 export enum FeedType {
   RSS = 0,
@@ -51,6 +80,10 @@ export interface FeedObject {
     message: string;
     url: string;
   };
+  podcastPeople?: Person[];
+
+  // https://github.com/Podcastindex-org/podcast-namespace/blob/main/location/location.md
+  podcastLocation?: Location;
 
   /* podcasting 2.0 phase compliance */
   __phase: Record<number, string[]>;
@@ -78,6 +111,8 @@ export interface Episode {
   podcastChapters?: TODO;
   podcastSoundbites?: TODO;
   podcastTranscripts?: TODO;
+  podcastLocation?: Location;
+  podcastPeople?: Person[];
 }
 
 // Parse out all of the links from an atom entry and see which ones are WebSub links
@@ -281,4 +316,22 @@ export function notUndefined<T>(x: T | undefined): x is T {
 
 export function firstIfArray<T>(maybeArr: T | T[]): T {
   return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
+}
+
+export function getText(node: { "#text": string }): string {
+  if (typeof node !== "undefined" && typeof node["#text"] === "string") {
+    return node["#text"].trim();
+  }
+  return "";
+}
+
+export function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
+  if (
+    typeof node !== "undefined" &&
+    typeof node.attr === "object" &&
+    typeof node.attr[`@_${name}`] === "string"
+  ) {
+    return node.attr[`@_${name}`].trim();
+  }
+  return null;
 }

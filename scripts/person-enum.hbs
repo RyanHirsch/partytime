@@ -1,0 +1,25 @@
+export enum PersonGroup {
+{{#each groups}}
+  {{sanitizedGroup}} = "{{group}}",
+{{/each}}
+}
+
+export enum PersonRole {
+{{#each roles}}
+  {{sanitizedRole}} = "{{role}}",
+{{/each}}
+}
+
+export const PersonTaxonomy = new Map<PersonGroup, string[]>([
+{{#each grouped}}
+  [
+    PersonGroup.{{@key}},
+    [
+    {{#each this}}
+      /* {{description}} */
+      "{{role}}",
+    {{/each}}
+    ],
+  ],
+{{/each}}
+]);
