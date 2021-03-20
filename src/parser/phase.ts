@@ -20,14 +20,14 @@ type ItemUpdateResult = {
 type NodeTransform = (x: TODO) => TODO;
 type SupportCheck = (x: TODO) => boolean;
 
-type FeedUpdate = {
+export type FeedUpdate = {
   phase: number;
   tag: string;
   fn: (node: any) => Partial<FeedObject>;
   nodeTransform?: NodeTransform;
   supportCheck?: SupportCheck;
 };
-type ItemUpdate = {
+export type ItemUpdate = {
   phase: number;
   tag: string;
   fn: (node: any) => Partial<Episode>;
@@ -36,11 +36,11 @@ type ItemUpdate = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-const defaultNodeTransform: NodeTransform = (x) => x;
-const defaultSupportCheck: SupportCheck = (x) => typeof x === "object";
+export const defaultNodeTransform: NodeTransform = (x) => x;
+export const defaultSupportCheck: SupportCheck = (x) => typeof x === "object";
 
 // #region Phase 1
-const locked: FeedUpdate = {
+export const locked: FeedUpdate = {
   phase: 1,
   tag: "locked",
   fn(node) {
@@ -48,7 +48,6 @@ const locked: FeedUpdate = {
     const lockedValues = ["yes", "true"];
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
-    const email = getAttribute(node, "email");
 
     if (lockedValues.includes(lockedText)) {
       feedUpdate.podcastLocked = 1;
@@ -56,14 +55,12 @@ const locked: FeedUpdate = {
     if (owner) {
       feedUpdate.podcastOwner = owner;
     }
-    if (email) {
-      feedUpdate.podcastOwner = email;
-    }
+
     return feedUpdate;
   },
 };
 
-const transcript: ItemUpdate = {
+export const transcript: ItemUpdate = {
   phase: 1,
   tag: "transcript",
   nodeTransform: firstIfArray,
