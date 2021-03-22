@@ -54,6 +54,7 @@
     "he": "^1.2.0",
     "iconv": "^3.0.0",
     "jschardet": "^2.3.0",
+    "loglevel": "^1.7.1",
     "node-fetch": "^2.6.1",
     "ramda": "^0.27.1",
     "request": "^2.88.2"

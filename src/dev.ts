@@ -9,6 +9,7 @@ import { FeedObject } from "./parser/shared";
 
 const feeds = [
   { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
+
   // Recent soundbites
   { name: "Golden Nuggets", url: "https://feeds.buzzsprout.com/1293872.rss" },
 
@@ -17,6 +18,9 @@ const feeds = [
 
   // Location
   { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
+
+  // Example
+  { name: "Local Example", url: "file://parser/__test__/fixtures/example.xml" },
 
   // {
   //   name: "Chad Hartman",
@@ -73,15 +77,32 @@ const feeds = [
 async function checkAll(): Promise<void> {
   for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
-    log(`Parsing ${name}: ${url}`);
+    log.info(`Parsing ${name}: ${url}`);
     // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
 }
 
-async function getFeed(url: string): Promise<void> {
-  const response = await fetch(url);
-  const xml = await response.text();
+async function getFeedText(uri: string): Promise<string> {
+  if (uri.startsWith(`http`)) {
+    const response = await fetch(uri);
+    return response.text();
+  }
+  if (uri.startsWith("file")) {
+    return new Promise((resolve, reject) => {
+      fs.readFile(path.resolve(__dirname, uri.replace("file://", "")), (err, data) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(data.toString());
+      });
+    });
+  }
+  return "";
+}
+
+async function getFeed(uri: string): Promise<void> {
+  const xml = await getFeedText(uri);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const feedObject: FeedObject = parseFeed(xml);
   fs.writeFileSync(
@@ -93,13 +114,13 @@ async function getFeed(url: string): Promise<void> {
     stringify(feedObject)
   );
   // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
-  log(feedObject.__phase);
+  log.info(feedObject.__phase);
 }
 
 // eslint-disable-next-line no-console
 checkAll().then(
-  () => console.log("done"),
-  (err) => console.error(err)
+  () => log.info("done"),
+  (err) => log.error(err)
 );
 
 // class HTTPResponseError extends Error {

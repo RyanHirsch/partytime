@@ -171,9 +171,6 @@ export function parseAtom(theFeed: any) {
           guid: item.id,
           description: "",
           image: feedObj.image ?? "",
-          podcastChapters: null,
-          podcastSoundbites: null,
-          podcastTranscripts: null,
         };
 
         // Item title

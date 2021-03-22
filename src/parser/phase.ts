@@ -2,7 +2,21 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { concat, mergeDeepRight, mergeWith } from "ramda";
-import { ensureArray, firstIfArray, getAttribute, getText, Person } from "./shared";
+import log from "loglevel";
+
+import {
+  ensureArray,
+  firstIfArray,
+  getAttribute,
+  getNumber,
+  getText,
+  Person,
+  PodcastEpisodeNumber,
+  PodcastSeasonNumber,
+  SoundBite,
+  Transcript,
+  TranscriptType,
+} from "./shared";
 import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "./shared";
 import { PersonGroup, PersonRole } from "./person-enum";
 // ["podcast:location"];
@@ -30,7 +44,7 @@ export type FeedUpdate = {
 export type ItemUpdate = {
   phase: number;
   tag: string;
-  fn: (node: any) => Partial<Episode>;
+  fn: (node: any, feed?: RSSFeed) => Partial<Episode>;
   nodeTransform?: NodeTransform;
   supportCheck?: SupportCheck;
 };
@@ -64,22 +78,41 @@ export const transcript: ItemUpdate = {
   phase: 1,
   tag: "transcript",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(node, "url")),
-  fn(node) {
-    const itemUpdate: Partial<Episode> = {};
-    const url = getAttribute(node, "url");
+  supportCheck: (node) => Boolean(getAttribute(firstIfArray(node), "url")),
+  fn(node, feed) {
+    const itemUpdate = { podcastTranscripts: [] as Transcript[] };
 
-    if (url) {
-      itemUpdate.podcastTranscripts = {
-        url,
-        type: 0,
-      };
-    }
+    ensureArray(node).forEach((transcriptNode) => {
+      const feedLanguage: string = feed ? feed.rss.channel.language : null;
+      const url = getAttribute(transcriptNode, "url");
+      const type = getAttribute(transcriptNode, "type");
+      const language = getAttribute(transcriptNode, "language") || feedLanguage;
+
+      const rel = getAttribute(transcriptNode, "rel");
+
+      if (url && type) {
+        const transcriptValue: Transcript = {
+          url,
+          type: type as TranscriptType,
+        };
+
+        if (language) {
+          transcriptValue.language = language;
+        }
+
+        if (rel) {
+          transcriptValue.rel = "captions";
+        }
+
+        itemUpdate.podcastTranscripts.push(transcriptValue);
+      }
+    });
+
     return itemUpdate;
   },
 };
 
-const funding: FeedUpdate = {
+export const funding: FeedUpdate = {
   phase: 1,
   tag: "funding",
   fn(node) {
@@ -97,10 +130,58 @@ const funding: FeedUpdate = {
     return feedUpdate;
   },
 };
+
+export const chapters: ItemUpdate = {
+  phase: 1,
+  tag: "chapters",
+  nodeTransform: firstIfArray,
+  supportCheck: (node) => Boolean(getAttribute(node, "url")),
+  fn(node) {
+    const itemUpdate: Partial<Episode> = {};
+    const url = getAttribute(node, "url");
+
+    if (url) {
+      itemUpdate.podcastChapters = {
+        url,
+        type: 0,
+      };
+    }
+    return itemUpdate;
+  },
+};
+
+export const soundbite: ItemUpdate = {
+  phase: 1,
+  tag: "soundbite",
+  supportCheck: (node) =>
+    ensureArray(node).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
+  fn(node) {
+    const itemUpdate = { podcastSoundbites: [] as SoundBite[] };
+
+    ensureArray(node).forEach((soundbiteNode) => {
+      const duration = getAttribute(soundbiteNode, "duration");
+      const startTime = getAttribute(soundbiteNode, "startTime");
+      const title = getText(soundbiteNode);
+
+      if (duration && startTime) {
+        const bite: SoundBite = {
+          duration,
+          startTime,
+        };
+        if (title) {
+          bite.title = title;
+        }
+        itemUpdate.podcastSoundbites.push(bite);
+      }
+    });
+
+    return {};
+  },
+};
 // #endregion
 
 // #region Phase 2
-const person: FeedUpdate | ItemUpdate = {
+export const person: FeedUpdate | ItemUpdate = {
   phase: 2,
   tag: "person",
   // As long as one of the person tags has text, well consider it valid
@@ -170,25 +251,88 @@ const location: FeedUpdate | ItemUpdate = {
     return update;
   },
 };
+
+export const season: ItemUpdate = {
+  phase: 2,
+  tag: "season",
+  supportCheck: (node) => Boolean(getNumber(node)),
+  fn(node) {
+    const itemUpdate = {
+      podcastSeason: {
+        number: getNumber(node),
+      } as PodcastSeasonNumber,
+    };
+
+    const name = getAttribute(node, "name");
+    if (name) {
+      itemUpdate.podcastSeason.name = name;
+    }
+
+    return itemUpdate;
+  },
+};
+
+export const episode: ItemUpdate = {
+  phase: 2,
+  tag: "episode",
+  supportCheck: (node) => Boolean(getNumber(node)),
+
+  fn(node) {
+    const itemUpdate = {
+      podcastEpisode: {
+        number: getNumber(node),
+      } as PodcastEpisodeNumber,
+    };
+
+    const display = getAttribute(node, "display");
+    if (display) {
+      itemUpdate.podcastEpisode.display = display;
+    }
+
+    return itemUpdate;
+  },
+};
+
 // #endregion
 
-const feeds: FeedUpdate[] = [locked, funding, person, location];
+const feeds: FeedUpdate[] = [
+  // Phase 1
+  locked,
+  funding,
+  // Phase 2
+  person,
+  location,
+  // Phase 3
+];
 
-const items: ItemUpdate[] = [transcript, person, location];
+const items: ItemUpdate[] = [
+  // Phase 1
+  transcript,
+  chapters,
+  soundbite,
+  // Phase 2
+  person,
+  location,
+  season,
+  episode,
+  // Phase 3
+];
 
 export function updateFeed(theFeed: RSSFeed): FeedUpdateResult {
   return feeds.reduce(
     ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[`podcast:${tag}`]);
+      const tagSupported = (supportCheck ?? defaultSupportCheck)(node);
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      if ((supportCheck ?? defaultSupportCheck)(node)) {
+      if (tagSupported) {
         return {
           feedUpdate: mergeWith(concat, feedUpdate, fn(node)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
         };
       }
+
+      log.debug(`Feed doesn't support ${tag}`, node, tagSupported);
       return {
         feedUpdate,
         phaseUpdate,
@@ -201,17 +345,19 @@ export function updateFeed(theFeed: RSSFeed): FeedUpdateResult {
   );
 }
 
-export function updateItem(item: TODO): ItemUpdateResult {
+export function updateItem(item: TODO, feed: RSSFeed): ItemUpdateResult {
   return items.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);
+      const tagSupported = (supportCheck ?? defaultSupportCheck)(node);
 
-      if ((supportCheck ?? defaultSupportCheck)(node)) {
+      if (tagSupported) {
         return {
-          itemUpdate: mergeWith(concat, itemUpdate, fn(node)),
+          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
         };
       }
+      log.debug(`Feed item doesn't support ${tag}`, node, tagSupported);
       return {
         itemUpdate,
         phaseUpdate,

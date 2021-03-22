@@ -108,11 +108,42 @@ export interface Episode {
   guid: string;
   description: string;
   image: string;
-  podcastChapters?: TODO;
-  podcastSoundbites?: TODO;
-  podcastTranscripts?: TODO;
+  podcastChapters?: { url: string; type: 0 };
+  podcastSoundbites?: SoundBite[];
+  podcastTranscripts?: Transcript[];
   podcastLocation?: Location;
   podcastPeople?: Person[];
+  podcastSeason?: PodcastSeasonNumber;
+  podcastEpisode?: PodcastEpisodeNumber;
+}
+
+export interface PodcastEpisodeNumber {
+  number: number;
+  display?: string;
+}
+export interface PodcastSeasonNumber {
+  number: number;
+  name?: string;
+}
+
+export interface SoundBite {
+  duration: string;
+  startTime: string;
+  title?: string;
+}
+
+export interface Transcript {
+  url: string;
+  type: TranscriptType;
+  language?: string;
+  rel?: "captions";
+}
+
+export enum TranscriptType {
+  Plain = "text/plain",
+  HTML = "text/html",
+  SRT = "application/srt",
+  JSON = "application/json",
 }
 
 export interface PhaseUpdate {
@@ -296,12 +327,6 @@ export function timeToSeconds(timeString: string) {
   return seconds;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function log(...args: any[]) {
-  // eslint-disable-next-line no-console
-  console.log(...args);
-}
-
 export function notUndefined<T>(x: T | undefined): x is T {
   return x !== undefined;
 }
@@ -319,6 +344,16 @@ export function getText(node: { "#text": string }): string {
     return node["#text"].trim();
   }
   return "";
+}
+
+export function getNumber(node: { "#text": number }): number | null {
+  if (typeof node !== "undefined" && typeof node["#text"] === "number") {
+    return node["#text"];
+  }
+  if (typeof node === "number") {
+    return node;
+  }
+  return null;
 }
 
 export function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {

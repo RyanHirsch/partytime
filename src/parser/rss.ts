@@ -493,59 +493,7 @@ export function parseRss(theFeed: any) {
           newFeedItem.enclosure.type = guessEnclosureType(enclosure.attr["@_url"]);
         }
 
-        // #region Item Phase 1
-
-        // #endregion
-
-        // Chapters Phase 1
-        if (
-          typeof item["podcast:chapters"] !== "undefined" &&
-          typeof item["podcast:chapters"].attr === "object" &&
-          typeof item["podcast:chapters"].attr["@_url"] === "string"
-        ) {
-          // twoDotOhCompliant(feedObj, 1, "chapters");
-
-          newFeedItem.podcastChapters = {
-            url: item["podcast:chapters"].attr["@_url"],
-            type: 0,
-          };
-        }
-
-        // Soundbites
-        if (Array.isArray(item["podcast:soundbite"])) {
-          // twoDotOhCompliant(feedObj, 1, "soundbites");
-
-          newFeedItem.podcastSoundbites = [];
-          item["podcast:soundbite"].forEach(function (soundbite: any) {
-            if (
-              typeof soundbite !== "undefined" &&
-              typeof soundbite.attr === "object" &&
-              typeof soundbite.attr["@_startTime"] !== "undefined" &&
-              typeof soundbite.attr["@_duration"] !== "undefined"
-            ) {
-              newFeedItem.podcastSoundbites.push({
-                startTime: soundbite.attr["@_startTime"],
-                duration: soundbite.attr["@_duration"],
-                title: soundbite["#text"],
-              });
-            }
-          });
-        } else if (
-          typeof item["podcast:soundbite"] !== "undefined" &&
-          typeof item["podcast:soundbite"].attr === "object" &&
-          typeof item["podcast:soundbite"].attr["@_startTime"] !== "undefined" &&
-          typeof item["podcast:soundbite"].attr["@_duration"] !== "undefined"
-        ) {
-          // twoDotOhCompliant(feedObj, 1, "soundbites");
-
-          newFeedItem.podcastSoundbites = {
-            startTime: item["podcast:soundbite"].attr["@_startTime"],
-            duration: item["podcast:soundbite"].attr["@_duration"],
-            title: item["podcast:soundbite"]["#text"],
-          };
-        }
-
-        const itemResult = updateItem(item);
+        const itemResult = updateItem(item, theFeed);
         newFeedItem = mergeWith(concat, feedObj, itemResult.itemUpdate);
         phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
 
