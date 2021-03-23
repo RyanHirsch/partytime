@@ -62,7 +62,7 @@ export async function checkFeedByObject({
 }): Promise<Record<string, boolean>> {
   const toCheck: Record<string, string> = {};
   if (uri.startsWith("http")) {
-    toCheck.feedUri = uri;
+    toCheck.corsFeedUri = uri;
   }
 
   const newestEpisode = feedObject.items.reduce<Episode>(
@@ -76,16 +76,16 @@ export async function checkFeedByObject({
   );
 
   if (newestEpisode.enclosure.url) {
-    toCheck.enclosure = newestEpisode.enclosure.url;
+    toCheck.corsEpisodeEnclosure = newestEpisode.enclosure.url;
   }
   if (newestEpisode.podcastChapters) {
-    toCheck.podcastChapters = newestEpisode.podcastChapters.url;
+    toCheck.corsEpisodeChapters = newestEpisode.podcastChapters.url;
   }
   if (
     Array.isArray(newestEpisode.podcastTranscripts) &&
     newestEpisode.podcastTranscripts.length > 0
   ) {
-    toCheck.podcastTranscript = newestEpisode.podcastTranscripts[0].url;
+    toCheck.corsEpisodeTranscript = newestEpisode.podcastTranscripts[0].url;
   }
 
   const corsSupport = await Promise.all(Object.values(toCheck).map((s) => checkCors(s)));
@@ -95,7 +95,7 @@ export async function checkFeedByObject({
 
   if (feedObject.image) {
     resultObject.hotlinkFeedImage = await checkHotlink(feedObject.image);
-    resultObject.httpsImage = await checkHttps(feedObject.image);
+    resultObject.httpsFeedImage = await checkHttps(feedObject.image);
   }
   if (newestEpisode.image) {
     resultObject.hotlinkEpisodeImage = await checkHotlink(newestEpisode.image);
@@ -103,13 +103,13 @@ export async function checkFeedByObject({
   }
 
   if (newestEpisode.podcastChapters) {
-    resultObject.httpsPodcastChapters = await checkHttps(newestEpisode.podcastChapters.url);
+    resultObject.httpsEpisodeChapters = await checkHttps(newestEpisode.podcastChapters.url);
   }
   if (
     Array.isArray(newestEpisode.podcastTranscripts) &&
     newestEpisode.podcastTranscripts.length > 0
   ) {
-    resultObject.httpsPodcastTranscript = await checkHttps(newestEpisode.podcastTranscripts[0].url);
+    resultObject.httpsEpisodeTranscript = await checkHttps(newestEpisode.podcastTranscripts[0].url);
   }
 
   return resultObject;
