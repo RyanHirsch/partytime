@@ -5,28 +5,33 @@ import stringify from "fast-json-stable-stringify";
 import { log } from "./logger";
 import { parseFeed } from "./parser";
 import type { FeedObject } from "./parser/shared";
-import { checkFeedByUri } from "./cors";
+import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
 
 const feeds = [
-  { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
+  // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
 
-  // Recent soundbites
-  { name: "Golden Nuggets", url: "https://feeds.buzzsprout.com/1293872.rss" },
+  // // Recent soundbites
+  // { name: "Golden Nuggets", url: "https://feeds.buzzsprout.com/1293872.rss" },
 
-  // Value Block
-  { name: "PodClock", url: "https://podnews.net/clock-rss" },
+  // // Value Block
+  // { name: "PodClock", url: "https://podnews.net/clock-rss" },
 
-  // Location
-  { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
+  // // Location
+  // { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
 
-  // nested categories
-  { name: "livetpajorden", url: "https://rss.acast.com/http-acast.com-acast.com-livetpajorden" },
+  // // nested categories
+  // { name: "livetpajorden", url: "https://rss.acast.com/http-acast.com-acast.com-livetpajorden" },
 
-  // Example
+  // // Example
+  // {
+  //   name: "Local Example",
+  //   url: `file://${path.resolve(__dirname, "parser/__test__/fixtures/example.xml")}`,
+  // },
+
   {
-    name: "Local Example",
-    url: `file://${path.resolve(__dirname, "parser/__test__/fixtures/example.xml")}`,
+    name: "Animated No Agenda",
+    url: "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
   },
 
   // {

@@ -1,5 +1,5 @@
 import { parseFeed } from "./parser";
-import { checkFeedByObject, checkFeedByUri } from "./cors";
+import { checkFeedByObject, checkFeedByUri } from "./cor";
 
 export = {
   parseFeed,

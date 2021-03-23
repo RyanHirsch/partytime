@@ -340,6 +340,9 @@ export function firstIfArray<T>(maybeArr: T | T[]): T {
 }
 
 export function ensureArray<T>(maybeArr: T | T[]): T[] {
+  if (typeof maybeArr === "undefined") {
+    return [];
+  }
   return Array.isArray(maybeArr) ? maybeArr : [maybeArr];
 }
 

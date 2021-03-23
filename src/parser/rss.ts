@@ -510,9 +510,14 @@ export function parseRss(theFeed: any) {
 
 function getPodcastCategories(feed: RSSFeed) {
   const node = feed.rss.channel["itunes:category"];
+  log.trace("itunes:category", node);
 
   const transformCategoriesToList = (category: string): string[] =>
-    category.toLowerCase().replace("&amp;", "").split(/\s+/);
+    category
+      .toLowerCase()
+      .replace("&amp;", "")
+      .split(/\s+/)
+      .filter((x) => Boolean(x));
 
   const categories = new Set<string>();
   // Feed categories
@@ -521,7 +526,7 @@ function getPodcastCategories(feed: RSSFeed) {
     transformCategoriesToList(getAttribute(item, "text") ?? "").forEach((cat) =>
       categories.add(cat)
     );
-    if (typeof item["itunes:category"] === "object") {
+    if (item && typeof item["itunes:category"] === "object") {
       ensureArray(item["itunes:category"]).forEach((subitem: any) => {
         transformCategoriesToList(getAttribute(subitem, "text") ?? "").forEach((cat) =>
           categories.add(cat)
@@ -535,6 +540,7 @@ function getPodcastCategories(feed: RSSFeed) {
 
 function getItunesCategories(feed: RSSFeed) {
   const node = feed.rss.channel["itunes:category"];
+  log.trace("itunes:category", node);
 
   const transformCategory = (category: string): string => category.toLowerCase();
 
