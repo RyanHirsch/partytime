@@ -102,7 +102,11 @@ export interface Episode {
   itunesExplicit: 0 | 1;
   itunesImage: string;
   itunesSeason: TODO;
-  enclosure: TODO;
+  enclosure: {
+    url: string;
+    length: number;
+    type: string;
+  };
   /* Seconds from epoch */
   pubDate: number;
   guid: string;

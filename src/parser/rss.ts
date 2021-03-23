@@ -10,13 +10,17 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import { mergeWith, concat, mergeDeepRight } from "ramda";
+import { log } from "src/logger";
 import {
+  ensureArray,
   FeedType,
   findPubSubLinks,
   firstIfArray,
+  getAttribute,
   guessEnclosureType,
   PhaseUpdate,
   pubDateToTimestamp,
+  RSSFeed,
   sanitizeUrl,
   timeToSeconds,
 } from "./shared";
@@ -38,10 +42,10 @@ export function parseRss(theFeed: any) {
     pubDate: theFeed.rss.channel.pubDate,
     lastBuildDate: theFeed.rss.channel.lastBuildDate,
     itunesType: theFeed.rss.channel["itunes:type"],
-    itunesCategory: theFeed.rss.channel["itunes:category"],
+    itunesCategory: getItunesCategories(theFeed),
     itunesNewFeedUrl: theFeed.rss.channel["itunes:new-feed-url"],
     pubsub: findPubSubLinks(theFeed.rss.channel),
-    categories: [],
+    categories: getPodcastCategories(theFeed),
     value: {},
   };
   let phaseSupport: PhaseUpdate = {};
@@ -55,60 +59,6 @@ export function parseRss(theFeed: any) {
   if (typeof feedObj.link === "string") {
     feedObj.link = feedObj.link.trim().replace(/(\r\n|\n|\r)/gm, "");
   }
-
-  // Feed categories
-  if (Array.isArray(theFeed.rss.channel["itunes:category"])) {
-    theFeed.rss.channel["itunes:category"].forEach((item: any) => {
-      if (
-        typeof item === "object" &&
-        typeof item.attr !== "undefined" &&
-        typeof item.attr["@_text"] === "string"
-      ) {
-        feedObj.categories = item.attr["@_text"]
-          .toLowerCase()
-          .replace("&amp;", "")
-          .split(/[ ]+/)
-          .concat(feedObj.categories ?? []);
-
-        // Check for sub-items
-        if (
-          typeof item["itunes:category"] === "object" &&
-          typeof item["itunes:category"].attr !== "undefined" &&
-          typeof item["itunes:category"].attr["@_text"] === "string"
-        ) {
-          feedObj.categories = item["itunes:category"].attr["@_text"]
-            .toLowerCase()
-            .replace("&amp;", "")
-            .split(/[ ]+/)
-            .concat(feedObj.categories ?? []);
-        }
-      }
-    });
-  } else if (
-    typeof theFeed.rss.channel["itunes:category"] === "object" &&
-    typeof theFeed.rss.channel["itunes:category"].attr !== "undefined" &&
-    typeof theFeed.rss.channel["itunes:category"].attr["@_text"] === "string"
-  ) {
-    feedObj.categories = theFeed.rss.channel["itunes:category"].attr["@_text"]
-      .toLowerCase()
-      .replace("&amp;", "")
-      .split(/[ ]+/)
-      .concat(feedObj.categories ?? []);
-
-    // Check for sub-items
-    if (
-      typeof theFeed.rss.channel["itunes:category"]["itunes:category"] === "object" &&
-      typeof theFeed.rss.channel["itunes:category"]["itunes:category"].attr !== "undefined" &&
-      typeof theFeed.rss.channel["itunes:category"]["itunes:category"].attr["@_text"] === "string"
-    ) {
-      feedObj.categories = theFeed.rss.channel["itunes:category"]["itunes:category"].attr["@_text"]
-        .toLowerCase()
-        .replace("&amp;", "")
-        .split(/[ ]+/)
-        .concat(feedObj.categories ?? []);
-    }
-  }
-  feedObj.categories = [...new Set((feedObj.categories ?? []).flat(9))];
 
   // Feed owner/author
   if (typeof theFeed.rss.channel["itunes:author"] !== "undefined") {
@@ -335,6 +285,7 @@ export function parseRss(theFeed: any) {
 
         // If there is more than one enclosure in the item, just get the first one
         const enclosure = firstIfArray(item.enclosure);
+        log.trace(enclosure);
 
         // If there is no guid in the item, then skip this item and move on
         if (typeof item.guid !== "undefined") {
@@ -357,9 +308,9 @@ export function parseRss(theFeed: any) {
           itunesSeason: item["itunes:season"],
           itunesExplicit: 0,
           enclosure: {
-            url: enclosure.attr["@_url"],
-            length: parseInt(enclosure.attr["@_length"], 10),
-            type: enclosure.attr["@_type"],
+            url: getAttribute(enclosure, "url") ?? "",
+            length: parseInt(getAttribute(enclosure, "length") ?? "0", 10),
+            type: getAttribute(enclosure, "type") ?? "",
           },
           pubDate: pubDateToTimestamp(item.pubDate),
           guid: itemguid,
@@ -494,7 +445,7 @@ export function parseRss(theFeed: any) {
         }
 
         const itemResult = updateItem(item, theFeed);
-        newFeedItem = mergeWith(concat, feedObj, itemResult.itemUpdate);
+        newFeedItem = mergeWith(concat, newFeedItem, itemResult.itemUpdate);
         phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
 
         return newFeedItem;
@@ -555,4 +506,58 @@ export function parseRss(theFeed: any) {
   }
 
   return feedObj;
+}
+
+function getPodcastCategories(feed: RSSFeed) {
+  const node = feed.rss.channel["itunes:category"];
+
+  const transformCategoriesToList = (category: string): string[] =>
+    category.toLowerCase().replace("&amp;", "").split(/\s+/);
+
+  const categories = new Set<string>();
+  // Feed categories
+
+  ensureArray(node).forEach((item: any) => {
+    transformCategoriesToList(getAttribute(item, "text") ?? "").forEach((cat) =>
+      categories.add(cat)
+    );
+    if (typeof item["itunes:category"] === "object") {
+      ensureArray(item["itunes:category"]).forEach((subitem: any) => {
+        transformCategoriesToList(getAttribute(subitem, "text") ?? "").forEach((cat) =>
+          categories.add(cat)
+        );
+      });
+    }
+  });
+
+  return Array.from(categories);
+}
+
+function getItunesCategories(feed: RSSFeed) {
+  const node = feed.rss.channel["itunes:category"];
+
+  const transformCategory = (category: string): string => category.toLowerCase();
+
+  const categories = new Set<string>();
+  // Feed categories
+
+  ensureArray(node).forEach((item: any) => {
+    const category = transformCategory(getAttribute(item, "text") ?? "");
+
+    if (category) {
+      categories.add(category);
+
+      if (typeof item["itunes:category"] === "object") {
+        ensureArray(item["itunes:category"]).forEach((subitem: any) => {
+          const subcategory = transformCategory(getAttribute(subitem, "text") ?? "");
+
+          if (subcategory) {
+            categories.add(`${category} > ${subcategory}`);
+          }
+        });
+      }
+    }
+  });
+
+  return Array.from(categories);
 }

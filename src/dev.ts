@@ -1,11 +1,12 @@
-import fetch from "node-fetch";
 import * as fs from "fs";
 import * as path from "path";
 import stringify from "fast-json-stable-stringify";
 
 import { log } from "./logger";
 import parseFeed from "./index";
-import { FeedObject } from "./parser/shared";
+import type { FeedObject } from "./parser/shared";
+import { checkFeedByUri } from "./cors";
+import { getFeedText } from "./shared";
 
 const feeds = [
   { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
@@ -19,8 +20,14 @@ const feeds = [
   // Location
   { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
 
+  // nested categories
+  { name: "livetpajorden", url: "https://rss.acast.com/http-acast.com-acast.com-livetpajorden" },
+
   // Example
-  { name: "Local Example", url: "file://parser/__test__/fixtures/example.xml" },
+  {
+    name: "Local Example",
+    url: `file://${path.resolve(__dirname, "parser/__test__/fixtures/example.xml")}`,
+  },
 
   // {
   //   name: "Chad Hartman",
@@ -83,24 +90,6 @@ async function checkAll(): Promise<void> {
   }
 }
 
-async function getFeedText(uri: string): Promise<string> {
-  if (uri.startsWith(`http`)) {
-    const response = await fetch(uri);
-    return response.text();
-  }
-  if (uri.startsWith("file")) {
-    return new Promise((resolve, reject) => {
-      fs.readFile(path.resolve(__dirname, uri.replace("file://", "")), (err, data) => {
-        if (err) {
-          return reject(err);
-        }
-        return resolve(data.toString());
-      });
-    });
-  }
-  return "";
-}
-
 async function getFeed(uri: string): Promise<void> {
   const xml = await getFeedText(uri);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -113,6 +102,10 @@ async function getFeed(uri: string): Promise<void> {
     ),
     stringify(feedObject)
   );
+
+  const corsSupport = await checkFeedByUri(uri);
+  log.info(corsSupport);
+
   // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
   log.info(feedObject.__phase);
 }
