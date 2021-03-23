@@ -3,7 +3,7 @@ import * as path from "path";
 import stringify from "fast-json-stable-stringify";
 
 import { log } from "./logger";
-import parseFeed from "./index";
+import { parseFeed } from "./parser";
 import type { FeedObject } from "./parser/shared";
 import { checkFeedByUri } from "./cors";
 import { getFeedText } from "./shared";

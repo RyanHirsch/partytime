@@ -1,8 +1,8 @@
 import fetch from "node-fetch";
 import { zip } from "ramda";
-import { parseFeed } from "src/parser";
-import type { Episode, FeedObject } from "src/parser/shared";
-import { getFeedText } from "src/shared";
+import { parseFeed } from "../parser";
+import type { Episode, FeedObject } from "../parser/shared";
+import { getFeedText } from "../shared";
 
 export function checkCors(
   urlToCheck: string,

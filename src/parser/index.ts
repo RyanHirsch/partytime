@@ -50,7 +50,7 @@ function handleValidFeed(xml: string) {
     )
     .digest("hex");
 
-  log.info(feedHash);
+  log.info(" - ", feedHash);
   return feedObj;
 }
 

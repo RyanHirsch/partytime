@@ -10,7 +10,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 import { mergeWith, concat, mergeDeepRight } from "ramda";
-import { log } from "src/logger";
+import { log } from "../logger";
 import {
   ensureArray,
   FeedType,

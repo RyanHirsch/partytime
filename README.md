@@ -14,25 +14,55 @@ npm install podcast-partytime
 ### Typescript
 
 ```ts
-import fetch from 'node-fetch';
-import * as partytime from 'podcast-partytime';
+import fetch from "node-fetch";
+import * as pt from "podcast-partytime";
 
-const url = "http://mp3s.nashownotes.com/pc20rss.xml";
+// Check CORS support
+pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(
+  console.log
+);
 
+fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+  .then((resp) => resp.text())
+  .then((xml) =>
+    console.log(
+      pt.checkFeedByObject({
+        uri: "http://mp3s.nashownotes.com/pc20rss.xml",
+        feedObject: pt.parseFeed(xml),
+      })
+    )
+  );
 
-fetch(url).then(resp => resp.text())
-  .then(xml => console.log(partytime(xml)));
+// Parse Feed
+fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+  .then((resp) => resp.text())
+  .then((xml) => console.log(pt.parseFeed(xml)));
 ```
 
 ### Javascript
 
 ```js
-const fetch = require('node-fetch');
-const pt = require('podcast-partytime');
+const fetch = require("node-fetch");
+const pt = require("podcast-partytime");
 
-const url = "http://mp3s.nashownotes.com/pc20rss.xml";
+// Check CORS support
+pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(
+  console.log
+);
 
+fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+  .then((resp) => resp.text())
+  .then((xml) =>
+    console.log(
+      pt.checkFeedByObject({
+        uri: "http://mp3s.nashownotes.com/pc20rss.xml",
+        feedObject: pt.parseFeed(xml),
+      })
+    )
+  );
 
-fetch(url).then(resp => resp.text())
-  .then(xml => console.log(pt(xml)));
+// Parse Feed
+fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+  .then((resp) => resp.text())
+  .then((xml) => console.log(pt.parseFeed(xml)));
 ```
