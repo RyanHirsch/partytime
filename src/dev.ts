@@ -84,6 +84,8 @@ const feeds = [
   // },
   // { name: "Gabfest", url: "https://gabfest.wordpress.com/feed/atom/" },
   // { name: "The Her Freedom Podcast", url: "http://herfreedomaudio.blogspot.de/atom.xml" },
+  // { name: "Causality", url: "https://engineered.network/causality/feed/index.xml" },
+  { name: "Dudes and Dads", url: "https://feeds.podcastmirror.com/dudesanddadspodcast" },
 ];
 
 async function checkAll(): Promise<void> {

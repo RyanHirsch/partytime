@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import { zip } from "ramda";
+import { log } from "../logger";
 import { parseFeed } from "../parser";
 import type { Episode, FeedObject } from "../parser/shared";
 import { getFeedText } from "../shared";
@@ -12,16 +13,24 @@ export function checkCors(
   origin = podcastCertification
 ): Promise<boolean> {
   return fetch(urlToCheck, {
+    redirect: "follow",
+    follow: 20,
     method: "OPTIONS",
     headers: {
       origin,
       "Access-Control-Request-Method": methodToCheck,
     },
-  }).then((resp) => {
-    return ["*", origin].includes(resp.headers.get("access-control-allow-origin") as string);
-    // resp.headers.has("access-control-allow-methods") &&
-    // (resp.headers.get("access-control-allow-methods") as string[]).includes(methodToCheck)
-  });
+  }).then(
+    (resp) => {
+      return ["*", origin].includes(resp.headers.get("access-control-allow-origin") as string);
+      // resp.headers.has("access-control-allow-methods") &&
+      // (resp.headers.get("access-control-allow-methods") as string[]).includes(methodToCheck)
+    },
+    (err) => {
+      log.error(err);
+      return false;
+    }
+  );
 }
 
 export function checkHotlink(urlToCheck: string, referer = podcastCertification): Promise<boolean> {
