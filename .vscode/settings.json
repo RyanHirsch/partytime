@@ -8,5 +8,13 @@
   ],
   "[hbs]": {
     "editor.formatOnSave": false
-  }
+  },
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "podcast index",
+      "database": "${workspaceFolder:partytime}/src/parser/__test__/fixtures/podcastindex_feeds.db"
+    }
+  ]
 }

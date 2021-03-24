@@ -6,4 +6,5 @@ module.exports = {
   cacheDirectory: ".jest/cache",
   testMatch: ["**/*.test.(ts|js)"],
   testEnvironment: "node",
+  testTimeout: 10_000,
 };
