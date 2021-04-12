@@ -118,3 +118,4 @@ dist
 dist
 results/
 src/parser/__test__/fixtures/podcastindex_feeds.db
+raw/

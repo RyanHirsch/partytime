@@ -18,23 +18,23 @@ export interface RSSFeed {
 }
 
 export interface Location {
-  /* This is meant for podcast apps to display the name of the location that the podcast is about. */
+  /** This is meant for podcast apps to display the name of the location that the podcast is about. */
   name: string;
-  /* From an OpenStreetMap query. If a value is given for osm it must contain both 'type' and 'id'. */
+  /** From an OpenStreetMap query. If a value is given for osm it must contain both 'type' and 'id'. */
   osm?: string;
-  /* A geo URI, conformant to RFC 5870 */
+  /** A geo URI, conformant to RFC 5870 */
   geo?: string;
 }
 
 export interface Person {
   name: string;
-  /* Used to identify what role the person serves on the show or episode. This should be a reference to an official role within the Podcast Taxonomy Project list */
+  /** Used to identify what role the person serves on the show or episode. This should be a reference to an official role within the Podcast Taxonomy Project list */
   role: PersonRole;
-  /* This should be a reference to an official group within the Podcast Taxonomy Project list */
+  /** This should be a reference to an official group within the Podcast Taxonomy Project list */
   group: PersonGroup;
-  /* This is the url of a picture or avatar of the person */
-  image?: string;
-  /* The url to a relevant resource of information about the person, such as a homepage or third-party profile platform. */
+  /** This is the url of a picture or avatar of the person */
+  img?: string;
+  /** The url to a relevant resource of information about the person, such as a homepage or third-party profile platform. */
   href?: string;
 }
 
@@ -50,10 +50,11 @@ export interface FeedObject {
   link: string;
   language: string;
   generator: string;
-  /* Seconds from epoch */
+  /** Seconds from epoch */
   pubDate: number;
-  /* seconds from epoch */
+  /** seconds from epoch */
   lastBuildDate: number;
+  lastUpdate: number;
 
   itunesType: TODO;
   itunesCategory: TODO[];
@@ -80,12 +81,12 @@ export interface FeedObject {
     message: string;
     url: string;
   };
-  podcastPeople?: Person[];
+  podcastPersons?: Person[];
 
   // https://github.com/Podcastindex-org/podcast-namespace/blob/main/location/location.md
   podcastLocation?: Location;
 
-  /* podcasting 2.0 phase compliance */
+  /** podcasting 2.0 phase compliance */
   __phase: Record<number, string[]>;
 
   items: Episode[];
@@ -107,7 +108,7 @@ export interface Episode {
     length: number;
     type: string;
   };
-  /* Seconds from epoch */
+  /** Seconds from epoch */
   pubDate: number;
   guid: string;
   description: string;

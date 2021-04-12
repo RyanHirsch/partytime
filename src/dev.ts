@@ -1,39 +1,73 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import * as fs from "fs";
 import * as path from "path";
 import stringify from "fast-json-stable-stringify";
+import sqlite from "sqlite3";
+import crypto from "crypto";
 
 import { log } from "./logger";
 import { parseFeed } from "./parser";
 import type { FeedObject } from "./parser/shared";
-import { checkFeedByUri } from "./cor";
+// import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
 
-const feeds = [
-  // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
+function getDb(): Promise<sqlite.Database> {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite.Database(
+      path.resolve(__dirname, "parser/__test__/fixtures/podcastindex_feeds.db"),
+      (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(db);
+        }
+      }
+    );
+  });
+}
 
+function run(sql: string, db: sqlite.Database): Promise<any[]> {
+  return new Promise((resolve, reject) => {
+    db.all(sql, (err, rows) => {
+      if (err) {
+        reject(err);
+      } else resolve(rows);
+    });
+  });
+}
+
+async function getRows(limit = 1000, offset = 0): Promise<{ db: sqlite.Database; rows: any[] }> {
+  const db = await getDb();
+  return {
+    db,
+    rows: await run(
+      `SELECT * FROM podcasts WHERE dead = 0 AND lastHttpStatus = 200 LIMIT ${limit} OFFSET ${
+        offset * limit
+      };`,
+      db
+    ),
+  };
+}
+
+const feeds: Array<{ name: string; url: string }> = [
+  // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
   // // Recent soundbites
   // { name: "Golden Nuggets", url: "https://feeds.buzzsprout.com/1293872.rss" },
-
   // // Value Block
   // { name: "PodClock", url: "https://podnews.net/clock-rss" },
-
   // // Location
   // { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
-
   // // nested categories
   // { name: "livetpajorden", url: "https://rss.acast.com/http-acast.com-acast.com-livetpajorden" },
-
   // // Example
   // {
   //   name: "Local Example",
   //   url: `file://${path.resolve(__dirname, "parser/__test__/fixtures/example.xml")}`,
   // },
-
-  {
-    name: "Animated No Agenda",
-    url: "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
-  },
-
+  // {
+  //   name: "Animated No Agenda",
+  //   url: "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
+  // },
   // {
   //   name: "Chad Hartman",
   //   url:
@@ -85,10 +119,16 @@ const feeds = [
   // { name: "Gabfest", url: "https://gabfest.wordpress.com/feed/atom/" },
   // { name: "The Her Freedom Podcast", url: "http://herfreedomaudio.blogspot.de/atom.xml" },
   // { name: "Causality", url: "https://engineered.network/causality/feed/index.xml" },
-  { name: "Dudes and Dads", url: "https://feeds.podcastmirror.com/dudesanddadspodcast" },
+  // { name: "Dudes and Dads", url: "https://feeds.podcastmirror.com/dudesanddadspodcast" },
 ];
 
-async function checkAll(): Promise<void> {
+const randomInRange = (min: number, max: number): number => {
+  const range = max - min;
+  const random = Math.random() * range + min;
+  return Math.floor(random);
+};
+
+export async function checkAll(): Promise<void> {
   for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
     log.info(`Parsing ${name}: ${url}`);
@@ -97,44 +137,130 @@ async function checkAll(): Promise<void> {
   }
 }
 
+export async function checkSome(limit: number): Promise<void> {
+  const db = await getDb();
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const [maxItem] = await run("SELECT max(itunesId) as max FROM podcasts;", db);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const [avgItem] = await run("SELECT avg(itunesId) as avg FROM podcasts;", db);
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  const start = randomInRange(avgItem.avg, maxItem.max);
+
+  const statement = `SELECT * FROM podcasts WHERE itunesId > ${start} AND dead = 0 AND lastHttpStatus = 200 LIMIT ${limit};`;
+  const randomFeeds = await run(statement, db);
+  for (let i = 0; i < randomFeeds.length; i += 1) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { title, url } = randomFeeds[i];
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    log.info(`Parsing ${title}: ${url}`);
+    // eslint-disable-next-line no-await-in-loop
+    await getFeed(url);
+  }
+  db.close();
+}
+
+export async function checkAllDb(): Promise<void> {
+  // const { db, rows } = await getRows(1_000);
+  const { db, rows } = await getRows(10);
+  for (let i = 0; i < rows.length; i += 1) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { title, url } = rows[i];
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    log.info(`Parsing ${title}: ${url}`);
+    // eslint-disable-next-line no-await-in-loop
+    await getFeed(url);
+  }
+  db.close();
+}
+
+function save<T>({
+  relativePath,
+  data,
+  parser,
+}: {
+  relativePath: string;
+  data: T;
+  parser: (d: T) => string;
+}): Promise<void> {
+  return new Promise((resolve, reject) =>
+    fs.writeFile(path.resolve(__dirname, relativePath), parser(data), (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(undefined);
+      }
+    })
+  );
+}
+
+const urlToFile: Array<{ uri: string; uriHash: string; title: string; parsed: string }> = [];
 async function getFeed(uri: string): Promise<void> {
+  const uriHash = crypto.createHash("md5").update(uri).digest("hex");
+
   const xml = await getFeedText(uri);
+  const xmlSave = save({
+    relativePath: `../raw/${uriHash}.txt`,
+    data: xml,
+    parser: (x) => x,
+  });
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const feedObject: FeedObject = parseFeed(xml);
+  if (!feedObject) {
+    log.warn(`Failed to parse xml from ${uri}`);
+    return;
+  }
+
+  urlToFile.push({
+    uri,
+    uriHash,
+    title: feedObject.title,
+    parsed: `${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`,
+  });
+  const listSave = save({
+    relativePath: `../raw/list.json`,
+    data: urlToFile,
+    parser: (list) => JSON.stringify(list, null, 2),
+  });
+
   fs.writeFileSync(
     path.resolve(
       __dirname,
       "..",
-      `results/${feedObject.title.toLowerCase().replace(/\s+/g, "-").replace(/'/g, "")}.json`
+      `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
     ),
-    stringify(feedObject)
+    stringify({ ...feedObject, url: uri })
   );
+  await Promise.all([xmlSave, listSave]);
 
-  const corsSupport = await checkFeedByUri(uri);
-  log.info(corsSupport);
+  // const corsSupport = await checkFeedByUri(uri);
+  // log.info(corsSupport);
 
   // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
   log.info(feedObject.__phase);
 }
 
-// eslint-disable-next-line no-console
-checkAll().then(
-  () => log.info("done"),
-  (err) => log.error(err)
-);
+// checkAll().then(
+//   () => log.info("done"),
+//   (err) => log.error(err)
+// );
 
-// class HTTPResponseError extends Error {
-//   constructor(response, ...args) {
-//     this.response = response;
-//     super(`HTTP Error Response: ${response.status} ${response.statusText}`, ...args);
-//   }
-// }
+// checkAllDb().then(
+//   () => log.info("done"),
+//   (err) => log.error(err)
+// );
 
-// const checkStatus = (response) => {
-//   if (response.ok) {
-//     // response.status >= 200 && response.status < 300
-//     return response;
-//   } else {
-//     throw new HTTPResponseError(response);
-//   }
-// };
+if (process.argv[2]) {
+  runPromise(getFeed(process.argv[2]));
+} else {
+  runPromise(checkSome(15));
+}
+
+function runPromise(prom: Promise<any>): void {
+  prom.then(
+    () => log.info("done"),
+    (err) => log.error(err)
+  );
+}

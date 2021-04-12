@@ -46,6 +46,8 @@ export function parseRss(theFeed: any) {
     itunesNewFeedUrl: theFeed.rss.channel["itunes:new-feed-url"],
     pubsub: findPubSubLinks(theFeed.rss.channel),
     categories: getPodcastCategories(theFeed),
+    // podcastLocked: 0,
+    lastUpdate: Math.floor(Date.now() / 1000),
     value: {},
   };
   let phaseSupport: PhaseUpdate = {};
@@ -480,12 +482,11 @@ export function parseRss(theFeed: any) {
     pubDate = pubDateToTimestamp(pubDate);
   }
 
-  // eslint-disable-next-line eqeqeq
   if (!pubDate || Number.isNaN(pubDate)) {
     if (typeof feedObj.lastBuildDate !== "string") {
       pubDate = 0;
     } else {
-      pubDate = feedObj.lastBuildDate;
+      pubDate = pubDateToTimestamp(feedObj.lastBuildDate);
     }
   }
   if (

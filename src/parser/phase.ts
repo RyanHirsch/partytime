@@ -19,7 +19,6 @@ import {
 } from "./shared";
 import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "./shared";
 import { PersonGroup, PersonRole } from "./person-enum";
-// ["podcast:location"];
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -188,7 +187,7 @@ export const person: FeedUpdate | ItemUpdate = {
   supportCheck: (node) => ensureArray(node).some((n) => Boolean(getText(n))),
   fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
     const update = {
-      podcastPeople: [] as Person[],
+      podcastPersons: [] as Person[],
     };
 
     const groups = Object.values(PersonGroup);
@@ -213,13 +212,13 @@ export const person: FeedUpdate | ItemUpdate = {
         };
 
         if (img) {
-          personObj.image = img;
+          personObj.img = img;
         }
         if (href) {
           personObj.href = href;
         }
 
-        update.podcastPeople.push(personObj);
+        update.podcastPersons.push(personObj);
       }
     });
 

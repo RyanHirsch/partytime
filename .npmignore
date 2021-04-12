@@ -1,6 +1,7 @@
 .jest
 .vscode
 dist/dev.*
+raw
 results
 scripts
 .dockerignore
@@ -17,3 +18,4 @@ jest.config.js
 tsconfig.*
 yarn-error.log
 yarn.lock
+src/parser/__test__/fixtures/podcastindex_feeds.db
