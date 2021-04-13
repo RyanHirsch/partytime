@@ -12,7 +12,6 @@ fi
 
 curl -o "${PROJECT_DIR}/src/parser/__test__/fixtures/example.xml" https://raw.githubusercontent.com/Podcastindex-org/podcast-namespace/main/example.xml
 
-
 curl -o "${SCRIPTS_DIR}/taxonomy.json" https://raw.githubusercontent.com/Podcastindex-org/podcast-namespace/main/taxonomy.json
 yarn ts-node "${SCRIPTS_DIR}/generate-person-enum.ts"
 
