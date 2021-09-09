@@ -7,7 +7,7 @@ import crypto from "crypto";
 
 import { log } from "./logger";
 import { parseFeed } from "./parser";
-import type { FeedObject } from "./parser/shared";
+
 // import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
 
@@ -206,8 +206,7 @@ async function getFeed(uri: string): Promise<void> {
     parser: (x) => x,
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const feedObject: FeedObject = parseFeed(xml);
+  const feedObject = parseFeed(xml);
   if (!feedObject) {
     log.warn(`Failed to parse xml from ${uri}`);
     return;

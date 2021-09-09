@@ -57,9 +57,12 @@ export function checkHttps(urlToCheck: string, referer = podcastCertification): 
 
 export async function checkFeedByUri(uri: string): Promise<Record<string, boolean>> {
   const xml = await getFeedText(uri);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const feedObject: FeedObject = parseFeed(xml);
-  return checkFeedByObject({ uri, feedObject });
+
+  const feedObject = parseFeed(xml);
+  if (feedObject) {
+    return checkFeedByObject({ uri, feedObject });
+  }
+  throw new Error(`Feed could not be parsed`);
 }
 
 export async function checkFeedByObject({

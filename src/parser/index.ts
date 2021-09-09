@@ -10,8 +10,9 @@ import { log } from "../logger";
 import { parseRss } from "./rss";
 import { parseAtom } from "./atom";
 import { parse, validate } from "./xml-parser";
+import { FeedObject } from "./shared";
 
-export function parseFeed(xml: string) {
+export function parseFeed(xml: string): FeedObject | null {
   const parsedContent = validate(xml.trim());
   if (parsedContent === true) {
     return handleValidFeed(xml);
@@ -19,7 +20,7 @@ export function parseFeed(xml: string) {
   return handleInvalidFeed(xml);
 }
 
-function handleValidFeed(xml: string) {
+function handleValidFeed(xml: string): FeedObject | null {
   const theFeed = parse(xml.trim());
   let feedObj: any;
   if (typeof theFeed.rss === "object") {

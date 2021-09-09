@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <title>Podcasting 2.0 Namespace Example</title>
+        <description>This is a fake show that exists only as an example of the "podcast" namespace tag usage.</description>
+        <link>http://example.com/podcast</link>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <language>en-US</language>
+        <generator>Freedom Controller</generator>
+        <pubDate>Fri, 09 Oct 2020 04:30:38 GMT</pubDate>
+        <lastBuildDate>Fri, 09 Oct 2020 04:30:38 GMT</lastBuildDate>
+        <managingEditor>john@example.com (John Doe)</managingEditor>
+        <webMaster>support@example.com (Tech Support)</webMaster>
+        <image>
+            <url>https://example.com/images/pci_avatar-massive.jpg</url>
+            <title>Podcast Feed Template</title>
+            <link>https://example.com/show</link>
+        </image>
+
+        <itunes:author>John Doe</itunes:author>
+        <itunes:explicit>no</itunes:explicit>
+        <itunes:type>episodic</itunes:type>
+        <itunes:category text="News"/>
+        <itunes:category text="Technology"/>
+
+        <itunes:image>https://example.com/images/pci_avatar-massive.jpg</itunes:image>
+    </channel>
+</rss>

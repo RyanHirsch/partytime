@@ -208,6 +208,7 @@ export function parseRss(theFeed: any) {
     feedObj.link = "";
   }
 
+  // Feed Phase Support
   const feedResult = updateFeed(theFeed);
   feedObj = mergeWith(concat, feedObj, feedResult.feedUpdate);
   phaseSupport = mergeDeepRight(phaseSupport, feedResult.phaseUpdate);
@@ -217,8 +218,6 @@ export function parseRss(theFeed: any) {
     typeof theFeed.rss.channel["podcast:value"] !== "undefined" &&
     typeof theFeed.rss.channel["podcast:value"].attr !== "undefined"
   ) {
-    // twoDotOhCompliant(feedObj, 3, "value");
-
     // Get the model
     feedObj.value.model = {
       type: theFeed.rss.channel["podcast:value"].attr["@_type"],
@@ -268,10 +267,9 @@ export function parseRss(theFeed: any) {
   if (typeof theFeed.rss.channel.item !== "undefined") {
     // Make sure the item element is always an array
     if (!Array.isArray(theFeed.rss.channel.item)) {
-      const newItem = [];
-      newItem[0] = theFeed.rss.channel.item;
+      log.debug("Items is not an array, appears to be a single item. Turning it into an array");
       // eslint-disable-next-line no-param-reassign
-      theFeed.rss.channel.item = newItem;
+      theFeed.rss.channel.item = [theFeed.rss.channel.item];
     }
 
     // Items
@@ -282,6 +280,7 @@ export function parseRss(theFeed: any) {
 
         // If there is no enclosure, just skip this item and move on to the next
         if (typeof item.enclosure !== "object") {
+          log.warn("Item has no enclosure, skipping it.");
           return undefined;
         }
 
@@ -297,6 +296,7 @@ export function parseRss(theFeed: any) {
           }
         }
         if (typeof itemguid !== "string" || itemguid === "") {
+          log.warn("Item has no guid, skipping it.");
           return undefined;
         }
 
@@ -446,6 +446,7 @@ export function parseRss(theFeed: any) {
           newFeedItem.enclosure.type = guessEnclosureType(enclosure.attr["@_url"]);
         }
 
+        // Item Phase Support
         const itemResult = updateItem(item, theFeed);
         newFeedItem = mergeWith(concat, newFeedItem, itemResult.itemUpdate);
         phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
@@ -473,6 +474,8 @@ export function parseRss(theFeed: any) {
       }
     });
     feedObj.oldestItemPubDate = oldestPubDate;
+  } else {
+    log.debug("There are no items!");
   }
 
   // Duplicate pubdate?

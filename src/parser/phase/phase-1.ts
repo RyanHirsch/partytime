@@ -1,23 +1,39 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { ensureArray, firstIfArray, getAttribute, getText } from "../shared";
+import { ensureArray, firstIfArray, getAttribute, getKnownAttribute, getText } from "../shared";
 
-import type { Episode, FeedObject, SoundBite, Transcript, TranscriptType } from "../shared";
+import type { FeedObject } from "../shared";
 import type { FeedUpdate, ItemUpdate } from "./index";
+import { log } from "../../logger";
 
-// #region Phase 1
+/**
+ * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#locked
+ *
+ * This tag may be set to yes or no. The purpose is to tell other podcast platforms whether they are
+ * allowed to import this feed. A value of yes means that any attempt to import this feed into a new
+ * platform should be rejected.
+ */
 export const locked: FeedUpdate = {
   phase: 1,
   tag: "locked",
+  nodeTransform: firstIfArray,
+  supportCheck: (node) => Boolean(getAttribute(node, "owner")),
   fn(node) {
+    log.info("locked");
+
     const feedUpdate: Partial<FeedObject> = {};
-    const lockedValues = ["yes", "true"];
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
 
-    if (lockedValues.includes(lockedText)) {
+    log.debug(`- Owner: ${owner}`);
+    log.debug(`- Locked: ${lockedText}`);
+
+    if (["yes", "true"].includes(lockedText)) {
       feedUpdate.podcastLocked = 1;
+    } else if (["no", "false"].includes(lockedText)) {
+      feedUpdate.podcastLocked = 0;
     }
+
     if (owner) {
       feedUpdate.podcastOwner = owner;
     }
@@ -26,15 +42,45 @@ export const locked: FeedUpdate = {
   },
 };
 
+/**
+ * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript
+ *
+ * This tag is used to link to a transcript or closed captions file. Multiple tags can be present for
+ * multiple transcript formats.
+ */
+export type Phase1Transcript = {
+  /** URL of the podcast transcript */
+  url: string;
+  /** Mime type of the file such as text/plain, text/html, application/srt, text/vtt, application/json */
+  type: TranscriptType;
+  /** The language of the linked transcript. If there is no language attribute given, the linked file is assumed to be the same language that is specified by the RSS <language> element. */
+  language?: string;
+  /**  If the rel="captions" attribute is present, the linked file is considered to be a closed captions file, regardless of what the mime type is. In that scenario, time codes are assumed to be present in the file in some capacity. */
+  rel?: "captions";
+};
+enum TranscriptType {
+  Plain = "text/plain",
+  HTML = "text/html",
+  SRT = "application/srt",
+  JSON = "application/json",
+}
+
 export const transcript: ItemUpdate = {
   phase: 1,
   tag: "transcript",
-  nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(firstIfArray(node), "url")),
+  nodeTransform: ensureArray,
+  supportCheck: (node) =>
+    node.some(
+      (transcriptNode: any) =>
+        Boolean(getAttribute(transcriptNode, "url")) &&
+        Boolean(getAttribute(transcriptNode, "type"))
+    ),
   fn(node, feed) {
-    const itemUpdate = { podcastTranscripts: [] as Transcript[] };
+    log.info("transcript");
 
-    ensureArray(node).forEach((transcriptNode) => {
+    const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
+
+    node.forEach((transcriptNode: any) => {
       const feedLanguage: string = feed ? feed.rss.channel.language : null;
       const url = getAttribute(transcriptNode, "url");
       const type = getAttribute(transcriptNode, "type") as TranscriptType;
@@ -42,8 +88,14 @@ export const transcript: ItemUpdate = {
 
       const rel = getAttribute(transcriptNode, "rel");
 
+      log.debug(`- Feed Language: ${feedLanguage}`);
+      log.debug(`- URL: ${url}`);
+      log.debug(`- Type: ${type}`);
+      log.debug(`- Language: ${language}`);
+      log.debug(`- Rel: ${rel}`);
+
       if (url && type) {
-        const transcriptValue: Transcript = {
+        const transcriptValue: Phase1Transcript = {
           url,
           type,
         };
@@ -64,10 +116,23 @@ export const transcript: ItemUpdate = {
   },
 };
 
+/**
+ * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#funding
+ *
+ * This tag lists possible donation/funding links for the podcast. The content of the tag is the recommended
+ * string to be used with the link.
+ */
+export type Phase1Funding = {
+  message: string;
+  url: string;
+};
 export const funding: FeedUpdate = {
   phase: 1,
   tag: "funding",
+  nodeTransform: firstIfArray,
   fn(node) {
+    log.info("funding");
+
     const feedUpdate: Partial<FeedObject> = {};
 
     const message = getText(node);
@@ -83,51 +148,76 @@ export const funding: FeedUpdate = {
   },
 };
 
+/**
+ * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters
+ *
+ * Links to an external file containing chapter data for the episode.
+ */
+export type Phase1Chapter = {
+  /** The URL where the chapters file is located */
+  url: string;
+  /** Mime type of file - JSON prefered, 'application/json+chapters' */
+  type: string;
+};
 export const chapters: ItemUpdate = {
   phase: 1,
   tag: "chapters",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(node, "url")),
+  supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
   fn(node) {
-    const itemUpdate: Partial<Episode> = {};
-    const url = getAttribute(node, "url");
+    log.info("chapters");
 
-    if (url) {
-      itemUpdate.podcastChapters = {
-        url,
-        type: 0,
-      };
-    }
-    return itemUpdate;
+    return {
+      podcastChapters: {
+        url: getKnownAttribute(node, "url"),
+        type: getKnownAttribute(node, "type"),
+      },
+    };
   },
 };
 
+/**
+ * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#soundbite
+ *
+ * Points to one or more soundbites within a podcast episode. The intended use includes episodes previews,
+ * discoverability, audiogram generation, episode highlights, etc. It should be assumed that the
+ * audio/video source of the soundbite is the audio/video given in the item's <enclosure> element.
+ */
+export type Phase1SoundBite = {
+  /**  How long is the soundbite (recommended between 15 and 120 seconds) */
+  duration: number;
+  /** The time where the soundbite begins */
+  startTime: number;
+  /** The title of the soundbite, if one isn't provided it will fallback to the title of the episode */
+  title: string;
+};
 export const soundbite: ItemUpdate = {
   phase: 1,
   tag: "soundbite",
+  nodeTransform: ensureArray,
   supportCheck: (node) =>
-    ensureArray(node).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
-  fn(node) {
-    const itemUpdate = { podcastSoundbites: [] as SoundBite[] };
+    node.some((n: any) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
+  fn(node, feed) {
+    log.info("soundbite");
 
-    ensureArray(node).forEach((soundbiteNode) => {
-      const duration = getAttribute(soundbiteNode, "duration");
-      const startTime = getAttribute(soundbiteNode, "startTime");
+    const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
+
+    node.forEach((soundbiteNode: any) => {
+      const duration = parseFloat(getKnownAttribute(soundbiteNode, "duration"));
+      const startTime = parseFloat(getKnownAttribute(soundbiteNode, "startTime"));
       const title = getText(soundbiteNode);
 
       if (duration && startTime) {
-        const bite: SoundBite = {
+        const bite: Phase1SoundBite = {
           duration,
           startTime,
+          title: title ? title : (feed.rss.channel.title ?? "").trim(),
         };
-        if (title) {
-          bite.title = title;
-        }
+
         itemUpdate.podcastSoundbites.push(bite);
       }
     });
 
-    return {};
+    return itemUpdate;
   },
 };
-// #endregion

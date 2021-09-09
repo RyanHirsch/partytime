@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as Handlebars from "handlebars";
+import * as prettier from "prettier";
 
 type Tax = {
   group: string;
@@ -57,7 +58,9 @@ const data = taxonomy.reduce<ReducedResults>(
   { grouped: {}, roles: [], groups: [] }
 );
 
-fs.writeFileSync(
-  path.resolve(__dirname, "..", "src/parser/person-enum.ts"),
-  Handlebars.compile(source)(data)
-);
+prettier.resolveConfig(path.resolve(__dirname, "..")).then((options) => {
+  fs.writeFileSync(
+    path.resolve(__dirname, "..", "src/parser/person-enum.ts"),
+    prettier.format(Handlebars.compile(source)(data), { parser: "typescript", ...options })
+  );
+});

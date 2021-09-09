@@ -8,6 +8,7 @@ import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "../shared"
 
 import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
+import * as phase3 from "./phase-3";
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -22,19 +23,31 @@ type ItemUpdateResult = {
 type NodeTransform = (x: TODO) => TODO;
 type SupportCheck = (x: TODO) => boolean;
 
+/** Describes a Feed processing object intended to provide extensible feed parsing */
 export type FeedUpdate = {
+  /** What phase was this added to the namespace */
   phase: number;
+  /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
-  fn: (node: any) => Partial<FeedObject>;
+  /** Processing function to return an object to be merged with the current feed */
+  fn: (node: any, feed: RSSFeed) => Partial<FeedObject>;
+  /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
+  /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
   supportCheck?: SupportCheck;
 };
 
+/** Describes an Item processing object intended to provide extensible item parsing */
 export type ItemUpdate = {
+  /** What phase was this added to the namespace */
   phase: number;
+  /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
-  fn: (node: any, feed?: RSSFeed) => Partial<Episode>;
+  /** Processing function to return an object to be merged with the current item */
+  fn: (node: any, feed: RSSFeed) => Partial<Episode>;
+  /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
+  /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
   supportCheck?: SupportCheck;
 };
 
@@ -42,7 +55,17 @@ export type ItemUpdate = {
 export const defaultNodeTransform: NodeTransform = (x) => x;
 export const defaultSupportCheck: SupportCheck = (x) => typeof x === "object";
 
-const feeds: FeedUpdate[] = [phase1.locked, phase1.funding, phase2.person, phase2.location];
+const feeds: FeedUpdate[] = [
+  phase1.locked,
+  phase1.funding,
+
+  phase2.person,
+  phase2.location,
+
+  phase3.trailer,
+  phase3.license,
+  phase3.guid,
+];
 
 const items: ItemUpdate[] = [
   phase1.transcript,
@@ -53,18 +76,21 @@ const items: ItemUpdate[] = [
   phase2.location,
   phase2.season,
   phase2.episode,
+
+  phase3.license,
+  phase3.alternativeEnclosure,
 ];
 
-export function updateFeed(theFeed: RSSFeed): FeedUpdateResult {
-  return feeds.reduce(
+export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
+  return feedUpdates.reduce(
     ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[`podcast:${tag}`]);
-      const tagSupported = (supportCheck ?? defaultSupportCheck)(node);
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
 
       if (tagSupported) {
         return {
-          feedUpdate: mergeWith(concat, feedUpdate, fn(node)),
+          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
         };
       }
@@ -82,11 +108,11 @@ export function updateFeed(theFeed: RSSFeed): FeedUpdateResult {
   );
 }
 
-export function updateItem(item: TODO, feed: RSSFeed): ItemUpdateResult {
-  return items.reduce(
+export function updateItem(item: TODO, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
+  return itemUpdates.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);
-      const tagSupported = (supportCheck ?? defaultSupportCheck)(node);
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
 
       if (tagSupported) {
         return {

@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+import { FeedObject } from "../shared";
 
 export async function loadFixture(name = "example"): Promise<string> {
   return new Promise((resolve, reject) =>
@@ -11,4 +12,39 @@ export async function loadFixture(name = "example"): Promise<string> {
       resolve(data);
     })
   );
+}
+
+export function getPhaseSupport(feed: FeedObject, phase: number): string[] {
+  return feed.__phase?.[phase.toString()] ?? [];
+}
+
+export function loadSimple(): Promise<string> {
+  return loadFixture("simple");
+}
+
+export function spliceFeed(feedXml: string, str: string): string {
+  return splice(feedXml, str, "<channel>");
+}
+
+export function spliceFirstItem(feedXml: string, str: string): string {
+  return splice(feedXml, str, "<item>");
+}
+
+export function spliceAllItems(feedXml: string, str: string): string {
+  let updated = feedXml;
+  let curr = feedXml.indexOf("<item>");
+  while (curr !== -1) {
+    updated = splice(updated, str, "<item>", curr);
+    curr = updated.indexOf("<item>", curr + 1);
+  }
+  return updated;
+}
+
+export function spliceLastItem(feedXml: string, str: string): string {
+  return splice(feedXml, str, "<item>", feedXml.lastIndexOf("<item>"));
+}
+
+function splice(feedXml: string, str: string, after: string, startSearchAt = 0): string {
+  const start = feedXml.indexOf(after, startSearchAt) + after.length;
+  return [feedXml.slice(0, start), str, feedXml.slice(start)].join("");
 }
