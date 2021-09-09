@@ -17,7 +17,7 @@ const randomInRange = (min: number, max: number): number => {
   return Math.floor(random);
 };
 
-describe("Parser", () => {
+describe.skip("Parser", () => {
   let db: sqlite.Database;
   beforeEach((done) => {
     db = new sqlite.Database(path.resolve(__dirname, "fixtures/podcastindex_feeds.db"), done);

@@ -6,7 +6,19 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import { PersonGroup, PersonRole } from "./person-enum";
+import type {
+  Phase1Transcript,
+  Phase1Funding,
+  Phase1Chapter,
+  Phase1SoundBite,
+} from "./phase/phase-1";
+import type {
+  Phase2Person,
+  Phase2Location,
+  Phase2SeasonNumber,
+  Phase2EpisodeNumber,
+} from "./phase/phase-2";
+import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
@@ -15,27 +27,6 @@ export interface RSSFeed {
   rss: {
     channel: any;
   };
-}
-
-export interface Location {
-  /** This is meant for podcast apps to display the name of the location that the podcast is about. */
-  name: string;
-  /** From an OpenStreetMap query. If a value is given for osm it must contain both 'type' and 'id'. */
-  osm?: string;
-  /** A geo URI, conformant to RFC 5870 */
-  geo?: string;
-}
-
-export interface Person {
-  name: string;
-  /** Used to identify what role the person serves on the show or episode. This should be a reference to an official role within the Podcast Taxonomy Project list */
-  role: PersonRole;
-  /** This should be a reference to an official group within the Podcast Taxonomy Project list */
-  group: PersonGroup;
-  /** This is the url of a picture or avatar of the person */
-  img?: string;
-  /** The url to a relevant resource of information about the person, such as a homepage or third-party profile platform. */
-  href?: string;
 }
 
 export enum FeedType {
@@ -77,14 +68,15 @@ export interface FeedObject {
   podcastLocked: 0 | 1;
   podcastOwner: string;
 
-  podcastFunding: {
-    message: string;
-    url: string;
-  };
-  podcastPersons?: Person[];
+  podcastFunding?: Phase1Funding;
+  podcastPeople?: Phase2Person[];
 
-  // https://github.com/Podcastindex-org/podcast-namespace/blob/main/location/location.md
-  podcastLocation?: Location;
+  /** What is this podcast about */
+  podcastLocation?: Phase2Location;
+
+  trailers?: Phase3Trailer[];
+  license?: Phase3License;
+  guid?: string;
 
   /** podcasting 2.0 phase compliance */
   __phase: Record<number, string[]>;
@@ -113,42 +105,16 @@ export interface Episode {
   guid: string;
   description: string;
   image: string;
-  podcastChapters?: { url: string; type: 0 };
-  podcastSoundbites?: SoundBite[];
-  podcastTranscripts?: Transcript[];
-  podcastLocation?: Location;
-  podcastPeople?: Person[];
-  podcastSeason?: PodcastSeasonNumber;
-  podcastEpisode?: PodcastEpisodeNumber;
-}
+  podcastChapters?: Phase1Chapter;
+  podcastSoundbites?: Phase1SoundBite[];
+  podcastTranscripts?: Phase1Transcript[];
+  podcastLocation?: Phase2Location;
+  podcastPeople?: Phase2Person[];
+  podcastSeason?: Phase2SeasonNumber;
+  podcastEpisode?: Phase2EpisodeNumber;
 
-export interface PodcastEpisodeNumber {
-  number: number;
-  display?: string;
-}
-export interface PodcastSeasonNumber {
-  number: number;
-  name?: string;
-}
-
-export interface SoundBite {
-  duration: string;
-  startTime: string;
-  title?: string;
-}
-
-export interface Transcript {
-  url: string;
-  type: TranscriptType;
-  language?: string;
-  rel?: "captions";
-}
-
-export enum TranscriptType {
-  Plain = "text/plain",
-  HTML = "text/html",
-  SRT = "application/srt",
-  JSON = "application/json",
+  license?: Phase3License;
+  alternativeEnclosures?: Phase3AltEnclosure[];
 }
 
 export interface PhaseUpdate {
@@ -347,13 +313,19 @@ export function ensureArray<T>(maybeArr: T | T[]): T[] {
   return Array.isArray(maybeArr) ? maybeArr : [maybeArr];
 }
 
-export function getText(node: { "#text": string }): string {
+/** Gets the value of the XML node as text */
+export function getText(node: { "#text": string } | string): string {
+  if (typeof node === "string") {
+    return node.trim();
+  }
+
   if (typeof node !== "undefined" && typeof node["#text"] === "string") {
     return node["#text"].trim();
   }
   return "";
 }
 
+/** Gets the value of the XML node as a number */
 export function getNumber(node: { "#text": number }): number | null {
   if (typeof node !== "undefined" && typeof node["#text"] === "number") {
     return node["#text"];
@@ -364,6 +336,7 @@ export function getNumber(node: { "#text": number }): number | null {
   return null;
 }
 
+/** Gets the attribute value from a give node. Returns null if the attribute does not exist */
 export function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
   if (
     typeof node !== "undefined" &&
@@ -373,4 +346,42 @@ export function getAttribute(node: { attr: Record<string, string> }, name: strin
     return node.attr[`@_${name}`].trim();
   }
   return null;
+}
+
+/** Gets the attribute value from a give node. It will throw if the attribute does not exist */
+export function getKnownAttribute(node: { attr: Record<string, string> }, name: string): string {
+  if (
+    typeof node !== "undefined" &&
+    typeof node.attr === "object" &&
+    typeof node.attr[`@_${name}`] === "string"
+  ) {
+    return node.attr[`@_${name}`].trim();
+  }
+  throw new Error(`Known attribute ${name} was not found in the node.`);
+}
+
+export function extractOptionalStringAttribute(
+  node: { attr: Record<string, string> },
+  attrName: string,
+  key = attrName
+): EmptyObj | { [key: string]: string } {
+  const val = getAttribute(node, attrName);
+
+  if (val) {
+    return { [key]: val };
+  }
+  return {};
+}
+
+export function extractOptionalNumberAttribute(
+  node: { attr: Record<string, string> },
+  attrName: string,
+  key = attrName
+): EmptyObj | { [key: string]: number } {
+  const val = getAttribute(node, attrName);
+
+  if (val) {
+    return { [key]: parseInt(val, 10) };
+  }
+  return {};
 }

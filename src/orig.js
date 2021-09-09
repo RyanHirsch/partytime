@@ -44,6 +44,7 @@ const ini = {
 
 // * Make sure you output `feedObj` to the correct file
 // !! "//DEBUG: Break here when testing"
+// console.log("Saving file to", absSaveFilePath);
 // realFs.writeFileSync(absSaveFilePath, stringify(feedObj));
 //#endregion
 
@@ -62,7 +63,7 @@ var feedcount = 0;
 var force = false;
 var maxRowsToReturn = 300;
 var maxContentLength = 25000000;
-var timestarted = Math.floor(Date.now() / 1000);
+var timestarted = Math.floor(new Date() / 1000);
 var stillWaitingForDB = true;
 var waitingForDBCount = 240;
 var feedWorkCount = 0;
@@ -78,8 +79,9 @@ var stmtPostPubsub =
   " ON DUPLICATE KEY UPDATE hub_url = VALUES(hub_url),self_url = VALUES(self_url) ";
 var insertsPubsub = "";
 var insertsPubsubBind = [];
-var stmtPreValue = "INSERT INTO `nfvalue` (`feedid`, `value_block`) VALUES ";
-var stmtPostValue = " ON DUPLICATE KEY UPDATE value_block = VALUES(value_block) ";
+var stmtPreValue = "INSERT INTO `nfvalue` (`feedid`, `value_block`, `type`, `createdon`) VALUES ";
+var stmtPostValue =
+  " ON DUPLICATE KEY UPDATE value_block = VALUES(value_block), type = VALUES(type) ";
 var insertsValue = "";
 var insertsValueBind = [];
 var stmtPreChapters = "INSERT INTO `nfitem_chapters` (`itemid`, `url`, `type`) VALUES ";
@@ -567,6 +569,23 @@ connection.query(query, function (err, rows, fields) {
         }
 
         //Value block
+        //If there are more than one, give priority to the lightning one
+        if (Array.isArray(theFeed.rss.channel["podcast:value"])) {
+          var foundLightning = false;
+          var foundIndex = 0;
+          theFeed.rss.channel["podcast:value"].forEach(function (item, index, array) {
+            if (
+              typeof item.attr !== "undefined" &&
+              typeof item.attr["@_type"] === "string" &&
+              item.attr["@_type"] === "lightning"
+            ) {
+              foundIndex = index;
+            }
+          });
+          theFeed.rss.channel["podcast:value"] = theFeed.rss.channel["podcast:value"][foundIndex];
+        }
+
+        //Now parse the value block
         if (
           typeof theFeed.rss.channel["podcast:value"] !== "undefined" &&
           typeof theFeed.rss.channel["podcast:value"].attr !== "undefined"
@@ -628,27 +647,44 @@ connection.query(query, function (err, rows, fields) {
             }
           }
 
+          //Get value block type
+          var thisValueBlockType = 0;
+          if (typeof feedObj.value.model.type === "string" && feedObj.value.model.type === "HBD") {
+            var thisValueBlockType = 1;
+          }
+          if (
+            typeof feedObj.value.model.type === "string" &&
+            feedObj.value.model.type === "bitcoin"
+          ) {
+            var thisValueBlockType = 2;
+          }
+
           console.log(feedObj.value);
-          insertsValue += " (?,?),";
+          insertsValue += " (?,?,?,?),";
           insertsValueBind.push(feedObj.id);
           insertsValueBind.push(JSON.stringify(feedObj.value));
+          insertsValueBind.push(thisValueBlockType);
+          insertsValueBind.push(Math.floor(Date.now() / 1000));
         }
 
         //Locked?
         if (typeof theFeed.rss.channel["podcast:locked"] === "object") {
           if (
-            theFeed.rss.channel["podcast:locked"]["#text"].trim().toLowerCase() === "yes" ||
-            theFeed.rss.channel["podcast:locked"]["#text"].trim().toLowerCase() === "true"
+            typeof theFeed.rss.channel["podcast:locked"]["#text"] === "string" &&
+            (theFeed.rss.channel["podcast:locked"]["#text"].trim().toLowerCase() === "yes" ||
+              theFeed.rss.channel["podcast:locked"]["#text"].trim().toLowerCase() === "true")
           ) {
             feedObj.podcastLocked = 1;
           }
           if (
+            typeof theFeed.rss.channel["podcast:locked"].attr !== "undefined" &&
             typeof theFeed.rss.channel["podcast:locked"].attr["@_owner"] === "string" &&
             theFeed.rss.channel["podcast:locked"].attr["@_owner"] !== ""
           ) {
             feedObj.podcastOwner = theFeed.rss.channel["podcast:locked"].attr["@_owner"];
           }
           if (
+            typeof theFeed.rss.channel["podcast:locked"].attr !== "undefined" &&
             typeof theFeed.rss.channel["podcast:locked"].attr["@_email"] === "string" &&
             theFeed.rss.channel["podcast:locked"].attr["@_email"] !== ""
           ) {
@@ -662,6 +698,10 @@ connection.query(query, function (err, rows, fields) {
 
         //Funding
         if (typeof theFeed.rss.channel["podcast:funding"] === "object") {
+          if (Array.isArray(theFeed.rss.channel["podcast:funding"])) {
+            theFeed.rss.channel["podcast:funding"] = theFeed.rss.channel["podcast:funding"][0];
+          }
+
           var fundingMessage = "";
           if (
             typeof theFeed.rss.channel["podcast:funding"]["#text"] === "string" &&
@@ -719,7 +759,11 @@ connection.query(query, function (err, rows, fields) {
           var i = 0;
           feedObj.items = [];
           theFeed.rss.channel.item.forEach(function (item, index, array) {
-            //console.log(item);
+            //DEBUG
+            if (feedObj.id == 950633) {
+              console.log(item);
+            }
+
             var itemguid = "";
 
             feedObj.itemCount++;
@@ -734,16 +778,30 @@ connection.query(query, function (err, rows, fields) {
               item.enclosure = item.enclosure[0];
             }
 
-            //If there is no guid in the item, then skip this item and move on
+            //If the enclosure url is not present or sane, skip this item
+            if (
+              typeof item.enclosure.attr === "undefined" ||
+              typeof item.enclosure.attr["@_url"] !== "string" ||
+              item.enclosure.attr["@_url"].toLowerCase().indexOf("http") !== 0
+            ) {
+              return;
+            }
+
+            //Get the GUID if there is one.  If not, use the enclosure url as the GUID.
             if (typeof item.guid !== "undefined") {
-              itemguid = item.guid;
+              itemguid = item.guid + "";
               if (typeof item.guid["#text"] === "string") {
                 itemguid = item.guid["#text"];
               }
             }
             if (typeof itemguid !== "string" || itemguid === "") {
-              return;
+              if (item.enclosure.attr["@_url"].length > 10) {
+                itemguid = truncateString(item.enclosure.attr["@_url"], 738);
+              } else {
+                return;
+              }
             }
+            //console.log('\x1b[33m%s\x1b[0m', '  GUID: ' + itemguid);
 
             feedObj.items[i] = {
               title: item.title,
@@ -1034,6 +1092,11 @@ connection.query(query, function (err, rows, fields) {
                 console.log(feedObj.items[i].podcastPersons);
               }
             }
+
+            //DEBUG
+            // if(feedObj.id == 950633) {
+            //     console.log(feedObj.items[i]);
+            // }
 
             i++;
           });
@@ -1489,7 +1552,7 @@ connection.query(query, function (err, rows, fields) {
         feedObj.items.forEach(function (item, index, array) {
           var enclosureUrl = sanitizeUrl(item.enclosure.url);
 
-          if (feedObj.id === 234701 && index < 2) {
+          if (feedObj.id === 950633 && index < 2) {
             console.log(item);
           }
 
@@ -1686,7 +1749,7 @@ connection.query(query, function (err, rows, fields) {
         //Set a decent timestamp for 'lastupdate' if one is set in the feedobj
         lastupdate_clause = "";
         if (typeof feedObj.lastUpdate !== "undefined") {
-          console.log(feedObj.lastUpdate);
+          console.log("lastUpdate: " + feedObj.lastUpdate);
           lastupdate_clause = "lastupdate=" + feedObj.lastUpdate + ",";
         }
 
