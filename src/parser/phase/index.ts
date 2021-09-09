@@ -30,7 +30,7 @@ export type FeedUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current feed */
-  fn: (node: any, feed: RSSFeed) => Partial<FeedObject>;
+  fn: (node: TODO, feed: RSSFeed) => Partial<FeedObject>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -44,7 +44,7 @@ export type ItemUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: any, feed: RSSFeed) => Partial<Episode>;
+  fn: (node: TODO, feed: RSSFeed) => Partial<Episode>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */

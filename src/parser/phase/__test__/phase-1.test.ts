@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
 

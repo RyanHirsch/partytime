@@ -27,7 +27,7 @@ export const person: FeedUpdate | ItemUpdate = {
   tag: "person",
   nodeTransform: ensureArray,
   // As long as one of the person tags has text, we'll consider it valid
-  supportCheck: (node) => node.some((n: any) => Boolean(getText(n))),
+  supportCheck: (node) => (node as TODO[]).some((n: TODO) => Boolean(getText(n))),
   fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
     log.info("person");
     const podcastPeople: Phase2Person[] = [];
@@ -35,7 +35,7 @@ export const person: FeedUpdate | ItemUpdate = {
     const groups = Object.values(PersonGroup);
     const roles = Object.values(PersonRole);
 
-    node.forEach((personNode: any) => {
+    (node as TODO[]).forEach((personNode: TODO) => {
       const name = getText(personNode);
       const role =
         roles.find((r) => r.toLowerCase() === getAttribute(personNode, "role")?.toLowerCase()) ??

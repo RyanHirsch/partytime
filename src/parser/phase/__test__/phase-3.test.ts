@@ -8,13 +8,13 @@ describe("phase 3", () => {
   });
 
   describe("trailer", () => {
-    it("extracts generic single trailer", () => {
-      const url = "https://example.org/trailers/teaser";
-      const pubdate = "Thu, 01 Apr 2021 08:00:00 EST";
-      const mimeType = "audio/mp3";
-      const length = 12345678;
-      const title = "Coming April 1st, 2021";
+    const url = "https://example.org/trailers/teaser";
+    const pubdate = "Thu, 01 Apr 2021 08:00:00 EST";
+    const mimeType = "audio/mp3";
+    const length = 12345678;
+    const title = "Coming April 1st, 2021";
 
+    it("extracts generic single trailer", () => {
       const xml = helpers.spliceFeed(
         feed,
         `<podcast:trailer pubdate="${pubdate}" url="${url}" length="${length}" type="${mimeType}">${title}</podcast:trailer>
@@ -38,11 +38,6 @@ describe("phase 3", () => {
     });
 
     it("extracts single season trailer", () => {
-      const url = "https://example.org/trailers/teaser";
-      const pubdate = "Thu, 01 Apr 2021 08:00:00 EST";
-      const mimeType = "audio/mp3";
-      const length = 12345678;
-      const title = "Coming April 1st, 2021";
       const season = 1;
 
       const xml = helpers.spliceFeed(
@@ -69,11 +64,6 @@ describe("phase 3", () => {
     });
 
     it("extracts multiple season trailers", () => {
-      const url = "https://example.org/trailers/teaser";
-      const pubdate = "Thu, 01 Apr 2021 08:00:00 EST";
-      const mimeType = "audio/mp3";
-      const length = 12345678;
-      const title = "Coming April 1st, 2021";
       const season = 1;
 
       const xml = helpers.spliceFeed(
@@ -110,10 +100,6 @@ describe("phase 3", () => {
     });
 
     it("skips missing url trailers", () => {
-      const pubdate = "Thu, 01 Apr 2021 08:00:00 EST";
-      const mimeType = "audio/mp3";
-      const length = 12345678;
-      const title = "Coming April 1st, 2021";
       const season = 1;
 
       const xml = helpers.spliceFeed(
@@ -130,9 +116,10 @@ describe("phase 3", () => {
   });
 
   describe("feed license", () => {
+    const customLicense = "my-podcast-license-v1";
     it("extracts custom license", () => {
       const url = "https://example.org/mypodcastlicense/full.pdf";
-      const name = "my-podcast-license-v1";
+      const name = customLicense;
       const xml = helpers.spliceFeed(
         feed,
         `<podcast:license url="${url}">${name}</podcast:license>`
@@ -162,7 +149,7 @@ describe("phase 3", () => {
     });
 
     it("skips bad custom license", () => {
-      const name = "my-podcast-license-v1";
+      const name = customLicense;
       const xml = helpers.spliceFeed(feed, `<podcast:license>${name}</podcast:license>`);
 
       const result = parseFeed(xml);
@@ -174,9 +161,11 @@ describe("phase 3", () => {
   });
 
   describe("item license", () => {
+    const customLicense = "my-podcast-license-v1";
+
     it("extracts custom license", () => {
       const url = "https://example.org/mypodcastlicense/full.pdf";
-      const name = "my-podcast-license-v1";
+      const name = customLicense;
       const xml = helpers.spliceFirstItem(
         feed,
         `<podcast:license url="${url}">${name}</podcast:license>`
@@ -216,7 +205,7 @@ describe("phase 3", () => {
     });
 
     it("skips bad custom license", () => {
-      const name = "my-podcast-license-v1";
+      const name = customLicense;
       const xml = helpers.spliceFirstItem(feed, `<podcast:license>${name}</podcast:license>`);
 
       const result = parseFeed(xml);
@@ -255,6 +244,7 @@ describe("phase 3", () => {
       expect(altEnclosure).toHaveProperty("bitrate", 128000);
       expect(altEnclosure).toHaveProperty("title", "Standard");
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       expect(altEnclosure.source).toHaveLength(2);
       const [s1, s2] = first.alternativeEnclosures[0].source;
       expect(s1).toHaveProperty("uri", "https://example.com/file-720.torrent");

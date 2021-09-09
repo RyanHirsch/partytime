@@ -15,7 +15,13 @@ export async function loadFixture(name = "example"): Promise<string> {
 }
 
 export function getPhaseSupport(feed: FeedObject, phase: number): string[] {
-  return feed.__phase?.[phase.toString()] ?? [];
+  const defaultReturn: string[] = [];
+  // eslint-disable-next-line no-underscore-dangle
+  const phaseObj = feed.__phase;
+  if (phaseObj) {
+    return phaseObj[phase] ?? defaultReturn;
+  }
+  return defaultReturn;
 }
 
 export function loadSimple(): Promise<string> {

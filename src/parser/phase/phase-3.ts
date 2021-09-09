@@ -14,7 +14,6 @@ import {
 
 import { json as licenseDefinitions } from "./licenses";
 
-import type { Episode, FeedObject } from "../shared";
 import type { FeedUpdate, ItemUpdate } from "./index";
 import { log } from "../../logger";
 
@@ -104,19 +103,19 @@ export const license: FeedUpdate | ItemUpdate = {
       )?.reference;
 
     if (!url) {
-      log.warn(`Missing License URL for ${identifier}, originating in ${feed.rss.channel.title}`);
+      log.warn(
+        `Missing License URL for ${identifier}, originating in ${feed.rss.channel.title as string}`
+      );
       return {};
     }
 
     log.info(`  [${identifier}](${url})`);
-    const update: Partial<FeedObject> | Partial<Episode> = {
+    return {
       license: {
         identifier,
         url,
       },
     };
-
-    return update;
   },
 };
 
@@ -171,7 +170,7 @@ export const alternativeEnclosure: ItemUpdate = {
   tag: "alternateEnclosure",
   nodeTransform: ensureArray,
   supportCheck: (node) => {
-    return node.some((i: any) => {
+    return (node as TODO[]).some((i: TODO) => {
       const type = getAttribute(i, "type");
       const length = getAttribute(i, "length");
       const sourceNodes = ensureArray(i?.["podcast:source"] ?? []);
@@ -189,7 +188,7 @@ export const alternativeEnclosure: ItemUpdate = {
 
     const update: Phase3AltEnclosure[] = [];
 
-    node.forEach((altEncNode: any) => {
+    (node as TODO[]).forEach((altEncNode: TODO) => {
       const type = getKnownAttribute(altEncNode, "type");
       const length = getKnownAttribute(altEncNode, "length");
       const sourceUris = ensureArray(altEncNode["podcast:source"] ?? [])

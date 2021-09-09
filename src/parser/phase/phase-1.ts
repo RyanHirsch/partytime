@@ -25,7 +25,7 @@ export const locked: FeedUpdate = {
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
 
-    log.debug(`- Owner: ${owner}`);
+    log.debug(`- Owner: ${owner ?? ""}`);
     log.debug(`- Locked: ${lockedText}`);
 
     if (["yes", "true"].includes(lockedText)) {
@@ -70,7 +70,7 @@ export const transcript: ItemUpdate = {
   tag: "transcript",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
-    node.some(
+    (node as TODO[]).some(
       (transcriptNode: any) =>
         Boolean(getAttribute(transcriptNode, "url")) &&
         Boolean(getAttribute(transcriptNode, "type"))
@@ -80,7 +80,7 @@ export const transcript: ItemUpdate = {
 
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
 
-    node.forEach((transcriptNode: any) => {
+    (node as TODO[]).forEach((transcriptNode: any) => {
       const feedLanguage: string = feed ? feed.rss.channel.language : null;
       const url = getAttribute(transcriptNode, "url");
       const type = getAttribute(transcriptNode, "type") as TranscriptType;
@@ -89,10 +89,10 @@ export const transcript: ItemUpdate = {
       const rel = getAttribute(transcriptNode, "rel");
 
       log.debug(`- Feed Language: ${feedLanguage}`);
-      log.debug(`- URL: ${url}`);
+      log.debug(`- URL: ${url ?? "<null>"}`);
       log.debug(`- Type: ${type}`);
       log.debug(`- Language: ${language}`);
-      log.debug(`- Rel: ${rel}`);
+      log.debug(`- Rel: ${rel ?? "<null>"}`);
 
       if (url && type) {
         const transcriptValue: Phase1Transcript = {
@@ -196,13 +196,13 @@ export const soundbite: ItemUpdate = {
   tag: "soundbite",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
-    node.some((n: any) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
+    (node as TODO[]).some((n: TODO) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
   fn(node, feed) {
     log.info("soundbite");
 
     const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
 
-    node.forEach((soundbiteNode: any) => {
+    (node as TODO[]).forEach((soundbiteNode: TODO) => {
       const duration = parseFloat(getKnownAttribute(soundbiteNode, "duration"));
       const startTime = parseFloat(getKnownAttribute(soundbiteNode, "startTime"));
       const title = getText(soundbiteNode);
@@ -211,7 +211,7 @@ export const soundbite: ItemUpdate = {
         const bite: Phase1SoundBite = {
           duration,
           startTime,
-          title: title ? title : (feed.rss.channel.title ?? "").trim(),
+          title: title || ((feed.rss.channel.title as string) ?? "").trim(),
         };
 
         itemUpdate.podcastSoundbites.push(bite);
