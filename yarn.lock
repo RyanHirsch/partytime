@@ -819,6 +819,14 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/bytebuffer@^5.0.42":
+  version "5.0.42"
+  resolved "https://registry.yarnpkg.com/@types/bytebuffer/-/bytebuffer-5.0.42.tgz#1c602a77942d34c5c0879ad75c58d5d8c07dfb3b"
+  integrity sha512-lEgKojWUAc/MG2t649oZS5AfYFP2xRNPoDuwDBlBMjHXd8MaGPgFgtCXUK7inZdBOygmVf10qxc1Us8GXC96aw==
+  dependencies:
+    "@types/long" "*"
+    "@types/node" "*"
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -867,6 +875,11 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+
+"@types/long@*":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.1.tgz#459c65fa1867dafe6a8f322c4c51695663cc55e9"
+  integrity sha512-5tXH6Bx/kNGd3MgffdmP4dy2Z+G4eaXw0SE81Tq3BNadtnMR5/ySMzX4SLEzHJzSmPNn4HIdpQsBvXMUykr58w==
 
 "@types/mime-types@^2.1.1":
   version "2.1.1"
@@ -4538,10 +4551,10 @@ please-upgrade-node@^3.2.0:
   dependencies:
     semver-compare "^1.0.0"
 
-podping-client@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/podping-client/-/podping-client-2.0.0.tgz#31d0a60b7c70bcc22247783639ab58ba277ba016"
-  integrity sha512-cKHYUvqjXKDaP7giKw4WDdj8Ew0wbsISqUORxJ6uMunjl4lD7lpB51sNz/MxL+vCMlRi6YtkrJr9XZMizR02TA==
+podping-client@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/podping-client/-/podping-client-3.2.2.tgz#46ae1b441fd69d704fee1c0223f768e6f123f26c"
+  integrity sha512-ESsDe0qHPdhpJR8H1+lBZPjvocB2usK/g8dONLHcQnrUIdyTHs3khA6EGePlyHpIOdNx4Su35Q59yV6lIZBkPQ==
   dependencies:
     "@hiveio/dhive" "^1.0.1"
     date-fns "^2.23.0"
