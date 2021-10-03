@@ -4,6 +4,8 @@ import * as path from "path";
 import stringify from "fast-json-stable-stringify";
 import sqlite from "sqlite3";
 import crypto from "crypto";
+import { getStream$ } from "podping-client";
+import { take } from "rxjs/operators";
 
 import { log } from "./logger";
 import { parseFeed } from "./parser";
@@ -184,8 +186,10 @@ function save<T>({
   data: T;
   parser: (d: T) => string;
 }): Promise<void> {
+  const filePath = path.resolve(__dirname, relativePath);
+  log.info(`Save ${filePath}`);
   return new Promise((resolve, reject) =>
-    fs.writeFile(path.resolve(__dirname, relativePath), parser(data), (err) => {
+    fs.writeFile(filePath, parser(data), (err) => {
       if (err) {
         reject(err);
       } else {
@@ -224,14 +228,13 @@ async function getFeed(uri: string): Promise<void> {
     parser: (list) => JSON.stringify(list, null, 2),
   });
 
-  fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "..",
-      `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
-    ),
-    stringify({ ...feedObject, url: uri })
+  const parsed = path.resolve(
+    __dirname,
+    "..",
+    `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
   );
+  log.info(`Parsed feed object ${parsed}`);
+  fs.writeFileSync(parsed, stringify({ ...feedObject, url: uri }));
   await Promise.all([xmlSave, listSave]);
 
   // const corsSupport = await checkFeedByUri(uri);
@@ -241,25 +244,32 @@ async function getFeed(uri: string): Promise<void> {
   log.info(feedObject.__phase);
 }
 
-// checkAll().then(
-//   () => log.info("done"),
-//   (err) => log.error(err)
-// );
-
-// checkAllDb().then(
-//   () => log.info("done"),
-//   (err) => log.error(err)
-// );
-
-if (process.argv[2]) {
+if (process.argv[2] === "--latest") {
+  runPromise(
+    new Promise((resolve) => {
+      getStream$()
+        .pipe(take(1))
+        .subscribe({
+          next(val) {
+            resolve(getFeed(val.url));
+          },
+          complete() {
+            console.log("complete");
+          },
+        });
+    })
+  );
+} else if (process.argv[2]) {
   runPromise(getFeed(process.argv[2]));
 } else {
   runPromise(checkSome(15));
 }
 
 function runPromise(prom: Promise<any>): void {
-  prom.then(
-    () => log.info("done"),
-    (err) => log.error(err)
-  );
+  prom
+    .then(
+      () => log.info("done"),
+      (err) => log.error(err)
+    )
+    .finally(() => process.exit());
 }

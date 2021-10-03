@@ -7,6 +7,11 @@
   "repository": {
     "url": "https://github.com/RyanHirsch/partytime"
   },
+  "keywords": [
+    "podcasting20",
+    "podcast",
+    "rss"
+  ],
   "scripts": {
     "prettier:base": "prettier --parser typescript",
     "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
@@ -50,6 +55,7 @@
     "jest": "^27.1.0",
     "lint-staged": "^10.5.4",
     "npm-run-all": "^4.1.5",
+    "podping-client": "^2.0.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "sqlite3": "^5.0.2",
