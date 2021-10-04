@@ -4,7 +4,7 @@ import * as mime from "mime-types";
 
 import {
   ensureArray,
-  extractOptionalNumberAttribute,
+  extractOptionalIntegerAttribute,
   extractOptionalStringAttribute,
   firstIfArray,
   getAttribute,
@@ -52,15 +52,15 @@ export const trailer: FeedUpdate = {
       Boolean(getAttribute(fNode, "pubdate"))
     );
   },
-  fn(node) {
+  fn(node: TODO) {
     return {
       trailers: ensureArray(node).map<Phase3Trailer>((trailerNode) => ({
         title: getText(trailerNode),
         url: getKnownAttribute(trailerNode, "url"),
         pubdate: new Date(getKnownAttribute(trailerNode, "pubdate")),
         ...extractOptionalStringAttribute(trailerNode, "type"),
-        ...extractOptionalNumberAttribute(trailerNode, "length"),
-        ...extractOptionalNumberAttribute(trailerNode, "season"),
+        ...extractOptionalIntegerAttribute(trailerNode, "length"),
+        ...extractOptionalIntegerAttribute(trailerNode, "season"),
       })),
     };
   },
@@ -221,8 +221,8 @@ export const alternativeEnclosure: ItemUpdate = {
           source: sourceUris,
           default: /^true$/i.test(getAttribute(altEncNode, "default") ?? ""),
           ...(integrity ? { integrity } : undefined),
-          ...extractOptionalNumberAttribute(altEncNode, "bitrate"),
-          ...extractOptionalNumberAttribute(altEncNode, "height"),
+          ...extractOptionalIntegerAttribute(altEncNode, "bitrate"),
+          ...extractOptionalIntegerAttribute(altEncNode, "height"),
           ...extractOptionalStringAttribute(altEncNode, "lang"),
           ...extractOptionalStringAttribute(altEncNode, "title"),
           ...extractOptionalStringAttribute(altEncNode, "rel"),

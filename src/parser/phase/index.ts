@@ -11,6 +11,7 @@ import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "../shared"
 import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
+import * as phase4 from "./phase-4";
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -67,6 +68,8 @@ const feeds: FeedUpdate[] = [
   phase3.trailer,
   phase3.license,
   phase3.guid,
+
+  phase4.value,
 ];
 
 const items: ItemUpdate[] = [
@@ -81,6 +84,8 @@ const items: ItemUpdate[] = [
 
   phase3.license,
   phase3.alternativeEnclosure,
+
+  phase4.value,
 ];
 
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
