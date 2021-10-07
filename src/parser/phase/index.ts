@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import { concat, mergeDeepRight, mergeWith } from "ramda";
+import concat from "ramda/src/concat";
+import mergeDeepRight from "ramda/src/mergeDeepRight";
+import mergeWith from "ramda/src/mergeWith";
 import log from "loglevel";
 
 import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "../shared";

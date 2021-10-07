@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { zip } from "ramda";
+import zip from "ramda/src/zip";
 import { log } from "../logger";
 import { parseFeed } from "../parser";
 import type { Episode, FeedObject } from "../parser/shared";
@@ -84,7 +84,7 @@ export async function checkFeedByObject({
       }
       return latest;
     },
-    { pubDate: 0 } as Episode
+    { pubDate: new Date(0) } as Episode
   );
 
   if (newestEpisode.enclosure.url) {

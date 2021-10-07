@@ -4,7 +4,6 @@ Podcast feed parser extracted from podcast index - https://github.com/Podcastind
 
 This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `__phase` element.
 
-
 ## Usage
 
 ```sh
@@ -18,9 +17,7 @@ import fetch from "node-fetch";
 import * as pt from "podcast-partytime";
 
 // Check CORS support
-pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(
-  console.log
-);
+pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);
 
 fetch("http://mp3s.nashownotes.com/pc20rss.xml")
   .then((resp) => resp.text())
@@ -46,9 +43,7 @@ const fetch = require("node-fetch");
 const pt = require("podcast-partytime");
 
 // Check CORS support
-pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(
-  console.log
-);
+pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);
 
 fetch("http://mp3s.nashownotes.com/pc20rss.xml")
   .then((resp) => resp.text())
@@ -66,3 +61,18 @@ fetch("http://mp3s.nashownotes.com/pc20rss.xml")
   .then((resp) => resp.text())
   .then((xml) => console.log(pt.parseFeed(xml)));
 ```
+
+## Resources
+
+- [A Podcaster’s Guide to RSS](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
+- [1.0 Namespace Spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md)
+
+### Sample Feeds
+
+The sample feeds below were chosen for their varied nature. Including things like non-traditional titles, different publishers, and season usage.
+
+- [Pod Save America](https://feeds.megaphone.fm/pod-save-america)
+- [No Agenda](http://feed.nashownotes.com/rss.xml)
+- [This Week in Tech](https://feeds.twit.tv/twit.xml)
+- [Launched](https://feeds.fireside.fm/launched/rss)
+- [Antomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)

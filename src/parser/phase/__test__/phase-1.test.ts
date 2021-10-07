@@ -18,8 +18,7 @@ describe("phase 1", () => {
       );
 
       const result = parseFeed(xml);
-
-      expect(result).toHaveProperty("podcastLocked", 1);
+      expect(result).toHaveProperty("locked", true);
       expect(result).toHaveProperty("podcastOwner", "email@example.com");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
@@ -34,7 +33,7 @@ describe("phase 1", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("podcastLocked", 1);
+      expect(result).toHaveProperty("locked", true);
       expect(result).toHaveProperty("podcastOwner", "email@example.com");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
@@ -48,7 +47,7 @@ describe("phase 1", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("podcastLocked", 0);
+      expect(result).toHaveProperty("locked", false);
       expect(result).toHaveProperty("podcastOwner", "email@example.com");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
@@ -59,7 +58,7 @@ describe("phase 1", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).not.toHaveProperty("podcastLocked");
+      expect(result).not.toHaveProperty("locked");
       expect(result).not.toHaveProperty("podcastOwner");
 
       expect(helpers.getPhaseSupport(result, 1)).not.toContain(supportedName);
@@ -68,7 +67,7 @@ describe("phase 1", () => {
     it("skips missing tag", () => {
       const result = parseFeed(feed);
 
-      expect(result).not.toHaveProperty("podcastLocked");
+      expect(result).not.toHaveProperty("locked");
       expect(result).not.toHaveProperty("podcastOwner");
 
       expect(helpers.getPhaseSupport(result, 1)).not.toContain(supportedName);

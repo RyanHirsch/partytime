@@ -31,5 +31,6 @@
         "allowExpressions": true
       }
     ],
+    "no-plusplus": "off"
   }
 }

@@ -1,4 +1,5 @@
 declare type TODO = any;
+declare type XmlNode = any;
 
 /** Represents basic object type with typed values */
 declare type Obj<ValueT = any> = Record<string, ValueT>;

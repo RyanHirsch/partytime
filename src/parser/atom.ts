@@ -11,14 +11,16 @@ import {
   FeedObject,
   FeedType,
   findPubSubLinks,
+  getText,
   guessEnclosureType,
-  notUndefined,
-  pubDateToTimestamp,
+  isNotUndefined,
+  pubDateToDate,
   timeToSeconds,
 } from "./shared";
 
 export function parseAtom(theFeed: any) {
-  const timeStarted = Math.floor(Date.now() / 1000);
+  const epochDate = new Date(0);
+  const timeStarted = new Date();
 
   const feedObj: Partial<FeedObject> = {
     type: FeedType.ATOM,
@@ -103,16 +105,16 @@ export function parseAtom(theFeed: any) {
   }
 
   // Feed explicit content
-  feedObj.explicit = 0;
+  feedObj.explicit = false;
   if (
     typeof theFeed.feed["itunes:explicit"] === "string" &&
     (theFeed.feed["itunes:explicit"].toLowerCase() === "yes" ||
       theFeed.feed["itunes:explicit"].toLowerCase() === "true")
   ) {
-    feedObj.explicit = 1;
+    feedObj.explicit = true;
   }
   if (typeof theFeed.feed["itunes:explicit"] === "boolean" && theFeed.feed["itunes:explicit"]) {
-    feedObj.explicit = 1;
+    feedObj.explicit = true;
   }
 
   // Feed image
@@ -158,16 +160,17 @@ export function parseAtom(theFeed: any) {
 
         // Set up the preliminary feed object properties
         const newFeedItem: Episode = {
+          author: getText(item["itunes:author"]),
           title: item.title,
           link: "",
           itunesEpisodeType: item["itunes:episodeType"],
-          itunesExplicit: 0,
-          itunesDuration: 0,
+          explicit: false,
+          duration: 0,
           itunesSeason: null,
           itunesEpisode: 0,
           itunesImage: "",
           enclosure: enclosures[0],
-          pubDate: pubDateToTimestamp(item.updated),
+          pubDate: pubDateToDate(item.updated),
           guid: item.id,
           description: "",
           image: feedObj.image ?? "",
@@ -221,18 +224,18 @@ export function parseAtom(theFeed: any) {
           (item["itunes:explicit"].toLowerCase() === "yes" ||
             item["itunes:explicit"].toLowerCase() === "true")
         ) {
-          newFeedItem.itunesExplicit = 1;
+          newFeedItem.explicit = true;
         }
         if (typeof item["itunes:explicit"] === "boolean" && item["itunes:explicit"]) {
-          newFeedItem.itunesExplicit = 1;
+          newFeedItem.explicit = true;
         }
         if (
           typeof item["itunes:duration"] !== "undefined" &&
           typeof item["itunes:duration"] === "string"
         ) {
-          newFeedItem.itunesDuration = timeToSeconds(item["itunes:duration"]);
-          if (Number.isNaN(newFeedItem.itunesDuration)) {
-            newFeedItem.itunesDuration = 0;
+          newFeedItem.duration = timeToSeconds(item["itunes:duration"]);
+          if (Number.isNaN(newFeedItem.duration)) {
+            newFeedItem.duration = 0;
           }
         }
 
@@ -247,9 +250,9 @@ export function parseAtom(theFeed: any) {
       .filter(notUndefined);
 
     // Get the pubdate of the most recent item
-    let mostRecentPubDate = 0;
+    let mostRecentPubDate = epochDate;
     feedObj.items.forEach((item: any) => {
-      const thisPubDate = pubDateToTimestamp(item.updated);
+      const thisPubDate = pubDateToDate(item.updated);
       if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
       }
@@ -259,8 +262,8 @@ export function parseAtom(theFeed: any) {
     // Get the pubdate of the oldest item
     let oldestPubDate = mostRecentPubDate;
     feedObj.items.forEach((item: any) => {
-      const thisPubDate = pubDateToTimestamp(item.updated);
-      if (thisPubDate < oldestPubDate && thisPubDate > 0) {
+      const thisPubDate = pubDateToDate(item.updated);
+      if (thisPubDate < oldestPubDate && thisPubDate > epochDate) {
         oldestPubDate = thisPubDate;
       }
     });
@@ -272,11 +275,11 @@ export function parseAtom(theFeed: any) {
     if (typeof feedObj.lastBuildDate !== "undefined") {
       feedObj.pubDate = feedObj.lastBuildDate;
     } else {
-      feedObj.pubDate = 0;
+      feedObj.pubDate = epochDate;
     }
   }
   if (typeof feedObj.pubDate === "string") {
-    feedObj.pubDate = pubDateToTimestamp(feedObj.pubDate);
+    feedObj.pubDate = pubDateToDate(feedObj.pubDate);
   }
 
   return feedObj;

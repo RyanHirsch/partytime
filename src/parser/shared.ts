@@ -6,6 +6,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
+// import iconv from "iconv-lite";
+
 import type {
   Phase1Transcript,
   Phase1Funding,
@@ -35,6 +37,12 @@ export enum FeedType {
   BadFormat = 9,
 }
 
+enum ItunesType {
+  /** Default Specify episodic when episodes are intended to be consumed without any specific order. Apple Podcasts will present newest episodes first and display the publish date (required) of each episode. If organized into seasons, the newest season will be presented first - otherwise, episodes will be grouped by year published, newest first. */
+  Episodic = "Episodic",
+  Serial = "Serial",
+}
+
 export interface FeedObject {
   type: FeedType;
   title: string;
@@ -42,10 +50,10 @@ export interface FeedObject {
   language: string;
   generator: string;
   /** Seconds from epoch */
-  pubDate: number;
+  pubDate: Date;
   /** seconds from epoch */
-  lastBuildDate: number;
-  lastUpdate: number;
+  lastBuildDate: Date;
+  lastUpdate: Date;
 
   itunesType: TODO;
   itunesCategory: TODO[];
@@ -61,11 +69,11 @@ export interface FeedObject {
   itunesImage: string;
   image: string;
 
-  explicit: 0 | 1;
+  explicit: boolean;
 
   description: string;
 
-  podcastLocked: 0 | 1;
+  locked: boolean;
   podcastOwner: string;
 
   podcastFunding?: Phase1Funding;
@@ -82,26 +90,28 @@ export interface FeedObject {
   __phase: Record<number, string[]>;
 
   items: Episode[];
-  newestItemPubDate: number;
-  oldestItemPubDate: number;
+  newestItemPubDate: Date;
+  oldestItemPubDate: Date;
 }
 
+export type Enclosure = {
+  url: string;
+  length: number;
+  type: string;
+};
 export interface Episode {
+  author: string;
   title: string;
   link: string;
-  itunesDuration: number;
-  itunesEpisode: number;
+  duration: number;
+  itunesEpisode?: number;
   itunesEpisodeType: TODO;
-  itunesExplicit: 0 | 1;
+  explicit: boolean;
   itunesImage: string;
-  itunesSeason: TODO;
-  enclosure: {
-    url: string;
-    length: number;
-    type: string;
-  };
+  itunesSeason: number;
+  enclosure: Enclosure;
   /** Seconds from epoch */
-  pubDate: number;
+  pubDate: Date;
   guid: string;
   description: string;
   image: string;
@@ -239,6 +249,14 @@ export function pubDateToTimestamp(pubDate: number | string | Date) {
   return pubDateParsed;
 }
 
+export function pubDateToDate(pubDate: number | string | Date) {
+  if (typeof pubDate === "number") {
+    return new Date(pubDate * 1000);
+  }
+
+  return new Date(pubDate);
+}
+
 // Get a mime-type string for an unknown media enclosure
 export function guessEnclosureType(url = ""): string {
   if (url.includes(".m4v")) {
@@ -314,15 +332,45 @@ export function ensureArray<T>(maybeArr: T | T[]): T[] {
 }
 
 /** Gets the value of the XML node as text */
-export function getText(node: { "#text": string } | string): string {
+export function getText(
+  node: { "#text": string } | string,
+  { sanitize = false }: { sanitize?: boolean } = {}
+): string {
+  let text = "";
   if (typeof node === "string") {
-    return node.trim();
+    text = node.trim();
+  } else if (typeof node !== "undefined" && typeof node["#text"] === "string") {
+    text = node["#text"].trim();
+  }
+  if (text && sanitize) {
+    text = sanitizeText(text);
+  }
+  return text;
+}
+
+export function sanitizeText(text: string): string {
+  const HIGHEST_POSSIBLE_CHAR_VALUE = 127;
+  const GENERIC_REPLACEMENT_CHAR = " ";
+  const goodChars = [];
+
+  // Swap out known offenders. Add others as needed.
+  // https://unicode-table.com/en/#basic-latin
+  const strippedText = text
+    .replace(/[\u2014]/g, "--") // emdash
+    .replace(/[\u2022]/g, "*") // bullet
+    .replace(/[\u2018\u2019]/g, "'") // smart single quotes
+    .replace(/[\u201C\u201D]/g, '"'); // smart double quotes
+
+  // Strip out any other offending characters.
+  for (let i = 0; i < strippedText.length; i++) {
+    if (strippedText.charCodeAt(i) <= HIGHEST_POSSIBLE_CHAR_VALUE) {
+      goodChars.push(strippedText.charAt(i));
+    } else {
+      goodChars.push(GENERIC_REPLACEMENT_CHAR);
+    }
   }
 
-  if (typeof node !== "undefined" && typeof node["#text"] === "string") {
-    return node["#text"].trim();
-  }
-  return "";
+  return goodChars.join("");
 }
 
 /** Gets the value of the XML node as a number */

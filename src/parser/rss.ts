@@ -9,7 +9,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import { mergeWith, concat, mergeDeepRight } from "ramda";
+import mergeWith from "ramda/src/mergeWith";
+import concat from "ramda/src/concat";
+import mergeDeepRight from "ramda/src/mergeDeepRight";
 import { log } from "../logger";
 import {
   ensureArray,
@@ -17,22 +19,22 @@ import {
   findPubSubLinks,
   firstIfArray,
   getAttribute,
-  guessEnclosureType,
   PhaseUpdate,
-  pubDateToTimestamp,
+  pubDateToDate,
   RSSFeed,
   sanitizeUrl,
-  timeToSeconds,
 } from "./shared";
 import type { FeedObject, Episode } from "./shared";
 import { updateFeed, updateItem } from "./phase";
+import { handleItem, isValidItem } from "./item";
 
 export function parseRss(theFeed: any) {
+  const epochDate = new Date(0);
   if (typeof theFeed.rss.channel === "undefined") {
     return null;
   }
 
-  const timeStarted = Math.floor(Date.now() / 1000);
+  const timeStarted = new Date();
 
   let feedObj: Partial<FeedObject> = {
     type: FeedType.RSS,
@@ -47,7 +49,7 @@ export function parseRss(theFeed: any) {
     pubsub: findPubSubLinks(theFeed.rss.channel),
     categories: getPodcastCategories(theFeed),
     // podcastLocked: 0,
-    lastUpdate: Math.floor(Date.now() / 1000),
+    lastUpdate: new Date(),
     value: {},
   };
   let phaseSupport: PhaseUpdate = {};
@@ -145,7 +147,7 @@ export function parseRss(theFeed: any) {
   feedObj.image = sanitizeUrl(feedObj.image);
 
   // Feed explicit content
-  feedObj.explicit = 0;
+  feedObj.explicit = false;
   if (Array.isArray(theFeed.rss.channel["itunes:explicit"])) {
     // eslint-disable-next-line prefer-destructuring, no-param-reassign
     theFeed.rss.channel["itunes:explicit"] = theFeed.rss.channel["itunes:explicit"][0];
@@ -155,13 +157,13 @@ export function parseRss(theFeed: any) {
     (theFeed.rss.channel["itunes:explicit"].toLowerCase() === "yes" ||
       theFeed.rss.channel["itunes:explicit"].toLowerCase() === "true")
   ) {
-    feedObj.explicit = 1;
+    feedObj.explicit = true;
   }
   if (
     typeof theFeed.rss.channel["itunes:explicit"] === "boolean" &&
     theFeed.rss.channel["itunes:explicit"]
   ) {
-    feedObj.explicit = 1;
+    feedObj.explicit = true;
   }
 
   // Feed description
@@ -276,124 +278,11 @@ export function parseRss(theFeed: any) {
 
     feedObj.items = theFeed.rss.channel.item
       .map((item: any): Episode | undefined => {
-        let itemguid = "";
-
-        // If there is no enclosure, just skip this item and move on to the next
-        if (typeof item.enclosure !== "object") {
-          log.warn("Item has no enclosure, skipping it.");
+        if (!isValidItem(item)) {
           return undefined;
         }
 
-        // If there is more than one enclosure in the item, just get the first one
-        const enclosure = firstIfArray(item.enclosure);
-        log.trace(enclosure);
-
-        // If there is no guid in the item, then skip this item and move on
-        if (typeof item.guid !== "undefined") {
-          itemguid = item.guid;
-          if (typeof item.guid["#text"] === "string") {
-            itemguid = item.guid["#text"];
-          }
-        }
-        if (typeof itemguid !== "string" || itemguid === "") {
-          log.warn("Item has no guid, skipping it.");
-          return undefined;
-        }
-
-        let newFeedItem: Episode = {
-          title: item.title,
-          link: item.link,
-          itunesImage: "",
-          itunesDuration: 0,
-          itunesEpisode: item["itunes:episode"],
-          itunesEpisodeType: item["itunes:episodeType"],
-          itunesSeason: item["itunes:season"],
-          itunesExplicit: 0,
-          enclosure: {
-            url: getAttribute(enclosure, "url") ?? "",
-            length: parseInt(getAttribute(enclosure, "length") ?? "0", 10),
-            type: getAttribute(enclosure, "type") ?? "",
-          },
-          pubDate: pubDateToTimestamp(item.pubDate),
-          guid: itemguid,
-          description: "",
-          image: "",
-        };
-
-        // Item title
-        if (typeof item.title === "string") {
-          newFeedItem.title = item.title.trim();
-        } else {
-          newFeedItem.title = "";
-        }
-        if (typeof item["itunes:title"] !== "undefined" && item["itunes:title"]) {
-          newFeedItem.title = item["itunes:title"];
-        }
-
-        // Item link
-        if (typeof item.link === "object") {
-          if (typeof item.link["#text"] === "string") {
-            newFeedItem.link = item.link["#text"];
-          }
-          if (
-            typeof item.link.attr !== "undefined" &&
-            (typeof item.link.attr["@_href"] === "string" || item.link.attr["@_href"] !== "")
-          ) {
-            newFeedItem.link = item.link.attr["@_href"];
-          }
-        }
-        if (typeof item.link !== "string") {
-          newFeedItem.link = "";
-        }
-
-        // Item image
-        let itunesImage = "";
-        if (typeof item["itunes:image"] === "object") {
-          if (typeof item["itunes:image"].url === "string") {
-            itunesImage = item["itunes:image"].url;
-          }
-          if (
-            typeof item["itunes:image"].attr !== "undefined" &&
-            typeof item["itunes:image"].attr["@_href"] === "string"
-          ) {
-            itunesImage = item["itunes:image"].attr["@_href"];
-          }
-        }
-        if (typeof item["itunes:image"] === "string") {
-          itunesImage = item["itunes:image"];
-        }
-        newFeedItem.itunesImage = sanitizeUrl(itunesImage);
-
-        let image = "";
-        if (typeof item.image !== "undefined" && typeof item.image.url === "string") {
-          image = item.image.url;
-        }
-        if (!image && newFeedItem.itunesImage) {
-          image = newFeedItem.itunesImage;
-        }
-        newFeedItem.image = sanitizeUrl(image);
-
-        // Itunes specific stuff
-        if (
-          typeof item["itunes:explicit"] === "string" &&
-          (item["itunes:explicit"].toLowerCase() === "yes" ||
-            item["itunes:explicit"].toLowerCase() === "true")
-        ) {
-          newFeedItem.itunesExplicit = 1;
-        }
-        if (typeof item["itunes:explicit"] === "boolean" && item["itunes:explicit"]) {
-          newFeedItem.itunesExplicit = 1;
-        }
-        if (typeof item["itunes:duration"] !== "undefined") {
-          if (typeof item["itunes:duration"] === "string") {
-            newFeedItem.itunesDuration = timeToSeconds(item["itunes:duration"]);
-            if (Number.isNaN(newFeedItem.itunesDuration)) {
-              newFeedItem.itunesDuration = 0;
-            }
-          } else if (typeof item["itunes:duration"] === "number") {
-            newFeedItem.itunesDuration = item["itunes:duration"];
-          }
-        }
+        let newFeedItem: Episode = handleItem(item, feedObj);
 
         if (typeof item.itunesEpisode === "string") {
           const parsedString = item.itunesEpisode.replace(/\D/g, "");
@@ -439,12 +328,12 @@ export function parseRss(theFeed: any) {
         }
 
         // Enclosure
-        if (Number.isNaN(parseInt(enclosure.attr["@_length"], 10))) {
-          newFeedItem.enclosure.length = 0;
-        }
-        if (typeof enclosure.attr["@_type"] === "undefined" || !enclosure.attr["@_type"]) {
-          newFeedItem.enclosure.type = guessEnclosureType(enclosure.attr["@_url"]);
-        }
+        // if (Number.isNaN(parseInt(enclosure.attr["@_length"], 10))) {
+        //   newFeedItem.enclosure.length = 0;
+        // }
+        // if (typeof enclosure.attr["@_type"] === "undefined" || !enclosure.attr["@_type"]) {
+        //   newFeedItem.enclosure.type = guessEnclosureType(enclosure.attr["@_url"]);
+        // }
 
         // Item Phase Support
         const itemResult = updateItem(item, theFeed);
@@ -456,9 +345,9 @@ export function parseRss(theFeed: any) {
       .filter((x: Episode | undefined) => x);
 
     // Get the pubdate of the most recent item
-    let mostRecentPubDate = 0;
+    let mostRecentPubDate = epochDate;
     feedObj.items?.forEach(function (item: any) {
-      const thisPubDate = pubDateToTimestamp(item.pubDate);
+      const thisPubDate = pubDateToDate(item.pubDate);
       if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
       }
@@ -468,8 +357,8 @@ export function parseRss(theFeed: any) {
     // Get the pubdate of the oldest item
     let oldestPubDate = mostRecentPubDate;
     feedObj.items?.forEach(function (item: any) {
-      const thisPubDate = pubDateToTimestamp(item.pubDate);
-      if (thisPubDate < oldestPubDate && thisPubDate > 0) {
+      const thisPubDate = pubDateToDate(item.pubDate);
+      if (thisPubDate < oldestPubDate && thisPubDate > epochDate) {
         oldestPubDate = thisPubDate;
       }
     });
@@ -482,19 +371,19 @@ export function parseRss(theFeed: any) {
   let pubDate = firstIfArray(theFeed.rss.channel.pubDate);
   // Make sure we have a valid pubdate if possible
   if (typeof pubDate === "string") {
-    pubDate = pubDateToTimestamp(pubDate);
+    pubDate = pubDateToDate(pubDate);
   }
 
-  if (!pubDate || Number.isNaN(pubDate)) {
+  if (!pubDate || Number.isNaN(pubDate.getTime())) {
     if (typeof feedObj.lastBuildDate !== "string") {
-      pubDate = 0;
+      pubDate = epochDate;
     } else {
-      pubDate = pubDateToTimestamp(feedObj.lastBuildDate);
+      pubDate = pubDateToDate(feedObj.lastBuildDate);
     }
   }
   if (
-    typeof feedObj.newestItemPubDate === "number" &&
-    (typeof pubDate !== "number" || pubDate === 0)
+    typeof feedObj.newestItemPubDate === "object" &&
+    (typeof pubDate !== "object" || pubDate === epochDate)
   ) {
     pubDate = feedObj.newestItemPubDate;
   }
