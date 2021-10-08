@@ -130,7 +130,7 @@ export interface Episode {
   itunesImage: string;
   itunesSeason?: number;
   keywords?: string[];
-  pubDate: Date;
+  pubDate?: Date;
   guid: string;
   description: string;
   image: string;
@@ -268,12 +268,19 @@ export function pubDateToTimestamp(pubDate: number | string | Date) {
   return pubDateParsed;
 }
 
-export function pubDateToDate(pubDate: number | string | Date) {
+export function pubDateToDate(pubDate: number | string | Date): Date | null {
   if (typeof pubDate === "number") {
-    return new Date(pubDate * 1000);
+    if (new Date(pubDate).getFullYear() === 1970) {
+      return new Date(pubDate * 1000);
+    }
+    return new Date(pubDate);
   }
 
-  return new Date(pubDate);
+  const dateFromString = new Date(pubDate);
+  if (Number.isNaN(dateFromString.getTime())) {
+    return null;
+  }
+  return dateFromString;
 }
 
 // Get a mime-type string for an unknown media enclosure
@@ -343,6 +350,20 @@ export function firstIfArray<T>(maybeArr: T | T[]): T {
   return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
 }
 
+export function firstWithValue<T>(maybeArr: T | T[]): T | null {
+  return (
+    ensureArray(maybeArr).find(
+      (x) => x && (getText(x as any) || getNumber(x as any) || typeof x === "boolean")
+    ) ?? null
+  );
+}
+
+export function firstWithAttributes<T>(maybeArr: T | T[], attrs: string[]): T | null {
+  return (
+    ensureArray(maybeArr).find((x) => x && attrs.every((a) => hasAttribute(x as any, a))) ?? null
+  );
+}
+
 export function ensureArray<T>(maybeArr: T | T[]): T[] {
   if (typeof maybeArr === "undefined") {
     return [];
@@ -358,7 +379,7 @@ export function getText(
   let text = "";
   if (typeof node === "string") {
     text = node.trim();
-  } else if (typeof node !== "undefined" && typeof node["#text"] === "string") {
+  } else if (typeof node !== "undefined" && node !== null && typeof node["#text"] === "string") {
     text = node["#text"].trim();
   }
   if (text && sanitize) {
@@ -401,20 +422,31 @@ export function sanitizeText(text: string): string {
 }
 
 /** Gets the value of the XML node as a number */
-export function getNumber(node: { "#text": number }): number | null {
-  if (typeof node !== "undefined" && typeof node["#text"] === "number") {
-    return node["#text"];
-  }
+export function getNumber(node: { "#text": number } | number): number | null {
   if (typeof node === "number") {
     return node;
   }
+  if (typeof node !== "undefined" && node && typeof node["#text"] === "number") {
+    return node["#text"];
+  }
   return null;
+}
+
+function hasAttribute(node: { attr: Record<string, string> }, name: string): boolean {
+  if (typeof node !== "undefined" && node && typeof node.attr === "object") {
+    if (typeof node.attr[`@_${name}`] === "string") {
+      return Boolean(node.attr[`@_${name}`].trim());
+    }
+    return typeof node.attr[`@_${name}`] === "number";
+  }
+  return false;
 }
 
 /** Gets the attribute value from a give node. Returns null if the attribute does not exist */
 export function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
   if (
     typeof node !== "undefined" &&
+    node &&
     typeof node.attr === "object" &&
     typeof node.attr[`@_${name}`] === "string"
   ) {

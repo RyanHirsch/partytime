@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { parseFeed } from "../index";
 import { ItunesEpisodeType } from "../shared";
 import * as helpers from "./helpers";
@@ -41,6 +42,7 @@ describe("item handling", () => {
       expect(first).not.toHaveProperty("itunesEpisodeType");
       expect(first).not.toHaveProperty("itunesSeason");
       expect(first).not.toHaveProperty("keywords");
+      expect(first).not.toHaveProperty("pubDate");
     });
 
     it("handles invalid item (missing guid)", () => {
@@ -73,6 +75,7 @@ describe("item handling", () => {
       expect(result.items).toHaveLength(0);
     });
   });
+
   describe("title", () => {
     it("extracts title node text", () => {
       const xml = helpers.spliceFeed(
@@ -90,6 +93,44 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first).toHaveProperty("title", "Test 123");
+    });
+
+    it("extracts first title node text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>Test 123</title>
+          <title>Test 345</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("title", "Test 123");
+    });
+
+    it("extracts first title node text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title></title>
+          <title>Test 345</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("title", "Test 345");
     });
 
     it("sanitizes new lines ", () => {
@@ -262,6 +303,7 @@ describe("item handling", () => {
   });
 
   describe("itunes image", () => {
+    it.todo("Test multiple image nodes");
     it("extracts node text", () => {
       const xml = helpers.spliceFeed(
         feed,
@@ -697,6 +739,78 @@ describe("item handling", () => {
       );
     });
 
+    it("skips invalid enclosure nodes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure>Test</enclosure>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 76606111,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
+    it("skips invalid enclosure nodes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure length="76606111" type="audio/mpeg"/>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 76606111,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
+    it("skips empty enclosure nodes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure />
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 76606111,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
     it("defaults length to 0", () => {
       const xml = helpers.spliceFeed(
         feed,
@@ -850,6 +964,118 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first.keywords).toEqual(expect.arrayContaining(["Indie Developer"]));
+    });
+  });
+
+  describe("guid", () => {
+    it("extracts from a text node", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("guid", "https://example.com/ep0003");
+    });
+
+    it("extracts a CDATA wrapped value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="false">
+          <![CDATA[ b041c394-4ed9-11eb-aeb1-5ba5c22318e1 ]]>
+          </guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("guid", "b041c394-4ed9-11eb-aeb1-5ba5c22318e1");
+    });
+  });
+
+  describe("pubdate", () => {
+    it("extracts the publish date value and produces a Date", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <pubDate>Thu, 30 Sep 2021 21:19:00 -0000</pubDate>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("pubDate", new Date("Thu, 30 Sep 2021 21:19:00 -0000"));
+    });
+
+    it("handles seconds since epoch", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <pubDate>1633704259</pubDate>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("pubDate", new Date(1633704259 * 1000));
+    });
+
+    it("handles milliseconds since epoch", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <pubDate>1633704259000</pubDate>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("pubDate", new Date(1633704259 * 1000));
+    });
+
+    it("handles bad values", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <pubDate>eleven</pubDate>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).not.toHaveProperty("pubDate");
     });
   });
 });

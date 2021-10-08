@@ -9,6 +9,8 @@ import {
   ensureArray,
   Episode,
   FeedObject,
+  firstWithAttributes,
+  firstWithValue,
   getAttribute,
   getKnownAttribute,
   getNumber,
@@ -25,7 +27,7 @@ import {
 
 export function isValidItem(item: XmlNode): boolean {
   // If there is no enclosure, just skip this item and move on to the next
-  if (typeof item.enclosure !== "object") {
+  if (!getEnclosure(item)) {
     log.warn("Item has no enclosure, skipping it.");
     return false;
   }
@@ -41,64 +43,69 @@ export function isValidItem(item: XmlNode): boolean {
 
 /** If an item guid is empty, its considered invalid and will be skipped */
 function getGuid(item: XmlNode): string {
-  return getText(item.guid);
+  const node = firstWithValue(item.guid);
+  return getText(node);
 }
 
-function getEnclosure(item: XmlNode): Enclosure {
-  const enclosure = ensureArray(item.enclosure).find((i) => getAttribute(i, "url"));
-  return {
-    url: getKnownAttribute(enclosure, "url"),
-    length: parseInt(getAttribute(enclosure, "length") ?? "0", 10),
-    type:
-      getAttribute(enclosure, "type") ?? guessEnclosureType(getKnownAttribute(enclosure, "url")),
-  };
+function getEnclosure(item: XmlNode): Enclosure | null {
+  const node = firstWithAttributes(item.enclosure, ["url"]);
+  if (node) {
+    return {
+      url: getKnownAttribute(node, "url"),
+      length: parseInt(getAttribute(node, "length") ?? "0", 10),
+      type: getAttribute(node, "type") ?? guessEnclosureType(getKnownAttribute(node, "url")),
+    };
+  }
+  return null;
 }
 
 function getAuthor(item: XmlNode): string {
-  return getText(item.author) || getText(item["itunes:author"]);
+  const node = firstWithValue(item.author);
+  const fallbackNode = firstWithValue(item["itunes:author"]);
+  return getText(node) || getText(fallbackNode);
 }
 
 function getTitle(item: XmlNode): string {
-  return sanitizeMultipleSpaces(
-    sanitizeNewLines(getText(item.title) || getText(item["itunes:title"]))
-  );
+  const node = firstWithValue(item.title);
+  const fallbackNode = firstWithValue(item["itunes:title"]);
+  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
 }
 
 function getLink(item: XmlNode): string {
-  return getText(item.link) || getAttribute(item.link, "href") || "";
+  const node = firstWithValue(item.link) || firstWithAttributes(item.link, ["href"]);
+  return getText(node) || getAttribute(node, "href") || "";
 }
 
 function getItunesImage(item: XmlNode): string {
-  const imageNode = item["itunes:image"];
-  if (!imageNode) {
+  const node = item["itunes:image"];
+  if (!node) {
     return "";
   }
 
-  return sanitizeUrl(
-    getText(imageNode) || getAttribute(imageNode, "href") || getText(imageNode.url)
-  );
+  return sanitizeUrl(getText(node) || getAttribute(node, "href") || getText(node.url));
 }
 
 function getImage(item: XmlNode): string {
-  return sanitizeUrl(getText(item.image?.url) || getItunesImage(item));
+  const node = item.image;
+  return sanitizeUrl(getText(node?.url) || getItunesImage(item));
 }
 
 function getExplicit(item: XmlNode): boolean {
-  const explicitNode = item["itunes:explicit"];
-  const explicitNodeText = getText(explicitNode).toLowerCase();
+  const node = firstWithValue(item["itunes:explicit"]);
+  const nodeText = getText(node).toLowerCase();
 
-  if (["yes", "true"].includes(explicitNodeText)) {
+  if (["yes", "true"].includes(nodeText)) {
     return true;
   }
-  if (typeof explicitNode === "boolean" && explicitNode) {
+  if (typeof node === "boolean" && node) {
     return true;
   }
   return false;
 }
 
 function getDuration(item: XmlNode): number {
-  const durationValue =
-    (getText(item["itunes:duration"]) || getNumber(item["itunes:duration"])) ?? 0;
+  const node = firstWithValue(item["itunes:duration"]);
+  const durationValue = (getText(node) || getNumber(node)) ?? 0;
 
   if (typeof durationValue === "string") {
     const seconds = timeToSeconds(durationValue);
@@ -108,7 +115,8 @@ function getDuration(item: XmlNode): number {
 }
 
 function getItunesEpisode(item: XmlNode): undefined | { itunesEpisode: number } {
-  const episodeValue = getText(item["itunes:episode"]) || getNumber(item["itunes:episode"]);
+  const node = firstWithValue(item["itunes:episode"]);
+  const episodeValue = getText(node) || getNumber(node);
   if (typeof episodeValue === "string") {
     const parsedString = episodeValue.replace(/\D/g, "");
     if (parsedString) {
@@ -121,7 +129,8 @@ function getItunesEpisode(item: XmlNode): undefined | { itunesEpisode: number } 
 }
 
 function getItunesSeason(item: XmlNode): undefined | { itunesSeason: number } {
-  const value = getText(item["itunes:season"]) || getNumber(item["itunes:season"]);
+  const node = firstWithValue(item["itunes:season"]);
+  const value = getText(node) || getNumber(node);
   if (typeof value === "string") {
     const parsedString = value.replace(/\D/g, "");
     if (parsedString) {
@@ -134,7 +143,8 @@ function getItunesSeason(item: XmlNode): undefined | { itunesSeason: number } {
 }
 
 function getItunesEpisodeType(item: XmlNode): undefined | { itunesEpisodeType: ItunesEpisodeType } {
-  const typeValue = getText(item["itunes:episodeType"]).toLowerCase();
+  const node = firstWithValue(item["itunes:episodeType"]);
+  const typeValue = getText(node).toLowerCase();
   const episodeType = lookup(ItunesEpisodeType, typeValue);
 
   if (episodeType) {
@@ -145,7 +155,8 @@ function getItunesEpisodeType(item: XmlNode): undefined | { itunesEpisodeType: I
 }
 
 function getKeywords(item: XmlNode): undefined | { keywords: string[] } {
-  const keywords = getText(item["itunes:keywords"]);
+  const node = firstWithValue(item["itunes:keywords"]);
+  const keywords = getText(node);
   if (keywords) {
     const parsed = keywords
       .split(",")
@@ -159,21 +170,35 @@ function getKeywords(item: XmlNode): undefined | { keywords: string[] } {
   return undefined;
 }
 
+function getPubDate(item: XmlNode): undefined | { pubDate: Date } {
+  const node = firstWithValue(item.pubDate);
+  const value = getText(node) || getNumber(node);
+
+  if (value) {
+    const parsed = pubDateToDate(value);
+    if (parsed) {
+      return { pubDate: parsed };
+    }
+  }
+  return undefined;
+}
+
 export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
   return {
+    guid: getGuid(item),
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    enclosure: getEnclosure(item)!,
     author: getAuthor(item),
     title: getTitle(item),
     link: getLink(item),
     itunesImage: getItunesImage(item),
     duration: getDuration(item),
     explicit: getExplicit(item),
-    enclosure: getEnclosure(item),
     ...getItunesEpisode(item),
     ...getItunesEpisodeType(item),
     ...getItunesSeason(item),
     ...getKeywords(item),
-    pubDate: pubDateToDate(item.pubDate),
-    guid: getGuid(item),
+    ...getPubDate(item),
     description: "",
     image: getImage(item),
   };
