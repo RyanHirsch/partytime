@@ -241,6 +241,18 @@ function getSummary(item: XmlNode): undefined | { summary: string } {
   return undefined;
 }
 
+function getSubtitle(item: XmlNode): undefined | { subtitle: string } {
+  const node = firstWithValue(item["itunes:subtitle"]);
+  if (node) {
+    const value = sanitizeNewLines(sanitizeMultipleSpaces(getText(node)));
+    if (value) {
+      return { subtitle: value };
+    }
+  }
+
+  return undefined;
+}
+
 export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
   return {
     guid: getGuid(item),
@@ -260,5 +272,6 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     ...getImage(item),
     ...getSummary(item),
     ...getDescription(item),
+    ...getSubtitle(item),
   };
 }

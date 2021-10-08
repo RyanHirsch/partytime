@@ -47,6 +47,7 @@ describe("item handling", () => {
       expect(first).not.toHaveProperty("pubDate");
       expect(first).not.toHaveProperty("description");
       expect(first).not.toHaveProperty("summary");
+      expect(first).not.toHaveProperty("subtitle");
     });
 
     it("handles one item", () => {
@@ -79,6 +80,7 @@ describe("item handling", () => {
       expect(first).not.toHaveProperty("keywords");
       expect(first).not.toHaveProperty("pubDate");
       expect(first).not.toHaveProperty("summary");
+      expect(first).not.toHaveProperty("subtitle");
     });
 
     it("handles invalid item (missing guid)", () => {
@@ -1458,6 +1460,88 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first).toHaveProperty("summary", "bye");
+    });
+  });
+
+  describe("subtitle", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>hi</title>
+          <itunes:subtitle>beep </itunes:subtitle>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("subtitle", "beep");
+    });
+
+    it("ignores empty values", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>hi</title>
+          <itunes:subtitle></itunes:subtitle>
+          <itunes:subtitle>bye</itunes:subtitle>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("subtitle", "bye");
+    });
+
+    it("removes newlines", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>hi</title>
+          <itunes:subtitle></itunes:subtitle>
+          <itunes:subtitle>bye
+people</itunes:subtitle>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("subtitle", "bye people");
+    });
+
+    it("cleans up multiple spaces", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>hi</title>
+          <itunes:subtitle></itunes:subtitle>
+          <itunes:subtitle>bye        there</itunes:subtitle>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("subtitle", "bye there");
     });
   });
 });

@@ -122,6 +122,7 @@ export type Enclosure = {
 export interface Episode {
   author: string;
   title?: string;
+  subtitle?: string;
   link: string;
   duration: number;
   enclosure: Enclosure;
@@ -391,7 +392,7 @@ export function getText(
 }
 
 export function sanitizeNewLines(text: string): string {
-  return text.replace(/(\r\n|\n|\r)/gm, "");
+  return text.replace(/(\r\n|\n|\r)/gm, " ");
 }
 
 export function sanitizeMultipleSpaces(text: string): string {
