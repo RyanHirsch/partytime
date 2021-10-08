@@ -127,13 +127,13 @@ export interface Episode {
   itunesEpisode?: number;
   itunesEpisodeType?: ItunesEpisodeType;
   explicit: boolean;
-  itunesImage: string;
+  itunesImage?: string;
   itunesSeason?: number;
   keywords?: string[];
   pubDate?: Date;
   guid: string;
   description: string;
-  image: string;
+  image?: string;
   podcastChapters?: Phase1Chapter;
   podcastSoundbites?: Phase1SoundBite[];
   podcastTranscripts?: Phase1Transcript[];

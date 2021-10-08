@@ -49,6 +49,8 @@ export function isValidItem(item: XmlNode): boolean {
 
 /** If an item guid is empty, its considered invalid and will be skipped */
 function getGuid(item: XmlNode): string {
+  // The guid node also has a isPermaLink attribute which is being ignored
+  // https://validator.w3.org/feed/docs/error/InvalidPermalink.html
   const node = firstWithValue(item.guid);
   return getText(node);
 }
@@ -87,18 +89,30 @@ function getLink(item: XmlNode): string {
   return getText(node) || getAttribute(node, "href") || "";
 }
 
-function getItunesImage(item: XmlNode): string {
-  const node = item["itunes:image"];
-  if (!node) {
-    return "";
+function getItunesImage(item: XmlNode): undefined | { itunesImage: string } {
+  const image = ensureArray(item["itunes:image"]).find(
+    (n) => getText(n) || getAttribute(n, "href") || getText(n?.url)
+  );
+  if (!image) {
+    return undefined;
   }
 
-  return sanitizeUrl(getText(node) || getAttribute(node, "href") || getText(node.url));
+  return {
+    itunesImage: sanitizeUrl(getText(image) || getAttribute(image, "href") || getText(image.url)),
+  };
 }
 
-function getImage(item: XmlNode): string {
-  const node = item.image;
-  return sanitizeUrl(getText(node?.url) || getItunesImage(item));
+function getImage(item: XmlNode): undefined | { image: string } {
+  const node = ensureArray(item.image).find((n) => getText(n?.url));
+  const image = sanitizeUrl(getText(node?.url));
+  if (image) {
+    return { image };
+  }
+  const itunesImage = getItunesImage(item);
+  if (itunesImage) {
+    return { image: itunesImage.itunesImage };
+  }
+  return undefined;
 }
 
 function getExplicit(item: XmlNode): boolean {
@@ -202,15 +216,15 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     author: getAuthor(item),
     title: getTitle(item),
     link: getLink(item),
-    itunesImage: getItunesImage(item),
     duration: getDuration(item),
     explicit: getExplicit(item),
+    ...getItunesImage(item),
     ...getItunesEpisode(item),
     ...getItunesEpisodeType(item),
     ...getItunesSeason(item),
     ...getKeywords(item),
     ...getPubDate(item),
+    ...getImage(item),
     description: getDescription(item),
-    image: getImage(item),
   };
 }

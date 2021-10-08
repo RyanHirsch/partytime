@@ -36,9 +36,10 @@ describe("item handling", () => {
       expect(first).toHaveProperty("author", "");
       expect(first).toHaveProperty("title", "Test");
       expect(first).toHaveProperty("link", "");
-      expect(first).toHaveProperty("itunesImage", "");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("itunesImage");
+      expect(first).not.toHaveProperty("image");
       expect(first).not.toHaveProperty("itunesEpisode");
       expect(first).not.toHaveProperty("itunesEpisodeType");
       expect(first).not.toHaveProperty("itunesSeason");
@@ -66,9 +67,10 @@ describe("item handling", () => {
       expect(first).toHaveProperty("title", "");
       expect(first).toHaveProperty("description", "This is a Test");
       expect(first).toHaveProperty("link", "");
-      expect(first).toHaveProperty("itunesImage", "");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("itunesImage");
+      expect(first).not.toHaveProperty("image");
       expect(first).not.toHaveProperty("itunesEpisode");
       expect(first).not.toHaveProperty("itunesEpisodeType");
       expect(first).not.toHaveProperty("itunesSeason");
@@ -357,8 +359,107 @@ describe("item handling", () => {
     });
   });
 
+  describe("image", () => {
+    it("falls back to itunes image", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <itunes:image>asfd</itunes:image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("image", "asfd");
+    });
+
+    it("extract url text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <image><url>asfd</url></image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("image", "asfd");
+    });
+
+    it("handles duplications", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <image><url>yep</url></image>
+          <image><url>asfd</url></image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("image", "yep");
+    });
+
+    it("handles bad nodes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <image></image>
+          <image><url>asfd</url></image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("image", "asfd");
+    });
+
+    it("prioritizes vs itunes:image", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <itunes:image>hello</itunes:image>
+          <image><url>there</url></image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("image", "there");
+    });
+  });
+
   describe("itunes image", () => {
-    it.todo("Test multiple image nodes");
     it("extracts node text", () => {
       const xml = helpers.spliceFeed(
         feed,
@@ -456,6 +557,66 @@ describe("item handling", () => {
 
       expect(example).toHaveLength(769);
       expect(first.itunesImage).toHaveLength(768);
+    });
+
+    it("skips bad nodes (empty href)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <item>
+            <itunes:title>a</itunes:title>
+            <itunes:image href=""></itunes:image>
+            <itunes:image href="sdgf"></itunes:image>
+            <guid isPermaLink="true">https://example.com/ep0003</guid>
+            <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          </item>
+          `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesImage", "sdgf");
+    });
+
+    it("skips bad nodes (empty text)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <item>
+            <itunes:title>a</itunes:title>
+            <itunes:image></itunes:image>
+            <itunes:image>sdgf</itunes:image>
+            <guid isPermaLink="true">https://example.com/ep0003</guid>
+            <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          </item>
+          `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesImage", "sdgf");
+    });
+
+    it("falls back to a nested url text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:title>a</itunes:title>
+          <itunes:image></itunes:image>
+          <itunes:image><url>ccc</url></itunes:image>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesImage", "ccc");
     });
   });
 

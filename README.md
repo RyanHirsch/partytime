@@ -64,6 +64,8 @@ fetch("http://mp3s.nashownotes.com/pc20rss.xml")
 
 ## Resources
 
+- [RSS 2.0 at Harvard Law](https://cyber.harvard.edu/rss/rss.html)
+- [W3C RSS](https://validator.w3.org/feed/docs/rss2.html)
 - [A Podcaster’s Guide to RSS](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)
 - [1.0 Namespace Spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md)
 
