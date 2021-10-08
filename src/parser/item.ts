@@ -97,12 +97,9 @@ function getDescription(item: XmlNode): undefined | { description: string } {
     }
   }
 
-  const summaryNode = firstWithValue(item["itunes:summary"]);
-  if (summaryNode) {
-    const summaryValue = getText(summaryNode);
-    if (summaryValue) {
-      return { description: summaryValue };
-    }
+  const summary = getSummary(item);
+  if (summary) {
+    return { description: summary.summary };
   }
 
   return undefined;
@@ -232,6 +229,18 @@ function getPubDate(item: XmlNode): undefined | { pubDate: Date } {
   return undefined;
 }
 
+function getSummary(item: XmlNode): undefined | { summary: string } {
+  const node = firstWithValue(item["itunes:summary"]);
+  if (node) {
+    const summaryValue = getText(node);
+    if (summaryValue) {
+      return { summary: summaryValue };
+    }
+  }
+
+  return undefined;
+}
+
 export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
   return {
     guid: getGuid(item),
@@ -249,6 +258,7 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     ...getKeywords(item),
     ...getPubDate(item),
     ...getImage(item),
+    ...getSummary(item),
     ...getDescription(item),
   };
 }

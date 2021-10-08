@@ -129,6 +129,7 @@ export interface Episode {
   itunesEpisodeType?: ItunesEpisodeType;
   explicit: boolean;
   itunesImage?: string;
+  summary?: string;
   itunesSeason?: number;
   keywords?: string[];
   pubDate?: Date;
