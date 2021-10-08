@@ -284,23 +284,6 @@ export function parseRss(theFeed: any) {
 
         let newFeedItem: Episode = handleItem(item, feedObj);
 
-        if (typeof item.itunesEpisode === "string") {
-          const parsedString = item.itunesEpisode.replace(/\D/g, "");
-          if (parsedString) {
-            newFeedItem.itunesEpisode = parseInt(parsedString, 10);
-          }
-        }
-
-        if (Array.isArray(item.itunesEpisodeType)) {
-          // eslint-disable-next-line prefer-destructuring
-          newFeedItem.itunesEpisodeType = item.itunesEpisodeType[0];
-        }
-        if (
-          typeof item.itunesEpisodeType === "object" &&
-          typeof item.itunesEpisodeType["#text"] === "string"
-        ) {
-          newFeedItem.itunesEpisodeType = item.itunesEpisodeType["#text"];
-        }
         if (Array.isArray(item.itunesSeason)) {
           // eslint-disable-next-line prefer-destructuring
           newFeedItem.itunesSeason = item.itunesSeason[0];

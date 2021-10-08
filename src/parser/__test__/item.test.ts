@@ -1,4 +1,5 @@
 import { parseFeed } from "../index";
+import { ItunesEpisodeType } from "../shared";
 import * as helpers from "./helpers";
 
 describe("item handling", () => {
@@ -36,7 +37,7 @@ describe("item handling", () => {
       expect(first).toHaveProperty("itunesImage", "");
       expect(first).toHaveProperty("duration", 0);
       expect(first).not.toHaveProperty("itunesEpisode");
-      expect(first).toHaveProperty("itunesEpisodeType", "");
+      expect(first).not.toHaveProperty("itunesEpisodeType");
       expect(first).toHaveProperty("itunesSeason", 0);
       expect(first).toHaveProperty("explicit", false);
     });
@@ -78,6 +79,25 @@ describe("item handling", () => {
         `
         <item>
           <title>Test 123</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("title", "Test 123");
+    });
+
+    it("sanitizes new lines ", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>Test
+           123</title>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -463,6 +483,80 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first).toHaveProperty("itunesEpisode", 1);
+    });
+  });
+
+  describe("itunesEpisodeType", () => {
+    it("matches full", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:episodeType>full</itunes:episodeType>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesEpisodeType", ItunesEpisodeType.Full);
+    });
+
+    it("does case-insenstive matches", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:episodeType>fuLL</itunes:episodeType>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesEpisodeType", ItunesEpisodeType.Full);
+    });
+
+    it("matches trailer", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:episodeType>trailer</itunes:episodeType>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesEpisodeType", ItunesEpisodeType.Trailer);
+    });
+
+    it("matches bonus", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:episodeType>bonus</itunes:episodeType>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesEpisodeType", ItunesEpisodeType.Bonus);
     });
   });
 });

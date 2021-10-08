@@ -37,10 +37,29 @@ export enum FeedType {
   BadFormat = 9,
 }
 
-enum ItunesType {
-  /** Default Specify episodic when episodes are intended to be consumed without any specific order. Apple Podcasts will present newest episodes first and display the publish date (required) of each episode. If organized into seasons, the newest season will be presented first - otherwise, episodes will be grouped by year published, newest first. */
-  Episodic = "Episodic",
-  Serial = "Serial",
+export enum ItunesFeedType {
+  /**
+   * Default Specify episodic when episodes are intended to be consumed without any specific order. Apple
+   * Podcasts will present newest episodes first and display the publish date (required) of each episode. If
+   * organized into seasons, the newest season will be presented first - otherwise, episodes will be grouped
+   * by year published, newest first.
+   */
+  Episodic = "episodic",
+  /** Specify serial when episodes are intended to be consumed in sequential order. Apple Podcasts will
+   * present the oldest episodes first and display the episode numbers (required) of each episode. If
+   * organized into seasons, the newest season will be presented first and <itunes:episode> numbers must be
+   * given for each episode.
+   *
+   * For new subscribers, Apple Podcasts adds the first episode to their Library, or the entire current season
+   * if using seasons.
+   */
+  Serial = "serial",
+}
+
+export enum ItunesEpisodeType {
+  Full = "full",
+  Trailer = "trailer",
+  Bonus = "bonus",
 }
 
 export interface FeedObject {
@@ -55,7 +74,7 @@ export interface FeedObject {
   lastBuildDate: Date;
   lastUpdate: Date;
 
-  itunesType: TODO;
+  itunesType: ItunesFeedType;
   itunesCategory: TODO[];
   itunesNewFeedUrl: TODO;
   categories: string[];
@@ -105,7 +124,7 @@ export interface Episode {
   link: string;
   duration: number;
   itunesEpisode?: number;
-  itunesEpisodeType: TODO;
+  itunesEpisodeType?: ItunesEpisodeType;
   explicit: boolean;
   itunesImage: string;
   itunesSeason: number;
@@ -348,6 +367,14 @@ export function getText(
   return text;
 }
 
+export function sanitizeNewLines(text: string): string {
+  return text.replace(/(\r\n|\n|\r)/gm, "");
+}
+
+export function sanitizeMultipleSpaces(text: string): string {
+  return text.replace(/\s{2,}/g, " ");
+}
+
 export function sanitizeText(text: string): string {
   const HIGHEST_POSSIBLE_CHAR_VALUE = 127;
   const GENERIC_REPLACEMENT_CHAR = " ";
@@ -432,4 +459,25 @@ export function extractOptionalNumberAttribute(
     return { [key]: parseInt(val, 10) };
   }
   return {};
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type StringEnum = { [key: string]: any };
+// eslint-disable-next-line @typescript-eslint/ban-types
+function keysOf<K extends {}>(o: K): (keyof K)[];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function keysOf(o: any) {
+  return Object.keys(o);
+}
+
+export function lookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof E] | undefined {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const enumKey of keysOf(stringEnum)) {
+    if (stringEnum[enumKey] === s) {
+      // here we have to help the compiler
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion, @typescript-eslint/no-unsafe-return
+      return stringEnum[enumKey] as E[keyof E];
+    }
+  }
+  return undefined;
 }

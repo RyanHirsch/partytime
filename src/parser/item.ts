@@ -14,7 +14,11 @@ import {
   getNumber,
   getText,
   guessEnclosureType,
+  ItunesEpisodeType,
+  lookup,
   pubDateToDate,
+  sanitizeMultipleSpaces,
+  sanitizeNewLines,
   sanitizeUrl,
   timeToSeconds,
 } from "./shared";
@@ -55,7 +59,9 @@ function getAuthor(item: XmlNode): string {
 }
 
 function getTitle(item: XmlNode): string {
-  return getText(item.title) || getText(item["itunes:title"]);
+  return sanitizeMultipleSpaces(
+    sanitizeNewLines(getText(item.title) || getText(item["itunes:title"]))
+  );
 }
 
 function getLink(item: XmlNode): string {
@@ -113,6 +119,18 @@ function getItunesEpisode(item: XmlNode): undefined | { itunesEpisode: number } 
   }
   return undefined;
 }
+
+function getItunesEpisodeType(item: XmlNode): undefined | { itunesEpisodeType: ItunesEpisodeType } {
+  const typeValue = getText(item["itunes:episodeType"]).toLowerCase();
+  const episodeType = lookup(ItunesEpisodeType, typeValue);
+
+  if (episodeType) {
+    return { itunesEpisodeType: episodeType };
+  }
+
+  return undefined;
+}
+
 export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
   return {
     author: getAuthor(item),
@@ -121,7 +139,7 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     itunesImage: getItunesImage(item),
     duration: getDuration(item),
     ...getItunesEpisode(item),
-    itunesEpisodeType: item["itunes:episodeType"],
+    ...getItunesEpisodeType(item),
     itunesSeason: item["itunes:season"],
     explicit: getExplicit(item),
     enclosure: getEnclosure(item),
