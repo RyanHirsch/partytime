@@ -284,17 +284,6 @@ export function parseRss(theFeed: any) {
 
         let newFeedItem: Episode = handleItem(item, feedObj);
 
-        if (Array.isArray(item.itunesSeason)) {
-          // eslint-disable-next-line prefer-destructuring
-          newFeedItem.itunesSeason = item.itunesSeason[0];
-        }
-        if (
-          typeof item.itunesSeason === "object" &&
-          typeof item.itunesSeason["#text"] === "string"
-        ) {
-          newFeedItem.itunesSeason = item.itunesSeason["#text"];
-        }
-
         // Item description
         if (typeof item["itunes:summary"] !== "undefined" && item["itunes:summary"]) {
           newFeedItem.description = item["itunes:summary"];

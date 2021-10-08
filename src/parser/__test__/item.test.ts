@@ -36,10 +36,11 @@ describe("item handling", () => {
       expect(first).toHaveProperty("link", "");
       expect(first).toHaveProperty("itunesImage", "");
       expect(first).toHaveProperty("duration", 0);
+      expect(first).toHaveProperty("explicit", false);
       expect(first).not.toHaveProperty("itunesEpisode");
       expect(first).not.toHaveProperty("itunesEpisodeType");
-      expect(first).toHaveProperty("itunesSeason", 0);
-      expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("itunesSeason");
+      expect(first).not.toHaveProperty("keywords");
     });
 
     it("handles invalid item (missing guid)", () => {
@@ -486,6 +487,62 @@ describe("item handling", () => {
     });
   });
 
+  describe("itunesSeason", () => {
+    it("extracts node text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:season>1</itunes:season>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesSeason", 1);
+    });
+
+    it("handles non-digits preceeding the number", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:season>adf1</itunes:season>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesSeason", 1);
+    });
+
+    it("handles non-digits proceeding the number", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:season>1asdf</itunes:season>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("itunesSeason", 1);
+    });
+  });
+
   describe("itunesEpisodeType", () => {
     it("matches full", () => {
       const xml = helpers.spliceFeed(
@@ -557,6 +614,242 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first).toHaveProperty("itunesEpisodeType", ItunesEpisodeType.Bonus);
+    });
+  });
+
+  describe("explicit", () => {
+    it("matches true", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:explicit>true</itunes:explicit>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("explicit", true);
+    });
+
+    it("matches Yes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:explicit>Yes</itunes:explicit>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("explicit", true);
+    });
+
+    it("matches No", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:explicit>No</itunes:explicit>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("explicit", false);
+    });
+  });
+
+  describe("enclosure", () => {
+    it("extracts all expected values", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 76606111,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
+    it("defaults length to 0", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 0,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
+    it("infers media type based on the enclosure", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" />
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url: "https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3",
+          length: 0,
+          type: "audio/mpeg",
+        })
+      );
+    });
+
+    it("handles query strings for type inference", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://pdst.fm/e/chtbl.com/track/479722/traffic.megaphone.fm/DGT9649255632.mp3?updated=1631664875" />
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.enclosure).toEqual(
+        expect.objectContaining({
+          url:
+            "https://pdst.fm/e/chtbl.com/track/479722/traffic.megaphone.fm/DGT9649255632.mp3?updated=1631664875",
+          length: 0,
+          type: "audio/mpeg",
+        })
+      );
+    });
+  });
+
+  describe("keywords", () => {
+    it("extracts itunes keywords", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, SwiftUI</itunes:keywords>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.keywords).toEqual(
+        expect.arrayContaining([
+          "Indie",
+          "Indie App",
+          "App",
+          "Indie Developer",
+          "Developer",
+          "iOS",
+          "Swift",
+          "SwiftUI",
+        ])
+      );
+    });
+
+    it("ignores empty value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:keywords></itunes:keywords>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).not.toHaveProperty("keywords");
+    });
+
+    it("ignores empty values", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:keywords>Indie,,</itunes:keywords>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.keywords).toEqual(expect.arrayContaining(["Indie"]));
+    });
+
+    it("ignores sanitizes spacing", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:keywords>Indie     Developer,,</itunes:keywords>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first.keywords).toEqual(expect.arrayContaining(["Indie Developer"]));
     });
   });
 });

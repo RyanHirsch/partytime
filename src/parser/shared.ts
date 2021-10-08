@@ -123,13 +123,13 @@ export interface Episode {
   title: string;
   link: string;
   duration: number;
+  enclosure: Enclosure;
   itunesEpisode?: number;
   itunesEpisodeType?: ItunesEpisodeType;
   explicit: boolean;
   itunesImage: string;
-  itunesSeason: number;
-  enclosure: Enclosure;
-  /** Seconds from epoch */
+  itunesSeason?: number;
+  keywords?: string[];
   pubDate: Date;
   guid: string;
   description: string;

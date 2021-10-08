@@ -120,6 +120,19 @@ function getItunesEpisode(item: XmlNode): undefined | { itunesEpisode: number } 
   return undefined;
 }
 
+function getItunesSeason(item: XmlNode): undefined | { itunesSeason: number } {
+  const value = getText(item["itunes:season"]) || getNumber(item["itunes:season"]);
+  if (typeof value === "string") {
+    const parsedString = value.replace(/\D/g, "");
+    if (parsedString) {
+      return { itunesSeason: parseInt(parsedString, 10) };
+    }
+  } else if (typeof value === "number") {
+    return { itunesSeason: value };
+  }
+  return undefined;
+}
+
 function getItunesEpisodeType(item: XmlNode): undefined | { itunesEpisodeType: ItunesEpisodeType } {
   const typeValue = getText(item["itunes:episodeType"]).toLowerCase();
   const episodeType = lookup(ItunesEpisodeType, typeValue);
@@ -131,6 +144,21 @@ function getItunesEpisodeType(item: XmlNode): undefined | { itunesEpisodeType: I
   return undefined;
 }
 
+function getKeywords(item: XmlNode): undefined | { keywords: string[] } {
+  const keywords = getText(item["itunes:keywords"]);
+  if (keywords) {
+    const parsed = keywords
+      .split(",")
+      .map((k) => k.trim())
+      .map(sanitizeMultipleSpaces)
+      .filter(Boolean);
+    if (parsed.length) {
+      return { keywords: parsed };
+    }
+  }
+  return undefined;
+}
+
 export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
   return {
     author: getAuthor(item),
@@ -138,11 +166,12 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     link: getLink(item),
     itunesImage: getItunesImage(item),
     duration: getDuration(item),
-    ...getItunesEpisode(item),
-    ...getItunesEpisodeType(item),
-    itunesSeason: item["itunes:season"],
     explicit: getExplicit(item),
     enclosure: getEnclosure(item),
+    ...getItunesEpisode(item),
+    ...getItunesEpisodeType(item),
+    ...getItunesSeason(item),
+    ...getKeywords(item),
     pubDate: pubDateToDate(item.pubDate),
     guid: getGuid(item),
     description: "",
