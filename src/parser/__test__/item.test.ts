@@ -22,6 +22,36 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>Test</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+      `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(result.items).toHaveLength(1);
+      expect(first).toHaveProperty("author", "");
+      expect(first).toHaveProperty("title", "Test");
+      expect(first).toHaveProperty("link", "");
+      expect(first).toHaveProperty("itunesImage", "");
+      expect(first).toHaveProperty("duration", 0);
+      expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("itunesEpisode");
+      expect(first).not.toHaveProperty("itunesEpisodeType");
+      expect(first).not.toHaveProperty("itunesSeason");
+      expect(first).not.toHaveProperty("keywords");
+      expect(first).not.toHaveProperty("pubDate");
+    });
+
+    it("handles one item", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <description>This is a Test</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -34,6 +64,7 @@ describe("item handling", () => {
       expect(result.items).toHaveLength(1);
       expect(first).toHaveProperty("author", "");
       expect(first).toHaveProperty("title", "");
+      expect(first).toHaveProperty("description", "This is a Test");
       expect(first).toHaveProperty("link", "");
       expect(first).toHaveProperty("itunesImage", "");
       expect(first).toHaveProperty("duration", 0);
@@ -50,6 +81,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>Hello</title>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
       `
@@ -65,6 +97,23 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>World</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+        </item>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result.items).toHaveLength(0);
+    });
+
+    it("handles invalid item (missing title and description)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
         </item>
       `
@@ -195,6 +244,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <author>Jim</author>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -213,6 +263,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <itunes:author>Bob</itunes:author>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -231,6 +282,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <author>Jeremy</author>
           <itunes:author>Bob</itunes:author>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
@@ -252,6 +304,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <link>https://twit.tv/shows/this-week-in-tech/episodes/842</link>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -270,6 +323,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <link href="http://1387.noagendanotes.com"></link>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -288,6 +342,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <title>a</title>
           <link href="http://1387.noagendanotes.com">something</link>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -309,6 +364,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <itunes:title>a</itunes:title>
           <itunes:image>asfd</itunes:image>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -327,6 +383,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <itunes:title>a</itunes:title>
           <itunes:image href="sdgf"></itunes:image>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -345,6 +402,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <itunes:title>a</itunes:title>
           <itunes:image href="bbb">aaa</itunes:image>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -363,6 +421,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <itunes:title>a</itunes:title>
           <itunes:image><url>ccc</url></itunes:image>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -384,6 +443,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <itunes:title>a</itunes:title>
           <itunes:image><url>${example}</url></itunes:image>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -405,6 +465,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:duration>0</itunes:duration>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -423,6 +484,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:duration>30</itunes:duration>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -441,6 +503,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:duration>1:30</itunes:duration>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -459,6 +522,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:duration>aa</itunes:duration>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -479,6 +543,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episode>1</itunes:episode>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -497,6 +562,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episode>adf1</itunes:episode>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -515,6 +581,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episode>1asdf</itunes:episode>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -535,6 +602,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:season>1</itunes:season>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -553,6 +621,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:season>adf1</itunes:season>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -571,6 +640,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:season>1asdf</itunes:season>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -591,6 +661,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episodeType>full</itunes:episodeType>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -609,6 +680,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episodeType>fuLL</itunes:episodeType>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -627,6 +699,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episodeType>trailer</itunes:episodeType>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -645,6 +718,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <itunes:episodeType>bonus</itunes:episodeType>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
@@ -666,6 +740,7 @@ describe("item handling", () => {
         `
         <item>
           <itunes:explicit>true</itunes:explicit>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -684,6 +759,7 @@ describe("item handling", () => {
         `
         <item>
           <itunes:explicit>Yes</itunes:explicit>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -702,6 +778,7 @@ describe("item handling", () => {
         `
         <item>
           <itunes:explicit>No</itunes:explicit>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -722,6 +799,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
         `
@@ -746,6 +824,7 @@ describe("item handling", () => {
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure>Test</enclosure>
+          <description>hello</description>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
         `
@@ -770,6 +849,7 @@ describe("item handling", () => {
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure length="76606111" type="audio/mpeg"/>
+          <description>hello</description>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
         `
@@ -793,6 +873,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure />
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
         </item>
@@ -817,6 +898,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" type="audio/mpeg"/>
         </item>
         `
@@ -840,6 +922,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" />
         </item>
         `
@@ -863,6 +946,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://pdst.fm/e/chtbl.com/track/479722/traffic.megaphone.fm/DGT9649255632.mp3?updated=1631664875" />
         </item>
         `
@@ -890,6 +974,7 @@ describe("item handling", () => {
         <item>
           <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, SwiftUI</itunes:keywords>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
         `
@@ -919,6 +1004,7 @@ describe("item handling", () => {
         <item>
           <itunes:keywords></itunes:keywords>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
         `
@@ -936,6 +1022,7 @@ describe("item handling", () => {
         `
         <item>
           <itunes:keywords>Indie,,</itunes:keywords>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
@@ -954,6 +1041,7 @@ describe("item handling", () => {
         `
         <item>
           <itunes:keywords>Indie     Developer,,</itunes:keywords>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
@@ -974,6 +1062,7 @@ describe("item handling", () => {
         `
         <item>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <description>hello</description>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
         `
@@ -990,6 +1079,7 @@ describe("item handling", () => {
         feed,
         `
         <item>
+          <description>hello</description>
           <guid isPermaLink="false">
           <![CDATA[ b041c394-4ed9-11eb-aeb1-5ba5c22318e1 ]]>
           </guid>
@@ -1012,6 +1102,7 @@ describe("item handling", () => {
         `
         <item>
           <pubDate>Thu, 30 Sep 2021 21:19:00 -0000</pubDate>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
@@ -1030,6 +1121,7 @@ describe("item handling", () => {
         `
         <item>
           <pubDate>1633704259</pubDate>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
@@ -1048,6 +1140,7 @@ describe("item handling", () => {
         `
         <item>
           <pubDate>1633704259000</pubDate>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>
@@ -1066,6 +1159,7 @@ describe("item handling", () => {
         `
         <item>
           <pubDate>eleven</pubDate>
+          <description>hello</description>
           <guid isPermaLink="true">https://example.com/ep0003</guid>
           <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
         </item>

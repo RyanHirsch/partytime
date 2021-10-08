@@ -38,6 +38,12 @@ export function isValidItem(item: XmlNode): boolean {
     return false;
   }
 
+  // If there is no title or description
+  if (!getTitle(item) && !getDescription(item)) {
+    log.warn("Item has no title or description, skipping it.");
+    return false;
+  }
+
   return true;
 }
 
@@ -69,6 +75,11 @@ function getTitle(item: XmlNode): string {
   const node = firstWithValue(item.title);
   const fallbackNode = firstWithValue(item["itunes:title"]);
   return sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
+}
+
+function getDescription(item: XmlNode): string {
+  const node = firstWithValue(item.description);
+  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node)));
 }
 
 function getLink(item: XmlNode): string {
@@ -199,7 +210,7 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     ...getItunesSeason(item),
     ...getKeywords(item),
     ...getPubDate(item),
-    description: "",
+    description: getDescription(item),
     image: getImage(item),
   };
 }
