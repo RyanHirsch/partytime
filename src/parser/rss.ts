@@ -284,21 +284,6 @@ export function parseRss(theFeed: any) {
 
         let newFeedItem: Episode = handleItem(item, feedObj);
 
-        // Item description
-        if (typeof item["itunes:summary"] !== "undefined" && item["itunes:summary"]) {
-          newFeedItem.description = item["itunes:summary"];
-        }
-        if (typeof item.description !== "undefined" && item.description) {
-          if (typeof item.description["content:encoded"] !== "undefined") {
-            newFeedItem.description = item.description["content:encoded"];
-          } else {
-            newFeedItem.description = item.description;
-          }
-        }
-        if (typeof item.description === "string") {
-          newFeedItem.description = item.description.trim();
-        }
-
         // Enclosure
         // if (Number.isNaN(parseInt(enclosure.attr["@_length"], 10))) {
         //   newFeedItem.enclosure.length = 0;

@@ -45,6 +45,7 @@ describe("item handling", () => {
       expect(first).not.toHaveProperty("itunesSeason");
       expect(first).not.toHaveProperty("keywords");
       expect(first).not.toHaveProperty("pubDate");
+      expect(first).not.toHaveProperty("description");
     });
 
     it("handles one item", () => {
@@ -1331,6 +1332,90 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(first).not.toHaveProperty("pubDate");
+    });
+  });
+
+  describe("description", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <description>hey   there</description>
+          <description>hello</description>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("description", "hey there");
+    });
+
+    it("falls back to content:encoded value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <description></description>
+          <content:encoded>
+          <![CDATA[ <p>hello</p> ]]>
+          </content:encoded>          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("description", "<p>hello</p>");
+    });
+
+    it("falls back to itunes:summary value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <itunes:summary>
+          <![CDATA[ <p>bye</p> ]]>
+          </itunes:summary>          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("description", "<p>bye</p>");
+    });
+
+    it("prefers content:encoded value when falling back", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <description></description>
+          <content:encoded>
+          <![CDATA[ <p>hello</p> ]]>
+          </content:encoded>
+          <itunes:summary>
+          <![CDATA[ <p>bye</p> ]]>
+          </itunes:summary>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("description", "<p>hello</p>");
     });
   });
 });

@@ -79,9 +79,33 @@ function getTitle(item: XmlNode): string {
   return sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
 }
 
-function getDescription(item: XmlNode): string {
+function getDescription(item: XmlNode): undefined | { description: string } {
   const node = firstWithValue(item.description);
-  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node)));
+
+  if (node) {
+    const descriptionValue = sanitizeMultipleSpaces(sanitizeNewLines(getText(node)));
+    if (descriptionValue) {
+      return { description: descriptionValue };
+    }
+  }
+
+  const contentNode = firstWithValue(item["content:encoded"]);
+  if (contentNode) {
+    const contentValue = getText(contentNode);
+    if (contentValue) {
+      return { description: contentValue };
+    }
+  }
+
+  const summaryNode = firstWithValue(item["itunes:summary"]);
+  if (summaryNode) {
+    const summaryValue = getText(summaryNode);
+    if (summaryValue) {
+      return { description: summaryValue };
+    }
+  }
+
+  return undefined;
 }
 
 function getLink(item: XmlNode): string {
@@ -225,6 +249,6 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     ...getKeywords(item),
     ...getPubDate(item),
     ...getImage(item),
-    description: getDescription(item),
+    ...getDescription(item),
   };
 }

@@ -118,9 +118,10 @@ export type Enclosure = {
   length: number;
   type: string;
 };
+
 export interface Episode {
   author: string;
-  title: string;
+  title?: string;
   link: string;
   duration: number;
   enclosure: Enclosure;
@@ -132,7 +133,7 @@ export interface Episode {
   keywords?: string[];
   pubDate?: Date;
   guid: string;
-  description: string;
+  description?: string;
   image?: string;
   podcastChapters?: Phase1Chapter;
   podcastSoundbites?: Phase1SoundBite[];
