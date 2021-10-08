@@ -19,6 +19,8 @@ import {
   findPubSubLinks,
   firstIfArray,
   getAttribute,
+  ItunesFeedType,
+  lookup,
   PhaseUpdate,
   pubDateToDate,
   RSSFeed,
@@ -102,11 +104,14 @@ export function parseRss(theFeed: any) {
     feedObj.itunesType = feedObj.itunesType["#text"];
   }
   if (
-    typeof feedObj.itunesType === "object" &&
-    typeof feedObj.itunesType.attr !== "undefined" &&
-    typeof feedObj.itunesType.attr["@_text"] === "string"
+    typeof theFeed.rss.channel["itunes:type"] === "object" &&
+    typeof theFeed.rss.channel["itunes:type"].attr !== "undefined" &&
+    typeof theFeed.rss.channel["itunes:type"].attr["@_text"] === "string"
   ) {
-    feedObj.itunesType = feedObj.itunesType.attr["@_text"];
+    feedObj.itunesType = lookup(
+      ItunesFeedType,
+      theFeed.rss.channel["itunes:type"].attr["@_text"].toLowerCase()
+    );
   }
   if (Array.isArray(feedObj.itunesNewFeedUrl)) {
     [feedObj.itunesNewFeedUrl] = feedObj.itunesNewFeedUrl;
@@ -305,7 +310,7 @@ export function parseRss(theFeed: any) {
     let mostRecentPubDate = epochDate;
     feedObj.items?.forEach(function (item: any) {
       const thisPubDate = pubDateToDate(item.pubDate);
-      if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
+      if (thisPubDate && thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
       }
     });
@@ -315,7 +320,7 @@ export function parseRss(theFeed: any) {
     let oldestPubDate = mostRecentPubDate;
     feedObj.items?.forEach(function (item: any) {
       const thisPubDate = pubDateToDate(item.pubDate);
-      if (thisPubDate < oldestPubDate && thisPubDate > epochDate) {
+      if (thisPubDate && thisPubDate < oldestPubDate && thisPubDate > epochDate) {
         oldestPubDate = thisPubDate;
       }
     });
