@@ -13,7 +13,7 @@ import {
   findPubSubLinks,
   getText,
   guessEnclosureType,
-  isNotUndefined,
+  notUndefined,
   pubDateToDate,
   timeToSeconds,
 } from "./shared";
@@ -166,11 +166,13 @@ export function parseAtom(theFeed: any) {
           itunesEpisodeType: item["itunes:episodeType"],
           explicit: false,
           duration: 0,
-          itunesSeason: null,
           itunesEpisode: 0,
           itunesImage: "",
           enclosure: enclosures[0],
-          pubDate: pubDateToDate(item.updated),
+          ...(item.updated && pubDateToDate(item.updated)
+            ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              { pubDate: pubDateToDate(item.updated)! }
+            : undefined),
           guid: item.id,
           description: "",
           image: feedObj.image ?? "",
@@ -253,7 +255,7 @@ export function parseAtom(theFeed: any) {
     let mostRecentPubDate = epochDate;
     feedObj.items.forEach((item: any) => {
       const thisPubDate = pubDateToDate(item.updated);
-      if (thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
+      if (thisPubDate && thisPubDate > mostRecentPubDate && thisPubDate <= timeStarted) {
         mostRecentPubDate = thisPubDate;
       }
     });
@@ -263,7 +265,7 @@ export function parseAtom(theFeed: any) {
     let oldestPubDate = mostRecentPubDate;
     feedObj.items.forEach((item: any) => {
       const thisPubDate = pubDateToDate(item.updated);
-      if (thisPubDate < oldestPubDate && thisPubDate > epochDate) {
+      if (thisPubDate && thisPubDate < oldestPubDate && thisPubDate > epochDate) {
         oldestPubDate = thisPubDate;
       }
     });
@@ -279,7 +281,10 @@ export function parseAtom(theFeed: any) {
     }
   }
   if (typeof feedObj.pubDate === "string") {
-    feedObj.pubDate = pubDateToDate(feedObj.pubDate);
+    const parsedPubDate = pubDateToDate(feedObj.pubDate);
+    if (parsedPubDate) {
+      feedObj.pubDate = parsedPubDate;
+    }
   }
 
   return feedObj;
