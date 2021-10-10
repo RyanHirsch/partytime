@@ -105,9 +105,14 @@ function getDescription(item: XmlNode): undefined | { description: string } {
   return undefined;
 }
 
-function getLink(item: XmlNode): string {
+function getLink(item: XmlNode): undefined | { link: string } {
   const node = firstWithValue(item.link) || firstWithAttributes(item.link, ["href"]);
-  return getText(node) || getAttribute(node, "href") || "";
+  const value = getText(node) || getAttribute(node, "href") || "";
+
+  if (value) {
+    return { link: value };
+  }
+  return undefined;
 }
 
 function getItunesImage(item: XmlNode): undefined | { itunesImage: string } {
@@ -260,9 +265,9 @@ export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
     enclosure: getEnclosure(item)!,
     author: getAuthor(item),
     title: getTitle(item),
-    link: getLink(item),
     duration: getDuration(item),
     explicit: getExplicit(item),
+    ...getLink(item),
     ...getItunesImage(item),
     ...getItunesEpisode(item),
     ...getItunesEpisodeType(item),

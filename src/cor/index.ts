@@ -65,6 +65,7 @@ export async function checkFeedByUri(uri: string): Promise<Record<string, boolea
   throw new Error(`Feed could not be parsed`);
 }
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export async function checkFeedByObject({
   uri,
   feedObject,
@@ -79,7 +80,13 @@ export async function checkFeedByObject({
 
   const newestEpisode = feedObject.items.reduce<Episode>(
     (latest, curr) => {
-      if (curr.pubDate > latest.pubDate) {
+      if (curr.pubDate && !latest.pubDate) {
+        return curr;
+      }
+      if (!curr.pubDate && latest.pubDate) {
+        return latest;
+      }
+      if (curr.pubDate && latest.pubDate && curr.pubDate > latest.pubDate) {
         return curr;
       }
       return latest;

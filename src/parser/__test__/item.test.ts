@@ -35,9 +35,9 @@ describe("item handling", () => {
       expect(result.items).toHaveLength(1);
       expect(first).toHaveProperty("author", "");
       expect(first).toHaveProperty("title", "Test");
-      expect(first).toHaveProperty("link", "");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("link");
       expect(first).not.toHaveProperty("itunesImage");
       expect(first).not.toHaveProperty("image");
       expect(first).not.toHaveProperty("itunesEpisode");
@@ -69,9 +69,9 @@ describe("item handling", () => {
       expect(first).toHaveProperty("author", "");
       expect(first).toHaveProperty("title", "");
       expect(first).toHaveProperty("description", "This is a Test");
-      expect(first).toHaveProperty("link", "");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("link");
       expect(first).not.toHaveProperty("itunesImage");
       expect(first).not.toHaveProperty("image");
       expect(first).not.toHaveProperty("itunesEpisode");

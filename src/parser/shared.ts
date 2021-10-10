@@ -123,7 +123,7 @@ export interface Episode {
   author: string;
   title?: string;
   subtitle?: string;
-  link: string;
+  link?: string;
   duration: number;
   enclosure: Enclosure;
   itunesEpisode?: number;

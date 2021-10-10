@@ -80,3 +80,4 @@ The sample feeds below were chosen for their varied nature. Including things lik
 - [Antomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)
 - [Thomas Ferris Nicolaisen's rants](http://feeds.tfnico.com/tfnicosrants)
 - [Hip Hop Hangout Podcast](https://feeds.feedburner.com/HipHopHangoutPodcast)
+- [Web 2.0](https://satoshi.blogs.com/raw/web20.xml)
