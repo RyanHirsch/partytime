@@ -29,6 +29,7 @@ import {
 import type { FeedObject, Episode } from "./shared";
 import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
+import { handleFeed } from "./feed";
 
 export function parseRss(theFeed: any) {
   const epochDate = new Date(0);
@@ -38,32 +39,24 @@ export function parseRss(theFeed: any) {
 
   const timeStarted = new Date();
 
-  let feedObj: Partial<FeedObject> = {
-    type: FeedType.RSS,
-    title: theFeed.rss.channel.title,
-    language: theFeed.rss.channel.language,
-    generator: theFeed.rss.channel.generator,
-    pubDate: theFeed.rss.channel.pubDate,
-    lastBuildDate: theFeed.rss.channel.lastBuildDate,
-    itunesType: theFeed.rss.channel["itunes:type"],
-    itunesCategory: getItunesCategories(theFeed),
-    itunesNewFeedUrl: theFeed.rss.channel["itunes:new-feed-url"],
-    pubsub: findPubSubLinks(theFeed.rss.channel),
-    categories: getPodcastCategories(theFeed),
-    // podcastLocked: 0,
-    lastUpdate: new Date(),
-  };
+  let feedObj: Partial<FeedObject> = handleFeed(theFeed.rss.channel, FeedType.RSS);
+  // {
+  //   type: FeedType.RSS,
+  //   title: theFeed.rss.channel.title,
+  //   language: theFeed.rss.channel.language,
+  //   generator: theFeed.rss.channel.generator,
+  //   pubDate: theFeed.rss.channel.pubDate,
+  //   lastBuildDate: theFeed.rss.channel.lastBuildDate,
+  //   itunesType: theFeed.rss.channel["itunes:type"],
+  //   itunesCategory: getItunesCategories(theFeed),
+  //   itunesNewFeedUrl: theFeed.rss.channel["itunes:new-feed-url"],
+  //   pubsub: findPubSubLinks(theFeed.rss.channel),
+  //   categories: getPodcastCategories(theFeed),
+  //   // podcastLocked: 0,
+  //   lastUpdate: new Date(),
+  //   value: {},
+  // };
   let phaseSupport: PhaseUpdate = {};
-
-  // Clean the title
-  if (typeof feedObj.title === "string") {
-    feedObj.title = feedObj.title.trim().replace(/(\r\n|\n|\r)/gm, "");
-  }
-
-  // Clean the link
-  if (typeof feedObj.link === "string") {
-    feedObj.link = feedObj.link.trim().replace(/(\r\n|\n|\r)/gm, "");
-  }
 
   // Feed owner/author
   if (typeof theFeed.rss.channel["itunes:author"] !== "undefined") {
@@ -116,28 +109,6 @@ export function parseRss(theFeed: any) {
     [feedObj.itunesNewFeedUrl] = feedObj.itunesNewFeedUrl;
   }
 
-  // Feed generator
-  if (Array.isArray(feedObj.generator)) {
-    [feedObj.generator] = feedObj.generator;
-  }
-
-  // Feed image
-  feedObj.itunesImage = "";
-  if (typeof theFeed.rss.channel["itunes:image"] === "object") {
-    if (typeof theFeed.rss.channel["itunes:image"].url === "string") {
-      feedObj.itunesImage = theFeed.rss.channel["itunes:image"].url;
-    }
-    if (
-      typeof theFeed.rss.channel["itunes:image"].attr !== "undefined" &&
-      typeof theFeed.rss.channel["itunes:image"].attr["@_href"] === "string"
-    ) {
-      feedObj.itunesImage = theFeed.rss.channel["itunes:image"].attr["@_href"];
-    }
-  }
-  if (typeof theFeed.rss.channel["itunes:image"] === "string") {
-    feedObj.itunesImage = theFeed.rss.channel["itunes:image"];
-  }
-  feedObj.itunesImage = sanitizeUrl(feedObj.itunesImage);
   feedObj.image = "";
   if (
     typeof theFeed.rss.channel.image !== "undefined" &&
@@ -149,70 +120,6 @@ export function parseRss(theFeed: any) {
     feedObj.image = feedObj.itunesImage;
   }
   feedObj.image = sanitizeUrl(feedObj.image);
-
-  // Feed explicit content
-  feedObj.explicit = false;
-  if (Array.isArray(theFeed.rss.channel["itunes:explicit"])) {
-    // eslint-disable-next-line prefer-destructuring, no-param-reassign
-    theFeed.rss.channel["itunes:explicit"] = theFeed.rss.channel["itunes:explicit"][0];
-  }
-  if (
-    typeof theFeed.rss.channel["itunes:explicit"] === "string" &&
-    (theFeed.rss.channel["itunes:explicit"].toLowerCase() === "yes" ||
-      theFeed.rss.channel["itunes:explicit"].toLowerCase() === "true")
-  ) {
-    feedObj.explicit = true;
-  }
-  if (
-    typeof theFeed.rss.channel["itunes:explicit"] === "boolean" &&
-    theFeed.rss.channel["itunes:explicit"]
-  ) {
-    feedObj.explicit = true;
-  }
-
-  // Feed description
-  feedObj.description = theFeed.rss.channel.description;
-  if (
-    typeof theFeed.rss.channel["itunes:summary"] !== "undefined" &&
-    theFeed.rss.channel["itunes:summary"]
-  ) {
-    feedObj.description = theFeed.rss.channel["itunes:summary"];
-    if (Array.isArray(theFeed.rss.channel["itunes:summary"])) {
-      [feedObj.description] = theFeed.rss.channel["itunes:summary"];
-    }
-    if (
-      typeof theFeed.rss.channel["itunes:summary"] === "object" &&
-      typeof theFeed.rss.channel["itunes:summary"]["#text"] !== "undefined"
-    ) {
-      feedObj.description = theFeed.rss.channel["itunes:summary"]["#text"];
-    }
-  }
-  if (typeof feedObj.description !== "string") {
-    feedObj.description = "";
-  }
-
-  // Feed link
-  const link = Array.isArray(theFeed.rss.channel.link)
-    ? theFeed.rss.channel.link[0]
-    : theFeed.rss.channel.link;
-
-  // Clean the link
-  if (typeof link === "string") {
-    feedObj.link = link.trim().replace(/(\r\n|\n|\r)/gm, "");
-  } else if (typeof link === "object") {
-    if (typeof link["#text"] !== "undefined") {
-      feedObj.link = link["#text"];
-    } else if (typeof link.attr["@_href"] !== "undefined") {
-      feedObj.link = link.attr["@_href"];
-    } else if (
-      typeof theFeed.rss.channel.url !== "undefined" &&
-      theFeed.rss.channel.url === "string"
-    ) {
-      feedObj.link = theFeed.rss.channel.url;
-    }
-  } else if (typeof link !== "string") {
-    feedObj.link = "";
-  }
 
   // Feed Phase Support
   const feedResult = updateFeed(theFeed);
@@ -313,7 +220,7 @@ export function parseRss(theFeed: any) {
     pubDate = feedObj.newestItemPubDate;
   }
 
-  feedObj.pubDate = pubDate;
+  // feedObj.pubDate = pubDate;
 
   if (Object.keys(phaseSupport).length > 0) {
     // eslint-disable-next-line no-underscore-dangle
@@ -350,36 +257,6 @@ function getPodcastCategories(feed: RSSFeed) {
           categories.add(cat)
         );
       });
-    }
-  });
-
-  return Array.from(categories);
-}
-
-function getItunesCategories(feed: RSSFeed) {
-  const node = feed.rss.channel["itunes:category"];
-  log.trace("itunes:category", node);
-
-  const transformCategory = (category: string): string => category.toLowerCase();
-
-  const categories = new Set<string>();
-  // Feed categories
-
-  ensureArray(node).forEach((item: any) => {
-    const category = transformCategory(getAttribute(item, "text") ?? "");
-
-    if (category) {
-      categories.add(category);
-
-      if (typeof item["itunes:category"] === "object") {
-        ensureArray(item["itunes:category"]).forEach((subitem: any) => {
-          const subcategory = transformCategory(getAttribute(subitem, "text") ?? "");
-
-          if (subcategory) {
-            categories.add(`${category} > ${subcategory}`);
-          }
-        });
-      }
     }
   });
 

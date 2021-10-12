@@ -65,45 +65,61 @@ export enum ItunesEpisodeType {
 
 export interface FeedObject {
   type: FeedType;
+  // #region RSS 2.0 Spec Required
+  // https://validator.w3.org/feed/docs/rss2.html
   title: string;
   link: string;
-  language: string;
-  generator: string;
-  /** Seconds from epoch */
-  pubDate: Date;
-  /** seconds from epoch */
-  lastBuildDate: Date;
-  lastUpdate: Date;
+  description: string;
+  // #endregion
+  // #region iTunes Required
+  // https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+  language?: string;
+  explicit: boolean;
+  itunesImage?: string;
+  itunesCategory?: string[];
+  // #endregion
 
-  itunesType: ItunesFeedType;
-  itunesCategory: TODO[];
+  generator?: string;
+  /** Seconds from epoch */
+  pubDate?: Date;
+  /** The last time the content of the channel changed. */
+  lastBuildDate: Date;
+
+  itunesType?: ItunesFeedType;
   itunesNewFeedUrl: TODO;
-  categories: string[];
+  categories?: string[];
 
   pubsub: false | { hub: string; self: string };
-  itunesAuthor: string;
-  itunesOwnerEmail: string;
-  itunesOwnerName: string;
-  itunesImage: string;
-  image: string;
+  itunesAuthor?: string;
+  owner?: {
+    email: string;
+    name: string;
+  };
+  image?: string;
 
-  explicit: boolean;
-
-  description: string;
-
-  locked: boolean;
   podcastOwner: string;
 
+  // #region Phase 1
+  locked: boolean;
   podcastFunding?: Phase1Funding;
+  // #endregion
+  // #region Phase 2
+  /**
+   * This element specifies a person of interest to the podcast. It is primarily intended to identify people
+   * like hosts, co-hosts and guests.
+   */
   podcastPeople?: Phase2Person[];
-
+  /** What is this podcast about */
   podcastLocation?: Phase2Location;
-
+  // #endregion
+  // #region Phase 3
   trailers?: Phase3Trailer[];
   license?: Phase3License;
   guid?: string;
-
+  // #endregion
+  // #region Phase 4
   value?: Phase4Value;
+  // #endregion
 
   /** podcasting 2.0 phase compliance */
   __phase: Record<number, string[]>;
@@ -111,6 +127,7 @@ export interface FeedObject {
   items: Episode[];
   newestItemPubDate: Date;
   oldestItemPubDate: Date;
+  lastUpdate: Date;
 }
 
 export type Enclosure = {
