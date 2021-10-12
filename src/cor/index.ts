@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { zip } from "ramda";
+import zip from "ramda/src/zip";
 import { log } from "../logger";
 import { parseFeed } from "../parser";
 import type { Episode, FeedObject } from "../parser/shared";
@@ -65,6 +65,7 @@ export async function checkFeedByUri(uri: string): Promise<Record<string, boolea
   throw new Error(`Feed could not be parsed`);
 }
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export async function checkFeedByObject({
   uri,
   feedObject,
@@ -79,12 +80,18 @@ export async function checkFeedByObject({
 
   const newestEpisode = feedObject.items.reduce<Episode>(
     (latest, curr) => {
-      if (curr.pubDate > latest.pubDate) {
+      if (curr.pubDate && !latest.pubDate) {
+        return curr;
+      }
+      if (!curr.pubDate && latest.pubDate) {
+        return latest;
+      }
+      if (curr.pubDate && latest.pubDate && curr.pubDate > latest.pubDate) {
         return curr;
       }
       return latest;
     },
-    { pubDate: 0 } as Episode
+    { pubDate: new Date(0) } as Episode
   );
 
   if (newestEpisode.enclosure.url) {

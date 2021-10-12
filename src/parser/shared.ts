@@ -6,6 +6,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
+// import iconv from "iconv-lite";
+
 import type {
   Phase1Transcript,
   Phase1Funding,
@@ -35,6 +37,31 @@ export enum FeedType {
   BadFormat = 9,
 }
 
+export enum ItunesFeedType {
+  /**
+   * Default Specify episodic when episodes are intended to be consumed without any specific order. Apple
+   * Podcasts will present newest episodes first and display the publish date (required) of each episode. If
+   * organized into seasons, the newest season will be presented first - otherwise, episodes will be grouped
+   * by year published, newest first.
+   */
+  Episodic = "episodic",
+  /** Specify serial when episodes are intended to be consumed in sequential order. Apple Podcasts will
+   * present the oldest episodes first and display the episode numbers (required) of each episode. If
+   * organized into seasons, the newest season will be presented first and <itunes:episode> numbers must be
+   * given for each episode.
+   *
+   * For new subscribers, Apple Podcasts adds the first episode to their Library, or the entire current season
+   * if using seasons.
+   */
+  Serial = "serial",
+}
+
+export enum ItunesEpisodeType {
+  Full = "full",
+  Trailer = "trailer",
+  Bonus = "bonus",
+}
+
 export interface FeedObject {
   type: FeedType;
   title: string;
@@ -42,12 +69,12 @@ export interface FeedObject {
   language: string;
   generator: string;
   /** Seconds from epoch */
-  pubDate: number;
+  pubDate: Date;
   /** seconds from epoch */
-  lastBuildDate: number;
-  lastUpdate: number;
+  lastBuildDate: Date;
+  lastUpdate: Date;
 
-  itunesType: TODO;
+  itunesType: ItunesFeedType;
   itunesCategory: TODO[];
   itunesNewFeedUrl: TODO;
   categories: string[];
@@ -61,11 +88,11 @@ export interface FeedObject {
   itunesImage: string;
   image: string;
 
-  explicit: 0 | 1;
+  explicit: boolean;
 
   description: string;
 
-  podcastLocked: 0 | 1;
+  locked: boolean;
   podcastOwner: string;
 
   podcastFunding?: Phase1Funding;
@@ -82,29 +109,34 @@ export interface FeedObject {
   __phase: Record<number, string[]>;
 
   items: Episode[];
-  newestItemPubDate: number;
-  oldestItemPubDate: number;
+  newestItemPubDate: Date;
+  oldestItemPubDate: Date;
 }
 
+export type Enclosure = {
+  url: string;
+  length: number;
+  type: string;
+};
+
 export interface Episode {
-  title: string;
-  link: string;
-  itunesDuration: number;
-  itunesEpisode: number;
-  itunesEpisodeType: TODO;
-  itunesExplicit: 0 | 1;
-  itunesImage: string;
-  itunesSeason: TODO;
-  enclosure: {
-    url: string;
-    length: number;
-    type: string;
-  };
-  /** Seconds from epoch */
-  pubDate: number;
+  author: string;
+  title?: string;
+  subtitle?: string;
+  link?: string;
+  duration: number;
+  enclosure: Enclosure;
+  itunesEpisode?: number;
+  itunesEpisodeType?: ItunesEpisodeType;
+  explicit: boolean;
+  itunesImage?: string;
+  summary?: string;
+  itunesSeason?: number;
+  keywords?: string[];
+  pubDate?: Date;
   guid: string;
-  description: string;
-  image: string;
+  description?: string;
+  image?: string;
   podcastChapters?: Phase1Chapter;
   podcastSoundbites?: Phase1SoundBite[];
   podcastTranscripts?: Phase1Transcript[];
@@ -239,6 +271,21 @@ export function pubDateToTimestamp(pubDate: number | string | Date) {
   return pubDateParsed;
 }
 
+export function pubDateToDate(pubDate: number | string | Date): Date | null {
+  if (typeof pubDate === "number") {
+    if (new Date(pubDate).getFullYear() === 1970) {
+      return new Date(pubDate * 1000);
+    }
+    return new Date(pubDate);
+  }
+
+  const dateFromString = new Date(pubDate);
+  if (Number.isNaN(dateFromString.getTime())) {
+    return null;
+  }
+  return dateFromString;
+}
+
 // Get a mime-type string for an unknown media enclosure
 export function guessEnclosureType(url = ""): string {
   if (url.includes(".m4v")) {
@@ -306,6 +353,20 @@ export function firstIfArray<T>(maybeArr: T | T[]): T {
   return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
 }
 
+export function firstWithValue<T>(maybeArr: T | T[]): T | null {
+  return (
+    ensureArray(maybeArr).find(
+      (x) => x && (getText(x as any) || getNumber(x as any) || typeof x === "boolean")
+    ) ?? null
+  );
+}
+
+export function firstWithAttributes<T>(maybeArr: T | T[], attrs: string[]): T | null {
+  return (
+    ensureArray(maybeArr).find((x) => x && attrs.every((a) => hasAttribute(x as any, a))) ?? null
+  );
+}
+
 export function ensureArray<T>(maybeArr: T | T[]): T[] {
   if (typeof maybeArr === "undefined") {
     return [];
@@ -314,32 +375,81 @@ export function ensureArray<T>(maybeArr: T | T[]): T[] {
 }
 
 /** Gets the value of the XML node as text */
-export function getText(node: { "#text": string } | string): string {
+export function getText(
+  node: { "#text": string } | string,
+  { sanitize = false }: { sanitize?: boolean } = {}
+): string {
+  let text = "";
   if (typeof node === "string") {
-    return node.trim();
+    text = node.trim();
+  } else if (typeof node !== "undefined" && node !== null && typeof node["#text"] === "string") {
+    text = node["#text"].trim();
+  }
+  if (text && sanitize) {
+    text = sanitizeText(text);
+  }
+  return text;
+}
+
+export function sanitizeNewLines(text: string): string {
+  return text.replace(/(\r\n|\n|\r)/gm, " ");
+}
+
+export function sanitizeMultipleSpaces(text: string): string {
+  return text.replace(/\s{2,}/g, " ");
+}
+
+export function sanitizeText(text: string): string {
+  const HIGHEST_POSSIBLE_CHAR_VALUE = 127;
+  const GENERIC_REPLACEMENT_CHAR = " ";
+  const goodChars = [];
+
+  // Swap out known offenders. Add others as needed.
+  // https://unicode-table.com/en/#basic-latin
+  const strippedText = text
+    .replace(/[\u2014]/g, "--") // emdash
+    .replace(/[\u2022]/g, "*") // bullet
+    .replace(/[\u2018\u2019]/g, "'") // smart single quotes
+    .replace(/[\u201C\u201D]/g, '"'); // smart double quotes
+
+  // Strip out any other offending characters.
+  for (let i = 0; i < strippedText.length; i++) {
+    if (strippedText.charCodeAt(i) <= HIGHEST_POSSIBLE_CHAR_VALUE) {
+      goodChars.push(strippedText.charAt(i));
+    } else {
+      goodChars.push(GENERIC_REPLACEMENT_CHAR);
+    }
   }
 
-  if (typeof node !== "undefined" && typeof node["#text"] === "string") {
-    return node["#text"].trim();
-  }
-  return "";
+  return goodChars.join("");
 }
 
 /** Gets the value of the XML node as a number */
-export function getNumber(node: { "#text": number }): number | null {
-  if (typeof node !== "undefined" && typeof node["#text"] === "number") {
-    return node["#text"];
-  }
+export function getNumber(node: { "#text": number } | number): number | null {
   if (typeof node === "number") {
     return node;
   }
+  if (typeof node !== "undefined" && node && typeof node["#text"] === "number") {
+    return node["#text"];
+  }
   return null;
+}
+
+function hasAttribute(node: { attr: Record<string, string> }, name: string): boolean {
+  if (typeof node !== "undefined" && node && typeof node.attr === "object") {
+    if (typeof node.attr[`@_${name}`] === "string") {
+      return Boolean(node.attr[`@_${name}`].trim());
+    }
+    return typeof node.attr[`@_${name}`] === "number";
+  }
+  return false;
 }
 
 /** Gets the attribute value from a give node. Returns null if the attribute does not exist */
 export function getAttribute(node: { attr: Record<string, string> }, name: string): string | null {
   if (
     typeof node !== "undefined" &&
+    node &&
     typeof node.attr === "object" &&
     typeof node.attr[`@_${name}`] === "string"
   ) {
@@ -384,4 +494,25 @@ export function extractOptionalNumberAttribute(
     return { [key]: parseInt(val, 10) };
   }
   return {};
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type StringEnum = { [key: string]: any };
+// eslint-disable-next-line @typescript-eslint/ban-types
+function keysOf<K extends {}>(o: K): (keyof K)[];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function keysOf(o: any) {
+  return Object.keys(o);
+}
+
+export function lookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof E] | undefined {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const enumKey of keysOf(stringEnum)) {
+    if (stringEnum[enumKey] === s) {
+      // here we have to help the compiler
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion, @typescript-eslint/no-unsafe-return
+      return stringEnum[enumKey] as E[keyof E];
+    }
+  }
+  return undefined;
 }

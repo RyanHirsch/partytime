@@ -29,9 +29,9 @@ export const locked: FeedUpdate = {
     log.debug(`- Locked: ${lockedText}`);
 
     if (["yes", "true"].includes(lockedText)) {
-      feedUpdate.podcastLocked = 1;
+      feedUpdate.locked = true;
     } else if (["no", "false"].includes(lockedText)) {
-      feedUpdate.podcastLocked = 0;
+      feedUpdate.locked = false;
     }
 
     if (owner) {
