@@ -1,6 +1,6 @@
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
-import { Episode, FeedObject } from "../../shared";
+import { Episode, FeedObject } from "../../types";
 
 describe("phase 4", () => {
   let feed;
@@ -11,7 +11,7 @@ describe("phase 4", () => {
   describe("value", () => {
     const supportedName = "value";
 
-    const assertAlice = (alice) => {
+    const assertAlice = (alice): void => {
       expect(alice).toHaveProperty("name", "Alice (Podcaster)");
       expect(alice).toHaveProperty("type", "node");
       expect(alice).toHaveProperty(
@@ -21,7 +21,7 @@ describe("phase 4", () => {
       expect(alice).toHaveProperty("split", 40);
       expect(alice).toHaveProperty("fee", false);
     };
-    const assertBob = (bob) => {
+    const assertBob = (bob): void => {
       expect(bob).toHaveProperty("name", "Bob (Podcaster)");
       expect(bob).toHaveProperty("type", "node");
       expect(bob).toHaveProperty(
@@ -31,7 +31,7 @@ describe("phase 4", () => {
       expect(bob).toHaveProperty("split", 40);
       expect(bob).toHaveProperty("fee", false);
     };
-    const assertCarol = (carol) => {
+    const assertCarol = (carol): void => {
       expect(carol).toHaveProperty("name", "Carol (Producer)");
       expect(carol).toHaveProperty("type", "node");
       expect(carol).toHaveProperty(
@@ -41,7 +41,7 @@ describe("phase 4", () => {
       expect(carol).toHaveProperty("split", 15);
       expect(carol).toHaveProperty("fee", false);
     };
-    const assertHost = (host) => {
+    const assertHost = (host): void => {
       expect(host).toHaveProperty("name", "Hosting Provider");
       expect(host).toHaveProperty("type", "node");
       expect(host).toHaveProperty(

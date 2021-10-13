@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ensureArray, firstIfArray, getAttribute, getKnownAttribute, getText } from "../shared";
 
-import type { FeedObject } from "../shared";
+import type { FeedObject, XmlNode } from "../types";
 import type { FeedUpdate, ItemUpdate } from "./index";
 import { log } from "../../logger";
 
@@ -70,8 +70,8 @@ export const transcript: ItemUpdate = {
   tag: "transcript",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
-    (node as TODO[]).some(
-      (transcriptNode: any) =>
+    (node as XmlNode[]).some(
+      (transcriptNode) =>
         Boolean(getAttribute(transcriptNode, "url")) &&
         Boolean(getAttribute(transcriptNode, "type"))
     ),
@@ -80,7 +80,7 @@ export const transcript: ItemUpdate = {
 
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
 
-    (node as TODO[]).forEach((transcriptNode: any) => {
+    (node as XmlNode[]).forEach((transcriptNode) => {
       const feedLanguage: string = feed ? feed.rss.channel.language : null;
       const url = getAttribute(transcriptNode, "url");
       const type = getAttribute(transcriptNode, "type") as TranscriptType;
@@ -196,13 +196,13 @@ export const soundbite: ItemUpdate = {
   tag: "soundbite",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
-    (node as TODO[]).some((n: TODO) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
+    (node as XmlNode[]).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
   fn(node, feed) {
     log.info("soundbite");
 
     const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
 
-    (node as TODO[]).forEach((soundbiteNode: TODO) => {
+    (node as XmlNode[]).forEach((soundbiteNode: XmlNode) => {
       const duration = parseFloat(getKnownAttribute(soundbiteNode, "duration"));
       const startTime = parseFloat(getKnownAttribute(soundbiteNode, "startTime"));
       const title = getText(soundbiteNode);

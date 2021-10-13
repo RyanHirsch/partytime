@@ -7,10 +7,9 @@
 import crypto from "crypto";
 
 import { log } from "../logger";
-import { parseRss } from "./rss";
-import { parseAtom } from "./atom";
+import { unifiedParser } from "./unified";
 import { parse, validate } from "./xml-parser";
-import { FeedObject } from "./shared";
+import { FeedObject, FeedType } from "./types";
 
 export function parseFeed(xml: string): FeedObject | null {
   const parsedContent = validate(xml.trim());
@@ -22,11 +21,11 @@ export function parseFeed(xml: string): FeedObject | null {
 
 function handleValidFeed(xml: string): FeedObject | null {
   const theFeed = parse(xml.trim());
-  let feedObj: any;
+  let feedObj: FeedObject | null;
   if (typeof theFeed.rss === "object") {
-    feedObj = parseRss(theFeed);
+    feedObj = unifiedParser(theFeed, FeedType.RSS);
   } else if (typeof theFeed.feed === "object") {
-    feedObj = parseAtom(theFeed);
+    feedObj = unifiedParser(theFeed, FeedType.ATOM);
   } else {
     // Unsupported
     return null;
@@ -44,10 +43,9 @@ function handleValidFeed(xml: string): FeedObject | null {
         feedObj.link +
         feedObj.language +
         feedObj.generator +
-        feedObj.itunesAuthor +
-        feedObj.itunesOwnerName +
-        feedObj.itunesOwnerEmail +
-        feedObj.itemUrlStrings
+        (feedObj.author ?? "") +
+        (feedObj.owner?.name ?? "") +
+        (feedObj.owner?.email ?? "")
     )
     .digest("hex");
 

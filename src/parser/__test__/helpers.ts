@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { FeedObject } from "../shared";
+import type { FeedObject } from "../types";
 
 export async function loadFixture(name = "example"): Promise<string> {
   return new Promise((resolve, reject) =>
@@ -17,7 +17,7 @@ export async function loadFixture(name = "example"): Promise<string> {
 export function getPhaseSupport(feed: FeedObject, phase: number): string[] {
   const defaultReturn: string[] = [];
   // eslint-disable-next-line no-underscore-dangle
-  const phaseObj = feed.__phase;
+  const phaseObj = feed.pc20support;
   if (phaseObj) {
     return phaseObj[phase] ?? defaultReturn;
   }

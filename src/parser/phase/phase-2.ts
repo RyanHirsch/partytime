@@ -1,8 +1,8 @@
 import { ensureArray, firstIfArray, getAttribute, getNumber, getText } from "../shared";
 import { PersonGroup, PersonRole } from "../person-enum";
 
-import type { Episode, FeedObject, TODO } from "../shared";
-import type { FeedUpdate, ItemUpdate } from "./index";
+import type { XmlNode } from "../types";
+import type { ItemUpdate } from "./index";
 import { log } from "../../logger";
 
 /**
@@ -22,20 +22,21 @@ export type Phase2Person = {
   /** The url to a relevant resource of information about the person, such as a homepage or third-party profile platform. */
   href?: string;
 };
-export const person: FeedUpdate | ItemUpdate = {
+export const person = {
   phase: 2,
   tag: "person",
   nodeTransform: ensureArray,
   // As long as one of the person tags has text, we'll consider it valid
-  supportCheck: (node) => (node as TODO[]).some((n: TODO) => Boolean(getText(n))),
-  fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
+  supportCheck: (node: XmlNode): boolean =>
+    (node as XmlNode[]).some((n: XmlNode) => Boolean(getText(n))),
+  fn(node: XmlNode): { podcastPeople: Phase2Person[] } {
     log.info("person");
     const podcastPeople: Phase2Person[] = [];
 
     const groups = Object.values(PersonGroup);
     const roles = Object.values(PersonRole);
 
-    (node as TODO[]).forEach((personNode: TODO) => {
+    (node as XmlNode[]).forEach((personNode: XmlNode) => {
       const name = getText(personNode);
       const role =
         roles.find((r) => r.toLowerCase() === getAttribute(personNode, "role")?.toLowerCase()) ??
@@ -84,31 +85,28 @@ export type Phase2Location = {
   /** A geo URI, conformant to RFC 5870 */
   geo?: string;
 };
-export const location: FeedUpdate | ItemUpdate = {
+export const location = {
   phase: 2,
   tag: "location",
   nodeTransform: firstIfArray,
-  supportCheck: (node: TODO) => Boolean(getText(node)),
-  fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
+  supportCheck: (node: XmlNode): boolean => Boolean(getText(node)),
+  fn(node: XmlNode): { podcastLocation: Phase2Location } {
     log.info("location");
 
-    const update: Partial<FeedObject> | Partial<Episode> = {};
-    const name = getText(node);
+    const update: { podcastLocation: Phase2Location } = {
+      podcastLocation: { name: getText(node) },
+    };
     const openStreetMaps = getAttribute(node, "osm");
     const geoUri = getAttribute(node, "geo");
-    if (name) {
-      update.podcastLocation = {
-        name,
-      };
 
-      if (openStreetMaps) {
-        update.podcastLocation.osm = openStreetMaps;
-      }
-
-      if (geoUri) {
-        update.podcastLocation.geo = geoUri;
-      }
+    if (openStreetMaps) {
+      update.podcastLocation.osm = openStreetMaps;
     }
+
+    if (geoUri) {
+      update.podcastLocation.geo = geoUri;
+    }
+
     return update;
   },
 };
@@ -132,6 +130,7 @@ export const season: ItemUpdate = {
   fn(node) {
     const itemUpdate = {
       podcastSeason: {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         number: Math.floor(getNumber(node)!),
       } as Phase2SeasonNumber,
     };

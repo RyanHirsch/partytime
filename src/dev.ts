@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/no-extraneous-dependencies */
 import * as fs from "fs";
 import * as path from "path";
@@ -241,7 +243,7 @@ async function getFeed(uri: string): Promise<void> {
   // log.info(corsSupport);
 
   // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
-  log.info(feedObject.__phase);
+  log.info(feedObject.pc20support);
 }
 
 if (process.argv[2] === "--latest") {
