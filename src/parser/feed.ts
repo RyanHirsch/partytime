@@ -29,7 +29,10 @@ import {
   firstWithValue,
   getAttribute,
   getKnownAttribute,
+  getNumber,
   getText,
+  ItunesFeedType,
+  lookup,
   pubDateToDate,
   sanitizeMultipleSpaces,
   sanitizeNewLines,
@@ -213,6 +216,138 @@ function getLastBuildDate(feed: XmlNode): undefined | { lastBuildDate: Date } {
   return undefined;
 }
 
+function getItunesType(feed: XmlNode): undefined | { itunesType: ItunesFeedType } {
+  const node = firstWithValue(feed["itunes:type"]);
+  const nodeValue = getText(node);
+  if (nodeValue) {
+    const parsed = lookup(ItunesFeedType, nodeValue.toLowerCase());
+    if (parsed) {
+      return { itunesType: parsed };
+    }
+  }
+
+  const fallbackNode = firstWithAttributes(feed["itunes:type"], ["text"]);
+  if (fallbackNode) {
+    const parsed = lookup(ItunesFeedType, getKnownAttribute(fallbackNode, "text").toLowerCase());
+    if (parsed) {
+      return { itunesType: parsed };
+    }
+  }
+  return undefined;
+}
+
+function getItunesNewFeedUrl(feed: XmlNode): undefined | { itunesNewFeedUrl: string } {
+  const node = firstWithValue(feed["itunes:new-feed-url"]);
+  const nodeValue = getText(node);
+  if (nodeValue) {
+    return { itunesNewFeedUrl: nodeValue };
+  }
+  return undefined;
+}
+
+function getCategories(_feed: XmlNode): undefined | { categories: string[] } {
+  return undefined;
+}
+
+function getPubSub(
+  feed: XmlNode
+): undefined | { pubsub: { hub?: string; self?: string; next?: string } } {
+  const getNode = (key: string, type: string): XmlNode | null =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(feed[key]).find((n) => getAttribute(n, "href") && getAttribute(n, "rel") === type);
+
+  const selfNode = getNode("atom:link", "self") ?? getNode("link", "self");
+  const hubNode = getNode("atom:link", "hub") ?? getNode("link", "hub");
+  const nextNode = getNode("atom:link", "next") ?? getNode("link", "next");
+
+  if (!selfNode && !hubNode && !nextNode) {
+    return undefined;
+  }
+  const pubsub: { hub?: string; self?: string; next?: string } = {};
+
+  if (selfNode) {
+    pubsub.self = getKnownAttribute(selfNode, "href");
+  }
+  if (hubNode) {
+    pubsub.hub = getKnownAttribute(hubNode, "href");
+  }
+  if (nextNode) {
+    pubsub.next = getKnownAttribute(nextNode, "href");
+  }
+  return { pubsub };
+}
+
+function getAuthor(feed: XmlNode): undefined | { author: string } {
+  const node = firstWithValue(feed["itunes:author"]);
+
+  if (node) {
+    return { author: getText(node) };
+  }
+  return undefined;
+}
+
+function getOwner(feed: XmlNode): undefined | { owner: { name: string; email: string } } {
+  const node = ensureArray(feed["itunes:owner"]).find(
+    (n) => firstWithValue(n["itunes:name"]) && firstWithValue(n["itunes:email"])
+  );
+
+  if (node) {
+    const name = firstWithValue(node["itunes:name"]);
+    const email = firstWithValue(node["itunes:email"]);
+    return {
+      owner: {
+        name: getText(name),
+        email: getText(email),
+      },
+    };
+  }
+  return undefined;
+}
+
+type ValidImage = {
+  image: {
+    url: string;
+    title?: string;
+    link?: string;
+    width?: number;
+    height?: number;
+  };
+};
+function getImage(feed: XmlNode): undefined | ValidImage {
+  const nodeWithUrl = ensureArray(feed.image).find((n) => getText(n.url));
+
+  if (nodeWithUrl) {
+    const result: ValidImage = { image: { url: getText(firstWithValue(nodeWithUrl.url)) } };
+    const title = firstWithValue(nodeWithUrl.title);
+    if (title) {
+      result.image.title = getText(title);
+    }
+    const link = firstWithValue(nodeWithUrl.link);
+    if (link) {
+      result.image.link = getText(link);
+    }
+    const width = firstWithValue(nodeWithUrl.width);
+    if (width) {
+      result.image.width = getNumber(width) ?? 0;
+    }
+    const height = firstWithValue(nodeWithUrl.height);
+    if (height) {
+      result.image.height = getNumber(height) ?? 0;
+    }
+
+    return result;
+  }
+
+  const itunesImage = getItunesImage(feed);
+  if (itunesImage) {
+    return {
+      image: { url: itunesImage.itunesImage },
+    };
+  }
+
+  return undefined;
+}
+
 export function handleFeed(feed: XmlNode, feedType: FeedType): Partial<FeedObject> {
   return {
     type: feedType,
@@ -226,6 +361,13 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): Partial<FeedObjec
     ...getGenerator(feed),
     ...getPubDate(feed),
     ...getLastBuildDate(feed),
+    ...getItunesType(feed),
+    ...getItunesNewFeedUrl(feed),
+    ...getCategories(feed),
+    ...getPubSub(feed),
+    ...getAuthor(feed),
+    ...getOwner(feed),
+    ...getImage(feed),
 
     items: [],
     __phase: {},

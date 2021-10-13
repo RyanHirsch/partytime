@@ -16,15 +16,11 @@ import { log } from "../logger";
 import {
   ensureArray,
   FeedType,
-  findPubSubLinks,
   firstIfArray,
   getAttribute,
-  ItunesFeedType,
-  lookup,
   PhaseUpdate,
   pubDateToDate,
   RSSFeed,
-  sanitizeUrl,
 } from "./shared";
 import type { FeedObject, Episode } from "./shared";
 import { updateFeed, updateItem } from "./phase";
@@ -57,69 +53,6 @@ export function parseRss(theFeed: any) {
   //   value: {},
   // };
   let phaseSupport: PhaseUpdate = {};
-
-  // Feed owner/author
-  if (typeof theFeed.rss.channel["itunes:author"] !== "undefined") {
-    feedObj.itunesAuthor = theFeed.rss.channel["itunes:author"];
-    if (Array.isArray(feedObj.itunesAuthor)) {
-      [feedObj.itunesAuthor] = feedObj.itunesAuthor;
-    }
-    if (
-      typeof feedObj.itunesAuthor === "object" &&
-      typeof feedObj.itunesAuthor["#text"] !== "undefined"
-    ) {
-      feedObj.itunesAuthor = feedObj.itunesAuthor["#text"];
-    }
-  }
-  if (typeof theFeed.rss.channel["itunes:owner"] !== "undefined") {
-    if (typeof theFeed.rss.channel["itunes:owner"]["itunes:email"] !== "undefined") {
-      feedObj.itunesOwnerEmail = theFeed.rss.channel["itunes:owner"]["itunes:email"];
-    }
-    if (typeof theFeed.rss.channel["itunes:owner"]["itunes:name"] !== "undefined") {
-      feedObj.itunesOwnerName = theFeed.rss.channel["itunes:owner"]["itunes:name"];
-    }
-  }
-  if (typeof feedObj.itunesAuthor !== "string") feedObj.itunesAuthor = "";
-  if (typeof feedObj.itunesOwnerEmail !== "string") feedObj.itunesOwnerEmail = "";
-  if (typeof feedObj.itunesOwnerName !== "string") feedObj.itunesOwnerName = "";
-
-  // Duplicate language?
-  if (Array.isArray(feedObj.language)) {
-    [feedObj.language] = feedObj.language;
-  }
-
-  // Itunes specific stuff
-  if (Array.isArray(feedObj.itunesType)) {
-    [feedObj.itunesType] = feedObj.itunesType;
-  }
-  if (typeof feedObj.itunesType === "object" && typeof feedObj.itunesType["#text"] === "string") {
-    feedObj.itunesType = feedObj.itunesType["#text"];
-  }
-  if (
-    typeof theFeed.rss.channel["itunes:type"] === "object" &&
-    typeof theFeed.rss.channel["itunes:type"].attr !== "undefined" &&
-    typeof theFeed.rss.channel["itunes:type"].attr["@_text"] === "string"
-  ) {
-    feedObj.itunesType = lookup(
-      ItunesFeedType,
-      theFeed.rss.channel["itunes:type"].attr["@_text"].toLowerCase()
-    );
-  }
-  if (Array.isArray(feedObj.itunesNewFeedUrl)) {
-    [feedObj.itunesNewFeedUrl] = feedObj.itunesNewFeedUrl;
-  }
-
-  feedObj.image = "";
-  if (
-    typeof theFeed.rss.channel.image !== "undefined" &&
-    typeof theFeed.rss.channel.image.url === "string"
-  ) {
-    feedObj.image = theFeed.rss.channel.image.url;
-  }
-  if (feedObj.image === "" && feedObj.itunesImage !== "") {
-    feedObj.image = feedObj.itunesImage;
-  }
-  feedObj.image = sanitizeUrl(feedObj.image);
 
   // Feed Phase Support
   const feedResult = updateFeed(theFeed);

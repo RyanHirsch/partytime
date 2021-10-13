@@ -86,20 +86,29 @@ export interface FeedObject {
   lastBuildDate: Date;
 
   itunesType?: ItunesFeedType;
-  itunesNewFeedUrl: TODO;
+  /**
+   * The new podcast RSS Feed URL. If you change the URL of your podcast feed, you should use this tag in your
+   * new feed.
+   */
+  itunesNewFeedUrl: string;
   categories?: string[];
 
-  pubsub: false | { hub: string; self: string };
-  itunesAuthor?: string;
+  pubsub?: { hub?: string; self?: string; next?: string };
+  author?: string;
   owner?: {
     email: string;
     name: string;
   };
-  image?: string;
-
-  podcastOwner: string;
+  image?: {
+    url: string;
+    title?: string;
+    link?: string;
+    width?: number;
+    height?: number;
+  };
 
   // #region Phase 1
+  podcastOwner: string;
   locked: boolean;
   podcastFunding?: Phase1Funding;
   // #endregion
@@ -170,77 +179,6 @@ export interface Episode {
 
 export interface PhaseUpdate {
   [p: number]: { [k: string]: boolean };
-}
-
-// Parse out all of the links from an atom entry and see which ones are WebSub links
-export function findPubSubLinks(channel: any) {
-  const pubsublinks = {
-    hub: "",
-    self: "",
-  };
-
-  // Multiple link objects in an array?
-  if (Array.isArray(channel.link)) {
-    channel.link.forEach(function (item: any) {
-      // console.log(item);
-      if (typeof item.attr !== "object") return;
-
-      if (typeof item.attr["@_rel"] === "string") {
-        if (item.attr["@_rel"] === "hub") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.hub = item.attr["@_href"];
-        }
-
-        if (item.attr["@_rel"] === "self") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.self = item.attr["@_href"];
-        }
-      }
-    });
-  }
-
-  // Multiple link objects in an array?
-  if (Array.isArray(channel["atom:link"])) {
-    channel["atom:link"].forEach(function (item) {
-      if (typeof item.attr !== "object") return;
-
-      if (typeof item.attr["@_rel"] === "string") {
-        if (item.attr["@_rel"] === "hub") {
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.hub = item.attr["@_href"];
-        }
-
-        if (item.attr["@_rel"] === "self") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.self = item.attr["@_href"];
-        }
-      }
-    });
-  }
-
-  if (pubsublinks.hub === "" || pubsublinks.self === "") {
-    return false;
-  }
-
-  return pubsublinks;
 }
 
 // Make the url safe for storing
