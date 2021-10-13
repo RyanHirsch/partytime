@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { parseFeed } from "../index";
-import { ItunesFeedType } from "../shared";
+import { ItunesFeedType } from "../types";
 import * as helpers from "./helpers";
 
 describe("feed handling", () => {
@@ -155,6 +155,63 @@ describe("feed handling", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("description", "hello");
+    });
+
+    it("falls back to subtitle (atom support)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <subtitle>hola</subtitle>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("description", "hola");
+    });
+  });
+
+  describe("summary", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <itunes:summary>hi</itunes:summary>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("summary", "hi");
+    });
+  });
+
+  describe("subtitle", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <itunes:subtitle>hey   there</itunes:subtitle>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("subtitle", "hey there");
+    });
+
+    it("prefers the non-itunes value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <subtitle>buddy</subtitle>
+          <itunes:subtitle>hey   there</itunes:subtitle>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("subtitle", "buddy");
     });
   });
 
@@ -353,34 +410,16 @@ describe("feed handling", () => {
       expect(result).toHaveProperty("pubDate", new Date("Sun, 10 Oct 2021 23:02:57 PDT"));
     });
 
-    // TODO
-    it.skip("falls back to newest item pubdate", () => {
+    it("falls back to updated for atom support", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <item>
-          <pubDate>Thu, 30 Sep 2021 21:19:00 -0000</pubDate>
-          <description>hello</description>
-          <guid isPermaLink="true">https://example.com/ep0003</guid>
-          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
-        </item>
-        <item>
-          <pubDate>1 Oct 2021 21:19:00 -0000</pubDate>
-          <description>hello again</description>
-          <guid isPermaLink="true">https://example.com/ep0005</guid>
-          <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1/d11384ea-69b5-4e33-bd0e-6b33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
-        </item>
-        <item>
-        <pubDate>Wed, 29 Sept 2021 21:19:00 -0000</pubDate>
-        <description>hello 2</description>
-        <guid isPermaLink="true">https://example.com/ep0002</guid>
-        <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5.mp3" length="78034115" type="audio/mpeg"/>
-      </item>
+        <updated>Sun, 10 Oct 2021 23:02:57 PDT</updated>
         `
       );
 
       const result = parseFeed(xml);
-      expect(result).toHaveProperty("pubDate", new Date("1 Oct 2021 21:19:00 -0000"));
+      expect(result).toHaveProperty("pubDate", new Date("Sun, 10 Oct 2021 23:02:57 PDT"));
     });
   });
 
@@ -691,6 +730,59 @@ describe("feed handling", () => {
         "url",
         "https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/cover.jpg?v=1"
       );
+    });
+
+    it("falls back to the logo for atom support", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <logo>https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/cover.jpg?v=1</logo>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("image");
+      expect(result.image).toHaveProperty(
+        "url",
+        "https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/cover.jpg?v=1"
+      );
+    });
+  });
+
+  describe("misc item based tests", () => {
+    let exampleFeed: string;
+    beforeAll(async () => {
+      exampleFeed = await helpers.loadFixture();
+    });
+
+    it("extracts the newestItemPubDate", () => {
+      const result = parseFeed(exampleFeed);
+      expect(result).toHaveProperty("newestItemPubDate", new Date("Fri, 09 Oct 2020 04:30:38 GMT"));
+    });
+
+    it("extracts the oldestItemPubDate", () => {
+      const result = parseFeed(exampleFeed);
+      expect(result).toHaveProperty("oldestItemPubDate", new Date("Wed, 07 Oct 2020 04:30:38 GMT"));
+    });
+
+    it("missing pubDate falls back to newestItemPubDate", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <title>Podcasting 2.0</title>
+        <description>The Podcast Index presents Podcasting 2.0 - Upgrading Podcasting</description>
+        <link>http://podcastindex.org</link>
+        <item>
+          <title>Episode 56: Rocket in your Pocket</title>
+          <link>http://adam.curry.com/html/PC205420210917Podcas-bxSsTNn1z0KbP5KMMBxT8rtNZBHpXW.html#,5</link>
+          <guid isPermaLink="false">PC2056</guid>
+          <pubDate>Fri, 01 Oct 2021 18:58:23 +0000</pubDate>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-56-2021-10-01-Final.mp3" length="70881847" type="audio/mpeg"/>
+        </item>
+        `
+      );
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("pubDate", new Date("Fri, 01 Oct 2021 18:58:23 +0000"));
     });
   });
 });

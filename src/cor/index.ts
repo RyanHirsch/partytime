@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import zip from "ramda/src/zip";
 import { log } from "../logger";
 import { parseFeed } from "../parser";
-import type { Episode, FeedObject } from "../parser/shared";
+import type { Episode, FeedObject } from "../parser/types";
 import { getFeedText } from "../shared";
 
 const podcastCertification = "https://podcastcertification.org";
@@ -113,8 +113,8 @@ export async function checkFeedByObject({
   );
 
   if (feedObject.image) {
-    resultObject.hotlinkFeedImage = await checkHotlink(feedObject.image);
-    resultObject.httpsFeedImage = await checkHttps(feedObject.image);
+    resultObject.hotlinkFeedImage = await checkHotlink(feedObject.image.url);
+    resultObject.httpsFeedImage = await checkHttps(feedObject.image.url);
   }
   if (newestEpisode.image) {
     resultObject.hotlinkEpisodeImage = await checkHotlink(newestEpisode.image);

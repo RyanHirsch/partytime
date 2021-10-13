@@ -5,10 +5,7 @@
 
 import { log } from "../logger";
 import {
-  Enclosure,
   ensureArray,
-  Episode,
-  FeedObject,
   firstWithAttributes,
   firstWithValue,
   getAttribute,
@@ -16,7 +13,6 @@ import {
   getNumber,
   getText,
   guessEnclosureType,
-  ItunesEpisodeType,
   lookup,
   pubDateToDate,
   sanitizeMultipleSpaces,
@@ -24,6 +20,8 @@ import {
   sanitizeUrl,
   timeToSeconds,
 } from "./shared";
+import type { Enclosure, Episode, FeedObject, XmlNode } from "./types";
+import { ItunesEpisodeType } from "./types";
 
 export function isValidItem(item: XmlNode): boolean {
   // If there is no enclosure, just skip this item and move on to the next
@@ -67,16 +65,24 @@ function getEnclosure(item: XmlNode): Enclosure | null {
   return null;
 }
 
-function getAuthor(item: XmlNode): string {
+function getAuthor(item: XmlNode): undefined | { author: string } {
   const node = firstWithValue(item.author);
   const fallbackNode = firstWithValue(item["itunes:author"]);
-  return getText(node) || getText(fallbackNode);
+  const author = getText(node) || getText(fallbackNode);
+  if (author) {
+    return { author };
+  }
+  return undefined;
 }
 
-function getTitle(item: XmlNode): string {
+function getTitle(item: XmlNode): undefined | { title: string } {
   const node = firstWithValue(item.title);
   const fallbackNode = firstWithValue(item["itunes:title"]);
-  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
+  const title = sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
+  if (title) {
+    return { title };
+  }
+  return undefined;
 }
 
 function getDescription(item: XmlNode): undefined | { description: string } {
@@ -258,15 +264,15 @@ function getSubtitle(item: XmlNode): undefined | { subtitle: string } {
   return undefined;
 }
 
-export function handleItem(item: XmlNode, _feed: Partial<FeedObject>): Episode {
+export function handleItem(item: XmlNode, _feed: FeedObject): Episode {
   return {
     guid: getGuid(item),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     enclosure: getEnclosure(item)!,
-    author: getAuthor(item),
-    title: getTitle(item),
     duration: getDuration(item),
     explicit: getExplicit(item),
+    ...getTitle(item),
+    ...getAuthor(item),
     ...getLink(item),
     ...getItunesImage(item),
     ...getItunesEpisode(item),

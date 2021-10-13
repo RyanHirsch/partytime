@@ -6,7 +6,7 @@ import mergeDeepRight from "ramda/src/mergeDeepRight";
 import mergeWith from "ramda/src/mergeWith";
 import log from "loglevel";
 
-import type { Episode, FeedObject, RSSFeed, TODO, PhaseUpdate } from "../shared";
+import type { Episode, FeedObject, RSSFeed, XmlNode, PhaseUpdate, TODO } from "../types";
 
 import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
@@ -23,7 +23,7 @@ type ItemUpdateResult = {
   phaseUpdate: PhaseUpdate;
 };
 
-type NodeTransform = (x: TODO) => TODO;
+type NodeTransform = (x: XmlNode) => TODO;
 type SupportCheck = (x: TODO) => boolean;
 
 /** Describes a Feed processing object intended to provide extensible feed parsing */
@@ -33,7 +33,7 @@ export type FeedUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current feed */
-  fn: (node: TODO, feed: RSSFeed) => Partial<FeedObject>;
+  fn: (node: XmlNode, feed: RSSFeed) => Partial<FeedObject>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -47,7 +47,7 @@ export type ItemUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: TODO, feed: RSSFeed) => Partial<Episode>;
+  fn: (node: XmlNode, feed: RSSFeed) => Partial<Episode>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -115,7 +115,7 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
   );
 }
 
-export function updateItem(item: TODO, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
+export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
   return itemUpdates.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);

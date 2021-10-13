@@ -27,6 +27,7 @@ describe.skip("Parser", () => {
     if (db) db.close(done);
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function run(sql: string): Promise<any[]> {
     return new Promise((resolve, reject) => {
       if (db) {

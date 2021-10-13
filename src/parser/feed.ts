@@ -1,42 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// title
-// link
-// language
-// copyright
-// description
-// image
-// explicit
-// type
-// subtitle
-// author
-// summary
-// encoded
-// owner
-// - name
-// - email
-// itunes:image
-// category
-// generator
-// pubDate
-// itunes keywords
-
 import {
   ensureArray,
-  FeedObject,
-  FeedType,
   firstWithAttributes,
   firstWithValue,
   getAttribute,
   getKnownAttribute,
   getNumber,
   getText,
-  ItunesFeedType,
   lookup,
   pubDateToDate,
   sanitizeMultipleSpaces,
   sanitizeNewLines,
 } from "./shared";
+import { ItunesFeedType } from "./types";
+import type { FeedObject, FeedType, XmlNode } from "./types";
 
 function getTitle(feed: XmlNode): string {
   const node = firstWithValue(feed.title);
@@ -53,14 +31,46 @@ function getDescription(feed: XmlNode): string {
     }
   }
 
-  const fallbackNode = firstWithValue(feed["itunes:summary"]);
+  const fallbackNode = getSummary(feed);
+  if (fallbackNode) {
+    return fallbackNode.summary;
+  }
+
+  const atomFallback = getSubtitle(feed);
+  if (atomFallback) {
+    return atomFallback.subtitle;
+  }
+
+  return "";
+}
+
+function getSummary(feed: XmlNode): undefined | { summary: string } {
+  const node = firstWithValue(feed["itunes:summary"]);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { summary: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  return undefined;
+}
+
+function getSubtitle(feed: XmlNode): undefined | { subtitle: string } {
+  const node = firstWithValue(feed.subtitle);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { subtitle: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  const fallbackNode = firstWithValue(feed["itunes:subtitle"]);
   if (fallbackNode) {
     const nodeValue = getText(fallbackNode);
     if (nodeValue) {
-      return sanitizeMultipleSpaces(sanitizeNewLines(nodeValue));
+      return { subtitle: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
     }
   }
-  return "";
+  return undefined;
 }
 
 function getLink(feed: XmlNode): string {
@@ -144,9 +154,11 @@ function getItunesImage(feed: XmlNode): undefined | { itunesImage: string } {
 }
 
 function getItunesCategory(feed: XmlNode): undefined | { itunesCategory: string[] } {
-  const getCategories = (node: XmlNode) => ensureArray(node["itunes:category"]);
+  const getCategoriesNode = (node: XmlNode): XmlNode[] =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray<XmlNode>(node["itunes:category"]);
 
-  const topLevelCategories = getCategories(feed);
+  const topLevelCategories = getCategoriesNode(feed);
   if (topLevelCategories.length === 0) {
     return undefined;
   }
@@ -157,8 +169,8 @@ function getItunesCategory(feed: XmlNode): undefined | { itunesCategory: string[
     if (categoryName) {
       categories.add(categoryName);
     }
-    if (getCategories(cat).length > 0) {
-      getCategories(cat).forEach((subCat) => {
+    if (getCategoriesNode(cat).length > 0) {
+      getCategoriesNode(cat).forEach((subCat) => {
         const subCategoryName = (getAttribute(subCat, "text") ?? "").toLowerCase();
         if (subCategoryName) {
           categories.add(`${categoryName} > ${subCategoryName}`);
@@ -196,6 +208,15 @@ function getPubDate(feed: XmlNode): undefined | { pubDate: Date } {
   const fallbackNodeValue = getText(fallbackNode);
   if (fallbackNodeValue) {
     const parsed = pubDateToDate(fallbackNodeValue);
+    if (parsed) {
+      return { pubDate: parsed };
+    }
+  }
+
+  const atomFallbackNode = firstWithValue(feed.updated);
+  const atomFallbackNodeValue = getText(atomFallbackNode);
+  if (atomFallbackNodeValue) {
+    const parsed = pubDateToDate(atomFallbackNodeValue);
     if (parsed) {
       return { pubDate: parsed };
     }
@@ -345,11 +366,21 @@ function getImage(feed: XmlNode): undefined | ValidImage {
     };
   }
 
+  const logoNode = firstWithValue(feed.logo);
+  if (logoNode) {
+    return {
+      image: {
+        url: getText(logoNode),
+      },
+    };
+  }
+
   return undefined;
 }
 
-export function handleFeed(feed: XmlNode, feedType: FeedType): Partial<FeedObject> {
+export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
   return {
+    lastUpdate: new Date(),
     type: feedType,
     title: getTitle(feed),
     description: getDescription(feed),
@@ -368,8 +399,10 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): Partial<FeedObjec
     ...getAuthor(feed),
     ...getOwner(feed),
     ...getImage(feed),
+    ...getSummary(feed),
+    ...getSubtitle(feed),
 
     items: [],
-    __phase: {},
+    pc20support: {},
   };
 }
