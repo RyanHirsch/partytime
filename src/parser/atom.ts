@@ -13,7 +13,7 @@ import {
   findPubSubLinks,
   getText,
   guessEnclosureType,
-  notUndefined,
+  isNotUndefined,
   pubDateToDate,
   timeToSeconds,
 } from "./shared";
@@ -249,7 +249,7 @@ export function parseAtom(theFeed: any) {
         }
         return newFeedItem;
       })
-      .filter(notUndefined);
+      .filter(isNotUndefined);
 
     // Get the pubdate of the most recent item
     let mostRecentPubDate = epochDate;

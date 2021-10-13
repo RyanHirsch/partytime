@@ -52,7 +52,6 @@ export function parseRss(theFeed: any) {
     categories: getPodcastCategories(theFeed),
     // podcastLocked: 0,
     lastUpdate: new Date(),
-    value: {},
   };
   let phaseSupport: PhaseUpdate = {};
 
@@ -220,47 +219,6 @@ export function parseRss(theFeed: any) {
   feedObj = mergeWith(concat, feedObj, feedResult.feedUpdate);
   phaseSupport = mergeDeepRight(phaseSupport, feedResult.phaseUpdate);
 
-  // Value block
-  if (
-    typeof theFeed.rss.channel["podcast:value"] !== "undefined" &&
-    typeof theFeed.rss.channel["podcast:value"].attr !== "undefined"
-  ) {
-    // Get the model
-    feedObj.value.model = {
-      type: theFeed.rss.channel["podcast:value"].attr["@_type"],
-      method: theFeed.rss.channel["podcast:value"].attr["@_method"],
-      suggested: theFeed.rss.channel["podcast:value"].attr["@_suggested"],
-    };
-
-    // Get the recipients
-    feedObj.value.destinations = [];
-    if (typeof theFeed.rss.channel["podcast:value"]["podcast:valueRecipient"] === "object") {
-      const valueRecipients = theFeed.rss.channel["podcast:value"]["podcast:valueRecipient"];
-      // twoDotOhCompliant(feedObj, 3, "valueRecipient");
-
-      if (Array.isArray(valueRecipients)) {
-        valueRecipients.forEach(function (item) {
-          if (typeof item.attr !== "undefined") {
-            feedObj.value.destinations.push({
-              name: item.attr["@_name"],
-              type: item.attr["@_type"],
-              address: item.attr["@_address"],
-              split: item.attr["@_split"],
-            });
-          }
-        });
-      } else if (typeof valueRecipients.attr !== "undefined") {
-        feedObj.value.destinations.push({
-          name: valueRecipients.attr["@_name"],
-          type: valueRecipients.attr["@_type"],
-          address: valueRecipients.attr["@_address"],
-          split: valueRecipients.attr["@_split"],
-        });
-      }
-    }
-  }
-  // #endregion
-
   // Feed title
   if (typeof feedObj.title !== "string") {
     feedObj.title = "";
@@ -301,6 +259,11 @@ export function parseRss(theFeed: any) {
         const itemResult = updateItem(item, theFeed);
         newFeedItem = mergeWith(concat, newFeedItem, itemResult.itemUpdate);
         phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
+
+        // Value Block Fallback
+        if (!newFeedItem.value && feedObj.value) {
+          newFeedItem.value = feedObj.value;
+        }
 
         return newFeedItem;
       })

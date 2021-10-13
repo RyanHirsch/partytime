@@ -21,6 +21,7 @@ import type {
   Phase2EpisodeNumber,
 } from "./phase/phase-2";
 import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
+import type { Phase4Value } from "./phase/phase-4";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
@@ -79,8 +80,6 @@ export interface FeedObject {
   itunesNewFeedUrl: TODO;
   categories: string[];
 
-  value: TODO;
-
   pubsub: false | { hub: string; self: string };
   itunesAuthor: string;
   itunesOwnerEmail: string;
@@ -98,12 +97,13 @@ export interface FeedObject {
   podcastFunding?: Phase1Funding;
   podcastPeople?: Phase2Person[];
 
-  /** What is this podcast about */
   podcastLocation?: Phase2Location;
 
   trailers?: Phase3Trailer[];
   license?: Phase3License;
   guid?: string;
+
+  value?: Phase4Value;
 
   /** podcasting 2.0 phase compliance */
   __phase: Record<number, string[]>;
@@ -147,6 +147,8 @@ export interface Episode {
 
   license?: Phase3License;
   alternativeEnclosures?: Phase3AltEnclosure[];
+
+  value?: Phase4Value;
 }
 
 export interface PhaseUpdate {
@@ -345,10 +347,11 @@ export function timeToSeconds(timeString: string) {
   return seconds;
 }
 
-export function notUndefined<T>(x: T | undefined): x is T {
+export function isNotUndefined<T>(x: T | undefined): x is T {
   return x !== undefined;
 }
 
+/** Returns the first value from an array, otherwise, passes the value through */
 export function firstIfArray<T>(maybeArr: T | T[]): T {
   return Array.isArray(maybeArr) ? maybeArr[0] : maybeArr;
 }
@@ -367,6 +370,7 @@ export function firstWithAttributes<T>(maybeArr: T | T[], attrs: string[]): T | 
   );
 }
 
+/** Will pass through the value if its an array, otherwise, will wrap the value as an array */
 export function ensureArray<T>(maybeArr: T | T[]): T[] {
   if (typeof maybeArr === "undefined") {
     return [];
@@ -458,6 +462,18 @@ export function getAttribute(node: { attr: Record<string, string> }, name: strin
   return null;
 }
 
+/** Gets the attribute value from a give node. Returns false if the attribute does not exist */
+export function getBooleanAttribute(node: { attr: Record<string, string> }, name: string): boolean {
+  if (
+    typeof node !== "undefined" &&
+    typeof node.attr === "object" &&
+    typeof node.attr[`@_${name}`] === "string"
+  ) {
+    return /^(true|yes)$/i.test(node.attr[`@_${name}`].trim());
+  }
+  return false;
+}
+
 /** Gets the attribute value from a give node. It will throw if the attribute does not exist */
 export function getKnownAttribute(node: { attr: Record<string, string> }, name: string): string {
   if (
@@ -483,7 +499,7 @@ export function extractOptionalStringAttribute(
   return {};
 }
 
-export function extractOptionalNumberAttribute(
+export function extractOptionalIntegerAttribute(
   node: { attr: Record<string, string> },
   attrName: string,
   key = attrName
@@ -515,4 +531,17 @@ export function lookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof 
     }
   }
   return undefined;
+}
+
+export function extractOptionalFloatAttribute(
+  node: { attr: Record<string, string> },
+  attrName: string,
+  key = attrName
+): EmptyObj | { [key: string]: number } {
+  const val = getAttribute(node, attrName);
+
+  if (val) {
+    return { [key]: parseFloat(val) };
+  }
+  return {};
 }
