@@ -315,6 +315,14 @@ describe("feed handling", () => {
   });
 
   describe("itunesCategory", () => {
+    it("is not present when none are in the feed", () => {
+      const xml = helpers.spliceFeed(feed, ``);
+
+      const result = parseFeed(xml);
+
+      expect(result).not.toHaveProperty("itunesCategory");
+    });
+
     it("extracts a single category", () => {
       const xml = helpers.spliceFeed(
         feed,
@@ -821,6 +829,147 @@ describe("feed handling", () => {
       );
       const result = parseFeed(xml);
       expect(result).toHaveProperty("pubDate", new Date("Fri, 01 Oct 2021 18:58:23 +0000"));
+    });
+  });
+
+  describe("itunesComplete", () => {
+    it("is set to true for yes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:complete>
+          Yes
+        </itunes:complete>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("itunesComplete", true);
+    });
+
+    it("is set to false for any non-yes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:complete>
+          true
+        </itunes:complete>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("itunesComplete", false);
+    });
+  });
+
+  describe("itunesBlock", () => {
+    it("is set to true for yes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:block>
+          Yes
+        </itunes:block>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("itunesBlock", true);
+    });
+
+    it("is set to false for any non-yes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:block>
+          true
+        </itunes:block>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("itunesBlock", false);
+    });
+  });
+
+  describe("copyright", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <copyright>Copyright 2002, Spartanburg Herald-Journal</copyright>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("copyright", "Copyright 2002, Spartanburg Herald-Journal");
+    });
+  });
+
+  describe("webmaster", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <webMaster>betty@herald.com (Betty Guernsey)</webMaster>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("webmaster", "betty@herald.com (Betty Guernsey)");
+    });
+  });
+
+  describe("managingEditor", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <managingEditor>geo@herald.com (George Matesky)</managingEditor>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("managingEditor", "geo@herald.com (George Matesky)");
+    });
+  });
+
+  describe("ttl", () => {
+    it("extracts the value", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <ttl>23</ttl>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("ttl", 23);
+    });
+
+    it("is correctly returned as 0", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+          <ttl>0</ttl>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("ttl", 0);
+    });
+
+    it("is missing from the feed object when not in the xml", () => {
+      const xml = helpers.spliceFeed(feed, ``);
+
+      const result = parseFeed(xml);
+
+      expect(result).not.toHaveProperty("ttl");
     });
   });
 });

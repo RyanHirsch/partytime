@@ -77,6 +77,21 @@ export interface FeedObject {
   itunesCategory?: string[];
   // #endregion
 
+  /** \<itunes:block\> Prevent the podcast from showing up in Apple Podcasts */
+  itunesBlock: boolean;
+  /** \<itunes:complete\> indicates that a podcast is complete and you will not post any more episodes in the future. */
+  itunesComplete: boolean;
+  /** Copyright notice for content in the channel */
+  copyright?: string;
+  /** Email address for person responsible for technical issues relating to channel */
+  webmaster?: string;
+  /** Email address for person responsible for editorial content */
+  managingEditor?: string;
+  /** number of minutes that indicates how long a channel can be cached before refreshing from the source */
+  ttl?: number;
+  subtitle?: string;
+  summary?: string;
+
   generator?: string;
   /** Seconds from epoch */
   pubDate?: Date;

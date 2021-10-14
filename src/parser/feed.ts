@@ -44,6 +44,39 @@ function getDescription(feed: XmlNode): string {
   return "";
 }
 
+function getCopyright(feed: XmlNode): undefined | { copyright: string } {
+  const node = firstWithValue(feed.copyright);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { copyright: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  return undefined;
+}
+
+function getWebmaster(feed: XmlNode): undefined | { webmaster: string } {
+  const node = firstWithValue(feed.webMaster);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { webmaster: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  return undefined;
+}
+
+function getManagingEditor(feed: XmlNode): undefined | { managingEditor: string } {
+  const node = firstWithValue(feed.managingEditor);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { managingEditor: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  return undefined;
+}
+
 function getSummary(feed: XmlNode): undefined | { summary: string } {
   const node = firstWithValue(feed["itunes:summary"]);
   if (node) {
@@ -103,17 +136,27 @@ function getLink(feed: XmlNode): string {
   return "";
 }
 
-function getExplicit(feed: XmlNode): boolean {
-  const node = firstWithValue(feed["itunes:explicit"]);
+function getBoolean(item: XmlNode, truthyValues: string[]): boolean {
+  const node = firstWithValue(item);
   const nodeText = getText(node).toLowerCase();
-
-  if (["yes", "true"].includes(nodeText)) {
+  const normalizedTruthy = truthyValues.map((x) => x.toLowerCase());
+  if (normalizedTruthy.includes(nodeText)) {
     return true;
   }
-  if (typeof node === "boolean" && node) {
+  if (normalizedTruthy.includes("true") && typeof node === "boolean" && node) {
     return true;
   }
   return false;
+}
+
+function getExplicit(feed: XmlNode): boolean {
+  return getBoolean(feed["itunes:explicit"], ["yes", "true"]);
+}
+function getItunesBlock(feed: XmlNode): boolean {
+  return getBoolean(feed["itunes:block"], ["yes"]);
+}
+function getItunesComplete(feed: XmlNode): boolean {
+  return getBoolean(feed["itunes:complete"], ["yes"]);
 }
 
 function getLanguage(feed: XmlNode): undefined | { language: string } {
@@ -171,7 +214,7 @@ function getItunesCategory(feed: XmlNode): undefined | { itunesCategory: string[
           extractCategories(cat, [...parents, categoryName]);
         }
       });
-    } else {
+    } else if (parents.length > 0) {
       categoriesSet.add(parents.join(" > "));
     }
   };
@@ -377,6 +420,17 @@ function getImage(feed: XmlNode): undefined | ValidImage {
   return undefined;
 }
 
+function getTimeToLive(feed: XmlNode): undefined | { ttl: number } {
+  const node = firstWithValue(feed.ttl);
+  if (node !== null) {
+    const parsed = getNumber(node);
+    if (parsed !== null) {
+      return { ttl: parsed };
+    }
+  }
+  return undefined;
+}
+
 export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
   return {
     lastUpdate: new Date(),
@@ -385,6 +439,8 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
     description: getDescription(feed),
     link: getLink(feed),
     explicit: getExplicit(feed),
+    itunesBlock: getItunesBlock(feed),
+    itunesComplete: getItunesComplete(feed),
     ...getItunesImage(feed),
     ...getLanguage(feed),
     ...getItunesCategory(feed),
@@ -400,7 +456,10 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
     ...getImage(feed),
     ...getSummary(feed),
     ...getSubtitle(feed),
-
+    ...getCopyright(feed),
+    ...getWebmaster(feed),
+    ...getManagingEditor(feed),
+    ...getTimeToLive(feed),
     items: [],
     pc20support: {},
   };
