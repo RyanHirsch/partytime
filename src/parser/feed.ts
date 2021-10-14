@@ -158,31 +158,30 @@ function getItunesCategory(feed: XmlNode): undefined | { itunesCategory: string[
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     ensureArray<XmlNode>(node["itunes:category"]);
 
-  const topLevelCategories = getCategoriesNode(feed);
-  if (topLevelCategories.length === 0) {
-    return undefined;
-  }
+  const normalize = (str: string): string => str.toLowerCase().replace("&amp;", "&");
+  const categoriesSet = new Set<string>();
 
-  const categories = new Set<string>();
-  topLevelCategories.forEach((cat) => {
-    const categoryName = (getAttribute(cat, "text") ?? "").toLowerCase();
-    if (categoryName) {
-      categories.add(categoryName);
-    }
-    if (getCategoriesNode(cat).length > 0) {
-      getCategoriesNode(cat).forEach((subCat) => {
-        const subCategoryName = (getAttribute(subCat, "text") ?? "").toLowerCase();
-        if (subCategoryName) {
-          categories.add(`${categoryName} > ${subCategoryName}`);
+  const extractCategories = (currentNode: XmlNode, parents: string[]): void => {
+    const categories = getCategoriesNode(currentNode);
+
+    if (categories.length > 0) {
+      categories.forEach((cat) => {
+        const categoryName = normalize(getAttribute(cat, "text") ?? "");
+        if (categoryName) {
+          extractCategories(cat, [...parents, categoryName]);
         }
       });
+    } else {
+      categoriesSet.add(parents.join(" > "));
     }
-  });
+  };
 
-  if (categories.size === 0) {
+  extractCategories(feed, []);
+
+  if (categoriesSet.size === 0) {
     return undefined;
   }
-  return { itunesCategory: Array.from(categories) };
+  return { itunesCategory: Array.from(categoriesSet) };
 }
 
 function getGenerator(feed: XmlNode): undefined | { generator: string } {

@@ -341,7 +341,24 @@ describe("feed handling", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("itunesCategory", ["news", "news > tech news", "technology"]);
+      expect(result).toHaveProperty("itunesCategory", ["news > tech news", "technology"]);
+    });
+
+    it("extracts a deep heirarchical category", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="News">
+          <itunes:category text="Tech News">
+            <itunes:category text="Apple" />
+          </itunes:category>
+        </itunes:category>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("itunesCategory", ["news > tech news > apple"]);
     });
 
     it("extracts multiple non-herarchical categories", () => {
@@ -356,6 +373,27 @@ describe("feed handling", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("itunesCategory", ["business", "news"]);
+    });
+
+    it("deals with ampersands", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="Arts">
+          <itunes:category text="Books"/>
+        </itunes:category>
+        <itunes:category text="TV &amp; Film"/>
+        <itunes:category text="Society & Culture"/>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("itunesCategory", [
+        "arts > books",
+        "tv & film",
+        "society & culture",
+      ]);
     });
   });
 
