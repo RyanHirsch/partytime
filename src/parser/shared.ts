@@ -143,9 +143,9 @@ export function firstIfArray<T>(maybeArr: T | T[]): T {
 export function firstWithValue<T>(maybeArr: T | T[]): T | null {
   return (
     ensureArray(maybeArr).find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (x) =>
         typeof x !== "undefined" &&
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (getText(x as any) || typeof getNumber(x as any) === "number" || typeof x === "boolean")
     ) ?? null
   );
