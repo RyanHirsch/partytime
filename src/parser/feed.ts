@@ -441,6 +441,7 @@ const handleCompoundCategory = (
     ) {
       categoriesSet.add(compoundCategory.result);
     } else {
+      // eslint-disable-next-line no-console
       console.warn(`Compound category wasn't in the allow list - ${compoundCategory.result}`);
     }
   }
