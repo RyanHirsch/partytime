@@ -1,8 +1,8 @@
 # Partytime Podcast Parser
 
-Podcast feed parser extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime
+Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime
 
-This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `__phase` element.
+This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `pc20support` element.
 
 ## Usage
 
@@ -14,7 +14,7 @@ npm install podcast-partytime
 
 ```ts
 import fetch from "node-fetch";
-import * as pt from "podcast-partytime";
+import pt from "podcast-partytime";
 
 // Check CORS support
 pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);

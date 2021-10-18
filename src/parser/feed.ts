@@ -308,7 +308,185 @@ function getItunesNewFeedUrl(feed: XmlNode): undefined | { itunesNewFeedUrl: str
   return undefined;
 }
 
-function getCategories(_feed: XmlNode): undefined | { categories: string[] } {
+const allowedCategories = new Set([
+  "arts",
+  "books",
+  "design",
+  "fashion",
+  "beauty",
+  "food",
+  "performing",
+  "visual",
+  "business",
+  "careers",
+  "entrepreneurship",
+  "investing",
+  "management",
+  "marketing",
+  "nonprofit",
+  "comedy",
+  "interviews",
+  "improv",
+  "standup",
+  "education",
+  "courses",
+  "howto",
+  "language",
+  "learning",
+  "selfimprovement",
+  "fiction",
+  "drama",
+  "history",
+  "health",
+  "fitness",
+  "alternative",
+  "medicine",
+  "mental",
+  "nutrition",
+  "sexuality",
+  "kids",
+  "family",
+  "parenting",
+  "pets",
+  "animals",
+  "stories",
+  "leisure",
+  "animation",
+  "manga",
+  "automotive",
+  "aviation",
+  "crafts",
+  "games",
+  "hobbies",
+  "home",
+  "garden",
+  "videogames",
+  "music",
+  "commentary",
+  "news",
+  "daily",
+  "entertainment",
+  "government",
+  "politics",
+  "buddhism",
+  "christianity",
+  "hinduism",
+  "islam",
+  "judaism",
+  "religion",
+  "spirituality",
+  "science",
+  "astronomy",
+  "chemistry",
+  "earth",
+  "life",
+  "mathematics",
+  "natural",
+  "nature",
+  "physics",
+  "social",
+  "society",
+  "culture",
+  "documentary",
+  "personal",
+  "journals",
+  "philosophy",
+  "places",
+  "travel",
+  "relationships",
+  "sports",
+  "baseball",
+  "basketball",
+  "cricket",
+  "fantasy",
+  "football",
+  "golf",
+  "hockey",
+  "rugby",
+  "running",
+  "soccer",
+  "swimming",
+  "tennis",
+  "volleyball",
+  "wilderness",
+  "wrestling",
+  "technology",
+  "truecrime",
+  "tv",
+  "film",
+  "aftershows",
+  "reviews",
+  "climate",
+  "weather",
+  "tabletop",
+  "role-playing",
+  "cryptocurrency",
+]);
+const allowedCompoundCategories = new Map<string, { others: string[]; result: string }>([
+  ["video", { others: ["games"], result: "videogames" }],
+  ["true", { others: ["crime"], result: "truecrime" }],
+  ["after", { others: ["shows"], result: "aftershows" }],
+  ["how", { others: ["to"], result: "howto" }],
+]);
+const handleCompoundCategory = (
+  categoryName: string,
+  categoriesList: string[],
+  categoriesSet: Set<string>
+): void => {
+  const compoundCategory = allowedCompoundCategories.get(categoryName);
+  if (compoundCategory) {
+    if (
+      compoundCategory.others.every((o) => categoriesList.includes(o)) &&
+      allowedCategories.has(compoundCategory.result)
+    ) {
+      categoriesSet.add(compoundCategory.result);
+    } else {
+      console.warn(`Compound category wasn't in the allow list - ${compoundCategory.result}`);
+    }
+  }
+};
+function getCategories(feed: XmlNode): undefined | { categories: string[] } {
+  const split = (str: string): string[] =>
+    str
+      .split("&amp;")
+      .flatMap((s) => s.split(/\s+&\s+/))
+      .flatMap((s) => s.split(/\s+/))
+      .map((s) => s.trim())
+      .filter(Boolean);
+  const getCategoriesNode = (node: XmlNode): XmlNode[] =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray<XmlNode>(node["itunes:category"]);
+
+  const normalize = (str: string): string => str.toLowerCase();
+  const categoriesSet = new Set<string>();
+
+  const extractCategories = (currentNode: XmlNode): void => {
+    const categories = getCategoriesNode(currentNode);
+
+    if (categories.length > 0) {
+      categories.forEach((cat) => {
+        const categoryName = normalize(getAttribute(cat, "text") ?? "");
+        if (categoryName) {
+          split(categoryName).forEach((normalizedCategoryName, _idx, all) => {
+            if (allowedCompoundCategories.has(normalizedCategoryName)) {
+              handleCompoundCategory(normalizedCategoryName, all, categoriesSet);
+            } else if (allowedCategories.has(normalizedCategoryName)) {
+              categoriesSet.add(normalizedCategoryName);
+            }
+          });
+          extractCategories(cat);
+        }
+      });
+    }
+  };
+
+  extractCategories(feed);
+
+  if (categoriesSet.size === 0) {
+    return undefined;
+  }
+  return { categories: Array.from(categoriesSet) };
+
   return undefined;
 }
 

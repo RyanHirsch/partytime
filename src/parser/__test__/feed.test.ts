@@ -352,7 +352,7 @@ describe("feed handling", () => {
       expect(result).toHaveProperty("itunesCategory", ["news > tech news", "technology"]);
     });
 
-    it("extracts a deep heirarchical category", () => {
+    it("extracts a deep hierarchical category", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
@@ -369,7 +369,7 @@ describe("feed handling", () => {
       expect(result).toHaveProperty("itunesCategory", ["news > tech news > apple"]);
     });
 
-    it("extracts multiple non-herarchical categories", () => {
+    it("extracts multiple non-hierarchical categories", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
@@ -536,7 +536,100 @@ describe("feed handling", () => {
   });
 
   describe("categories", () => {
-    it.todo("needs to handle Tech -> Technology");
+    it("are de-duped and handle nesting", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="News">
+          <itunes:category text="Tech News"/>
+        </itunes:category>
+        <itunes:category text="Technology"/>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("categories", ["news", "technology"]);
+    });
+
+    it("deals with ampersands", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="Arts">
+          <itunes:category text="Books"/>
+        </itunes:category>
+        <itunes:category text="TV &amp; Film"/>
+        <itunes:category text="Society & Culture"/>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("categories", [
+        "arts",
+        "books",
+        "tv",
+        "film",
+        "society",
+        "culture",
+      ]);
+    });
+
+    it("extracts multiple non-hierarchical categories", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="Business"/>
+        <itunes:category text="News"/>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("categories", ["business", "news"]);
+    });
+
+    it("allows for compound categories", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="Education">
+          <itunes:category text="How To"/>
+        </itunes:category>
+        <itunes:category text="Business">
+          <itunes:category text="Entrepreneurship"/>
+        </itunes:category>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("categories", [
+        "education",
+        "howto",
+        "business",
+        "entrepreneurship",
+      ]);
+    });
+
+    it("ignores partial compound category matches", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:category text="Education">
+          <itunes:category text="How"/>
+        </itunes:category>
+        <itunes:category text="Business">
+          <itunes:category text="Entrepreneurship"/>
+        </itunes:category>
+      `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("categories", ["education", "business", "entrepreneurship"]);
+    });
   });
 
   describe("pubsub", () => {
