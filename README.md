@@ -77,7 +77,7 @@ The sample feeds below were chosen for their varied nature. Including things lik
 - [No Agenda](http://feed.nashownotes.com/rss.xml)
 - [This Week in Tech](https://feeds.twit.tv/twit.xml)
 - [Launched](https://feeds.fireside.fm/launched/rss)
-- [Antomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)
+- [Anatomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)
 - [Thomas Ferris Nicolaisen's rants](http://feeds.tfnico.com/tfnicosrants)
 - [Hip Hop Hangout Podcast](https://feeds.feedburner.com/HipHopHangoutPodcast)
 - [Web 2.0](https://satoshi.blogs.com/raw/web20.xml)

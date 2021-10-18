@@ -161,13 +161,13 @@ describe("feed handling", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-          <subtitle>hola</subtitle>
+          <subtitle>hello subtitle</subtitle>
         `
       );
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("description", "hola");
+      expect(result).toHaveProperty("description", "hello subtitle");
     });
   });
 
@@ -336,7 +336,7 @@ describe("feed handling", () => {
       expect(result).toHaveProperty("itunesCategory", ["technology"]);
     });
 
-    it("extracts a heirarchical categories", () => {
+    it("extracts a hierarchical categories", () => {
       const xml = helpers.spliceFeed(
         feed,
         `

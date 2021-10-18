@@ -426,6 +426,7 @@ const allowedCompoundCategories = new Map<string, { others: string[]; result: st
   ["video", { others: ["games"], result: "videogames" }],
   ["true", { others: ["crime"], result: "truecrime" }],
   ["after", { others: ["shows"], result: "aftershows" }],
+  ["self", { others: ["improvement"], result: "selfimprovement" }],
   ["how", { others: ["to"], result: "howto" }],
 ]);
 const handleCompoundCategory = (
