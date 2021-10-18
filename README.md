@@ -81,3 +81,7 @@ The sample feeds below were chosen for their varied nature. Including things lik
 - [Thomas Ferris Nicolaisen's rants](http://feeds.tfnico.com/tfnicosrants)
 - [Hip Hop Hangout Podcast](https://feeds.feedburner.com/HipHopHangoutPodcast)
 - [Web 2.0](https://satoshi.blogs.com/raw/web20.xml)
+
+## Development
+
+Update dependencies (person enum and valid license list) via `yarn deps` or `npm run deps`.
