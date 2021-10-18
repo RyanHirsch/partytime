@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Read .nvmrc
         run: echo NVMRC=`cat .nvmrc` >> $GITHUB_ENV
 
@@ -36,12 +36,12 @@ jobs:
 
       - name: Build
         run: |
-          npm ci
-          npm run build
-          npm run test
+          yarn install --frozen-lockfile
+          yarn build
+          yarn test
 
       - name: Lint
         run: |
-          npm ci
-          npm run build
-          npm run lint
+          yarn install --frozen-lockfile
+          yarn build
+          yarn lint
