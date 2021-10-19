@@ -20,16 +20,14 @@ import type { XmlNode } from "../types";
  *
  * Also see: https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md
  */
-
 export type Phase4Value = {
   /**
-   * This is the service slug of the cryptocurrency or protocol layer. Examples from
-   * https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/valueslugs.txt
+   * This is the service slug of the cryptocurrency or protocol layer.
    *
-   * bitcoin, lightning, keysend, amp, wallet, node
+   * lightning
    */
   type: string;
-  /** This is the transport mechanism that will be used. */
+  /** This is the transport mechanism that will be used. keysend and amp are the only expected values */
   method: string;
   /** This is an optional suggestion on how much cryptocurrency to send with each payment. */
   suggested?: string;

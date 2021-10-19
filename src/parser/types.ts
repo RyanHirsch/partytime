@@ -104,6 +104,7 @@ export interface FeedObject {
    * new feed.
    */
   itunesNewFeedUrl?: string;
+  /** Parsed and handled */
   categories?: string[];
 
   pubsub?: { hub?: string; self?: string; next?: string };
@@ -122,7 +123,15 @@ export interface FeedObject {
 
   // #region Phase 1
   podcastOwner?: string;
+  /**
+   * The purpose is to tell other podcast platforms whether they are allowed to import this feed. If this is
+   * true, any attempt to import this feed into a new platform should be rejected.
+   */
   locked?: boolean;
+  /**
+   * This tag lists possible donation/funding links for the podcast. The content of the tag is the recommended
+   * string to be used with the link.
+   */
   podcastFunding?: Phase1Funding[];
   // #endregion
   // #region Phase 2
@@ -176,18 +185,28 @@ export interface Episode {
   guid: string;
   description?: string;
   image?: string;
+  // #region Phase 1
+  /**
+   * This tag is used to link to a transcript or closed captions file. Multiple tags can be present for
+   * multiple transcript formats.
+   * */
   podcastChapters?: Phase1Chapter;
   podcastSoundbites?: Phase1SoundBite[];
   podcastTranscripts?: Phase1Transcript[];
+  // #endregion
+  // #region Phase 2
   podcastLocation?: Phase2Location;
   podcastPeople?: Phase2Person[];
   podcastSeason?: Phase2SeasonNumber;
   podcastEpisode?: Phase2EpisodeNumber;
-
+  // #endregion
+  // #region Phase 3
   license?: Phase3License;
   alternativeEnclosures?: Phase3AltEnclosure[];
-
+  // #endregion
+  // #region Phase 4
   value?: Phase4Value;
+  // #endregion
 }
 
 export interface PhaseUpdate {
