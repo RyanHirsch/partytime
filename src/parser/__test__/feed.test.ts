@@ -333,7 +333,7 @@ describe("feed handling", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("itunesCategory", ["technology"]);
+      expect(result).toHaveProperty("itunesCategory", ["Technology"]);
     });
 
     it("extracts a hierarchical categories", () => {
@@ -349,10 +349,11 @@ describe("feed handling", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("itunesCategory", ["news > tech news", "technology"]);
+      expect(result).toHaveProperty("itunesCategory", ["News > Tech News", "Technology"]);
     });
 
-    it("extracts a deep hierarchical category", () => {
+    // while we technically support the traversal, it results in a non-existent category
+    it.skip("extracts a deep hierarchical category", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
@@ -380,7 +381,7 @@ describe("feed handling", () => {
 
       const result = parseFeed(xml);
 
-      expect(result).toHaveProperty("itunesCategory", ["business", "news"]);
+      expect(result).toHaveProperty("itunesCategory", ["Business", "News"]);
     });
 
     it("deals with ampersands", () => {
@@ -398,9 +399,9 @@ describe("feed handling", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("itunesCategory", [
-        "arts > books",
-        "tv & film",
-        "society & culture",
+        "Arts > Books",
+        "TV & Film",
+        "Society & Culture",
       ]);
     });
   });

@@ -15,6 +15,7 @@ import {
 } from "./shared";
 import { ItunesFeedType } from "./types";
 import type { FeedObject, FeedType, XmlNode } from "./types";
+import { categoryLookup } from "./itunes-categories";
 
 function getTitle(feed: XmlNode): string {
   const node = firstWithValue(feed.title);
@@ -224,7 +225,9 @@ function getItunesCategory(feed: XmlNode): undefined | { itunesCategory: string[
   if (categoriesSet.size === 0) {
     return undefined;
   }
-  return { itunesCategory: Array.from(categoriesSet) };
+  return {
+    itunesCategory: Array.from(categoriesSet).map(categoryLookup).filter(Boolean) as string[],
+  };
 }
 
 function getGenerator(feed: XmlNode): undefined | { generator: string } {
