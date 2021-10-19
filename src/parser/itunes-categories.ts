@@ -174,6 +174,7 @@ export function categoryLookup(str: string): undefined | string {
   if (str.includes(">")) {
     const pathSegments = str.split(">").map((x) => x.trim());
     if (pathSegments.length !== 2) {
+      // eslint-disable-next-line no-console
       console.warn("Unexpected category structure", str);
     } else {
       const [parent, child] = pathSegments;
