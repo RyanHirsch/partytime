@@ -123,7 +123,7 @@ export interface FeedObject {
   // #region Phase 1
   podcastOwner?: string;
   locked?: boolean;
-  podcastFunding?: Phase1Funding;
+  podcastFunding?: Phase1Funding[];
   // #endregion
   // #region Phase 2
   /**

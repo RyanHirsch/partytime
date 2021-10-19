@@ -450,9 +450,10 @@ const handleCompoundCategory = (
 function getCategories(feed: XmlNode): undefined | { categories: string[] } {
   const split = (str: string): string[] =>
     str
+      .replace(/-/g, "")
       .split("&amp;")
-      .flatMap((s) => s.split(/\s+&\s+/))
-      .flatMap((s) => s.split(/\s+/))
+      .reduce((acc: string[], curr: string) => [...acc, ...curr.split(/\s+&\s+/)], [])
+      .reduce((acc: string[], curr: string) => [...acc, ...curr.split(/\s+/)], [])
       .map((s) => s.trim())
       .filter(Boolean);
   const getCategoriesNode = (node: XmlNode): XmlNode[] =>

@@ -90,7 +90,7 @@ export function guessEnclosureType(url = ""): string {
     return "audio/mpeg";
   }
   if (url.includes(".m4a")) {
-    return "audio/mp4";
+    return "audio/m4a";
   }
   if (url.includes(".wav")) {
     return "audio/wav";

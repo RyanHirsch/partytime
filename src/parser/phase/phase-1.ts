@@ -129,22 +129,27 @@ export type Phase1Funding = {
 export const funding: FeedUpdate = {
   phase: 1,
   tag: "funding",
-  nodeTransform: firstIfArray,
-  fn(node) {
+  nodeTransform: ensureArray,
+  supportCheck: (node: XmlNode[]) => Boolean(node.find((x) => getAttribute(x, "url"))),
+  fn(node: XmlNode[]) {
     log.info("funding");
 
-    const feedUpdate: Partial<FeedObject> = {};
+    return {
+      podcastFunding: node
+        .map((n) => {
+          const message = getText(n);
+          const url = getAttribute(n, "url");
 
-    const message = getText(node);
-    const url = getAttribute(node, "url");
-
-    if (url) {
-      feedUpdate.podcastFunding = {
-        message: message ?? "",
-        url,
-      };
-    }
-    return feedUpdate;
+          if (url) {
+            return {
+              message: message ?? "",
+              url,
+            };
+          }
+          return undefined;
+        })
+        .filter(Boolean) as Phase1Funding[],
+    };
   },
 };
 
