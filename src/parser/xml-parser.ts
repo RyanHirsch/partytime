@@ -1,5 +1,6 @@
 import parser, { ValidationError } from "fast-xml-parser";
 import he from "he";
+import { XmlNode } from "./types";
 
 const parserOptions = {
   attributeNamePrefix: "@_",
@@ -23,7 +24,7 @@ export function validate(xml: string): true | ValidationError {
   return parser.validate(xml.trim());
 }
 
-export function parse(xml: string): any {
+export function parse(xml: string): XmlNode {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return parser.parse(xml.trim(), parserOptions);
 }

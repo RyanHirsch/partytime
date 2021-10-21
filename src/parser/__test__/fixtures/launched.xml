@@ -1,0 +1,3027 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" encoding="UTF-8" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:atom="http://www.w3.org/2005/Atom/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" xmlns:fireside="http://fireside.fm/modules/rss/fireside">
+  <channel>
+    <fireside:hostname>web04.fireside.fm</fireside:hostname>
+    <fireside:genDate>Tue, 15 Jun 2021 10:53:41 -0500</fireside:genDate>
+    <generator>Fireside (https://fireside.fm)</generator>
+    <title>Launched</title>
+    <link>https://launchedfm.com?</link>
+    <pubDate>Tue, 18 May 2021 13:49:20 -0000</pubDate>
+    <description>Host Charlie Chapman interviews app developers and other creators about their experiences releasing their creations out into the world.
+</description>
+    <language>en-us</language>
+    <copyright>© 2021 Launched</copyright>
+    <itunes:type>episodic</itunes:type>
+    <itunes:subtitle>Talking to creators about launching their creations into the world</itunes:subtitle>
+    <itunes:author>Charlie Chapman</itunes:author>
+    <itunes:summary>Host Charlie Chapman interviews app developers and other creators about their experiences releasing their creations out into the world.
+</itunes:summary>
+    <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/cover.jpg?v=1"/>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:keywords>app development, marketing, apple, iOS, App Store, creator, creation, launch, business</itunes:keywords>
+    <itunes:owner>
+      <itunes:name>Charlie Chapman</itunes:name>
+      <itunes:email>charliemchapman@gmail.com</itunes:email>
+    </itunes:owner>
+    <podcast:locked email="charliemchapman@gmail.com">yes</podcast:locked>
+<itunes:category text="Technology"/>
+<itunes:category text="Business">
+  <itunes:category text="Marketing"/>
+</itunes:category>
+    <item>
+      <title>Summer Break</title>
+      <link>https://launchedfm.com?/summer-break-2021</link>
+      <guid isPermaLink="false">18a6d2f1-27fd-487d-ae4b-26203ee89120</guid>
+      <pubDate>Tue, 18 May 2021 08:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/18a6d2f1-27fd-487d-ae4b-26203ee89120.mp3" length="1526065" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Launched is taking a break for the summer. See you next fall!</itunes:subtitle>
+      <itunes:duration>1:04</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/1/18a6d2f1-27fd-487d-ae4b-26203ee89120/cover.jpg?v=1"/>
+      <description>Launched is taking a break for the summer. See you next fall!
+Links &amp; Show Notes
+Charlie's app Dark Noise (https://darknoise.app)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm) 
+</description>
+      <content:encoded>
+        <![CDATA[<p>Launched is taking a break for the summer. See you next fall!</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://darknoise.app" rel="nofollow">Charlie&#39;s app Dark Noise</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Launched is taking a break for the summer. See you next fall!</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://darknoise.app" rel="nofollow">Charlie&#39;s app Dark Noise</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+-X4Ootg5</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+-X4Ootg5" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>32: Overcast - Marco Arment</title>
+      <link>https://launchedfm.com?/32-marco-arment</link>
+      <guid isPermaLink="false">0e461a91-941d-4cf2-bdce-f26a3c30b52c</guid>
+      <pubDate>Tue, 04 May 2021 09:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/0e461a91-941d-4cf2-bdce-f26a3c30b52c.mp3" length="89877585" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Marco Arment joins the show to talk about his indie iOS developer career from Instapaper to The Magazine to Overcast... with a few fun rabbit trails into podcasting itself!</itunes:subtitle>
+      <itunes:duration>2:02:06</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/0/0e461a91-941d-4cf2-bdce-f26a3c30b52c/cover.jpg?v=1"/>
+      <description>Marco Arment joins the show to talk about his indie iOS developer career from Instapaper to The Magazine to Overcast... with a few fun rabbit trails into podcasting itself!
+Links &amp; Show Notes
+Marco on Twitter (https://twitter.com/marcoarment)
+Marco's Blog (https://marco.org)
+Overcast (https://overcast.fm)
+ATP (Accidental Tech Podcast) (https://atp.fm)
+Under the Radar Podcast (https://www.relay.fm/radar)
+The Magazine (Archive) (https://the-magazine.org)
+Instapaper (https://www.instapaper.com)
+tumblr (https://www.tumblr.com)
+Original Instapaper Launch Post (https://marco.org/2008/01/28/instapaper)
+Brent Simmons (https://twitter.com/brentsimmons)
+Inessential (Brent's blog) (https://inessential.com)
+David Smith (https://twitter.com/_davidsmith)
+Casey Johnston (https://twitter.com/caseyjohnston)
+A Swole Woman (https://www.vice.com/en/topic/ask-a-swole-woman)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, Podcast, Podcasting, Overcast, Instapaper, The Magazine</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Marco Arment joins the show to talk about his indie iOS developer career from Instapaper to The Magazine to Overcast... with a few fun rabbit trails into podcasting itself!</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/marcoarment" rel="nofollow">Marco on Twitter</a></li>
+<li><a href="https://marco.org" rel="nofollow">Marco&#39;s Blog</a></li>
+<li><a href="https://overcast.fm" rel="nofollow">Overcast</a></li>
+<li><a href="https://atp.fm" rel="nofollow">ATP (Accidental Tech Podcast)</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar Podcast</a></li>
+<li><a href="https://the-magazine.org" rel="nofollow">The Magazine (Archive)</a></li>
+<li><a href="https://www.instapaper.com" rel="nofollow">Instapaper</a></li>
+<li><a href="https://www.tumblr.com" rel="nofollow">tumblr</a></li>
+<li><a href="https://marco.org/2008/01/28/instapaper" rel="nofollow">Original Instapaper Launch Post</a></li>
+<li><a href="https://twitter.com/brentsimmons" rel="nofollow">Brent Simmons</a></li>
+<li><a href="https://inessential.com" rel="nofollow">Inessential (Brent&#39;s blog)</a></li>
+<li><a href="https://twitter.com/_davidsmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://twitter.com/caseyjohnston" rel="nofollow">Casey Johnston</a></li>
+<li><a href="https://www.vice.com/en/topic/ask-a-swole-woman" rel="nofollow">A Swole Woman</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Marco Arment joins the show to talk about his indie iOS developer career from Instapaper to The Magazine to Overcast... with a few fun rabbit trails into podcasting itself!</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/marcoarment" rel="nofollow">Marco on Twitter</a></li>
+<li><a href="https://marco.org" rel="nofollow">Marco&#39;s Blog</a></li>
+<li><a href="https://overcast.fm" rel="nofollow">Overcast</a></li>
+<li><a href="https://atp.fm" rel="nofollow">ATP (Accidental Tech Podcast)</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar Podcast</a></li>
+<li><a href="https://the-magazine.org" rel="nofollow">The Magazine (Archive)</a></li>
+<li><a href="https://www.instapaper.com" rel="nofollow">Instapaper</a></li>
+<li><a href="https://www.tumblr.com" rel="nofollow">tumblr</a></li>
+<li><a href="https://marco.org/2008/01/28/instapaper" rel="nofollow">Original Instapaper Launch Post</a></li>
+<li><a href="https://twitter.com/brentsimmons" rel="nofollow">Brent Simmons</a></li>
+<li><a href="https://inessential.com" rel="nofollow">Inessential (Brent&#39;s blog)</a></li>
+<li><a href="https://twitter.com/_davidsmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://twitter.com/caseyjohnston" rel="nofollow">Casey Johnston</a></li>
+<li><a href="https://www.vice.com/en/topic/ask-a-swole-woman" rel="nofollow">A Swole Woman</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+WxfAkYLP</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+WxfAkYLP" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>31: Fastlane - Josh Holtz</title>
+      <link>https://launchedfm.com?/31-josh-holtz</link>
+      <guid isPermaLink="false">93d7613f-989b-42ec-bf8b-9ab98710a9a0</guid>
+      <pubDate>Tue, 20 Apr 2021 07:45:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/93d7613f-989b-42ec-bf8b-9ab98710a9a0.mp3" length="75197201" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Josh Holtz joins the show to talk about what it's like being lead maintainer of Fastlane, and joining the iOS indie dev community with An Otter RSS Reader and ConnectKit.</itunes:subtitle>
+      <itunes:duration>1:16:13</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/9/93d7613f-989b-42ec-bf8b-9ab98710a9a0/cover.jpg?v=1"/>
+      <description>Josh Holtz joins the show to talk about what it's like being lead maintainer of Fastlane, and joining the iOS indie dev community with An Otter RSS Reader and ConnectKit.
+Links &amp; Show Notes
+Josh on Twitter (https://twitter.com/joshdholtz)
+joshholtz.com (https://www.joshholtz.com)
+RokkinCat (https://rokkincat.com)
+Fastlane (http://fastlane.tools)
+ConnectKit (https://connectkit.app)
+An Otter RSS (https://anotterrss.com)
+Indie Dev Monday (https://indiedevmonday.com)
+Michael Tigas (https://twitter.com/michael_tigas/status/1378942624183111683)
+Focused Work: Focus Timer (https://focusedwork.app)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, Fastlane, Open Source</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Josh Holtz joins the show to talk about what it&#39;s like being lead maintainer of Fastlane, and joining the iOS indie dev community with An Otter RSS Reader and ConnectKit.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/joshdholtz" rel="nofollow">Josh on Twitter</a></li>
+<li><a href="https://www.joshholtz.com" rel="nofollow">joshholtz.com</a></li>
+<li><a href="https://rokkincat.com" rel="nofollow">RokkinCat</a></li>
+<li><a href="http://fastlane.tools" rel="nofollow">Fastlane</a></li>
+<li><a href="https://connectkit.app" rel="nofollow">ConnectKit</a></li>
+<li><a href="https://anotterrss.com" rel="nofollow">An Otter RSS</a></li>
+<li><a href="https://indiedevmonday.com" rel="nofollow">Indie Dev Monday</a></li>
+<li><a href="https://twitter.com/michael_tigas/status/1378942624183111683" rel="nofollow">Michael Tigas</a></li>
+<li><a href="https://focusedwork.app" rel="nofollow">Focused Work: Focus Timer</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Josh Holtz joins the show to talk about what it&#39;s like being lead maintainer of Fastlane, and joining the iOS indie dev community with An Otter RSS Reader and ConnectKit.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/joshdholtz" rel="nofollow">Josh on Twitter</a></li>
+<li><a href="https://www.joshholtz.com" rel="nofollow">joshholtz.com</a></li>
+<li><a href="https://rokkincat.com" rel="nofollow">RokkinCat</a></li>
+<li><a href="http://fastlane.tools" rel="nofollow">Fastlane</a></li>
+<li><a href="https://connectkit.app" rel="nofollow">ConnectKit</a></li>
+<li><a href="https://anotterrss.com" rel="nofollow">An Otter RSS</a></li>
+<li><a href="https://indiedevmonday.com" rel="nofollow">Indie Dev Monday</a></li>
+<li><a href="https://twitter.com/michael_tigas/status/1378942624183111683" rel="nofollow">Michael Tigas</a></li>
+<li><a href="https://focusedwork.app" rel="nofollow">Focused Work: Focus Timer</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+lK8lcfhe</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+lK8lcfhe" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>30: Astropad - Matt Ronge</title>
+      <link>https://launchedfm.com?/30-matt-ronge</link>
+      <guid isPermaLink="false">55612b66-bd95-4603-86a9-902964ab5f78</guid>
+      <pubDate>Tue, 30 Mar 2021 08:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/55612b66-bd95-4603-86a9-902964ab5f78.mp3" length="77673778" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Matt Ronge joins the show to talk about co-founding Astro HQ, building Astropad and Luna Display, and dealing with fallout of being sherlocked by Apple.</itunes:subtitle>
+      <itunes:duration>1:20:25</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/5/55612b66-bd95-4603-86a9-902964ab5f78/cover.jpg?v=1"/>
+      <description>Matt Ronge joins the show to talk about co-founding Astro HQ, building Astropad and Luna Display, and dealing with fallout of being sherlocked by Apple.
+Links &amp; Show Notes
+Matt on Twitter (https://twitter.com/mronge)
+Astropad (https://astropad.com)
+Luna Display (https://astropad.com/product/lunadisplay/)
+What to Do When You Get Sherlocked by Apple (blog post) (https://astropad.com/sherlocked-by-apple/)
+Luna Display Kickstarter (https://www.kickstarter.com/projects/767721702/luna-display)
+Project Blue (Astropad on Windows (https://astropad.com/projectblue/)
+Michael Fogleman (https://twitter.com/FogleBird)
+Noel Berry (https://twitter.com/NoelFB)
+Peter Steinberger (https://twitter.com/steipete)
+Georg Petschnigg (https://twitter.com/georgpetschnigg)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>App, iOS Developer, Developer, iOS, Mac, Mac Developer</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Matt Ronge joins the show to talk about co-founding Astro HQ, building Astropad and Luna Display, and dealing with fallout of being sherlocked by Apple.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mronge" rel="nofollow">Matt on Twitter</a></li>
+<li><a href="https://astropad.com" rel="nofollow">Astropad</a></li>
+<li><a href="https://astropad.com/product/lunadisplay/" rel="nofollow">Luna Display</a></li>
+<li><a href="https://astropad.com/sherlocked-by-apple/" rel="nofollow">What to Do When You Get Sherlocked by Apple (blog post)</a></li>
+<li><a href="https://www.kickstarter.com/projects/767721702/luna-display" rel="nofollow">Luna Display Kickstarter</a></li>
+<li><a href="https://astropad.com/projectblue/" rel="nofollow">Project Blue (Astropad on Windows</a></li>
+<li><a href="https://twitter.com/FogleBird" rel="nofollow">Michael Fogleman</a></li>
+<li><a href="https://twitter.com/NoelFB" rel="nofollow">Noel Berry</a></li>
+<li><a href="https://twitter.com/steipete" rel="nofollow">Peter Steinberger</a></li>
+<li><a href="https://twitter.com/georgpetschnigg" rel="nofollow">Georg Petschnigg</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Matt Ronge joins the show to talk about co-founding Astro HQ, building Astropad and Luna Display, and dealing with fallout of being sherlocked by Apple.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mronge" rel="nofollow">Matt on Twitter</a></li>
+<li><a href="https://astropad.com" rel="nofollow">Astropad</a></li>
+<li><a href="https://astropad.com/product/lunadisplay/" rel="nofollow">Luna Display</a></li>
+<li><a href="https://astropad.com/sherlocked-by-apple/" rel="nofollow">What to Do When You Get Sherlocked by Apple (blog post)</a></li>
+<li><a href="https://www.kickstarter.com/projects/767721702/luna-display" rel="nofollow">Luna Display Kickstarter</a></li>
+<li><a href="https://astropad.com/projectblue/" rel="nofollow">Project Blue (Astropad on Windows</a></li>
+<li><a href="https://twitter.com/FogleBird" rel="nofollow">Michael Fogleman</a></li>
+<li><a href="https://twitter.com/NoelFB" rel="nofollow">Noel Berry</a></li>
+<li><a href="https://twitter.com/steipete" rel="nofollow">Peter Steinberger</a></li>
+<li><a href="https://twitter.com/georgpetschnigg" rel="nofollow">Georg Petschnigg</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+JD-YYt7F</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+JD-YYt7F" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>29: Blackbox - Ryan McLeod</title>
+      <link>https://launchedfm.com?/29-ryan-mcleod</link>
+      <guid isPermaLink="false">ba2d7fe2-7bb6-48b6-a0c5-8c5fbc3a7baa</guid>
+      <pubDate>Tue, 16 Mar 2021 08:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/ba2d7fe2-7bb6-48b6-a0c5-8c5fbc3a7baa.mp3" length="49998575" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Ryan McLeod joins the show to talk about creating the Apple Design Award winning iOS game Blackbox.</itunes:subtitle>
+      <itunes:duration>51:34</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/b/ba2d7fe2-7bb6-48b6-a0c5-8c5fbc3a7baa/cover.jpg?v=1"/>
+      <description>Ryan McLeod joins the show to talk about creating the Apple Design Award winning iOS game Blackbox.
+Links &amp; Show Notes
+Ryan on Twitter (https://twitter.com/warpling)
+Blackbox (https://www.blackboxpuzzles.com)
+Gus Callahan (https://www.guscallahan.com)
+Apple Design Award Unboxing Video (Majd from Darkroom) (https://twitter.com/usedarkroom/status/1278378242336940032?lang=en)
+Designing for the command line - Amanda Pinsker (https://www.youtube.com/watch?v=zsjeZZVAk1E)
+@beesandbombs (https://twitter.com/beesandbombs)
+Blackbox Video (https://www.youtube.com/watch?v=KZP4ZSsilC8)
+Julian Clark (https://www.oceanmagicpro.com/julian-clark-1)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Games, Puzzle</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Ryan McLeod joins the show to talk about creating the Apple Design Award winning iOS game Blackbox.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/warpling" rel="nofollow">Ryan on Twitter</a></li>
+<li><a href="https://www.blackboxpuzzles.com" rel="nofollow">Blackbox</a></li>
+<li><a href="https://www.guscallahan.com" rel="nofollow">Gus Callahan</a></li>
+<li><a href="https://twitter.com/usedarkroom/status/1278378242336940032?lang=en" rel="nofollow">Apple Design Award Unboxing Video (Majd from Darkroom)</a></li>
+<li><a href="https://www.youtube.com/watch?v=zsjeZZVAk1E" rel="nofollow">Designing for the command line - Amanda Pinsker</a></li>
+<li><a href="https://twitter.com/beesandbombs" rel="nofollow">@beesandbombs</a></li>
+<li><a href="https://www.youtube.com/watch?v=KZP4ZSsilC8" rel="nofollow">Blackbox Video</a></li>
+<li><a href="https://www.oceanmagicpro.com/julian-clark-1" rel="nofollow">Julian Clark</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Ryan McLeod joins the show to talk about creating the Apple Design Award winning iOS game Blackbox.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/warpling" rel="nofollow">Ryan on Twitter</a></li>
+<li><a href="https://www.blackboxpuzzles.com" rel="nofollow">Blackbox</a></li>
+<li><a href="https://www.guscallahan.com" rel="nofollow">Gus Callahan</a></li>
+<li><a href="https://twitter.com/usedarkroom/status/1278378242336940032?lang=en" rel="nofollow">Apple Design Award Unboxing Video (Majd from Darkroom)</a></li>
+<li><a href="https://www.youtube.com/watch?v=zsjeZZVAk1E" rel="nofollow">Designing for the command line - Amanda Pinsker</a></li>
+<li><a href="https://twitter.com/beesandbombs" rel="nofollow">@beesandbombs</a></li>
+<li><a href="https://www.youtube.com/watch?v=KZP4ZSsilC8" rel="nofollow">Blackbox Video</a></li>
+<li><a href="https://www.oceanmagicpro.com/julian-clark-1" rel="nofollow">Julian Clark</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+gKWJYQ6o</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+gKWJYQ6o" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>28: AirBuddy - Gui Rambo</title>
+      <link>https://launchedfm.com?/28-gui-rambo</link>
+      <guid isPermaLink="false">4db76488-9970-4e5d-b572-29c889abd23f</guid>
+      <pubDate>Tue, 02 Mar 2021 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/4db76488-9970-4e5d-b572-29c889abd23f.mp3" length="68316570" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Gui Rambo joins the show to talk about his awesome Mac app AirBuddy and his journey as a software spelunker to 9to5Mac writer.</itunes:subtitle>
+      <itunes:duration>1:10:07</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/4/4db76488-9970-4e5d-b572-29c889abd23f/cover.jpg?v=1"/>
+      <description>Gui Rambo joins the show to talk about his awesome Mac app AirBuddy and his journey as a software spelunker to 9to5Mac writer.
+Links &amp; Show Notes
+Gui on Twitter (https://twitter.com/_inside)
+AirBuddy (https://v2.airbuddy.app)
+ChibiStudio (https://chibi.app)
+9to5Mac (https://9to5mac.com/author/guirambobr/)
+StackTrace Podcast (https://stacktracepodcast.fm)
+Mark Rober (https://www.youtube.com/channel/UCY1kMZp36IQSyNx_9h4mpCg)
+Gui's Blog (https://rambo.codes)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, podcast, 9to5mac, rumors</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Gui Rambo joins the show to talk about his awesome Mac app AirBuddy and his journey as a software spelunker to 9to5Mac writer.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/_inside" rel="nofollow">Gui on Twitter</a></li>
+<li><a href="https://v2.airbuddy.app" rel="nofollow">AirBuddy</a></li>
+<li><a href="https://chibi.app" rel="nofollow">ChibiStudio</a></li>
+<li><a href="https://9to5mac.com/author/guirambobr/" rel="nofollow">9to5Mac</a></li>
+<li><a href="https://stacktracepodcast.fm" rel="nofollow">StackTrace Podcast</a></li>
+<li><a href="https://www.youtube.com/channel/UCY1kMZp36IQSyNx_9h4mpCg" rel="nofollow">Mark Rober</a></li>
+<li><a href="https://rambo.codes" rel="nofollow">Gui&#39;s Blog</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Gui Rambo joins the show to talk about his awesome Mac app AirBuddy and his journey as a software spelunker to 9to5Mac writer.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/_inside" rel="nofollow">Gui on Twitter</a></li>
+<li><a href="https://v2.airbuddy.app" rel="nofollow">AirBuddy</a></li>
+<li><a href="https://chibi.app" rel="nofollow">ChibiStudio</a></li>
+<li><a href="https://9to5mac.com/author/guirambobr/" rel="nofollow">9to5Mac</a></li>
+<li><a href="https://stacktracepodcast.fm" rel="nofollow">StackTrace Podcast</a></li>
+<li><a href="https://www.youtube.com/channel/UCY1kMZp36IQSyNx_9h4mpCg" rel="nofollow">Mark Rober</a></li>
+<li><a href="https://rambo.codes" rel="nofollow">Gui&#39;s Blog</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+07VN6vTo</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+07VN6vTo" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>27: Relay FM - Stephen Hackett</title>
+      <link>https://launchedfm.com?/27-stephen-hackett</link>
+      <guid isPermaLink="false">faa8e1b5-8533-4e9f-b7bc-a5d8400c0482</guid>
+      <pubDate>Tue, 16 Feb 2021 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/faa8e1b5-8533-4e9f-b7bc-a5d8400c0482.mp3" length="74602472" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Stephen Hackett joins the show to talk about starting his blog 512 Pixels and co-founding the Relay FM podcast network.</itunes:subtitle>
+      <itunes:duration>1:17:09</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/f/faa8e1b5-8533-4e9f-b7bc-a5d8400c0482/cover.jpg?v=1"/>
+      <description>Stephen Hackett joins the show to talk about starting his blog 512 Pixels and co-founding the Relay FM podcast network.
+Links &amp; Show Notes
+Stephen on Twitter (https://twitter.com/ismh)
+512 Pixels (https://512pixels.net)
+Relay FM (https://www.relay.fm)
+Sara Dietschy (https://www.youtube.com/saradietschy)
+Tyler Stalman (https://www.youtube.com/channel/UC6OICk-ceplUJf4sCN3DMnQ)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>iOS, Apple, blog, blogging, blogger, podcast, podcasting, podcaster</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Stephen Hackett joins the show to talk about starting his blog 512 Pixels and co-founding the Relay FM podcast network.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/ismh" rel="nofollow">Stephen on Twitter</a></li>
+<li><a href="https://512pixels.net" rel="nofollow">512 Pixels</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://www.youtube.com/saradietschy" rel="nofollow">Sara Dietschy</a></li>
+<li><a href="https://www.youtube.com/channel/UC6OICk-ceplUJf4sCN3DMnQ" rel="nofollow">Tyler Stalman</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Stephen Hackett joins the show to talk about starting his blog 512 Pixels and co-founding the Relay FM podcast network.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/ismh" rel="nofollow">Stephen on Twitter</a></li>
+<li><a href="https://512pixels.net" rel="nofollow">512 Pixels</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://www.youtube.com/saradietschy" rel="nofollow">Sara Dietschy</a></li>
+<li><a href="https://www.youtube.com/channel/UC6OICk-ceplUJf4sCN3DMnQ" rel="nofollow">Tyler Stalman</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+VoCh9L9J</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+VoCh9L9J" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>26: Hacking with Swift - Paul Hudson</title>
+      <link>https://launchedfm.com?/26-paul-hudson</link>
+      <guid isPermaLink="false">d11384ea-69b5-4e33-bd0e-5d33fdba8a0d</guid>
+      <pubDate>Tue, 02 Feb 2021 07:45:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d.mp3" length="78034115" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Paul Hudson joins the show to tell us his origin story that led to running one of the best Swift learning resources in Hacking with Swift.</itunes:subtitle>
+      <itunes:duration>1:20:45</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/d/d11384ea-69b5-4e33-bd0e-5d33fdba8a0d/cover.jpg?v=1"/>
+      <description>Paul Hudson joins the show to tell us his origin story that led to running one of the best Swift learning resources in Hacking with Swift.
+Links &amp; Show Notes
+Paul on Twitter (https://twitter.com/twostraws)
+Hacking with Swift (https://www.hackingwithswift.com)
+Tom Cruise Screaming Trailer (https://youtu.be/kRqxyqjpOHs?t=39)
+Slack DVD (by Jordan Singer) (https://twitter.com/jsngr/status/1350851991640145925)
+Diversity in Swift (https://swift.org/blog/diversity-in-swift/)
+Hacking with Swift Live (https://www.hackingwithswift.com/live)
+SpecialEffect (https://www.specialeffect.org.uk)
+Kathy Sierra (https://en.wikipedia.org/wiki/Kathy_Sierra)
+Creating Passionate Users (http://headrush.typepad.com)
+Head First Book Series (https://en.wikipedia.org/wiki/Head_First_(book_series))
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, SwiftUI</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Paul Hudson joins the show to tell us his origin story that led to running one of the best Swift learning resources in Hacking with Swift.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/twostraws" rel="nofollow">Paul on Twitter</a></li>
+<li><a href="https://www.hackingwithswift.com" rel="nofollow">Hacking with Swift</a></li>
+<li><a href="https://youtu.be/kRqxyqjpOHs?t=39" rel="nofollow">Tom Cruise Screaming Trailer</a></li>
+<li><a href="https://twitter.com/jsngr/status/1350851991640145925" rel="nofollow">Slack DVD (by Jordan Singer)</a></li>
+<li><a href="https://swift.org/blog/diversity-in-swift/" rel="nofollow">Diversity in Swift</a></li>
+<li><a href="https://www.hackingwithswift.com/live" rel="nofollow">Hacking with Swift Live</a></li>
+<li><a href="https://www.specialeffect.org.uk" rel="nofollow">SpecialEffect</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kathy_Sierra" rel="nofollow">Kathy Sierra</a></li>
+<li><a href="http://headrush.typepad.com" rel="nofollow">Creating Passionate Users</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Head_First_(book_series)" rel="nofollow">Head First Book Series</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Paul Hudson joins the show to tell us his origin story that led to running one of the best Swift learning resources in Hacking with Swift.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/twostraws" rel="nofollow">Paul on Twitter</a></li>
+<li><a href="https://www.hackingwithswift.com" rel="nofollow">Hacking with Swift</a></li>
+<li><a href="https://youtu.be/kRqxyqjpOHs?t=39" rel="nofollow">Tom Cruise Screaming Trailer</a></li>
+<li><a href="https://twitter.com/jsngr/status/1350851991640145925" rel="nofollow">Slack DVD (by Jordan Singer)</a></li>
+<li><a href="https://swift.org/blog/diversity-in-swift/" rel="nofollow">Diversity in Swift</a></li>
+<li><a href="https://www.hackingwithswift.com/live" rel="nofollow">Hacking with Swift Live</a></li>
+<li><a href="https://www.specialeffect.org.uk" rel="nofollow">SpecialEffect</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kathy_Sierra" rel="nofollow">Kathy Sierra</a></li>
+<li><a href="http://headrush.typepad.com" rel="nofollow">Creating Passionate Users</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Head_First_(book_series)" rel="nofollow">Head First Book Series</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+-2OhiWk4</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+-2OhiWk4" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>25: Dilims - Eliz Kılıç</title>
+      <link>https://launchedfm.com?/25-eliz-kilic</link>
+      <guid isPermaLink="false">9a0d9576-bf99-430d-83b9-772075ef2e5c</guid>
+      <pubDate>Tue, 19 Jan 2021 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/9a0d9576-bf99-430d-83b9-772075ef2e5c.mp3" length="33559914" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Eliz Kılıç joins the show to talk about her wonderful timezone app Dilims.</itunes:subtitle>
+      <itunes:duration>34:24</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/9/9a0d9576-bf99-430d-83b9-772075ef2e5c/cover.jpg?v=1"/>
+      <description>Eliz Kılıç joins the show to talk about her wonderful timezone app Dilims.
+Links &amp; Show Notes
+Eliz on Twitter (https://twitter.com/eliz_kilic)
+Dilims (https://apps.apple.com/us/app/dilims-time-zones-app/id1487998811)
+James Thomson (https://twitter.com/jamesthomson)
+Eliz's Personal Site (https://eliz.dev)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, SwiftUI, timezone, timezones, time zone, time zones</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Eliz Kılıç joins the show to talk about her wonderful timezone app Dilims.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/eliz_kilic" rel="nofollow">Eliz on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/dilims-time-zones-app/id1487998811" rel="nofollow">Dilims</a></li>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James Thomson</a></li>
+<li><a href="https://eliz.dev" rel="nofollow">Eliz&#39;s Personal Site</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Eliz Kılıç joins the show to talk about her wonderful timezone app Dilims.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/eliz_kilic" rel="nofollow">Eliz on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/dilims-time-zones-app/id1487998811" rel="nofollow">Dilims</a></li>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James Thomson</a></li>
+<li><a href="https://eliz.dev" rel="nofollow">Eliz&#39;s Personal Site</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+RWvSa3Zw</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+RWvSa3Zw" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>24: Widgetsmith - David Smith</title>
+      <link>https://launchedfm.com?/24-david-smith</link>
+      <guid isPermaLink="false">1d2d17e0-ca9c-4b76-b374-71513630e929</guid>
+      <pubDate>Tue, 05 Jan 2021 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/1d2d17e0-ca9c-4b76-b374-71513630e929.mp3" length="84960664" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>David Smith joins the show to talk the wildly popular Widgetsmith and his career as an indie developer.</itunes:subtitle>
+      <itunes:duration>1:27:29</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/1/1d2d17e0-ca9c-4b76-b374-71513630e929/cover.jpg?v=1"/>
+      <description>David Smith joins the show to talk the wildly popular Widgetsmith and his career as an indie developer.
+Links &amp; Show Notes
+David on Twitter (https://twitter.com/_davidsmith)
+Widgetsmith (https://apps.apple.com/us/app/widgetsmith/id1523682319)
+Watchsmith (https://apps.apple.com/us/app/watchsmith/id1483088503)
+David's Apps (https://www.david-smith.org/apps/)
+Under the Radar (podcast) (https://www.relay.fm/radar)
+TikTok Video of Widgetsmith (https://www.tiktok.com/@katamogz/video/6873862268413545730)
+Chris Liscio (https://twitter.com/liscio)
+Loren Brichter (https://twitter.com/lorenb)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, Widgetsmith</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>David Smith joins the show to talk the wildly popular Widgetsmith and his career as an indie developer.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/_davidsmith" rel="nofollow">David on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/widgetsmith/id1523682319" rel="nofollow">Widgetsmith</a></li>
+<li><a href="https://apps.apple.com/us/app/watchsmith/id1483088503" rel="nofollow">Watchsmith</a></li>
+<li><a href="https://www.david-smith.org/apps/" rel="nofollow">David&#39;s Apps</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar (podcast)</a></li>
+<li><a href="https://www.tiktok.com/@katamogz/video/6873862268413545730" rel="nofollow">TikTok Video of Widgetsmith</a></li>
+<li><a href="https://twitter.com/liscio" rel="nofollow">Chris Liscio</a></li>
+<li><a href="https://twitter.com/lorenb" rel="nofollow">Loren Brichter</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>David Smith joins the show to talk the wildly popular Widgetsmith and his career as an indie developer.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/_davidsmith" rel="nofollow">David on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/widgetsmith/id1523682319" rel="nofollow">Widgetsmith</a></li>
+<li><a href="https://apps.apple.com/us/app/watchsmith/id1483088503" rel="nofollow">Watchsmith</a></li>
+<li><a href="https://www.david-smith.org/apps/" rel="nofollow">David&#39;s Apps</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar (podcast)</a></li>
+<li><a href="https://www.tiktok.com/@katamogz/video/6873862268413545730" rel="nofollow">TikTok Video of Widgetsmith</a></li>
+<li><a href="https://twitter.com/liscio" rel="nofollow">Chris Liscio</a></li>
+<li><a href="https://twitter.com/lorenb" rel="nofollow">Loren Brichter</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+zHl_zAQM</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+zHl_zAQM" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>23: Capsicum - Ish ShaBazz</title>
+      <link>https://launchedfm.com?/23-ish-shibazz</link>
+      <guid isPermaLink="false">77f7e248-cc9f-42ee-83f6-c8560f76ce0a</guid>
+      <pubDate>Tue, 22 Dec 2020 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/77f7e248-cc9f-42ee-83f6-c8560f76ce0a.mp3" length="66187110" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Ish Shabazz joins the show to talk about his iOS developer origin story and launching his daily-planning app Capsicum.</itunes:subtitle>
+      <itunes:duration>1:07:23</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/7/77f7e248-cc9f-42ee-83f6-c8560f76ce0a/cover.jpg?v=1"/>
+      <description>Ish Shabazz joins the show to talk about his iOS developer origin story and launching his daily-planning app Capsicum.
+Links &amp; Show Notes
+Ish on Twitter (https://twitter.com/ishabazz)
+Capsicum (https://capsicum.app)
+app: the human story (Documentary) (https://appdocumentary.com)
+How To Be An Antiracist (Book) (https://www.ibramxkendi.com/how-to-be-an-antiracist-1)
+Novall Swift (https://twitter.com/novallswift?lang=en)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, App, Indie Developer, Developer, iOS, Swift, podcasts</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Ish Shabazz joins the show to talk about his iOS developer origin story and launching his daily-planning app Capsicum.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/ishabazz" rel="nofollow">Ish on Twitter</a></li>
+<li><a href="https://capsicum.app" rel="nofollow">Capsicum</a></li>
+<li><a href="https://appdocumentary.com" rel="nofollow">app: the human story (Documentary)</a></li>
+<li><a href="https://www.ibramxkendi.com/how-to-be-an-antiracist-1" rel="nofollow">How To Be An Antiracist (Book)</a></li>
+<li><a href="https://twitter.com/novallswift?lang=en" rel="nofollow">Novall Swift</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Ish Shabazz joins the show to talk about his iOS developer origin story and launching his daily-planning app Capsicum.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/ishabazz" rel="nofollow">Ish on Twitter</a></li>
+<li><a href="https://capsicum.app" rel="nofollow">Capsicum</a></li>
+<li><a href="https://appdocumentary.com" rel="nofollow">app: the human story (Documentary)</a></li>
+<li><a href="https://www.ibramxkendi.com/how-to-be-an-antiracist-1" rel="nofollow">How To Be An Antiracist (Book)</a></li>
+<li><a href="https://twitter.com/novallswift?lang=en" rel="nofollow">Novall Swift</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+EPNqoe0h</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+EPNqoe0h" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>22: Castro - Oisín Prendiville</title>
+      <link>https://launchedfm.com?/22-oisin-prendiville</link>
+      <guid isPermaLink="false">9e53bd03-0424-49e4-b738-2aaf58f31d30</guid>
+      <pubDate>Tue, 08 Dec 2020 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/9e53bd03-0424-49e4-b738-2aaf58f31d30.mp3" length="53678450" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Oisín Prendiville joins the show to talk about launching and growing the fantastic podcast app Castro.</itunes:subtitle>
+      <itunes:duration>55:24</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/9/9e53bd03-0424-49e4-b738-2aaf58f31d30/cover.jpg?v=1"/>
+      <description>Oisín Prendiville joins the show to talk about launching and growing the fantastic podcast app Castro.
+Links &amp; Show Notes
+Oisín on Twitter (https://twitter.com/prendio2)
+Castro (https://castro.fm)
+Tokens 2 (https://gikken.co/tokens/)
+NativeConnect (https://nativeconnect.app)
+Tiny (https://www.tinycapital.com)
+John Ryan (https://twitter.com/johndryan)
+Pádraig (https://twitter.com/padraig)
+Cabel Sasser (https://twitter.com/cabel)
+Steven Frank (https://stevenf.com)
+Panic (https://panic.com)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, podcasts</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Oisín Prendiville joins the show to talk about launching and growing the fantastic podcast app Castro.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/prendio2" rel="nofollow">Oisín on Twitter</a></li>
+<li><a href="https://castro.fm" rel="nofollow">Castro</a></li>
+<li><a href="https://gikken.co/tokens/" rel="nofollow">Tokens 2</a></li>
+<li><a href="https://nativeconnect.app" rel="nofollow">NativeConnect</a></li>
+<li><a href="https://www.tinycapital.com" rel="nofollow">Tiny</a></li>
+<li><a href="https://twitter.com/johndryan" rel="nofollow">John Ryan</a></li>
+<li><a href="https://twitter.com/padraig" rel="nofollow">Pádraig</a></li>
+<li><a href="https://twitter.com/cabel" rel="nofollow">Cabel Sasser</a></li>
+<li><a href="https://stevenf.com" rel="nofollow">Steven Frank</a></li>
+<li><a href="https://panic.com" rel="nofollow">Panic</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Oisín Prendiville joins the show to talk about launching and growing the fantastic podcast app Castro.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/prendio2" rel="nofollow">Oisín on Twitter</a></li>
+<li><a href="https://castro.fm" rel="nofollow">Castro</a></li>
+<li><a href="https://gikken.co/tokens/" rel="nofollow">Tokens 2</a></li>
+<li><a href="https://nativeconnect.app" rel="nofollow">NativeConnect</a></li>
+<li><a href="https://www.tinycapital.com" rel="nofollow">Tiny</a></li>
+<li><a href="https://twitter.com/johndryan" rel="nofollow">John Ryan</a></li>
+<li><a href="https://twitter.com/padraig" rel="nofollow">Pádraig</a></li>
+<li><a href="https://twitter.com/cabel" rel="nofollow">Cabel Sasser</a></li>
+<li><a href="https://stevenf.com" rel="nofollow">Steven Frank</a></li>
+<li><a href="https://panic.com" rel="nofollow">Panic</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+sOxmnGBz</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+sOxmnGBz" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>21: Darkroom - Majd Taby</title>
+      <link>https://launchedfm.com?/21-majd-taby</link>
+      <guid isPermaLink="false">757c8563-d2ab-42a4-bacb-96e85a1a48a2</guid>
+      <pubDate>Tue, 24 Nov 2020 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/757c8563-d2ab-42a4-bacb-96e85a1a48a2.mp3" length="76563466" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Majd Taby joins the show to talk about the launch and growth of his Apple Design Award winning app Darkroom as well as writing and publishing the book Displaced: Stories from the Syrian Diaspora.</itunes:subtitle>
+      <itunes:duration>1:18:40</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/7/757c8563-d2ab-42a4-bacb-96e85a1a48a2/cover.jpg?v=1"/>
+      <description>Majd Taby joins the show to talk about the launch and growth of his Apple Design Award winning app Darkroom as well as writing and publishing the book Displaced: Stories from the Syrian Diaspora.
+Links &amp; Show Notes
+Majd on Twitter (https://twitter.com/jtaby)
+Darkroom (http://usedarkroom.com)
+Displaced: Stories from the Syrian Diaspora (https://syriandiaspora.com)
+Majd "Apple Design Award Unboxing" video (https://twitter.com/usedarkroom/status/1278378242336940032)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, photography, syria, book</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Majd Taby joins the show to talk about the launch and growth of his Apple Design Award winning app Darkroom as well as writing and publishing the book Displaced: Stories from the Syrian Diaspora.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jtaby" rel="nofollow">Majd on Twitter</a></li>
+<li><a href="http://usedarkroom.com" rel="nofollow">Darkroom</a></li>
+<li><a href="https://syriandiaspora.com" rel="nofollow">Displaced: Stories from the Syrian Diaspora</a></li>
+<li><a href="https://twitter.com/usedarkroom/status/1278378242336940032" rel="nofollow">Majd &quot;Apple Design Award Unboxing&quot; video</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Majd Taby joins the show to talk about the launch and growth of his Apple Design Award winning app Darkroom as well as writing and publishing the book Displaced: Stories from the Syrian Diaspora.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jtaby" rel="nofollow">Majd on Twitter</a></li>
+<li><a href="http://usedarkroom.com" rel="nofollow">Darkroom</a></li>
+<li><a href="https://syriandiaspora.com" rel="nofollow">Displaced: Stories from the Syrian Diaspora</a></li>
+<li><a href="https://twitter.com/usedarkroom/status/1278378242336940032" rel="nofollow">Majd &quot;Apple Design Award Unboxing&quot; video</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+5y-pWcX-</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+5y-pWcX-" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>20: CARROT Weather - Brian Mueller</title>
+      <link>https://launchedfm.com?/20-brian-mueller</link>
+      <guid isPermaLink="false">f3e9b1ed-4be2-4f8f-9c6d-595a40229d87</guid>
+      <pubDate>Thu, 12 Nov 2020 11:45:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/f3e9b1ed-4be2-4f8f-9c6d-595a40229d87.mp3" length="82416535" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Brian Mueller joins the show to talk about CARROT Weather and his suite of other apps sharing the maniacal AI.</itunes:subtitle>
+      <itunes:duration>1:25:18</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/f/f3e9b1ed-4be2-4f8f-9c6d-595a40229d87/cover.jpg?v=1"/>
+      <description>Brian Mueller joins the show to talk about CARROT Weather and his suite of other apps sharing the maniacal AI.
+Links &amp; Show Notes
+Brian on Twitter (https://twitter.com/BrianMueller333)
+CARROT apps (https://www.meetcarrot.com)
+Marco Arment (https://twitter.com/marcoarment)
+David Smith (https://twitter.com/_DavidSmith)
+Curtis Herbert (https://twitter.com/parrots)
+Christian Selig (https://twitter.com/ChristianSelig)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, weather</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Brian Mueller joins the show to talk about CARROT Weather and his suite of other apps sharing the maniacal AI.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/BrianMueller333" rel="nofollow">Brian on Twitter</a></li>
+<li><a href="https://www.meetcarrot.com" rel="nofollow">CARROT apps</a></li>
+<li><a href="https://twitter.com/marcoarment" rel="nofollow">Marco Arment</a></li>
+<li><a href="https://twitter.com/_DavidSmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis Herbert</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Brian Mueller joins the show to talk about CARROT Weather and his suite of other apps sharing the maniacal AI.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/BrianMueller333" rel="nofollow">Brian on Twitter</a></li>
+<li><a href="https://www.meetcarrot.com" rel="nofollow">CARROT apps</a></li>
+<li><a href="https://twitter.com/marcoarment" rel="nofollow">Marco Arment</a></li>
+<li><a href="https://twitter.com/_DavidSmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis Herbert</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+Emm_CRtX</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+Emm_CRtX" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>Back to School Break</title>
+      <link>https://launchedfm.com?/19-1-back-to-school</link>
+      <guid isPermaLink="false">492fedc3-b326-497d-8ade-78aadf520c3b</guid>
+      <pubDate>Tue, 01 Sep 2020 11:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/492fedc3-b326-497d-8ade-78aadf520c3b.mp3" length="2278368" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>I'm taking a short break from Launched this month as my kids and wife start up the school year.</itunes:subtitle>
+      <itunes:duration>1:50</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/4/492fedc3-b326-497d-8ade-78aadf520c3b/cover.jpg?v=1"/>
+      <description>I'm taking a short break from Launched this month as my kids and wife start up the school year.
+Links &amp; Show Notes
+Indie Dev Monday (https://indiedevmonday.com)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <content:encoded>
+        <![CDATA[<p>I&#39;m taking a short break from Launched this month as my kids and wife start up the school year.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://indiedevmonday.com" rel="nofollow">Indie Dev Monday</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>I&#39;m taking a short break from Launched this month as my kids and wife start up the school year.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://indiedevmonday.com" rel="nofollow">Indie Dev Monday</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+3hQusDC9</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+3hQusDC9" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>19: Pennant - Tyler Hillsman</title>
+      <link>https://launchedfm.com?/19-tyler-hillsman</link>
+      <guid isPermaLink="false">8aab538a-7535-4624-aaf2-f57dbe02f7e7</guid>
+      <pubDate>Tue, 11 Aug 2020 07:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/8aab538a-7535-4624-aaf2-f57dbe02f7e7.mp3" length="68475193" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Tyler Hillsman joins the show to talk about his sports standings app Pennant.</itunes:subtitle>
+      <itunes:duration>1:10:18</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/8/8aab538a-7535-4624-aaf2-f57dbe02f7e7/cover.jpg?v=1"/>
+      <description>Tyler Hillsman joins the show to talk about his sports standings app Pennant.
+Links &amp; Show Notes
+Tyler on Twitter (https://twitter.com/thillsman)
+Pennant (https://www.pennantapp.com)
+Outdoorsy (https://www.outdoorsy.com)
+Jordan Morgan (https://twitter.com/jordanmorgan10)
+Josh Holtz (https://twitter.com/joshdholtz)
+Shihab Mehboob (https://twitter.com/JPEGuin)
+Nathan Lawrence (https://twitter.com/NathanBLawrence)
+Sam Gold (https://twitter.com/samhenrigold)
+Christian Selig (https://twitter.com/ChristianSelig)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, baseball, mlb, sports</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Tyler Hillsman joins the show to talk about his sports standings app Pennant.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/thillsman" rel="nofollow">Tyler on Twitter</a></li>
+<li><a href="https://www.pennantapp.com" rel="nofollow">Pennant</a></li>
+<li><a href="https://www.outdoorsy.com" rel="nofollow">Outdoorsy</a></li>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan Morgan</a></li>
+<li><a href="https://twitter.com/joshdholtz" rel="nofollow">Josh Holtz</a></li>
+<li><a href="https://twitter.com/JPEGuin" rel="nofollow">Shihab Mehboob</a></li>
+<li><a href="https://twitter.com/NathanBLawrence" rel="nofollow">Nathan Lawrence</a></li>
+<li><a href="https://twitter.com/samhenrigold" rel="nofollow">Sam Gold</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Tyler Hillsman joins the show to talk about his sports standings app Pennant.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/thillsman" rel="nofollow">Tyler on Twitter</a></li>
+<li><a href="https://www.pennantapp.com" rel="nofollow">Pennant</a></li>
+<li><a href="https://www.outdoorsy.com" rel="nofollow">Outdoorsy</a></li>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan Morgan</a></li>
+<li><a href="https://twitter.com/joshdholtz" rel="nofollow">Josh Holtz</a></li>
+<li><a href="https://twitter.com/JPEGuin" rel="nofollow">Shihab Mehboob</a></li>
+<li><a href="https://twitter.com/NathanBLawrence" rel="nofollow">Nathan Lawrence</a></li>
+<li><a href="https://twitter.com/samhenrigold" rel="nofollow">Sam Gold</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+ASkWs0fH</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+ASkWs0fH" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>18: Dark Noise 2 &amp; Spend Stack 1.2 with Jordan Morgan</title>
+      <link>https://launchedfm.com?/18-darknoise2-and-spendstack</link>
+      <guid isPermaLink="false">bdff583f-4c73-4f02-a69d-5886b9825bbc</guid>
+      <pubDate>Tue, 28 Jul 2020 06:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/bdff583f-4c73-4f02-a69d-5886b9825bbc.mp3" length="73524476" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>After releasing his big Dark Noise 2 update, Charlie takes a little break and hangs out with Jordan Morgan, who recently released Spend Stack 1.2, to talk about launching and marketing a major update to an existing app on the store.</itunes:subtitle>
+      <itunes:duration>1:16:04</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/b/bdff583f-4c73-4f02-a69d-5886b9825bbc/cover.jpg?v=1"/>
+      <description>After releasing his big Dark Noise 2 update, Charlie takes a little break and hangs out with Jordan Morgan, who recently released Spend Stack 1.2, to talk about launching and marketing a major update to an existing app on the store.
+Links &amp; Show Notes
+Spend Stack 1.2 (https://www.spendstack.com/1.2-update/)
+Dark Noise 2 (https://charliemchapman.com/posts/2020/7/20/dark-noise-2/)
+Jordan on Twitter (https://twitter.com/jordanmorgan10)
+A Best in Class iOS App (post) (https://www.swiftjectivec.com/a-best-in-class-app/)
+Christopher McQuarrie advice on 'Breaking In' (https://nofilmschool.com/christopher-mcquarrie-twitter-writing-advice)
+Daniel Gauthier post on marketing the Oh Bother app (https://danielgauthier.me/hang-on-tight/)
+Daniel Gauthier (https://twitter.com/danielmgauthier)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, Objective C, marketing</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>After releasing his big Dark Noise 2 update, Charlie takes a little break and hangs out with Jordan Morgan, who recently released Spend Stack 1.2, to talk about launching and marketing a major update to an existing app on the store.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://www.spendstack.com/1.2-update/" rel="nofollow">Spend Stack 1.2</a></li>
+<li><a href="https://charliemchapman.com/posts/2020/7/20/dark-noise-2/" rel="nofollow">Dark Noise 2</a></li>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan on Twitter</a></li>
+<li><a href="https://www.swiftjectivec.com/a-best-in-class-app/" rel="nofollow">A Best in Class iOS App (post)</a></li>
+<li><a href="https://nofilmschool.com/christopher-mcquarrie-twitter-writing-advice" rel="nofollow">Christopher McQuarrie advice on &#39;Breaking In&#39;</a></li>
+<li><a href="https://danielgauthier.me/hang-on-tight/" rel="nofollow">Daniel Gauthier post on marketing the Oh Bother app</a></li>
+<li><a href="https://twitter.com/danielmgauthier" rel="nofollow">Daniel Gauthier</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>After releasing his big Dark Noise 2 update, Charlie takes a little break and hangs out with Jordan Morgan, who recently released Spend Stack 1.2, to talk about launching and marketing a major update to an existing app on the store.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://www.spendstack.com/1.2-update/" rel="nofollow">Spend Stack 1.2</a></li>
+<li><a href="https://charliemchapman.com/posts/2020/7/20/dark-noise-2/" rel="nofollow">Dark Noise 2</a></li>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan on Twitter</a></li>
+<li><a href="https://www.swiftjectivec.com/a-best-in-class-app/" rel="nofollow">A Best in Class iOS App (post)</a></li>
+<li><a href="https://nofilmschool.com/christopher-mcquarrie-twitter-writing-advice" rel="nofollow">Christopher McQuarrie advice on &#39;Breaking In&#39;</a></li>
+<li><a href="https://danielgauthier.me/hang-on-tight/" rel="nofollow">Daniel Gauthier post on marketing the Oh Bother app</a></li>
+<li><a href="https://twitter.com/danielmgauthier" rel="nofollow">Daniel Gauthier</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+fJT8UrlN</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+fJT8UrlN" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>17: Say Their Names - Franck Ndame</title>
+      <link>https://launchedfm.com?/17-franck-ndame</link>
+      <guid isPermaLink="false">a8f0e747-60c0-4d04-9829-a8069ec7af4c</guid>
+      <pubDate>Tue, 14 Jul 2020 06:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/a8f0e747-60c0-4d04-9829-a8069ec7af4c.mp3" length="41685607" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Franck Ndame joins the show to talk about starting the Say Their Names open source project.</itunes:subtitle>
+      <itunes:duration>42:23</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/a/a8f0e747-60c0-4d04-9829-a8069ec7af4c/cover.jpg?v=1"/>
+      <description>Franck Ndame joins the show to talk about starting the Say Their Names open source project.
+Links &amp; Show Notes
+Franck on Twitter (https://twitter.com/breezedoc_in)
+Say Their Names (https://saytheirnames.io)
+Semicolomn (https://twitter.com/semicolomn)
+Iddris Sandu (https://twitter.com/iddris_sandu)
+Meng To (https://twitter.com/MengTo)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>iOS, Android, Swift, Open Source, Say Their Names</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Franck Ndame joins the show to talk about starting the Say Their Names open source project.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/breezedoc_in" rel="nofollow">Franck on Twitter</a></li>
+<li><a href="https://saytheirnames.io" rel="nofollow">Say Their Names</a></li>
+<li><a href="https://twitter.com/semicolomn" rel="nofollow">Semicolomn</a></li>
+<li><a href="https://twitter.com/iddris_sandu" rel="nofollow">Iddris Sandu</a></li>
+<li><a href="https://twitter.com/MengTo" rel="nofollow">Meng To</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Franck Ndame joins the show to talk about starting the Say Their Names open source project.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/breezedoc_in" rel="nofollow">Franck on Twitter</a></li>
+<li><a href="https://saytheirnames.io" rel="nofollow">Say Their Names</a></li>
+<li><a href="https://twitter.com/semicolomn" rel="nofollow">Semicolomn</a></li>
+<li><a href="https://twitter.com/iddris_sandu" rel="nofollow">Iddris Sandu</a></li>
+<li><a href="https://twitter.com/MengTo" rel="nofollow">Meng To</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+Lw5rwJjM</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+Lw5rwJjM" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>16: Tasks - Mustafa</title>
+      <link>https://launchedfm.com?/16-mustafa</link>
+      <guid isPermaLink="false">a1d37f66-e481-4d1f-b53b-3e2444373b58</guid>
+      <pubDate>Tue, 30 Jun 2020 07:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/a1d37f66-e481-4d1f-b53b-3e2444373b58.mp3" length="62111135" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Mustafa joins the show to talk about the launch of his new project management app Tasks.</itunes:subtitle>
+      <itunes:duration>1:03:40</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/a/a1d37f66-e481-4d1f-b53b-3e2444373b58/cover.jpg?v=1"/>
+      <description>Mustafa joins the show to talk about the launch of his new project management app Tasks.
+Links &amp; Show Notes
+Mustafa on Twitter (https://twitter.com/mufasaYC)
+Tasks (https://apps.apple.com/in/app/tasks-stay-ahead/id1502903102)
+Telegram (https://telegram.org)
+Siddharth (https://twitter.com/sids7)
+Vidit Bhargava (https://twitter.com/viditb)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift </itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Mustafa joins the show to talk about the launch of his new project management app Tasks.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mufasaYC" rel="nofollow">Mustafa on Twitter</a></li>
+<li><a href="https://apps.apple.com/in/app/tasks-stay-ahead/id1502903102" rel="nofollow">Tasks</a></li>
+<li><a href="https://telegram.org" rel="nofollow">Telegram</a></li>
+<li><a href="https://twitter.com/sids7" rel="nofollow">Siddharth</a></li>
+<li><a href="https://twitter.com/viditb" rel="nofollow">Vidit Bhargava</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Mustafa joins the show to talk about the launch of his new project management app Tasks.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mufasaYC" rel="nofollow">Mustafa on Twitter</a></li>
+<li><a href="https://apps.apple.com/in/app/tasks-stay-ahead/id1502903102" rel="nofollow">Tasks</a></li>
+<li><a href="https://telegram.org" rel="nofollow">Telegram</a></li>
+<li><a href="https://twitter.com/sids7" rel="nofollow">Siddharth</a></li>
+<li><a href="https://twitter.com/viditb" rel="nofollow">Vidit Bhargava</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+TehshMJ9</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+TehshMJ9" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>15: Slugline - Stu Maschwitz and Clint Torres</title>
+      <link>https://launchedfm.com?/15-slugline</link>
+      <guid isPermaLink="false">dc2990e8-0b7f-4fb9-bcaa-f53e84501051</guid>
+      <pubDate>Tue, 09 Jun 2020 06:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/dc2990e8-0b7f-4fb9-bcaa-f53e84501051.mp3" length="79104686" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Stu Maschwitz and Clint Torres join the show to talk about their Mac and iOS screenwriting app Slugline.</itunes:subtitle>
+      <itunes:duration>1:21:20</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/d/dc2990e8-0b7f-4fb9-bcaa-f53e84501051/cover.jpg?v=1"/>
+      <description>Stu Maschwitz and Clint Torres join the show to talk about their Mac and iOS screenwriting app Slugline.
+Links &amp; Show Notes
+Stu on Twitter (https://twitter.com/5tu)
+Clint on Twitter (https://twitter.com/clinttorres)
+Slugline (https://slugline.co)
+Jitsi (https://jitsi.org)
+Fountain (format) (https://fountain.io)
+Final Draft (https://www.finaldraft.com)
+John August (https://johnaugust.com)
+Highland (https://highland2.app)
+Kishore Hari (https://twitter.com/sciencequiche)
+Shane Black (https://en.wikipedia.org/wiki/Shane_Black)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Screenwriting, Writing, Mac</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Stu Maschwitz and Clint Torres join the show to talk about their Mac and iOS screenwriting app Slugline.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/5tu" rel="nofollow">Stu on Twitter</a></li>
+<li><a href="https://twitter.com/clinttorres" rel="nofollow">Clint on Twitter</a></li>
+<li><a href="https://slugline.co" rel="nofollow">Slugline</a></li>
+<li><a href="https://jitsi.org" rel="nofollow">Jitsi</a></li>
+<li><a href="https://fountain.io" rel="nofollow">Fountain (format)</a></li>
+<li><a href="https://www.finaldraft.com" rel="nofollow">Final Draft</a></li>
+<li><a href="https://johnaugust.com" rel="nofollow">John August</a></li>
+<li><a href="https://highland2.app" rel="nofollow">Highland</a></li>
+<li><a href="https://twitter.com/sciencequiche" rel="nofollow">Kishore Hari</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shane_Black" rel="nofollow">Shane Black</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Stu Maschwitz and Clint Torres join the show to talk about their Mac and iOS screenwriting app Slugline.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/5tu" rel="nofollow">Stu on Twitter</a></li>
+<li><a href="https://twitter.com/clinttorres" rel="nofollow">Clint on Twitter</a></li>
+<li><a href="https://slugline.co" rel="nofollow">Slugline</a></li>
+<li><a href="https://jitsi.org" rel="nofollow">Jitsi</a></li>
+<li><a href="https://fountain.io" rel="nofollow">Fountain (format)</a></li>
+<li><a href="https://www.finaldraft.com" rel="nofollow">Final Draft</a></li>
+<li><a href="https://johnaugust.com" rel="nofollow">John August</a></li>
+<li><a href="https://highland2.app" rel="nofollow">Highland</a></li>
+<li><a href="https://twitter.com/sciencequiche" rel="nofollow">Kishore Hari</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shane_Black" rel="nofollow">Shane Black</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+4NyN4rm2</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+4NyN4rm2" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>Black Lives Matter</title>
+      <link>https://launchedfm.com?/black-lives-matter</link>
+      <guid isPermaLink="false">f5c6bef2-7583-4d57-a2f2-1b2648307a8c</guid>
+      <pubDate>Tue, 02 Jun 2020 08:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/f5c6bef2-7583-4d57-a2f2-1b2648307a8c.mp3" length="3747794" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:duration>3:23</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/f/f5c6bef2-7583-4d57-a2f2-1b2648307a8c/cover.jpg?v=1"/>
+      <description/>
+      <content:encoded>
+        <![CDATA[]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+RbDKMyUb</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+RbDKMyUb" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>14: Slopes - Curtis Herbert</title>
+      <link>https://launchedfm.com?/014-curtis-herbert</link>
+      <guid isPermaLink="false">c8e9720a-5b6a-4ecd-a053-01690bd8d1d2</guid>
+      <pubDate>Tue, 19 May 2020 06:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/c8e9720a-5b6a-4ecd-a053-01690bd8d1d2.mp3" length="76062233" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Curtis Herbert joins the show to talk about his skiing and snowboarding app Slopes.</itunes:subtitle>
+      <itunes:duration>1:18:11</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/c/c8e9720a-5b6a-4ecd-a053-01690bd8d1d2/cover.jpg?v=1"/>
+      <description>Curtis Herbert joins the show to talk about his skiing and snowboarding app Slopes.
+Links &amp; Show Notes
+Curtis on Twitter (https://twitter.com/parrots)
+Slopes (https://getslopes.com)
+Softcard (formerly ISIS) (https://techcrunch.com/2014/09/03/isis-mobile-wallet-rebrands-to-softcard-to-distance-from-miltant-terror-group/)
+Trace (soccer tracking app) (https://www.traceup.com)
+Russ Shanahan (https://twitter.com/russshanahan)
+Happy Scale (https://happyscale.com)
+Independence (podcast) (https://independence.fm)
+Jelly (Daniel Farrelly) (https://jellystyle.com/about)
+Launched Shirts (https://cottonbureau.com/products/launched-podcast)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift </itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Curtis Herbert joins the show to talk about his skiing and snowboarding app Slopes.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis on Twitter</a></li>
+<li><a href="https://getslopes.com" rel="nofollow">Slopes</a></li>
+<li><a href="https://techcrunch.com/2014/09/03/isis-mobile-wallet-rebrands-to-softcard-to-distance-from-miltant-terror-group/" rel="nofollow">Softcard (formerly ISIS)</a></li>
+<li><a href="https://www.traceup.com" rel="nofollow">Trace (soccer tracking app)</a></li>
+<li><a href="https://twitter.com/russshanahan" rel="nofollow">Russ Shanahan</a></li>
+<li><a href="https://happyscale.com" rel="nofollow">Happy Scale</a></li>
+<li><a href="https://independence.fm" rel="nofollow">Independence (podcast)</a></li>
+<li><a href="https://jellystyle.com/about" rel="nofollow">Jelly (Daniel Farrelly)</a></li>
+<li><a href="https://cottonbureau.com/products/launched-podcast" rel="nofollow">Launched Shirts</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Curtis Herbert joins the show to talk about his skiing and snowboarding app Slopes.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis on Twitter</a></li>
+<li><a href="https://getslopes.com" rel="nofollow">Slopes</a></li>
+<li><a href="https://techcrunch.com/2014/09/03/isis-mobile-wallet-rebrands-to-softcard-to-distance-from-miltant-terror-group/" rel="nofollow">Softcard (formerly ISIS)</a></li>
+<li><a href="https://www.traceup.com" rel="nofollow">Trace (soccer tracking app)</a></li>
+<li><a href="https://twitter.com/russshanahan" rel="nofollow">Russ Shanahan</a></li>
+<li><a href="https://happyscale.com" rel="nofollow">Happy Scale</a></li>
+<li><a href="https://independence.fm" rel="nofollow">Independence (podcast)</a></li>
+<li><a href="https://jellystyle.com/about" rel="nofollow">Jelly (Daniel Farrelly)</a></li>
+<li><a href="https://cottonbureau.com/products/launched-podcast" rel="nofollow">Launched Shirts</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+FP7XtYMe</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+FP7XtYMe" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>13: Cosmicast - Shihab Mehboob</title>
+      <link>https://launchedfm.com?/013-shihab-mehboob</link>
+      <guid isPermaLink="false">1fc6e0ec-5cf1-4f7e-9adf-d3eb5e3b41ed</guid>
+      <pubDate>Tue, 05 May 2020 07:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/1fc6e0ec-5cf1-4f7e-9adf-d3eb5e3b41ed.mp3" length="88762587" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Shihab Mehboob joins the show to talk about his new podcast app Cosmicast.</itunes:subtitle>
+      <itunes:duration>1:31:24</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/1/1fc6e0ec-5cf1-4f7e-9adf-d3eb5e3b41ed/cover.jpg?v=1"/>
+      <description>Shihab Mehboob joins the show to talk about his new podcast app Cosmicast.
+Links &amp; Show Notes
+Shihab on Twitter (https://twitter.com/JPEGuin)
+Shihab's Apps (https://www.pnguin.app)
+Swift on Server (https://swift.org/server/)
+IBM Watson (https://www.ibm.com/watson)
+David Smith (https://twitter.com/_DavidSmith)
+9to5 Cosmicast Article (https://9to5mac.com/2020/04/07/cosmicast-is-a-universal-new-podcast-player-that-brings-back-the-skeuomorphic-design-of-ios/)
+James Thomson (https://twitter.com/jamesthomson)
+Christian Selig (https://twitter.com/ChristianSelig)
+Jordan Morgan (https://twitter.com/JordanMorgan10)
+Curtis Herbert (https://twitter.com/parrots)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift </itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Shihab Mehboob joins the show to talk about his new podcast app Cosmicast.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/JPEGuin" rel="nofollow">Shihab on Twitter</a></li>
+<li><a href="https://www.pnguin.app" rel="nofollow">Shihab&#39;s Apps</a></li>
+<li><a href="https://swift.org/server/" rel="nofollow">Swift on Server</a></li>
+<li><a href="https://www.ibm.com/watson" rel="nofollow">IBM Watson</a></li>
+<li><a href="https://twitter.com/_DavidSmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://9to5mac.com/2020/04/07/cosmicast-is-a-universal-new-podcast-player-that-brings-back-the-skeuomorphic-design-of-ios/" rel="nofollow">9to5 Cosmicast Article</a></li>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James Thomson</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+<li><a href="https://twitter.com/JordanMorgan10" rel="nofollow">Jordan Morgan</a></li>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis Herbert</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Shihab Mehboob joins the show to talk about his new podcast app Cosmicast.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/JPEGuin" rel="nofollow">Shihab on Twitter</a></li>
+<li><a href="https://www.pnguin.app" rel="nofollow">Shihab&#39;s Apps</a></li>
+<li><a href="https://swift.org/server/" rel="nofollow">Swift on Server</a></li>
+<li><a href="https://www.ibm.com/watson" rel="nofollow">IBM Watson</a></li>
+<li><a href="https://twitter.com/_DavidSmith" rel="nofollow">David Smith</a></li>
+<li><a href="https://9to5mac.com/2020/04/07/cosmicast-is-a-universal-new-podcast-player-that-brings-back-the-skeuomorphic-design-of-ios/" rel="nofollow">9to5 Cosmicast Article</a></li>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James Thomson</a></li>
+<li><a href="https://twitter.com/ChristianSelig" rel="nofollow">Christian Selig</a></li>
+<li><a href="https://twitter.com/JordanMorgan10" rel="nofollow">Jordan Morgan</a></li>
+<li><a href="https://twitter.com/parrots" rel="nofollow">Curtis Herbert</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+zgvKJFPw</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+zgvKJFPw" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>12: Seth Worley</title>
+      <link>https://launchedfm.com?/012-seth-worley</link>
+      <guid isPermaLink="false">d595bf72-7a1c-48cd-86d0-729e3ceb5427</guid>
+      <pubDate>Tue, 21 Apr 2020 06:30:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d595bf72-7a1c-48cd-86d0-729e3ceb5427.mp3" length="79731566" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Seth Worley joins the show to talk about launching his new short film Darker Colors and trying to make it in the filmmaking business.</itunes:subtitle>
+      <itunes:duration>1:22:00</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/d/d595bf72-7a1c-48cd-86d0-729e3ceb5427/cover.jpg?v=1"/>
+      <description>Seth Worley joins the show to talk about launching his new short film Darker Colors and trying to make it in the filmmaking business.
+Links &amp; Show Notes
+Seth on Twitter (https://twitter.com/awakeland3d)
+Plot Device (Short Film) (https://www.youtube.com/watch?v=itMHVpXo2lU)
+Andrew Kramer (https://twitter.com/videocopilot)
+LOST Smoke Monster Tutorial (https://www.youtube.com/watch?v=01joMefghm0)
+Stu Maschwitz (https://twitter.com/5tu)
+Red Giant (https://www.redgiant.com)
+Plot Device (https://www.youtube.com/watch?v=itMHVpXo2lU)
+Dan Trachtenberg (Directory) (https://twitter.com/DannyTRS)
+Skywatch - Short Film by Colin Levy (https://www.youtube.com/watch?v=Mv30ExfoKcc)
+IA Writer (https://ia.net/writer)
+Plot Devices (https://plotdevices.co)
+StoryClock Notebook on Kickstarter (https://www.kickstarter.com/projects/sethworley/storyclock-notebook-a-notebook-designed-for-screen)
+Air Table (https://airtable.com)
+Darker Colors (Short Film) (https://www.darkercolors.com)
+Tony Hale (https://www.imdb.com/name/nm0355024/)
+Rideback (Production Company) (https://rideback.com)
+Red Giant Complete Ad (https://www.youtube.com/watch?v=v1nnDIlmEo8)
+Sandwich (Commercial Company) (https://sandwich.co)
+Andy Miller (https://twitter.com/andyjpizza)
+Creative Peptalk (https://www.creativepeptalk.com)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Short Film, Indie, Filmmaking, Director, Writing, After Effects</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Seth Worley joins the show to talk about launching his new short film Darker Colors and trying to make it in the filmmaking business.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/awakeland3d" rel="nofollow">Seth on Twitter</a></li>
+<li><a href="https://www.youtube.com/watch?v=itMHVpXo2lU" rel="nofollow">Plot Device (Short Film)</a></li>
+<li><a href="https://twitter.com/videocopilot" rel="nofollow">Andrew Kramer</a></li>
+<li><a href="https://www.youtube.com/watch?v=01joMefghm0" rel="nofollow">LOST Smoke Monster Tutorial</a></li>
+<li><a href="https://twitter.com/5tu" rel="nofollow">Stu Maschwitz</a></li>
+<li><a href="https://www.redgiant.com" rel="nofollow">Red Giant</a></li>
+<li><a href="https://www.youtube.com/watch?v=itMHVpXo2lU" rel="nofollow">Plot Device</a></li>
+<li><a href="https://twitter.com/DannyTRS" rel="nofollow">Dan Trachtenberg (Directory)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Mv30ExfoKcc" rel="nofollow">Skywatch - Short Film by Colin Levy</a></li>
+<li><a href="https://ia.net/writer" rel="nofollow">IA Writer</a></li>
+<li><a href="https://plotdevices.co" rel="nofollow">Plot Devices</a></li>
+<li><a href="https://www.kickstarter.com/projects/sethworley/storyclock-notebook-a-notebook-designed-for-screen" rel="nofollow">StoryClock Notebook on Kickstarter</a></li>
+<li><a href="https://airtable.com" rel="nofollow">Air Table</a></li>
+<li><a href="https://www.darkercolors.com" rel="nofollow">Darker Colors (Short Film)</a></li>
+<li><a href="https://www.imdb.com/name/nm0355024/" rel="nofollow">Tony Hale</a></li>
+<li><a href="https://rideback.com" rel="nofollow">Rideback (Production Company)</a></li>
+<li><a href="https://www.youtube.com/watch?v=v1nnDIlmEo8" rel="nofollow">Red Giant Complete Ad</a></li>
+<li><a href="https://sandwich.co" rel="nofollow">Sandwich (Commercial Company)</a></li>
+<li><a href="https://twitter.com/andyjpizza" rel="nofollow">Andy Miller</a></li>
+<li><a href="https://www.creativepeptalk.com" rel="nofollow">Creative Peptalk</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Seth Worley joins the show to talk about launching his new short film Darker Colors and trying to make it in the filmmaking business.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/awakeland3d" rel="nofollow">Seth on Twitter</a></li>
+<li><a href="https://www.youtube.com/watch?v=itMHVpXo2lU" rel="nofollow">Plot Device (Short Film)</a></li>
+<li><a href="https://twitter.com/videocopilot" rel="nofollow">Andrew Kramer</a></li>
+<li><a href="https://www.youtube.com/watch?v=01joMefghm0" rel="nofollow">LOST Smoke Monster Tutorial</a></li>
+<li><a href="https://twitter.com/5tu" rel="nofollow">Stu Maschwitz</a></li>
+<li><a href="https://www.redgiant.com" rel="nofollow">Red Giant</a></li>
+<li><a href="https://www.youtube.com/watch?v=itMHVpXo2lU" rel="nofollow">Plot Device</a></li>
+<li><a href="https://twitter.com/DannyTRS" rel="nofollow">Dan Trachtenberg (Directory)</a></li>
+<li><a href="https://www.youtube.com/watch?v=Mv30ExfoKcc" rel="nofollow">Skywatch - Short Film by Colin Levy</a></li>
+<li><a href="https://ia.net/writer" rel="nofollow">IA Writer</a></li>
+<li><a href="https://plotdevices.co" rel="nofollow">Plot Devices</a></li>
+<li><a href="https://www.kickstarter.com/projects/sethworley/storyclock-notebook-a-notebook-designed-for-screen" rel="nofollow">StoryClock Notebook on Kickstarter</a></li>
+<li><a href="https://airtable.com" rel="nofollow">Air Table</a></li>
+<li><a href="https://www.darkercolors.com" rel="nofollow">Darker Colors (Short Film)</a></li>
+<li><a href="https://www.imdb.com/name/nm0355024/" rel="nofollow">Tony Hale</a></li>
+<li><a href="https://rideback.com" rel="nofollow">Rideback (Production Company)</a></li>
+<li><a href="https://www.youtube.com/watch?v=v1nnDIlmEo8" rel="nofollow">Red Giant Complete Ad</a></li>
+<li><a href="https://sandwich.co" rel="nofollow">Sandwich (Commercial Company)</a></li>
+<li><a href="https://twitter.com/andyjpizza" rel="nofollow">Andy Miller</a></li>
+<li><a href="https://www.creativepeptalk.com" rel="nofollow">Creative Peptalk</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+mI3WnuLT</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+mI3WnuLT" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>11: CocoaHub - Pedro Carrasco</title>
+      <link>https://launchedfm.com?/011-pedro-carrasco</link>
+      <guid isPermaLink="false">7d5a4fef-0dec-4c03-adeb-13ffdfa6765a</guid>
+      <pubDate>Tue, 07 Apr 2020 07:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/7d5a4fef-0dec-4c03-adeb-13ffdfa6765a.mp3" length="53296479" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Pedro Carrasco talks about the launch of his app CocoaHub and what it's like to be a conference organizer during a global pandemic.</itunes:subtitle>
+      <itunes:duration>54:28</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/7/7d5a4fef-0dec-4c03-adeb-13ffdfa6765a/cover.jpg?v=1"/>
+      <description>Pedro Carrasco talks about the launch of his app CocoaHub and what it's like to be a conference organizer during a global pandemic.
+Links &amp; Show Notes
+Pedro on Twitter (https://twitter.com/pedrommcarrasco)
+CocoaHub (https://cocoahub.app)
+Swift Aveiro (https://swiftaveiro.xyz)
+Hacktoberfest (http://hacktober.xyz)
+CocoaHub on Github (https://github.com/pedrommcarrasco/CocoaHub.content)
+Irshad PC (CocoaHub contributor) (https://twitter.com/_irshadpc)
+The Swift Alps (conference) (https://theswiftalps.com)
+Festa de São João do Porto (festival) (https://en.wikipedia.org/wiki/Festa_de_São_João_do_Porto)
+Apollo Reddit App (https://apolloapp.io)
+Charlie's Twitter thread on app animations (https://twitter.com/_chuckyc/status/1233848545842794497?s=20)
+EveryLittleAnimation Subreddit (https://www.reddit.com/r/EveryLittleAnimation/)
+Bendeguz_B (creator of /r/EveryLittleAnimation) (https://twitter.com/Bendeguz_B)
+Indie Support Weeks Promo
+Countdowns iOS and macOS App (https://www.countdowns-app.com)
+About Indie Support Weeks (https://github.com/JohnSundell/IndieSupportWeeks)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, Shortcuts</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Pedro Carrasco talks about the launch of his app CocoaHub and what it&#39;s like to be a conference organizer during a global pandemic.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/pedrommcarrasco" rel="nofollow">Pedro on Twitter</a></li>
+<li><a href="https://cocoahub.app" rel="nofollow">CocoaHub</a></li>
+<li><a href="https://swiftaveiro.xyz" rel="nofollow">Swift Aveiro</a></li>
+<li><a href="http://hacktober.xyz" rel="nofollow">Hacktoberfest</a></li>
+<li><a href="https://github.com/pedrommcarrasco/CocoaHub.content" rel="nofollow">CocoaHub on Github</a></li>
+<li><a href="https://twitter.com/_irshadpc" rel="nofollow">Irshad PC (CocoaHub contributor)</a></li>
+<li><a href="https://theswiftalps.com" rel="nofollow">The Swift Alps (conference)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Festa_de_S%C3%A3o_Jo%C3%A3o_do_Porto" rel="nofollow">Festa de São João do Porto (festival)</a></li>
+<li><a href="https://apolloapp.io" rel="nofollow">Apollo Reddit App</a></li>
+<li><a href="https://twitter.com/_chuckyc/status/1233848545842794497?s=20" rel="nofollow">Charlie&#39;s Twitter thread on app animations</a></li>
+<li><a href="https://www.reddit.com/r/EveryLittleAnimation/" rel="nofollow">EveryLittleAnimation Subreddit</a></li>
+<li><a href="https://twitter.com/Bendeguz_B" rel="nofollow">Bendeguz_B (creator of /r/EveryLittleAnimation)</a></li>
+</ul>
+
+<h3>Indie Support Weeks Promo</h3>
+
+<ul>
+<li><a href="https://www.countdowns-app.com" rel="nofollow">Countdowns iOS and macOS App</a></li>
+<li><a href="https://github.com/JohnSundell/IndieSupportWeeks" rel="nofollow">About Indie Support Weeks</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Pedro Carrasco talks about the launch of his app CocoaHub and what it&#39;s like to be a conference organizer during a global pandemic.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/pedrommcarrasco" rel="nofollow">Pedro on Twitter</a></li>
+<li><a href="https://cocoahub.app" rel="nofollow">CocoaHub</a></li>
+<li><a href="https://swiftaveiro.xyz" rel="nofollow">Swift Aveiro</a></li>
+<li><a href="http://hacktober.xyz" rel="nofollow">Hacktoberfest</a></li>
+<li><a href="https://github.com/pedrommcarrasco/CocoaHub.content" rel="nofollow">CocoaHub on Github</a></li>
+<li><a href="https://twitter.com/_irshadpc" rel="nofollow">Irshad PC (CocoaHub contributor)</a></li>
+<li><a href="https://theswiftalps.com" rel="nofollow">The Swift Alps (conference)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Festa_de_S%C3%A3o_Jo%C3%A3o_do_Porto" rel="nofollow">Festa de São João do Porto (festival)</a></li>
+<li><a href="https://apolloapp.io" rel="nofollow">Apollo Reddit App</a></li>
+<li><a href="https://twitter.com/_chuckyc/status/1233848545842794497?s=20" rel="nofollow">Charlie&#39;s Twitter thread on app animations</a></li>
+<li><a href="https://www.reddit.com/r/EveryLittleAnimation/" rel="nofollow">EveryLittleAnimation Subreddit</a></li>
+<li><a href="https://twitter.com/Bendeguz_B" rel="nofollow">Bendeguz_B (creator of /r/EveryLittleAnimation)</a></li>
+</ul>
+
+<h3>Indie Support Weeks Promo</h3>
+
+<ul>
+<li><a href="https://www.countdowns-app.com" rel="nofollow">Countdowns iOS and macOS App</a></li>
+<li><a href="https://github.com/JohnSundell/IndieSupportWeeks" rel="nofollow">About Indie Support Weeks</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+BDAi8ewf</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+BDAi8ewf" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>10: Toolbox Pro - Alex Hay</title>
+      <link>https://launchedfm.com?/010-toolbox-pro</link>
+      <guid isPermaLink="false">d89abbe7-c940-489f-9187-3e31ad010f33</guid>
+      <pubDate>Tue, 24 Mar 2020 09:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/d89abbe7-c940-489f-9187-3e31ad010f33.mp3" length="55352805" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Alex Hay joins the show to talk about the launch of his Shortcuts utility app Toolbox Pro.</itunes:subtitle>
+      <itunes:duration>56:35</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/d/d89abbe7-c940-489f-9187-3e31ad010f33/cover.jpg?v=1"/>
+      <description>Alex Hay joins the show to talk about the launch of his Shortcuts utility app Toolbox Pro.
+Links &amp; Show Notes
+Alex Hay on Twitter (https://twitter.com/mralexhay)
+Toolbox Pro (https://toolboxpro.app)
+Jon Stewart Post 9/11 Show Intro (* http://www.cc.com/video-clips/1q93jy/the-daily-show-with-jon-stewart-september-11--2001)
+Hacking with Swift (https://www.hackingwithswift.com)
+Unwrap (Paul Hudson's iOS Learning App) (https://apps.apple.com/us/app/unwrap/id1440611372)
+Shortcuts Subreddit (https://www.reddit.com/r/shortcuts/)
+Marketing Dark Noise (blog post) (https://charliemchapman.com/posts/2019/9/27/marketing-dark-noise/)
+MacStories Toolbox Pro Review (https://www.macstories.net/reviews/toolbox-pro-review-a-must-have-companion-utility-for-shortcuts-power-users/)
+Michael Hart (Editor) (https://twitter.com/michael_harte?lang=en)
+Three Identical Strangers (https://www.imdb.com/title/tt7664504/)
+Don’t F**k With Cats (https://www.imdb.com/title/tt11318602/)
+David Smith (developer) (https://twitter.com/_davidsmith?lang=en)
+Under the Radar (https://www.relay.fm/radar)
+Indie Support Weeks Promo
+Pennant iOS App (https://www.pennantapp.com)
+About Indie Support Weeks (https://github.com/JohnSundell/IndieSupportWeeks)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, SwiftUI, Shortcuts</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Alex Hay joins the show to talk about the launch of his Shortcuts utility app Toolbox Pro.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mralexhay" rel="nofollow">Alex Hay on Twitter</a></li>
+<li><a href="https://toolboxpro.app" rel="nofollow">Toolbox Pro</a></li>
+<li>[Jon Stewart Post 9/11 Show Intro](    * <a href="http://www.cc.com/video-clips/1q93jy/the-daily-show-with-jon-stewart-september-11--2001" rel="nofollow">http://www.cc.com/video-clips/1q93jy/the-daily-show-with-jon-stewart-september-11--2001</a> )</li>
+<li><a href="https://www.hackingwithswift.com" rel="nofollow">Hacking with Swift</a></li>
+<li><a href="https://apps.apple.com/us/app/unwrap/id1440611372" rel="nofollow">Unwrap (Paul Hudson&#39;s iOS Learning App)</a></li>
+<li><a href="https://www.reddit.com/r/shortcuts/" rel="nofollow">Shortcuts Subreddit</a></li>
+<li><a href="https://charliemchapman.com/posts/2019/9/27/marketing-dark-noise/" rel="nofollow">Marketing Dark Noise (blog post)</a></li>
+<li><a href="https://www.macstories.net/reviews/toolbox-pro-review-a-must-have-companion-utility-for-shortcuts-power-users/" rel="nofollow">MacStories Toolbox Pro Review</a></li>
+<li><a href="https://twitter.com/michael_harte?lang=en" rel="nofollow">Michael Hart (Editor)</a></li>
+<li><a href="https://www.imdb.com/title/tt7664504/" rel="nofollow">Three Identical Strangers</a></li>
+<li><a href="https://www.imdb.com/title/tt11318602/" rel="nofollow">Don’t F**k With Cats</a></li>
+<li><a href="https://twitter.com/_davidsmith?lang=en" rel="nofollow">David Smith (developer)</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar</a></li>
+</ul>
+
+<h3>Indie Support Weeks Promo</h3>
+
+<ul>
+<li><a href="https://www.pennantapp.com" rel="nofollow">Pennant iOS App</a></li>
+<li><a href="https://github.com/JohnSundell/IndieSupportWeeks" rel="nofollow">About Indie Support Weeks</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Alex Hay joins the show to talk about the launch of his Shortcuts utility app Toolbox Pro.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/mralexhay" rel="nofollow">Alex Hay on Twitter</a></li>
+<li><a href="https://toolboxpro.app" rel="nofollow">Toolbox Pro</a></li>
+<li>[Jon Stewart Post 9/11 Show Intro](    * <a href="http://www.cc.com/video-clips/1q93jy/the-daily-show-with-jon-stewart-september-11--2001" rel="nofollow">http://www.cc.com/video-clips/1q93jy/the-daily-show-with-jon-stewart-september-11--2001</a> )</li>
+<li><a href="https://www.hackingwithswift.com" rel="nofollow">Hacking with Swift</a></li>
+<li><a href="https://apps.apple.com/us/app/unwrap/id1440611372" rel="nofollow">Unwrap (Paul Hudson&#39;s iOS Learning App)</a></li>
+<li><a href="https://www.reddit.com/r/shortcuts/" rel="nofollow">Shortcuts Subreddit</a></li>
+<li><a href="https://charliemchapman.com/posts/2019/9/27/marketing-dark-noise/" rel="nofollow">Marketing Dark Noise (blog post)</a></li>
+<li><a href="https://www.macstories.net/reviews/toolbox-pro-review-a-must-have-companion-utility-for-shortcuts-power-users/" rel="nofollow">MacStories Toolbox Pro Review</a></li>
+<li><a href="https://twitter.com/michael_harte?lang=en" rel="nofollow">Michael Hart (Editor)</a></li>
+<li><a href="https://www.imdb.com/title/tt7664504/" rel="nofollow">Three Identical Strangers</a></li>
+<li><a href="https://www.imdb.com/title/tt11318602/" rel="nofollow">Don’t F**k With Cats</a></li>
+<li><a href="https://twitter.com/_davidsmith?lang=en" rel="nofollow">David Smith (developer)</a></li>
+<li><a href="https://www.relay.fm/radar" rel="nofollow">Under the Radar</a></li>
+</ul>
+
+<h3>Indie Support Weeks Promo</h3>
+
+<ul>
+<li><a href="https://www.pennantapp.com" rel="nofollow">Pennant iOS App</a></li>
+<li><a href="https://github.com/JohnSundell/IndieSupportWeeks" rel="nofollow">About Indie Support Weeks</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+TR0yXufT</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+TR0yXufT" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>9: Rosemary Orchard</title>
+      <link>https://launchedfm.com?/009-rosemary-orchard</link>
+      <guid isPermaLink="false">8ff7a0e4-1a08-4514-83ee-31fa4fe16525</guid>
+      <pubDate>Tue, 10 Mar 2020 07:00:00 -0500</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/8ff7a0e4-1a08-4514-83ee-31fa4fe16525.mp3" length="55428983" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Productivity expert Rosemary Orchard joins the show to talk about the launch of her books and podcasts.</itunes:subtitle>
+      <itunes:duration>56:42</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/8/8ff7a0e4-1a08-4514-83ee-31fa4fe16525/cover.jpg?v=2"/>
+      <description>Productivity expert Rosemary Orchard joins the show to talk about the launch of her books and podcasts.
+Links &amp; Show Notes
+Rosemary on Twitter (https://twitter.com/rosemaryorchard)
+Automators (Podcast) (https://www.relay.fm/automators)
+Nested Folders (Podcast) (https://nestedfolderspodcast.com)
+Relay FM (https://www.relay.fm)
+Marco Arment - Podcasting Microphones Mega-Review (https://marco.org/podcasting-microphones)
+Build Your OmniFocus Workflow (Book) (https://omnifocusbook.com)
+Ryan Dotson (https://twitter.com/nostodnayr)
+MindNode (https://mindnode.com)
+OmniOutliner (https://www.omnigroup.com/omnioutliner/)
+Scrivener (https://www.literatureandlatte.com/scrivener/overview)
+Take Control of Shortcuts: Automation on the Go For iOS and iPadOS (Book) (https://www.takecontrolbooks.com/shortcuts/)
+Take Control Books (https://www.takecontrolbooks.com)
+David Sparks (https://twitter.com/MacSparky)
+Scotty Jackson (https://twitter.com/HeyScottyJ)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Productivity, Shortcuts, Writing, Podcasting, Automation</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Productivity expert Rosemary Orchard joins the show to talk about the launch of her books and podcasts.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/rosemaryorchard" rel="nofollow">Rosemary on Twitter</a></li>
+<li><a href="https://www.relay.fm/automators" rel="nofollow">Automators (Podcast)</a></li>
+<li><a href="https://nestedfolderspodcast.com" rel="nofollow">Nested Folders (Podcast)</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://marco.org/podcasting-microphones" rel="nofollow">Marco Arment - Podcasting Microphones Mega-Review</a></li>
+<li><a href="https://omnifocusbook.com" rel="nofollow">Build Your OmniFocus Workflow (Book)</a></li>
+<li><a href="https://twitter.com/nostodnayr" rel="nofollow">Ryan Dotson</a></li>
+<li><a href="https://mindnode.com" rel="nofollow">MindNode</a></li>
+<li><a href="https://www.omnigroup.com/omnioutliner/" rel="nofollow">OmniOutliner</a></li>
+<li><a href="https://www.literatureandlatte.com/scrivener/overview" rel="nofollow">Scrivener</a></li>
+<li><a href="https://www.takecontrolbooks.com/shortcuts/" rel="nofollow">Take Control of Shortcuts: Automation on the Go For iOS and iPadOS (Book)</a></li>
+<li><a href="https://www.takecontrolbooks.com" rel="nofollow">Take Control Books</a></li>
+<li><a href="https://twitter.com/MacSparky" rel="nofollow">David Sparks</a></li>
+<li><a href="https://twitter.com/HeyScottyJ" rel="nofollow">Scotty Jackson</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Productivity expert Rosemary Orchard joins the show to talk about the launch of her books and podcasts.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/rosemaryorchard" rel="nofollow">Rosemary on Twitter</a></li>
+<li><a href="https://www.relay.fm/automators" rel="nofollow">Automators (Podcast)</a></li>
+<li><a href="https://nestedfolderspodcast.com" rel="nofollow">Nested Folders (Podcast)</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://marco.org/podcasting-microphones" rel="nofollow">Marco Arment - Podcasting Microphones Mega-Review</a></li>
+<li><a href="https://omnifocusbook.com" rel="nofollow">Build Your OmniFocus Workflow (Book)</a></li>
+<li><a href="https://twitter.com/nostodnayr" rel="nofollow">Ryan Dotson</a></li>
+<li><a href="https://mindnode.com" rel="nofollow">MindNode</a></li>
+<li><a href="https://www.omnigroup.com/omnioutliner/" rel="nofollow">OmniOutliner</a></li>
+<li><a href="https://www.literatureandlatte.com/scrivener/overview" rel="nofollow">Scrivener</a></li>
+<li><a href="https://www.takecontrolbooks.com/shortcuts/" rel="nofollow">Take Control of Shortcuts: Automation on the Go For iOS and iPadOS (Book)</a></li>
+<li><a href="https://www.takecontrolbooks.com" rel="nofollow">Take Control Books</a></li>
+<li><a href="https://twitter.com/MacSparky" rel="nofollow">David Sparks</a></li>
+<li><a href="https://twitter.com/HeyScottyJ" rel="nofollow">Scotty Jackson</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+glSjFif8</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+glSjFif8" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>8: Spend Stack - Jordan Morgan</title>
+      <link>https://launchedfm.com?/008-spend-stack</link>
+      <guid isPermaLink="false">47cc2b57-c99a-4ced-8609-74270d651bb9</guid>
+      <pubDate>Tue, 25 Feb 2020 06:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/47cc2b57-c99a-4ced-8609-74270d651bb9.mp3" length="79197643" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Jordan Morgan joins the show to talk about the launch of his smart list app Spend Stack.</itunes:subtitle>
+      <itunes:duration>1:21:26</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/4/47cc2b57-c99a-4ced-8609-74270d651bb9/cover.jpg?v=1"/>
+      <description>Jordan Morgan joins the show to talk about the launch of his smart list app Spend Stack.
+Links &amp; Show Notes
+Jordan on Twitter (https://twitter.com/jordanmorgan10)
+Spend Stack (https://www.spendstack.com)
+A Best in Class iOS App (post) (https://www.swiftjectivec.com/a-best-in-class-app/)
+Independence Podcast (https://independence.fm)
+Brent Simmons (https://twitter.com/brentsimmons)
+app: The Human Story (documentary) (https://appdocumentary.com)
+Swiftjective-C (https://www.swiftjectivec.com)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Swift, Objective C</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Jordan Morgan joins the show to talk about the launch of his smart list app Spend Stack.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan on Twitter</a></li>
+<li><a href="https://www.spendstack.com" rel="nofollow">Spend Stack</a></li>
+<li><a href="https://www.swiftjectivec.com/a-best-in-class-app/" rel="nofollow">A Best in Class iOS App (post)</a></li>
+<li><a href="https://independence.fm" rel="nofollow">Independence Podcast</a></li>
+<li><a href="https://twitter.com/brentsimmons" rel="nofollow">Brent Simmons</a></li>
+<li><a href="https://appdocumentary.com" rel="nofollow">app: The Human Story (documentary)</a></li>
+<li><a href="https://www.swiftjectivec.com" rel="nofollow">Swiftjective-C</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Jordan Morgan joins the show to talk about the launch of his smart list app Spend Stack.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jordanmorgan10" rel="nofollow">Jordan on Twitter</a></li>
+<li><a href="https://www.spendstack.com" rel="nofollow">Spend Stack</a></li>
+<li><a href="https://www.swiftjectivec.com/a-best-in-class-app/" rel="nofollow">A Best in Class iOS App (post)</a></li>
+<li><a href="https://independence.fm" rel="nofollow">Independence Podcast</a></li>
+<li><a href="https://twitter.com/brentsimmons" rel="nofollow">Brent Simmons</a></li>
+<li><a href="https://appdocumentary.com" rel="nofollow">app: The Human Story (documentary)</a></li>
+<li><a href="https://www.swiftjectivec.com" rel="nofollow">Swiftjective-C</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+OKLRdiBW</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+OKLRdiBW" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>7: LookUp - Vidit Bhargava</title>
+      <link>https://launchedfm.com?/007-lookup-vidit</link>
+      <guid isPermaLink="false">6372c61d-6316-4cce-a842-b04fe3e2fe44</guid>
+      <pubDate>Tue, 11 Feb 2020 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/6372c61d-6316-4cce-a842-b04fe3e2fe44.mp3" length="39028468" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Vidit Bhargava talks about the design and launch of his dictionary app LookUp for iOS and macOS.</itunes:subtitle>
+      <itunes:duration>39:38</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/6/6372c61d-6316-4cce-a842-b04fe3e2fe44/cover.jpg?v=1"/>
+      <description>Vidit Bhargava talks about the design and launch of his dictionary app LookUp for iOS and macOS.
+Links &amp; Show Notes
+Vidit on Twitter (https://twitter.com/viditb)
+LookUp for iOS (https://apps.apple.com/us/app/lookup-an-elegant-dictionary/id872564448)
+LookUp for Mac (https://apps.apple.com/us/app/lookup-english-dictionary/id1476163639?mt=12)
+99 (film) (https://en.wikipedia.org/wiki/99_(2009_film))
+Andhadhun (film) (https://www.imdb.com/title/tt8108198/?ref_=ttls_li_tt)
+Mvdit (e-zine) (http://www.mvdittechbook.com)
+VectorPad (https://apps.apple.com/in/app/vectorpad-image-vectorisation/id1453385046)
+Designing LookUp for Mac (blog post) (https://medium.com/lookup-design/designing-lookup-for-macos-bf5b8fea1a01)
+Bondi (icon pack) (https://medium.com/@viditb/introducing-bondi-macos-icons-f5c79f18a7fb)
+James Thomson (https://twitter.com/jamesthomson?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+Mark Kawano (https://twitter.com/markkawano?lang=en)
+Storehouse (https://techcrunch.com/2014/06/18/apple-design-award-winner-storehouse-gets-serious-about-discovery-and-identity/)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Mac, Dictionary, Dictionary App, Design</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Vidit Bhargava talks about the design and launch of his dictionary app LookUp for iOS and macOS.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/viditb" rel="nofollow">Vidit on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/lookup-an-elegant-dictionary/id872564448" rel="nofollow">LookUp for iOS</a></li>
+<li><a href="https://apps.apple.com/us/app/lookup-english-dictionary/id1476163639?mt=12" rel="nofollow">LookUp for Mac</a></li>
+<li><a href="https://en.wikipedia.org/wiki/99_(2009_film)" rel="nofollow">99 (film)</a></li>
+<li><a href="https://www.imdb.com/title/tt8108198/?ref_=ttls_li_tt" rel="nofollow">Andhadhun (film)</a></li>
+<li><a href="http://www.mvdittechbook.com" rel="nofollow">Mvdit (e-zine)</a></li>
+<li><a href="https://apps.apple.com/in/app/vectorpad-image-vectorisation/id1453385046" rel="nofollow">VectorPad</a></li>
+<li><a href="https://medium.com/lookup-design/designing-lookup-for-macos-bf5b8fea1a01" rel="nofollow">Designing LookUp for Mac (blog post)</a></li>
+<li><a href="https://medium.com/@viditb/introducing-bondi-macos-icons-f5c79f18a7fb" rel="nofollow">Bondi (icon pack)</a></li>
+<li><a href="https://twitter.com/jamesthomson?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" rel="nofollow">James Thomson</a></li>
+<li><a href="https://twitter.com/markkawano?lang=en" rel="nofollow">Mark Kawano</a></li>
+<li><a href="https://techcrunch.com/2014/06/18/apple-design-award-winner-storehouse-gets-serious-about-discovery-and-identity/" rel="nofollow">Storehouse</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Vidit Bhargava talks about the design and launch of his dictionary app LookUp for iOS and macOS.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/viditb" rel="nofollow">Vidit on Twitter</a></li>
+<li><a href="https://apps.apple.com/us/app/lookup-an-elegant-dictionary/id872564448" rel="nofollow">LookUp for iOS</a></li>
+<li><a href="https://apps.apple.com/us/app/lookup-english-dictionary/id1476163639?mt=12" rel="nofollow">LookUp for Mac</a></li>
+<li><a href="https://en.wikipedia.org/wiki/99_(2009_film)" rel="nofollow">99 (film)</a></li>
+<li><a href="https://www.imdb.com/title/tt8108198/?ref_=ttls_li_tt" rel="nofollow">Andhadhun (film)</a></li>
+<li><a href="http://www.mvdittechbook.com" rel="nofollow">Mvdit (e-zine)</a></li>
+<li><a href="https://apps.apple.com/in/app/vectorpad-image-vectorisation/id1453385046" rel="nofollow">VectorPad</a></li>
+<li><a href="https://medium.com/lookup-design/designing-lookup-for-macos-bf5b8fea1a01" rel="nofollow">Designing LookUp for Mac (blog post)</a></li>
+<li><a href="https://medium.com/@viditb/introducing-bondi-macos-icons-f5c79f18a7fb" rel="nofollow">Bondi (icon pack)</a></li>
+<li><a href="https://twitter.com/jamesthomson?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" rel="nofollow">James Thomson</a></li>
+<li><a href="https://twitter.com/markkawano?lang=en" rel="nofollow">Mark Kawano</a></li>
+<li><a href="https://techcrunch.com/2014/06/18/apple-design-award-winner-storehouse-gets-serious-about-discovery-and-identity/" rel="nofollow">Storehouse</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+hzdbLfhs</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+hzdbLfhs" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>6: Nighthawk - Nathan Lawrence &amp; Sam Gold</title>
+      <link>https://launchedfm.com?/006-nighthawk</link>
+      <guid isPermaLink="false">28541bf3-048b-492b-9c7a-1b306b47ebf8</guid>
+      <pubDate>Tue, 28 Jan 2020 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/28541bf3-048b-492b-9c7a-1b306b47ebf8.mp3" length="74436196" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Nathan Lawrence and Sam Gold join the show to talk about the launch of their new app Nighthawk.</itunes:subtitle>
+      <itunes:duration>1:15:56</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/2/28541bf3-048b-492b-9c7a-1b306b47ebf8/cover.jpg?v=1"/>
+      <description>Nathan Lawrence and Sam Gold join the show to talk about the launch of their new app Nighthawk.
+Links &amp; Show Notes
+Nighthawk (https://www.tweetnighthawk.com)
+Nathan Lawrence (https://twitter.com/NathanBLawrence)
+Sam Gold (https://twitter.com/samhenrigold)
+The Wiggles (https://en.wikipedia.org/wiki/The_Wiggles)
+Stan (https://en.wiktionary.org/wiki/stan)
+WWDC (https://en.wikipedia.org/wiki/Apple_Worldwide_Developers_Conference)
+Ruined by Design (https://www.ruinedby.design)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Twitter, Twitter App</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Nathan Lawrence and Sam Gold join the show to talk about the launch of their new app Nighthawk.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://www.tweetnighthawk.com" rel="nofollow">Nighthawk</a></li>
+<li><a href="https://twitter.com/NathanBLawrence" rel="nofollow">Nathan Lawrence</a></li>
+<li><a href="https://twitter.com/samhenrigold" rel="nofollow">Sam Gold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/The_Wiggles" rel="nofollow">The Wiggles</a></li>
+<li><a href="https://en.wiktionary.org/wiki/stan" rel="nofollow">Stan</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Apple_Worldwide_Developers_Conference" rel="nofollow">WWDC</a></li>
+<li><a href="https://www.ruinedby.design" rel="nofollow">Ruined by Design</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Nathan Lawrence and Sam Gold join the show to talk about the launch of their new app Nighthawk.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://www.tweetnighthawk.com" rel="nofollow">Nighthawk</a></li>
+<li><a href="https://twitter.com/NathanBLawrence" rel="nofollow">Nathan Lawrence</a></li>
+<li><a href="https://twitter.com/samhenrigold" rel="nofollow">Sam Gold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/The_Wiggles" rel="nofollow">The Wiggles</a></li>
+<li><a href="https://en.wiktionary.org/wiki/stan" rel="nofollow">Stan</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Apple_Worldwide_Developers_Conference" rel="nofollow">WWDC</a></li>
+<li><a href="https://www.ruinedby.design" rel="nofollow">Ruined by Design</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+AmyFJQgK</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+AmyFJQgK" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>5: Myke Hurley</title>
+      <link>https://launchedfm.com?/5</link>
+      <guid isPermaLink="false">b2f81545-dfc2-45c8-9232-2ca08c468df5</guid>
+      <pubDate>Fri, 17 Jan 2020 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/b2f81545-dfc2-45c8-9232-2ca08c468df5.mp3" length="70469793" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>We're capping off launch week with the one and only Myke Hurley, co-founder of Relay FM, host of countless podcasts, and co-creator of The Theme System Journal.</itunes:subtitle>
+      <itunes:duration>1:12:22</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/b/b2f81545-dfc2-45c8-9232-2ca08c468df5/cover.jpg?v=1"/>
+      <description>We're capping off launch week with the one and only Myke Hurley, co-founder of Relay FM, host of countless podcasts, and co-creator of The Theme System Journal.
+Links &amp; Show Notes
+Myke on Twitter - @imyke (https://twitter.com/imyke)
+Relay FM (https://www.relay.fm)
+Leo Laporte (https://en.wikipedia.org/wiki/Leo_Laporte)
+Adam Curry (https://en.wikipedia.org/wiki/Adam_Curry)
+Reconcilable Differences (https://www.relay.fm/rd)
+Cortex (https://www.relay.fm/cortex)
+Inquisitive (https://www.relay.fm/inquisitive)
+CortexMerch.com (http://cortexmerch.com)
+The Theme System Journal (https://cottonbureau.com/products/the-theme-system-journal#/1695095/grey-paper-5x8)
+Simon Buckmaster (@forgottentowel) (https://twitter.com/forgottentowel)
+Marques Brownlee (MKBHD) (http://mkbhd.com)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>iOS, Apple, podcast, relay, relay fm, tech podcast, journal</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>We&#39;re capping off launch week with the one and only Myke Hurley, co-founder of Relay FM, host of countless podcasts, and co-creator of The Theme System Journal.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/imyke" rel="nofollow">Myke on Twitter - @imyke</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leo_Laporte" rel="nofollow">Leo Laporte</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adam_Curry" rel="nofollow">Adam Curry</a></li>
+<li><a href="https://www.relay.fm/rd" rel="nofollow">Reconcilable Differences</a></li>
+<li><a href="https://www.relay.fm/cortex" rel="nofollow">Cortex</a></li>
+<li><a href="https://www.relay.fm/inquisitive" rel="nofollow">Inquisitive</a></li>
+<li><a href="http://cortexmerch.com" rel="nofollow">CortexMerch.com</a></li>
+<li><a href="https://cottonbureau.com/products/the-theme-system-journal#/1695095/grey-paper-5x8" rel="nofollow">The Theme System Journal</a></li>
+<li><a href="https://twitter.com/forgottentowel" rel="nofollow">Simon Buckmaster (@forgottentowel)</a></li>
+<li><a href="http://mkbhd.com" rel="nofollow">Marques Brownlee (MKBHD)</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>We&#39;re capping off launch week with the one and only Myke Hurley, co-founder of Relay FM, host of countless podcasts, and co-creator of The Theme System Journal.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/imyke" rel="nofollow">Myke on Twitter - @imyke</a></li>
+<li><a href="https://www.relay.fm" rel="nofollow">Relay FM</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leo_Laporte" rel="nofollow">Leo Laporte</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adam_Curry" rel="nofollow">Adam Curry</a></li>
+<li><a href="https://www.relay.fm/rd" rel="nofollow">Reconcilable Differences</a></li>
+<li><a href="https://www.relay.fm/cortex" rel="nofollow">Cortex</a></li>
+<li><a href="https://www.relay.fm/inquisitive" rel="nofollow">Inquisitive</a></li>
+<li><a href="http://cortexmerch.com" rel="nofollow">CortexMerch.com</a></li>
+<li><a href="https://cottonbureau.com/products/the-theme-system-journal#/1695095/grey-paper-5x8" rel="nofollow">The Theme System Journal</a></li>
+<li><a href="https://twitter.com/forgottentowel" rel="nofollow">Simon Buckmaster (@forgottentowel)</a></li>
+<li><a href="http://mkbhd.com" rel="nofollow">Marques Brownlee (MKBHD)</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+r4NNGgwL</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+r4NNGgwL" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>4: James Thomson</title>
+      <link>https://launchedfm.com?/4</link>
+      <guid isPermaLink="false">e78d3405-8392-4106-821f-23a7f1fe9585</guid>
+      <pubDate>Thu, 16 Jan 2020 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/e78d3405-8392-4106-821f-23a7f1fe9585.mp3" length="96775550" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>James Thomson, creator of PCalc, DragThing, and Dice by PCalc, joins the show to talk about his long history building software in the Apple ecosystem.</itunes:subtitle>
+      <itunes:duration>1:39:48</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/e/e78d3405-8392-4106-821f-23a7f1fe9585/cover.jpg?v=1"/>
+      <description>James Thomson, creator of PCalc, DragThing, and Dice by PCalc, joins the show to talk about his long history building software in the Apple ecosystem.
+Links &amp; Show Notes
+James on Twitter - @jamesthomson (https://twitter.com/jamesthomson)
+Apps
+PCalc (https://pcalc.com)
+DragThing (https://dragthing.com)
+Dice by PCalc (https://pcalc.com/dice/index.html)
+Mac OS 8 (Copeland) (https://en.wikipedia.org/wiki/Copland_(operating_system))
+An Illustrated History of Easter Eggs (Video) (https://www.youtube.com/watch?v=fAaqSr-yShc)
+Total Party Kill ()
+Jeff Minter (https://twitter.com/llamasoft_ox)
+Llamasoft (http://www.minotaurproject.co.uk/frontpage.php)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, PCalc, Dice, DragThing, Mac, Apple</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>James Thomson, creator of PCalc, DragThing, and Dice by PCalc, joins the show to talk about his long history building software in the Apple ecosystem.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James on Twitter - @jamesthomson</a></li>
+<li>Apps
+
+<ul>
+<li><a href="https://pcalc.com" rel="nofollow">PCalc</a></li>
+<li><a href="https://dragthing.com" rel="nofollow">DragThing</a></li>
+<li><a href="https://pcalc.com/dice/index.html" rel="nofollow">Dice by PCalc</a></li>
+</ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Copland_(operating_system)" rel="nofollow">Mac OS 8 (Copeland)</a></li>
+<li><a href="https://www.youtube.com/watch?v=fAaqSr-yShc" rel="nofollow">An Illustrated History of Easter Eggs (Video)</a></li>
+<li><a href="" rel="nofollow">Total Party Kill</a></li>
+<li><a href="https://twitter.com/llamasoft_ox" rel="nofollow">Jeff Minter</a></li>
+<li><a href="http://www.minotaurproject.co.uk/frontpage.php" rel="nofollow">Llamasoft</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>James Thomson, creator of PCalc, DragThing, and Dice by PCalc, joins the show to talk about his long history building software in the Apple ecosystem.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/jamesthomson" rel="nofollow">James on Twitter - @jamesthomson</a></li>
+<li>Apps
+
+<ul>
+<li><a href="https://pcalc.com" rel="nofollow">PCalc</a></li>
+<li><a href="https://dragthing.com" rel="nofollow">DragThing</a></li>
+<li><a href="https://pcalc.com/dice/index.html" rel="nofollow">Dice by PCalc</a></li>
+</ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Copland_(operating_system)" rel="nofollow">Mac OS 8 (Copeland)</a></li>
+<li><a href="https://www.youtube.com/watch?v=fAaqSr-yShc" rel="nofollow">An Illustrated History of Easter Eggs (Video)</a></li>
+<li><a href="" rel="nofollow">Total Party Kill</a></li>
+<li><a href="https://twitter.com/llamasoft_ox" rel="nofollow">Jeff Minter</a></li>
+<li><a href="http://www.minotaurproject.co.uk/frontpage.php" rel="nofollow">Llamasoft</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+geQ4sWBt</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+geQ4sWBt" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>3: Kaya Thomas</title>
+      <link>https://launchedfm.com?/3</link>
+      <guid isPermaLink="false">b5511f40-1b08-492c-851e-8f527bec93f7</guid>
+      <pubDate>Wed, 15 Jan 2020 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/b5511f40-1b08-492c-851e-8f527bec93f7.mp3" length="35880952" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Kaya Thomas joins the show to talk about her indie app We Read Too, conference speaking, and writing.</itunes:subtitle>
+      <itunes:duration>36:19</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/b/b5511f40-1b08-492c-851e-8f527bec93f7/cover.jpg?v=1"/>
+      <description>Kaya Thomas joins the show to talk about her indie app We Read Too, conference speaking, and writing.
+Links &amp; Show Notes
+Kaya on Twitter - @kthomas901 (https://twitter.com/kthomas901?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Esearch)
+We Read Too (https://wereadtoo.launchaco.com)
+BET Feature (http://www.bet.com/news/national/2014/09/10/looking-for-childrens-books-with-black-characters-there-s-an-app-for-that.html)
+BET Award (https://www.silive.com/entertainment/2015/04/young_stapletonite_shares_stag.html)
+Apple Developer Feature (https://apps.apple.com/us/story/id1349496987)
+Julia Nguyen (https://julianguyen.org)
+Elpha Column (https://elpha.com/posts/4j56np6p/becoming-a-staff-engineer-interview-with-kristina-fox-staff-ios-engineer-at-intuit)
+16 MacBook Pro Twitter Review (https://twitter.com/kthomas901/status/1194619441297801217?s=21)
+Kamila Taylor (https://twitter.com/kamilah)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Kaya Thomas joins the show to talk about her indie app We Read Too, conference speaking, and writing.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/kthomas901?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Esearch" rel="nofollow">Kaya on Twitter - @kthomas901</a></li>
+<li><a href="https://wereadtoo.launchaco.com" rel="nofollow">We Read Too</a></li>
+<li><a href="http://www.bet.com/news/national/2014/09/10/looking-for-childrens-books-with-black-characters-there-s-an-app-for-that.html" rel="nofollow">BET Feature</a></li>
+<li><a href="https://www.silive.com/entertainment/2015/04/young_stapletonite_shares_stag.html" rel="nofollow">BET Award</a></li>
+<li><a href="https://apps.apple.com/us/story/id1349496987" rel="nofollow">Apple Developer Feature</a></li>
+<li><a href="https://julianguyen.org" rel="nofollow">Julia Nguyen</a></li>
+<li><a href="https://elpha.com/posts/4j56np6p/becoming-a-staff-engineer-interview-with-kristina-fox-staff-ios-engineer-at-intuit" rel="nofollow">Elpha Column</a></li>
+<li><a href="https://twitter.com/kthomas901/status/1194619441297801217?s=21" rel="nofollow">16 MacBook Pro Twitter Review</a></li>
+<li><a href="https://twitter.com/kamilah" rel="nofollow">Kamila Taylor</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Kaya Thomas joins the show to talk about her indie app We Read Too, conference speaking, and writing.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/kthomas901?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Esearch" rel="nofollow">Kaya on Twitter - @kthomas901</a></li>
+<li><a href="https://wereadtoo.launchaco.com" rel="nofollow">We Read Too</a></li>
+<li><a href="http://www.bet.com/news/national/2014/09/10/looking-for-childrens-books-with-black-characters-there-s-an-app-for-that.html" rel="nofollow">BET Feature</a></li>
+<li><a href="https://www.silive.com/entertainment/2015/04/young_stapletonite_shares_stag.html" rel="nofollow">BET Award</a></li>
+<li><a href="https://apps.apple.com/us/story/id1349496987" rel="nofollow">Apple Developer Feature</a></li>
+<li><a href="https://julianguyen.org" rel="nofollow">Julia Nguyen</a></li>
+<li><a href="https://elpha.com/posts/4j56np6p/becoming-a-staff-engineer-interview-with-kristina-fox-staff-ios-engineer-at-intuit" rel="nofollow">Elpha Column</a></li>
+<li><a href="https://twitter.com/kthomas901/status/1194619441297801217?s=21" rel="nofollow">16 MacBook Pro Twitter Review</a></li>
+<li><a href="https://twitter.com/kamilah" rel="nofollow">Kamila Taylor</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+_aSbec10</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+_aSbec10" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>2: Christian Selig</title>
+      <link>https://launchedfm.com?/2</link>
+      <guid isPermaLink="false">808556c7-0a79-4f23-b03c-7bd1fa928e6c</guid>
+      <pubDate>Tue, 14 Jan 2020 08:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/808556c7-0a79-4f23-b03c-7bd1fa928e6c.mp3" length="48773780" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Charlie talks to Christian Selig, the creator of the indie Reddit app Apollo.</itunes:subtitle>
+      <itunes:duration>50:15</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/8/808556c7-0a79-4f23-b03c-7bd1fa928e6c/cover.jpg?v=1"/>
+      <description>Charlie talks to Christian Selig, the creator of the indie Reddit app Apollo.
+Links &amp; Show Notes
+Christian on Twitter - @ChristianSelig (https://twitter.com/christianselig)
+Alien Blue (https://en.wikipedia.org/wiki/Alien_Blue)
+Tweetie (https://en.wikipedia.org/wiki/Tweetie)
+Indie Beginnings interview of Christian (https://anchor.fm/indiebeginnings/episodes/3-The-Apollo-Program-wChristian-Selig-e9e04o)
+Apollo subreddit - /r/ApolloApp (https://www.reddit.com/r/apolloapp/)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>Indie, Indie App, Indie Developer, Developer, iOS, Reddit, Apollo</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>Charlie talks to Christian Selig, the creator of the indie Reddit app Apollo.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/christianselig" rel="nofollow">Christian on Twitter - @ChristianSelig</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alien_Blue" rel="nofollow">Alien Blue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tweetie" rel="nofollow">Tweetie</a></li>
+<li><a href="https://anchor.fm/indiebeginnings/episodes/3-The-Apollo-Program-wChristian-Selig-e9e04o" rel="nofollow">Indie Beginnings interview of Christian</a></li>
+<li><a href="https://www.reddit.com/r/apolloapp/" rel="nofollow">Apollo subreddit - /r/ApolloApp</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Charlie talks to Christian Selig, the creator of the indie Reddit app Apollo.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/christianselig" rel="nofollow">Christian on Twitter - @ChristianSelig</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alien_Blue" rel="nofollow">Alien Blue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tweetie" rel="nofollow">Tweetie</a></li>
+<li><a href="https://anchor.fm/indiebeginnings/episodes/3-The-Apollo-Program-wChristian-Selig-e9e04o" rel="nofollow">Indie Beginnings interview of Christian</a></li>
+<li><a href="https://www.reddit.com/r/apolloapp/" rel="nofollow">Apollo subreddit - /r/ApolloApp</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+5IB39z2Z</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+5IB39z2Z" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>1: Heidi Helen Pilypas</title>
+      <link>https://launchedfm.com?/1</link>
+      <guid isPermaLink="false">0f62c1a1-952d-4131-9bbf-1c75022d9053</guid>
+      <pubDate>Mon, 13 Jan 2020 07:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/0f62c1a1-952d-4131-9bbf-1c75022d9053.mp3" length="62459241" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>We're kicking off the show with Heidi Helen Pilypas, the co-creator of indie iOS apps When Did I? and Capsicum.</itunes:subtitle>
+      <itunes:duration>1:03:27</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/0/0f62c1a1-952d-4131-9bbf-1c75022d9053/cover.jpg?v=1"/>
+      <description>We're kicking off the show with Heidi Helen Pilypas, the co-creator of indie iOS apps When Did I? and Capsicum.
+Links &amp; Show Notes
+Heidi on Twitter - @heidi_helen (https://twitter.com/heidi_helen)
+Capsicum (https://apps.apple.com/us/app/capsicum-by-illuminated-bits/id1250939452)
+When Did I? (https://apps.apple.com/us/app/when-did-i/id1463692593)
+Heidi's podcast guest appearances
+App Stories (https://appstories.net/episodes/66/)
+Independence (https://independence.fm/45)
+Waiting for Review (https://www.waitingforreview.com/134)
+Productivity in Tech (https://productivityintech.transistor.fm/episodes/heidi-helen-is-a-designer-developer-business-owner)
+Project Update (https://project-update.com/4)
+Ish (https://twitter.com/ishabazz)
+Linea Sketch (https://apps.apple.com/us/app/linea-sketch/id1094770251)
+More Launched
+Website - launchedfm.com (https://launchedfm.com)
+Twitter - @LaunchedFM (https://twitter.com/launchedfm)
+Reddit - /r/LaunchedFM (https://www.reddit.com/r/LaunchedFM/) 
+</description>
+      <itunes:keywords>App Design, App Development, Design, Development, iOS, Capsicum, When Did I, Indie, Indie App</itunes:keywords>
+      <content:encoded>
+        <![CDATA[<p>We&#39;re kicking off the show with Heidi Helen Pilypas, the co-creator of indie iOS apps When Did I? and Capsicum.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/heidi_helen" rel="nofollow">Heidi on Twitter - @heidi_helen</a></li>
+<li><a href="https://apps.apple.com/us/app/capsicum-by-illuminated-bits/id1250939452" rel="nofollow">Capsicum</a></li>
+<li><a href="https://apps.apple.com/us/app/when-did-i/id1463692593" rel="nofollow">When Did I?</a></li>
+<li>Heidi&#39;s podcast guest appearances
+
+<ul>
+<li><a href="https://appstories.net/episodes/66/" rel="nofollow">App Stories</a></li>
+<li><a href="https://independence.fm/45" rel="nofollow">Independence</a></li>
+<li><a href="https://www.waitingforreview.com/134" rel="nofollow">Waiting for Review</a></li>
+<li><a href="https://productivityintech.transistor.fm/episodes/heidi-helen-is-a-designer-developer-business-owner" rel="nofollow">Productivity in Tech</a></li>
+<li><a href="https://project-update.com/4" rel="nofollow">Project Update</a></li>
+</ul></li>
+<li><a href="https://twitter.com/ishabazz" rel="nofollow">Ish</a></li>
+<li><a href="https://apps.apple.com/us/app/linea-sketch/id1094770251" rel="nofollow">Linea Sketch</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>We&#39;re kicking off the show with Heidi Helen Pilypas, the co-creator of indie iOS apps When Did I? and Capsicum.</p>
+
+<h3>Links &amp; Show Notes</h3>
+
+<ul>
+<li><a href="https://twitter.com/heidi_helen" rel="nofollow">Heidi on Twitter - @heidi_helen</a></li>
+<li><a href="https://apps.apple.com/us/app/capsicum-by-illuminated-bits/id1250939452" rel="nofollow">Capsicum</a></li>
+<li><a href="https://apps.apple.com/us/app/when-did-i/id1463692593" rel="nofollow">When Did I?</a></li>
+<li>Heidi&#39;s podcast guest appearances
+
+<ul>
+<li><a href="https://appstories.net/episodes/66/" rel="nofollow">App Stories</a></li>
+<li><a href="https://independence.fm/45" rel="nofollow">Independence</a></li>
+<li><a href="https://www.waitingforreview.com/134" rel="nofollow">Waiting for Review</a></li>
+<li><a href="https://productivityintech.transistor.fm/episodes/heidi-helen-is-a-designer-developer-business-owner" rel="nofollow">Productivity in Tech</a></li>
+<li><a href="https://project-update.com/4" rel="nofollow">Project Update</a></li>
+</ul></li>
+<li><a href="https://twitter.com/ishabazz" rel="nofollow">Ish</a></li>
+<li><a href="https://apps.apple.com/us/app/linea-sketch/id1094770251" rel="nofollow">Linea Sketch</a></li>
+</ul>
+
+<h3>More Launched</h3>
+
+<ul>
+<li>Website - <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></li>
+<li>Twitter - <a href="https://twitter.com/launchedfm" rel="nofollow">@LaunchedFM</a></li>
+<li>Reddit - <a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">/r/LaunchedFM</a></li>
+</ul>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+O5tEFBPT</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+O5tEFBPT" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+    <item>
+      <title>Introducing: Launched</title>
+      <link>https://launchedfm.com?/000-introducing-launched</link>
+      <guid isPermaLink="false">3cdd73a4-0818-459b-a4e9-523e34ec9615</guid>
+      <pubDate>Fri, 13 Dec 2019 20:00:00 -0600</pubDate>
+      <author>Charlie Chapman</author>
+      <enclosure url="https://aphid.fireside.fm/d/1437767933/65632ad5-59b2-4e30-82d1-13845dce07dd/3cdd73a4-0818-459b-a4e9-523e34ec9615.mp3" length="2777031" type="audio/mpeg"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:author>Charlie Chapman</itunes:author>
+      <itunes:subtitle>Introducing: Launched, the show talking to creators about launching their creations into the world.  Hosted by Charlie Chapman.</itunes:subtitle>
+      <itunes:duration>1:56</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://assets.fireside.fm/file/fireside-images/podcasts/images/6/65632ad5-59b2-4e30-82d1-13845dce07dd/episodes/3/3cdd73a4-0818-459b-a4e9-523e34ec9615/cover.jpg?v=1"/>
+      <description>Introducing: Launched, the show talking to creators about launching their creations into the world.  Hosted by Charlie Chapman.
+Show Notes
+Dark Noise (https://darknoise.app)
+Charlie Chapman's Twitter (https://twitter.com/_chuckyc)
+Launched Podcast Twitter (https://twitter.com/launchedfm)
+LaunchedFM Subreddit (https://www.reddit.com/r/LaunchedFM/)
+Indie Beginnings (https://indiebeginnings.net)
+Website: launchedfm.com (https://launchedfm.com) 
+</description>
+      <content:encoded>
+        <![CDATA[<p>Introducing: Launched, the show talking to creators about launching their creations into the world.  Hosted by Charlie Chapman.</p>
+
+<h3>Show Notes</h3>
+
+<ul>
+<li><a href="https://darknoise.app" rel="nofollow">Dark Noise</a></li>
+<li><a href="https://twitter.com/_chuckyc" rel="nofollow">Charlie Chapman&#39;s Twitter</a></li>
+<li><a href="https://twitter.com/launchedfm" rel="nofollow">Launched Podcast Twitter</a></li>
+<li><a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">LaunchedFM Subreddit</a></li>
+<li><a href="https://indiebeginnings.net" rel="nofollow">Indie Beginnings</a></li>
+</ul>
+
+<p>Website: <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></p>]]>
+      </content:encoded>
+      <itunes:summary>
+        <![CDATA[<p>Introducing: Launched, the show talking to creators about launching their creations into the world.  Hosted by Charlie Chapman.</p>
+
+<h3>Show Notes</h3>
+
+<ul>
+<li><a href="https://darknoise.app" rel="nofollow">Dark Noise</a></li>
+<li><a href="https://twitter.com/_chuckyc" rel="nofollow">Charlie Chapman&#39;s Twitter</a></li>
+<li><a href="https://twitter.com/launchedfm" rel="nofollow">Launched Podcast Twitter</a></li>
+<li><a href="https://www.reddit.com/r/LaunchedFM/" rel="nofollow">LaunchedFM Subreddit</a></li>
+<li><a href="https://indiebeginnings.net" rel="nofollow">Indie Beginnings</a></li>
+</ul>
+
+<p>Website: <a href="https://launchedfm.com" rel="nofollow">launchedfm.com</a></p>]]>
+      </itunes:summary>
+      <fireside:playerURL>https://fireside.fm/player/v2/cb6eRSp5+_o0DJCeO</fireside:playerURL>
+      <fireside:playerEmbedCode>
+        <![CDATA[<iframe src="https://fireside.fm/player/v2/cb6eRSp5+_o0DJCeO" width="740" height="200" frameborder="0" scrolling="no">]]>
+      </fireside:playerEmbedCode>
+      <podcast:person email="" href="https://charliemchapman.com" role="host">Charlie Chapman</podcast:person>
+    </item>
+  </channel>
+</rss>

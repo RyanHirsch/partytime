@@ -6,225 +6,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
+import type { EmptyObj } from "./types";
+
 // import iconv from "iconv-lite";
-
-import type {
-  Phase1Transcript,
-  Phase1Funding,
-  Phase1Chapter,
-  Phase1SoundBite,
-} from "./phase/phase-1";
-import type {
-  Phase2Person,
-  Phase2Location,
-  Phase2SeasonNumber,
-  Phase2EpisodeNumber,
-} from "./phase/phase-2";
-import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
-import type { Phase4Value } from "./phase/phase-4";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type TODO = any;
-
-export interface RSSFeed {
-  rss: {
-    channel: any;
-  };
-}
-
-export enum FeedType {
-  RSS = 0,
-  ATOM = 1,
-  BadFormat = 9,
-}
-
-export enum ItunesFeedType {
-  /**
-   * Default Specify episodic when episodes are intended to be consumed without any specific order. Apple
-   * Podcasts will present newest episodes first and display the publish date (required) of each episode. If
-   * organized into seasons, the newest season will be presented first - otherwise, episodes will be grouped
-   * by year published, newest first.
-   */
-  Episodic = "episodic",
-  /** Specify serial when episodes are intended to be consumed in sequential order. Apple Podcasts will
-   * present the oldest episodes first and display the episode numbers (required) of each episode. If
-   * organized into seasons, the newest season will be presented first and <itunes:episode> numbers must be
-   * given for each episode.
-   *
-   * For new subscribers, Apple Podcasts adds the first episode to their Library, or the entire current season
-   * if using seasons.
-   */
-  Serial = "serial",
-}
-
-export enum ItunesEpisodeType {
-  Full = "full",
-  Trailer = "trailer",
-  Bonus = "bonus",
-}
-
-export interface FeedObject {
-  type: FeedType;
-  title: string;
-  link: string;
-  language: string;
-  generator: string;
-  /** Seconds from epoch */
-  pubDate: Date;
-  /** seconds from epoch */
-  lastBuildDate: Date;
-  lastUpdate: Date;
-
-  itunesType: ItunesFeedType;
-  itunesCategory: TODO[];
-  itunesNewFeedUrl: TODO;
-  categories: string[];
-
-  pubsub: false | { hub: string; self: string };
-  itunesAuthor: string;
-  itunesOwnerEmail: string;
-  itunesOwnerName: string;
-  itunesImage: string;
-  image: string;
-
-  explicit: boolean;
-
-  description: string;
-
-  locked: boolean;
-  podcastOwner: string;
-
-  podcastFunding?: Phase1Funding;
-  podcastPeople?: Phase2Person[];
-
-  podcastLocation?: Phase2Location;
-
-  trailers?: Phase3Trailer[];
-  license?: Phase3License;
-  guid?: string;
-
-  value?: Phase4Value;
-
-  /** podcasting 2.0 phase compliance */
-  __phase: Record<number, string[]>;
-
-  items: Episode[];
-  newestItemPubDate: Date;
-  oldestItemPubDate: Date;
-}
-
-export type Enclosure = {
-  url: string;
-  length: number;
-  type: string;
-};
-
-export interface Episode {
-  author: string;
-  title?: string;
-  subtitle?: string;
-  link?: string;
-  duration: number;
-  enclosure: Enclosure;
-  itunesEpisode?: number;
-  itunesEpisodeType?: ItunesEpisodeType;
-  explicit: boolean;
-  itunesImage?: string;
-  summary?: string;
-  itunesSeason?: number;
-  keywords?: string[];
-  pubDate?: Date;
-  guid: string;
-  description?: string;
-  image?: string;
-  podcastChapters?: Phase1Chapter;
-  podcastSoundbites?: Phase1SoundBite[];
-  podcastTranscripts?: Phase1Transcript[];
-  podcastLocation?: Phase2Location;
-  podcastPeople?: Phase2Person[];
-  podcastSeason?: Phase2SeasonNumber;
-  podcastEpisode?: Phase2EpisodeNumber;
-
-  license?: Phase3License;
-  alternativeEnclosures?: Phase3AltEnclosure[];
-
-  value?: Phase4Value;
-}
-
-export interface PhaseUpdate {
-  [p: number]: { [k: string]: boolean };
-}
-
-// Parse out all of the links from an atom entry and see which ones are WebSub links
-export function findPubSubLinks(channel: any) {
-  const pubsublinks = {
-    hub: "",
-    self: "",
-  };
-
-  // Multiple link objects in an array?
-  if (Array.isArray(channel.link)) {
-    channel.link.forEach(function (item: any) {
-      // console.log(item);
-      if (typeof item.attr !== "object") return;
-
-      if (typeof item.attr["@_rel"] === "string") {
-        if (item.attr["@_rel"] === "hub") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.hub = item.attr["@_href"];
-        }
-
-        if (item.attr["@_rel"] === "self") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.self = item.attr["@_href"];
-        }
-      }
-    });
-  }
-
-  // Multiple link objects in an array?
-  if (Array.isArray(channel["atom:link"])) {
-    channel["atom:link"].forEach(function (item) {
-      if (typeof item.attr !== "object") return;
-
-      if (typeof item.attr["@_rel"] === "string") {
-        if (item.attr["@_rel"] === "hub") {
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.hub = item.attr["@_href"];
-        }
-
-        if (item.attr["@_rel"] === "self") {
-          // console.log(item);
-
-          // Set the url
-          if (typeof item.attr["@_href"] !== "string") return;
-          if (typeof item.attr["@_href"] === "string" && item.attr["@_href"] === "") return;
-
-          pubsublinks.self = item.attr["@_href"];
-        }
-      }
-    });
-  }
-
-  if (pubsublinks.hub === "" || pubsublinks.self === "") {
-    return false;
-  }
-
-  return pubsublinks;
-}
 
 // Make the url safe for storing
 export function sanitizeUrl(url?: string) {
@@ -306,7 +90,7 @@ export function guessEnclosureType(url = ""): string {
     return "audio/mpeg";
   }
   if (url.includes(".m4a")) {
-    return "audio/mp4";
+    return "audio/m4a";
   }
   if (url.includes(".wav")) {
     return "audio/wav";
@@ -359,13 +143,17 @@ export function firstIfArray<T>(maybeArr: T | T[]): T {
 export function firstWithValue<T>(maybeArr: T | T[]): T | null {
   return (
     ensureArray(maybeArr).find(
-      (x) => x && (getText(x as any) || getNumber(x as any) || typeof x === "boolean")
+      (x) =>
+        typeof x !== "undefined" &&
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (getText(x as any) || typeof getNumber(x as any) === "number" || typeof x === "boolean")
     ) ?? null
   );
 }
 
 export function firstWithAttributes<T>(maybeArr: T | T[], attrs: string[]): T | null {
   return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ensureArray(maybeArr).find((x) => x && attrs.every((a) => hasAttribute(x as any, a))) ?? null
   );
 }

@@ -1,8 +1,8 @@
 # Partytime Podcast Parser
 
-Podcast feed parser extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime
+Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime
 
-This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `__phase` element.
+This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `pc20support` element.
 
 ## Usage
 
@@ -14,7 +14,7 @@ npm install podcast-partytime
 
 ```ts
 import fetch from "node-fetch";
-import * as pt from "podcast-partytime";
+import pt from "podcast-partytime";
 
 // Check CORS support
 pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);
@@ -77,7 +77,11 @@ The sample feeds below were chosen for their varied nature. Including things lik
 - [No Agenda](http://feed.nashownotes.com/rss.xml)
 - [This Week in Tech](https://feeds.twit.tv/twit.xml)
 - [Launched](https://feeds.fireside.fm/launched/rss)
-- [Antomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)
+- [Anatomy of Next](https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss)
 - [Thomas Ferris Nicolaisen's rants](http://feeds.tfnico.com/tfnicosrants)
 - [Hip Hop Hangout Podcast](https://feeds.feedburner.com/HipHopHangoutPodcast)
 - [Web 2.0](https://satoshi.blogs.com/raw/web20.xml)
+
+## Development
+
+Update dependencies (person enum and valid license list) via `yarn deps` or `npm run deps`.

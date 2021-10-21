@@ -1,18 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
   ensureArray,
-  Episode,
   extractOptionalFloatAttribute,
   extractOptionalStringAttribute,
-  FeedObject,
   firstIfArray,
   getAttribute,
   getBooleanAttribute,
   getKnownAttribute,
 } from "../shared";
 
-import type { FeedUpdate, ItemUpdate } from "./index";
 import { log } from "../../logger";
+import type { XmlNode } from "../types";
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value
@@ -22,16 +20,14 @@ import { log } from "../../logger";
  *
  * Also see: https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md
  */
-
 export type Phase4Value = {
   /**
-   * This is the service slug of the cryptocurrency or protocol layer. Examples from
-   * https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/valueslugs.txt
+   * This is the service slug of the cryptocurrency or protocol layer.
    *
-   * bitcoin, lightning, keysend, amp, wallet, node
+   * lightning
    */
   type: string;
-  /** This is the transport mechanism that will be used. */
+  /** This is the transport mechanism that will be used. keysend and amp are the only expected values */
   method: string;
   /** This is an optional suggestion on how much cryptocurrency to send with each payment. */
   suggested?: string;
@@ -53,18 +49,18 @@ export type Phase4ValueRecipient = {
   split: number;
   fee: boolean;
 };
-const validRecipient = (n: TODO): boolean =>
+const validRecipient = (n: XmlNode): boolean =>
   Boolean(getAttribute(n, "type") && getAttribute(n, "address") && getAttribute(n, "split"));
-export const value: FeedUpdate | ItemUpdate = {
+export const value = {
   phase: 4,
   tag: "value",
   nodeTransform: firstIfArray,
-  supportCheck: (node: TODO) =>
+  supportCheck: (node: XmlNode): boolean =>
     Boolean(getAttribute(node, "type")) &&
     Boolean(getAttribute(node, "method")) &&
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ensureArray(node["podcast:valueRecipient"]).filter(validRecipient).length > 0,
-  fn(node: TODO): Partial<FeedObject> | Partial<Episode> {
+  fn(node: XmlNode): { value: Phase4Value } {
     log.info("value");
 
     return {

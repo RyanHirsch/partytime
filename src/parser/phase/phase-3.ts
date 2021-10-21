@@ -16,6 +16,7 @@ import { json as licenseDefinitions } from "./licenses";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 import { log } from "../../logger";
+import type { EmptyObj, XmlNode } from "../types";
 
 // <podcast:guid>
 
@@ -52,7 +53,7 @@ export const trailer: FeedUpdate = {
       Boolean(getAttribute(fNode, "pubdate"))
     );
   },
-  fn(node: TODO) {
+  fn(node: XmlNode) {
     return {
       trailers: ensureArray(node).map<Phase3Trailer>((trailerNode) => ({
         title: getText(trailerNode),
@@ -78,11 +79,11 @@ export type Phase3License = {
   url: string;
   identifier: string;
 };
-export const license: FeedUpdate | ItemUpdate = {
+export const license = {
   phase: 3,
   tag: "license",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => {
+  supportCheck: (node: XmlNode): boolean => {
     const identifier = getText(node);
     const url =
       getAttribute(node, "url") ??
@@ -92,7 +93,7 @@ export const license: FeedUpdate | ItemUpdate = {
 
     return Boolean(identifier) && Boolean(url);
   },
-  fn(node, feed) {
+  fn(node: XmlNode, feed: XmlNode): EmptyObj | { license: Phase3License } {
     log.info("license found");
 
     const identifier = getText(node);
@@ -170,7 +171,7 @@ export const alternativeEnclosure: ItemUpdate = {
   tag: "alternateEnclosure",
   nodeTransform: ensureArray,
   supportCheck: (node) => {
-    return (node as TODO[]).some((i: TODO) => {
+    return (node as XmlNode[]).some((i) => {
       const type = getAttribute(i, "type");
       const length = getAttribute(i, "length");
       const sourceNodes = ensureArray(i?.["podcast:source"] ?? []);
@@ -188,7 +189,7 @@ export const alternativeEnclosure: ItemUpdate = {
 
     const update: Phase3AltEnclosure[] = [];
 
-    (node as TODO[]).forEach((altEncNode: TODO) => {
+    (node as XmlNode[]).forEach((altEncNode) => {
       const type = getKnownAttribute(altEncNode, "type");
       const length = getKnownAttribute(altEncNode, "length");
       const sourceUris = ensureArray(altEncNode["podcast:source"] ?? [])

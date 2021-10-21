@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { parseFeed } from "../index";
-import { ItunesEpisodeType } from "../shared";
+import { ItunesEpisodeType } from "../types";
 import * as helpers from "./helpers";
 
 describe("item handling", () => {
@@ -33,10 +33,11 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(result.items).toHaveLength(1);
-      expect(first).toHaveProperty("author", "");
       expect(first).toHaveProperty("title", "Test");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("description");
+      expect(first).not.toHaveProperty("author");
       expect(first).not.toHaveProperty("link");
       expect(first).not.toHaveProperty("itunesImage");
       expect(first).not.toHaveProperty("image");
@@ -66,11 +67,11 @@ describe("item handling", () => {
       const [first] = result.items;
 
       expect(result.items).toHaveLength(1);
-      expect(first).toHaveProperty("author", "");
-      expect(first).toHaveProperty("title", "");
       expect(first).toHaveProperty("description", "This is a Test");
       expect(first).toHaveProperty("duration", 0);
       expect(first).toHaveProperty("explicit", false);
+      expect(first).not.toHaveProperty("author");
+      expect(first).not.toHaveProperty("title");
       expect(first).not.toHaveProperty("link");
       expect(first).not.toHaveProperty("itunesImage");
       expect(first).not.toHaveProperty("image");

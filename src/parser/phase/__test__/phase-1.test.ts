@@ -218,14 +218,16 @@ describe("phase 1", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("podcastFunding");
+      expect(result.podcastFunding).toHaveLength(1);
+      const [first] = result.podcastFunding;
 
-      expect(result.podcastFunding).toHaveProperty("url", "https://www.example.com/donations");
-      expect(result.podcastFunding).toHaveProperty("message", "Support the show!");
+      expect(first).toHaveProperty("url", "https://www.example.com/donations");
+      expect(first).toHaveProperty("message", "Support the show!");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
 
-    it("ignores multiples", () => {
+    it("supports multiples", () => {
       const xml = helpers.spliceFeed(
         feed,
         `<podcast:funding url="https://www.example.com/donations">Support the show!</podcast:funding>
@@ -238,9 +240,17 @@ describe("phase 1", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("podcastFunding");
+      expect(result.podcastFunding).toHaveLength(3);
 
-      expect(result.podcastFunding).toHaveProperty("url", "https://www.example.com/donations");
-      expect(result.podcastFunding).toHaveProperty("message", "Support the show!");
+      const [first, second, third] = result.podcastFunding;
+      expect(first).toHaveProperty("url", "https://www.example.com/donations");
+      expect(first).toHaveProperty("message", "Support the show!");
+
+      expect(second).toHaveProperty("url", "https://www.lol.com/donations");
+      expect(second).toHaveProperty("message", "show!");
+
+      expect(third).toHaveProperty("url", "https://www.yep.com/donations");
+      expect(third).toHaveProperty("message", "Support");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
@@ -254,9 +264,11 @@ describe("phase 1", () => {
       const result = parseFeed(xml);
 
       expect(result).toHaveProperty("podcastFunding");
+      expect(result.podcastFunding).toHaveLength(1);
+      const [first] = result.podcastFunding;
 
-      expect(result.podcastFunding).toHaveProperty("url", "https://www.example.com/donations");
-      expect(result.podcastFunding).toHaveProperty("message", "");
+      expect(first).toHaveProperty("url", "https://www.example.com/donations");
+      expect(first).toHaveProperty("message", "");
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
