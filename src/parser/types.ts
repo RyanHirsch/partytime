@@ -13,6 +13,9 @@ import type {
 } from "./phase/phase-2";
 import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
 import type { Phase4Value } from "./phase/phase-4";
+import {
+  PhasePendingPodcastId,
+} from "./phase/phase-pending";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
@@ -150,6 +153,10 @@ export interface FeedObject {
   // #endregion
   // #region Phase 4
   value?: Phase4Value;
+  // #endregion
+  // #region Pending Phase
+  /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */
+  podcastId?: PhasePendingPodcastId[];
   // #endregion
 
   /** podcasting 2.0 phase compliance */

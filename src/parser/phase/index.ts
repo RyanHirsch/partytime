@@ -12,6 +12,7 @@ import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import * as pending from "./phase-pending";
 import { XmlNodeSource } from "./types";
 
 type FeedUpdateResult = {
@@ -75,6 +76,8 @@ const feeds: FeedUpdate[] = [
   phase3.guid,
 
   phase4.value,
+
+  pending.id,
 ];
 
 const items: ItemUpdate[] = [
@@ -100,7 +103,6 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[tagName]);
       logger.trace(`Checking feed ${tagName} support`);
-
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
@@ -112,7 +114,7 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
         };
       }
 
-      logger.debug(`Feed doesn't support ${tagName}`, node, tagSupported);
+      logger.trace(`Feed doesn't support ${tagName}`, node, tagSupported);
       return {
         feedUpdate,
         phaseUpdate,
@@ -142,7 +144,7 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
         };
       }
-      logger.debug(`Feed item doesn't support ${tagName}`, node, tagSupported);
+      logger.trace(`Feed item doesn't support ${tagName}`, node, tagSupported);
       return {
         itemUpdate,
         phaseUpdate,
