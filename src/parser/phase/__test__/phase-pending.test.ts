@@ -86,4 +86,146 @@ describe("phase pending", () => {
       expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
     });
   });
+
+  describe("podcast social", () => {
+    const supportedName = "social";
+
+    it("correctly identifies a basic feed", () => {
+      const result = parseFeed(feed);
+
+      expect(result).not.toHaveProperty("podcastSocial");
+      expect(helpers.getPhaseSupport(result, Infinity)).not.toContain(supportedName);
+    });
+
+    describe("feed", () => {
+      it("extracts a single social node", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `<podcast:social platform="mastodon" url="https://enfants-et-famille.podcasts.chat/">enfants-et-famille.podcasts.chat</podcast:social>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.podcastSocial).toHaveLength(1);
+        const [first] = result.podcastSocial;
+
+        expect(first).toHaveProperty("platform", "mastodon");
+        expect(first).toHaveProperty("url", "https://enfants-et-famille.podcasts.chat/");
+        expect(first).toHaveProperty("name", "enfants-et-famille.podcasts.chat");
+        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      });
+
+      it("extracts a multiple social nodes", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `<podcast:social platform="mastodon" url="https://enfants-et-famille.podcasts.chat/">enfants-et-famille.podcasts.chat</podcast:social>
+          <podcast:social platform="peertube" url="https://video.lespoesiesdheloise.fr/">heloise</podcast:social>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.podcastSocial).toHaveLength(2);
+        const [first, second] = result.podcastSocial;
+
+        expect(first).toHaveProperty("platform", "mastodon");
+        expect(first).toHaveProperty("url", "https://enfants-et-famille.podcasts.chat/");
+        expect(first).toHaveProperty("name", "enfants-et-famille.podcasts.chat");
+        expect(first).not.toHaveProperty("id");
+        expect(first).not.toHaveProperty("signUp");
+        expect(first).not.toHaveProperty("priority");
+        expect(second).toHaveProperty("platform", "peertube");
+        expect(second).toHaveProperty("url", "https://video.lespoesiesdheloise.fr/");
+        expect(second).toHaveProperty("name", "heloise");
+        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      });
+
+      it("extracts a multiple social spec nodes", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `
+          <podcast:social priority="1" platform="activitypub" podcastAccountId="@heloise@lespoesiesdheloise.fr" podcastAccountUrl="https://lespoesiesdheloise.fr/@heloise">
+            <podcast:socialSignUp priority="1" homeUrl="https://enfants-et-famille.podcasts.chat/public" signUpUrl="https://enfants-et-famille.podcasts.chat/auth/sign_up" />
+            <podcast:socialSignUp priority="2" homeUrl="https://mamot.fr/public" signUpUrl="https://mamot.fr/auth/sign_up" />
+            <podcast:socialSignUp priority="3" homeUrl="https://podcastindex.social/public" signUpUrl="https://podcastindex.social/auth/sign_up" />
+          </podcast:social>
+          <podcast:social priority="66.6" platform="facebook" podcastAccountId="LesPoesiesDHeloise" podcastAccountUrl="https://www.facebook.com/LesPoesiesDHeloise">
+            <podcast:socialSignUp homeUrl="https://www.facebook.com/" signUpUrl="https://www.facebook.com/r.php?display=page" />
+          </podcast:social>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.podcastSocial).toHaveLength(2);
+        const [first, second] = result.podcastSocial;
+
+        expect(first).toHaveProperty("platform", "activitypub");
+        expect(first).toHaveProperty("priority", 1);
+        expect(first).toHaveProperty("id", "@heloise@lespoesiesdheloise.fr");
+        expect(first).toHaveProperty("url", "https://lespoesiesdheloise.fr/@heloise");
+        expect(first).not.toHaveProperty("name");
+        expect(first.signUp).toHaveLength(3);
+        const [firstFirstSignUp] = first.signUp;
+        expect(firstFirstSignUp).toHaveProperty("priority", 1);
+        expect(firstFirstSignUp).toHaveProperty(
+          "signUpUrl",
+          "https://enfants-et-famille.podcasts.chat/auth/sign_up"
+        );
+        expect(firstFirstSignUp).toHaveProperty(
+          "homeUrl",
+          "https://enfants-et-famille.podcasts.chat/public"
+        );
+
+        expect(second).toHaveProperty("platform", "facebook");
+        expect(second).toHaveProperty("priority", 66.6);
+        expect(second).toHaveProperty("id", "LesPoesiesDHeloise");
+        expect(second).toHaveProperty("url", "https://www.facebook.com/LesPoesiesDHeloise");
+        expect(second).not.toHaveProperty("name");
+        expect(second.signUp).toHaveLength(1);
+        const [firstSecondSignUp] = second.signUp;
+        expect(firstSecondSignUp).not.toHaveProperty("priority");
+        expect(firstSecondSignUp).toHaveProperty(
+          "signUpUrl",
+          "https://www.facebook.com/r.php?display=page"
+        );
+        expect(firstSecondSignUp).toHaveProperty("homeUrl", "https://www.facebook.com/");
+        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      });
+    });
+
+    describe("item", () => {
+      it("extracts a single interact node", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:socialInteract
+            platform="twitter"
+            podcastAccountId="@Podverse"
+            priority="2"
+            pubDate="2021-04-14T10:25:42Z">https://twitter.com/Podverse/status/1375624446296395781</podcast:socialInteract>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result).not.toHaveProperty("podcastSocialInteraction");
+        const [first] = result.items;
+
+        expect(first).toHaveProperty("podcastSocialInteraction");
+        expect(first.podcastSocialInteraction).toHaveLength(1);
+
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("platform", "twitter");
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("id", "@Podverse");
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("priority", 2);
+        expect(first.podcastSocialInteraction[0]).toHaveProperty(
+          "pubDate",
+          new Date("2021-04-14T10:25:42Z")
+        );
+        expect(first.podcastSocialInteraction[0]).toHaveProperty(
+          "url",
+          "https://twitter.com/Podverse/status/1375624446296395781"
+        );
+
+        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      });
+    });
+  });
 });
