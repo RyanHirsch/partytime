@@ -12,6 +12,8 @@ import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import * as pending from "./phase-pending";
+import { XmlNodeSource } from "./types";
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -24,7 +26,7 @@ type ItemUpdateResult = {
 };
 
 type NodeTransform = (x: XmlNode) => TODO;
-type SupportCheck = (x: TODO) => boolean;
+type SupportCheck = (x: TODO, type: XmlNodeSource) => boolean;
 
 /** Describes a Feed processing object intended to provide extensible feed parsing */
 export type FeedUpdate = {
@@ -33,7 +35,7 @@ export type FeedUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current feed */
-  fn: (node: XmlNode, feed: RSSFeed) => Partial<FeedObject>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<FeedObject>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -47,7 +49,7 @@ export type ItemUpdate = {
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: XmlNode, feed: RSSFeed) => Partial<Episode>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<Episode>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -70,6 +72,8 @@ const feeds: FeedUpdate[] = [
   phase3.guid,
 
   phase4.value,
+
+  pending.id,
 ];
 
 const items: ItemUpdate[] = [
@@ -93,11 +97,11 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
     ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[`podcast:${tag}`]);
-      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
         return {
-          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed)),
+          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
         };
       }
@@ -119,11 +123,11 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
   return itemUpdates.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);
-      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Item);
 
       if (tagSupported) {
         return {
-          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed)),
+          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
         };
       }
