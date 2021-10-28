@@ -5,6 +5,7 @@
     "project": "./tsconfig.eslint.json"
   },
   "plugins": [
+    "import",
     "@typescript-eslint"
   ],
   "extends": [
@@ -31,6 +32,27 @@
         "allowExpressions": true
       }
     ],
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "import/newline-after-import": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./"
+      }
+    }
   }
 }

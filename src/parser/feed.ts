@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { logger } from "../logger";
+
 import {
   ensureArray,
   firstWithAttributes,
@@ -445,8 +447,7 @@ const handleCompoundCategory = (
     ) {
       categoriesSet.add(compoundCategory.result);
     } else {
-      // eslint-disable-next-line no-console
-      console.warn(`Compound category wasn't in the allow list - ${compoundCategory.result}`);
+      logger.warn(`Compound category wasn't in the allow list - ${compoundCategory.result}`);
     }
   }
 };

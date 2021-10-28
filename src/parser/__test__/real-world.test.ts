@@ -1,6 +1,7 @@
+import { parseFeed } from "..";
+
 import * as helpers from "./helpers";
 import list from "./fixtures/real-world/list.json";
-import { parseFeed } from "..";
 
 describe("real-world feeds", () => {
   (list as Array<{ uri: string; file: string; title: string }>).forEach((item) => {

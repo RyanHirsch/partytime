@@ -6,7 +6,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import crypto from "crypto";
 
-import { log } from "../logger";
+import { logger } from "../logger";
+
 import { unifiedParser } from "./unified";
 import { parse, validate } from "./xml-parser";
 import { FeedObject, FeedType } from "./types";
@@ -32,7 +33,7 @@ function handleValidFeed(xml: string): FeedObject | null {
   }
 
   if (!feedObj) {
-    log.error("Parsing failed...");
+    logger.error("Parsing failed...");
     return null;
   }
 
@@ -49,12 +50,12 @@ function handleValidFeed(xml: string): FeedObject | null {
     )
     .digest("hex");
 
-  log.debug(" - ", feedHash);
+  logger.debug(" - ", feedHash);
   return feedObj;
 }
 
 function handleInvalidFeed(xml: string) {
-  log.warn("invalid feed");
-  log.warn(xml);
+  logger.warn("invalid feed");
+  logger.warn(xml);
   return null;
 }

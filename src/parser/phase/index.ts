@@ -4,14 +4,15 @@
 import concat from "ramda/src/concat";
 import mergeDeepRight from "ramda/src/mergeDeepRight";
 import mergeWith from "ramda/src/mergeWith";
-import log from "loglevel";
 
+import { logger } from "../../logger";
 import type { Episode, FeedObject, RSSFeed, XmlNode, PhaseUpdate, TODO } from "../types";
 
 import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import { XmlNodeSource } from "./types";
 
 type FeedUpdateResult = {
   feedUpdate: Partial<FeedObject>;
@@ -24,7 +25,7 @@ type ItemUpdateResult = {
 };
 
 type NodeTransform = (x: XmlNode) => TODO;
-type SupportCheck = (x: TODO) => boolean;
+type SupportCheck = (x: TODO, type: XmlNodeSource) => boolean;
 
 /** Describes a Feed processing object intended to provide extensible feed parsing */
 export type FeedUpdate = {
@@ -32,8 +33,10 @@ export type FeedUpdate = {
   phase: number;
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
+  /** What is the name of feature, falls back to tag if missing */
+  name?: string;
   /** Processing function to return an object to be merged with the current feed */
-  fn: (node: XmlNode, feed: RSSFeed) => Partial<FeedObject>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<FeedObject>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -46,8 +49,10 @@ export type ItemUpdate = {
   phase: number;
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
   tag: string;
+  /** What is the name of feature, falls back to tag if missing */
+  name?: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: XmlNode, feed: RSSFeed) => Partial<Episode>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<Episode>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -90,22 +95,24 @@ const items: ItemUpdate[] = [
 
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
   return feedUpdates.reduce(
-    ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
+    ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
+      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[`podcast:${tag}`]);
-      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
-      log.trace(`Checking feed ${tag} support`);
+      const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[tagName]);
+      logger.trace(`Checking feed ${tagName} support`);
+
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
-        log.debug(`Feed supports ${tag}`);
+        logger.debug(`Feed supports ${tagName}`);
 
         return {
-          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
+          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
+          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
         };
       }
 
-      log.debug(`Feed doesn't support ${tag}`, node, tagSupported);
+      logger.debug(`Feed doesn't support ${tagName}`, node, tagSupported);
       return {
         feedUpdate,
         phaseUpdate,
@@ -120,20 +127,22 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
 
 export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
   return itemUpdates.reduce(
-    ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
-      const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);
-      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
-      log.trace(`Checking feed item ${tag} support`);
+    ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
+      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
+      logger.trace(`Checking feed item ${tagName} support`);
+
+      const node = (nodeTransform ?? defaultNodeTransform)(item[tagName]);
+      const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Item);
 
       if (tagSupported) {
-        log.debug(`Feed item supports ${tag}`);
+        logger.debug(`Feed item supports ${tagName}`);
 
         return {
-          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
+          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),
+          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
         };
       }
-      log.debug(`Feed item doesn't support ${tag}`, node, tagSupported);
+      logger.debug(`Feed item doesn't support ${tagName}`, node, tagSupported);
       return {
         itemUpdate,
         phaseUpdate,

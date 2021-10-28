@@ -1,5 +1,6 @@
 import parser, { ValidationError } from "fast-xml-parser";
 import he from "he";
+
 import { XmlNode } from "./types";
 
 const parserOptions = {
