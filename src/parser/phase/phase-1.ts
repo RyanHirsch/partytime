@@ -161,7 +161,7 @@ export const funding: FeedUpdate = {
 export type Phase1Chapter = {
   /** The URL where the chapters file is located */
   url: string;
-  /** Mime type of file - JSON prefered, 'application/json+chapters' */
+  /** Mime type of file - JSON preferred, 'application/json+chapters' */
   type: string;
 };
 export const chapters: ItemUpdate = {

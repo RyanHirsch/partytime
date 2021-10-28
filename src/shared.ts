@@ -5,7 +5,11 @@ import { log } from "./logger";
 export async function getFeedText(uri: string): Promise<string> {
   log.info(uri);
   if (uri.startsWith(`http`)) {
-    const response = await fetch(uri);
+    const response = await fetch(uri, {
+      headers: {
+        "user-agent": "partytime/dev-testing",
+      },
+    });
     return response.text();
   }
   if (uri.startsWith("file")) {

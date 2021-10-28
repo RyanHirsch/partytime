@@ -3,8 +3,9 @@ import * as path from "path";
 import type { FeedObject } from "../types";
 
 export async function loadFixture(name = "example"): Promise<string> {
+  const filename = name.endsWith(".xml") ? name : `${name}.xml`;
   return new Promise((resolve, reject) =>
-    fs.readFile(path.resolve(__dirname, `fixtures/${name}.xml`), "utf-8", (err, data) => {
+    fs.readFile(path.resolve(__dirname, `fixtures/${filename}`), "utf-8", (err, data) => {
       if (err) {
         reject(err);
         return;

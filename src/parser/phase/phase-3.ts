@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import * as mime from "mime-types";
-
 import {
   ensureArray,
+  extractOptionalFloatAttribute,
   extractOptionalIntegerAttribute,
   extractOptionalStringAttribute,
   firstIfArray,
@@ -189,48 +188,52 @@ export const alternativeEnclosure: ItemUpdate = {
 
     const update: Phase3AltEnclosure[] = [];
 
-    (node as XmlNode[]).forEach((altEncNode) => {
-      const type = getKnownAttribute(altEncNode, "type");
-      const length = getKnownAttribute(altEncNode, "length");
-      const sourceUris = ensureArray(altEncNode["podcast:source"] ?? [])
-        .map((sourceNode) => ({
-          uri: getAttribute(sourceNode, "uri"),
-          contentType: getAttribute(sourceNode, "contentType"),
-        }))
-        .filter(
-          (x): x is { uri: string; contentType: string | null } =>
-            x.uri !== null && Boolean(x.uri.trim())
-        )
-        .map((x) => ({ ...x, contentType: mime.lookup(x.uri) || type }));
+    (node as XmlNode[])
+      .filter((n) => getAttribute(n, "length") && getAttribute(n, "type"))
+      .forEach((altEncNode) => {
+        const type = getKnownAttribute(altEncNode, "type");
+        const length = getKnownAttribute(altEncNode, "length");
+        const sourceUris = ensureArray(altEncNode["podcast:source"] ?? [])
+          .map((sourceNode) => ({
+            uri: getAttribute(sourceNode, "uri"),
+            contentType: getAttribute(sourceNode, "contentType"),
+          }))
+          .filter(
+            (x): x is { uri: string; contentType: string | null } =>
+              x.uri !== null && Boolean(x.uri.trim())
+          )
+          .map((x) => ({ ...x, contentType: x.contentType || type }));
 
-      const integrityNode = altEncNode["podcast:integrity"];
-      const integrity =
-        integrityNode && getAttribute(integrityNode, "type") && getAttribute(integrityNode, "value")
-          ? {
-              type:
-                getKnownAttribute(integrityNode, "type") === "pgp-signature"
-                  ? IntegrityType.PGP
-                  : IntegrityType.SRI,
-              value: getKnownAttribute(integrityNode, "value"),
-            }
-          : null;
+        const integrityNode = altEncNode["podcast:integrity"];
+        const integrity =
+          integrityNode &&
+          getAttribute(integrityNode, "type") &&
+          getAttribute(integrityNode, "value")
+            ? {
+                type:
+                  getKnownAttribute(integrityNode, "type") === "pgp-signature"
+                    ? IntegrityType.PGP
+                    : IntegrityType.SRI,
+                value: getKnownAttribute(integrityNode, "value"),
+              }
+            : null;
 
-      if (type && length && sourceUris.length > 0) {
-        update.push({
-          type,
-          length: parseInt(length, 10),
-          source: sourceUris,
-          default: /^true$/i.test(getAttribute(altEncNode, "default") ?? ""),
-          ...(integrity ? { integrity } : undefined),
-          ...extractOptionalIntegerAttribute(altEncNode, "bitrate"),
-          ...extractOptionalIntegerAttribute(altEncNode, "height"),
-          ...extractOptionalStringAttribute(altEncNode, "lang"),
-          ...extractOptionalStringAttribute(altEncNode, "title"),
-          ...extractOptionalStringAttribute(altEncNode, "rel"),
-          ...extractOptionalStringAttribute(altEncNode, "codecs"),
-        });
-      }
-    });
+        if (type && length && sourceUris.length > 0) {
+          update.push({
+            type,
+            length: parseInt(length, 10),
+            source: sourceUris,
+            default: /^true$/i.test(getAttribute(altEncNode, "default") ?? ""),
+            ...(integrity ? { integrity } : undefined),
+            ...extractOptionalFloatAttribute(altEncNode, "bitrate"),
+            ...extractOptionalIntegerAttribute(altEncNode, "height"),
+            ...extractOptionalStringAttribute(altEncNode, "lang"),
+            ...extractOptionalStringAttribute(altEncNode, "title"),
+            ...extractOptionalStringAttribute(altEncNode, "rel"),
+            ...extractOptionalStringAttribute(altEncNode, "codecs"),
+          });
+        }
+      });
 
     return { alternativeEnclosures: update };
   },

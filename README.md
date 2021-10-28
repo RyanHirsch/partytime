@@ -1,6 +1,6 @@
 # Partytime Podcast Parser
 
-Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime
+Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime. It is up to you, the consumer of this package, to fetch the feed which needs to be parsed. When fetching the feed YOU SHOULD INCLUDE A PROPER USER-AGENT. You can test by fetching and checking the description of `https://podnews.net/rss`.
 
 This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `pc20support` element.
 
@@ -19,7 +19,11 @@ import pt from "podcast-partytime";
 // Check CORS support
 pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);
 
-fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+fetch("http://mp3s.nashownotes.com/pc20rss.xml", {
+   headers: {
+    "user-agent": "partytime/example",
+    }
+})
   .then((resp) => resp.text())
   .then((xml) =>
     console.log(
@@ -31,7 +35,11 @@ fetch("http://mp3s.nashownotes.com/pc20rss.xml")
   );
 
 // Parse Feed
-fetch("http://mp3s.nashownotes.com/pc20rss.xml")
+fetch("http://mp3s.nashownotes.com/pc20rss.xml", {
+   headers: {
+    "user-agent": "partytime/example",
+    }
+})
   .then((resp) => resp.text())
   .then((xml) => console.log(pt.parseFeed(xml)));
 ```
