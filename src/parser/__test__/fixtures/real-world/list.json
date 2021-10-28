@@ -1,0 +1,12 @@
+[
+  {
+    "uri": "https://feed.nashownotes.com/rss.xml",
+    "file": "no-agenda.xml",
+    "title": "No Agenda"
+  },
+  {
+    "uri": "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
+    "file": "animated-no-agenda.xml",
+    "title": "Animated No Agenda"
+  }
+]

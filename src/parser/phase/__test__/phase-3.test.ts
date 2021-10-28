@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
 
@@ -251,7 +252,79 @@ describe("phase 3", () => {
       expect(s1).toHaveProperty("contentType", "application/x-bittorrent");
 
       expect(s2).toHaveProperty("uri", "http://example.onion/file-720.mp4");
-      expect(s2).toHaveProperty("contentType", "video/mp4");
+      expect(s2).toHaveProperty("contentType", "audio/mpeg");
+
+      expect(helpers.getPhaseSupport(result, 3)).toContain("alternateEnclosure");
+    });
+
+    it("extracts multiple alternate enclosures", () => {
+      const xml = helpers.spliceFirstItem(
+        feed,
+        `
+        <podcast:alternateEnclosure type="video/mp4" length="8830410" bitrate="240283.26530612246" height="240">
+            <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-240.mp4">
+            </podcast:source>
+            <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-240.torrent" contentType="application/x-bittorrent">
+            </podcast:source>
+        </podcast:alternateEnclosure>
+        <podcast:alternateEnclosure type="audio/mp4" length="5910119" bitrate="160819.56462585033">
+            <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-0.mp4">
+            </podcast:source>
+            <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-0.torrent" contentType="application/x-bittorrent">
+            </podcast:source>
+        </podcast:alternateEnclosure>
+        <podcast:alternateEnclosure type="application/x-mpegURL">
+            <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/301929e6-a83e-45ad-8901-e513ea1ab81e/master.m3u8">
+            </podcast:source>
+        </podcast:alternateEnclosure>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      const [first] = result.items;
+
+      expect(first).toHaveProperty("alternativeEnclosures");
+      expect(first.alternativeEnclosures).toHaveLength(2);
+      expect(first.alternativeEnclosures[0]).not.toHaveProperty("integrity");
+      expect(first.alternativeEnclosures[0]).toHaveProperty("default", false);
+      expect(first.alternativeEnclosures[0]).toHaveProperty("type", "video/mp4");
+      expect(first.alternativeEnclosures[0]).toHaveProperty("length", 8830410);
+      expect(first.alternativeEnclosures[0]).toHaveProperty("bitrate", 240283.26530612246);
+      expect(first.alternativeEnclosures[0]).toHaveProperty("height", 240);
+
+      const [s1, s2] = first.alternativeEnclosures[0].source;
+
+      expect(s1).toHaveProperty(
+        "uri",
+        "https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-240.mp4"
+      );
+      expect(s1).toHaveProperty("contentType", "video/mp4");
+      expect(s2).toHaveProperty(
+        "uri",
+        "https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-240.torrent"
+      );
+      expect(s2).toHaveProperty("contentType", "application/x-bittorrent");
+
+      expect(first.alternativeEnclosures[1]).not.toHaveProperty("integrity");
+      expect(first.alternativeEnclosures[1]).toHaveProperty("default", false);
+      expect(first.alternativeEnclosures[1]).toHaveProperty("type", "audio/mp4");
+      expect(first.alternativeEnclosures[1]).toHaveProperty("length", 5910119);
+      expect(first.alternativeEnclosures[1]).toHaveProperty("bitrate", 160819.56462585033);
+      expect(first.alternativeEnclosures[1]).not.toHaveProperty("height");
+
+      const [s1Second, s2Second] = first.alternativeEnclosures[1].source;
+
+      expect(s1Second).toHaveProperty(
+        "uri",
+        "https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-0.mp4"
+      );
+      expect(s1Second).toHaveProperty("contentType", "audio/mp4");
+      expect(s2Second).toHaveProperty(
+        "uri",
+        "https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-0.torrent"
+      );
+      expect(s2Second).toHaveProperty("contentType", "application/x-bittorrent");
 
       expect(helpers.getPhaseSupport(result, 3)).toContain("alternateEnclosure");
     });

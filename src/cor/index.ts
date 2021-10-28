@@ -38,6 +38,7 @@ export function checkHotlink(urlToCheck: string, referer = podcastCertification)
     method: "GET",
     headers: {
       referer,
+      "user-agent": "partytime/hotlink-check",
     },
   }).then((resp) => {
     return resp.status < 300 && resp.status >= 200;
@@ -49,6 +50,7 @@ export function checkHttps(urlToCheck: string, referer = podcastCertification): 
     method: "GET",
     headers: {
       referer,
+      "user-agent": "partytime/https-check",
     },
   }).then((resp) => {
     return resp.status < 300 && resp.status >= 200;

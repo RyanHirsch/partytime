@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md">
+  <channel>
+    <title>Animated No Agenda</title>
+    <link>https://noagendatube.com/video-channels/animated_no_agenda</link>
+    <description>Animated clips from TBPITU! TYFYC! And such. . .</description>
+    <lastBuildDate>Thu, 28 Oct 2021 10:55:22 GMT</lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator>Toraifōsu</generator>
+    <podcast:person img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+    <itunes:author>Dame Jennifer</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <image>
+      <title>Animated No Agenda</title>
+      <url>https://noagendatube.com/lazy-static/avatars/2a501bbd-2805-4f58-a486-2708c8e526ad.png</url>
+      <link>https://noagendatube.com/video-channels/animated_no_agenda</link>
+    </image>
+    <itunes:image href="https://noagendatube.com/lazy-static/avatars/2a501bbd-2805-4f58-a486-2708c8e526ad.png">
+    </itunes:image>
+    <copyright>All rights reserved, unless otherwise specified in the terms specified at https://noagendatube.com/about and potential licenses granted by each content&apos;s rightholder.</copyright>
+    <item>
+      <title><![CDATA[Animated No Agenda - It's Probably an Inside Job [EP 100!]]]></title>
+      <link>https://noagendatube.com/videos/watch/301929e6-a83e-45ad-8901-e513ea1ab81e</link>
+      <guid>https://noagendatube.com/videos/watch/301929e6-a83e-45ad-8901-e513ea1ab81e</guid>
+      <pubDate>Thu, 28 Oct 2021 00:44:34 GMT</pubDate>
+      <description><![CDATA[From Episode 1392 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Anonymous, Tim Heeszel, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, exp...]]></description>
+      <content:encoded><![CDATA[From Episode 1392 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Anonymous, Tim Heeszel, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1392
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net
+]]>      </content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="21096526" url="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="21096526" bitrate="574055.1292517007" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15886823" bitrate="432294.50340136053" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12385234" bitrate="337013.1700680272" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10611908" bitrate="288759.4013605442" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8830410" bitrate="240283.26530612246" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="5910119" bitrate="160819.56462585033">
+        <podcast:source uri="https://noagendatube.com/static/webseed/301929e6-a83e-45ad-8901-e513ea1ab81e-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/301929e6-a83e-45ad-8901-e513ea1ab81e-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/301929e6-a83e-45ad-8901-e513ea1ab81e/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/afd5fd71-b323-40fb-b6b1-e7600586fdac.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - How to Spot the Spook on Twitter]]></title>
+      <link>https://noagendatube.com/videos/watch/71cd246a-bef0-422f-908c-abe635cf7cb9</link>
+      <guid>https://noagendatube.com/videos/watch/71cd246a-bef0-422f-908c-abe635cf7cb9</guid>
+      <pubDate>Sat, 16 Oct 2021 02:34:47 GMT</pubDate>
+      <description><![CDATA[From Episode 1389 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: PartyPlacecards.com, Lady MountainJay, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You too can give...]]></description>
+      <content:encoded><![CDATA[From Episode 1389 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: PartyPlacecards.com, Lady MountainJay, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1389
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="9197140" url="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9197140" bitrate="593363.8709677419" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6558469" bitrate="423127.03225806454" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5118142" bitrate="330202.70967741933" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4411925" bitrate="284640.32258064515" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="3702250" bitrate="238854.83870967742" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="2475218" bitrate="159691.48387096773">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71cd246a-bef0-422f-908c-abe635cf7cb9-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71cd246a-bef0-422f-908c-abe635cf7cb9-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/71cd246a-bef0-422f-908c-abe635cf7cb9/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/e438cca2-f294-4d4a-8f46-f1245429fc04.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Evidence-Based Soundstage]]></title>
+      <link>https://noagendatube.com/videos/watch/a5765c6f-a065-434e-bb35-ed2d85798423</link>
+      <guid>https://noagendatube.com/videos/watch/a5765c6f-a065-434e-bb35-ed2d85798423</guid>
+      <pubDate>Sat, 02 Oct 2021 22:46:28 GMT</pubDate>
+      <description><![CDATA[From Episode 1386 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Kevin Dills, Stefan Tucny, Patrick O'Loughlin, Lady MountainJay, Tim Heeszel, Dame g33ksquared, and countless others sendin...]]></description>
+      <content:encoded><![CDATA[From Episode 1386 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Kevin Dills, Stefan Tucny, Patrick O'Loughlin, Lady MountainJay, Tim Heeszel, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1386
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="21189669" url="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="21189669" bitrate="718293.8644067796" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13946995" bitrate="472779.4915254237" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10638338" bitrate="360621.6271186441" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9002888" bitrate="305182.6440677966" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7395481" bitrate="250694.2711864407" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4771052" bitrate="161730.57627118644">
+        <podcast:source uri="https://noagendatube.com/static/webseed/a5765c6f-a065-434e-bb35-ed2d85798423-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/a5765c6f-a065-434e-bb35-ed2d85798423-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/a5765c6f-a065-434e-bb35-ed2d85798423/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/4f0cbeb4-766b-4038-90d4-1088acd49b72.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Do NOT Bring Up the Talking Points!]]></title>
+      <link>https://noagendatube.com/videos/watch/0d26b52c-4c93-4030-a4d8-809d896c45ee</link>
+      <guid>https://noagendatube.com/videos/watch/0d26b52c-4c93-4030-a4d8-809d896c45ee</guid>
+      <pubDate>Fri, 23 Jul 2021 13:08:00 GMT</pubDate>
+      <description><![CDATA[From Episode 1364 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: DCGirl, Lady MountainJay, Kevin Roa, Tim Heeszel, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You t...]]></description>
+      <content:encoded><![CDATA[From Episode 1364 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: DCGirl, Lady MountainJay, Kevin Roa, Tim Heeszel, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1364
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="21330725" url="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="21330725" bitrate="602988.6925795053" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15256763" bitrate="431286.5865724382" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="11958535" bitrate="338050.4593639576" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10258038" bitrate="289979.87279151945" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8572759" bitrate="242339.47703180212" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="5741660" bitrate="162308.40989399294">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0d26b52c-4c93-4030-a4d8-809d896c45ee-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0d26b52c-4c93-4030-a4d8-809d896c45ee-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/0d26b52c-4c93-4030-a4d8-809d896c45ee/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/c7e032e6-bb80-4e9c-bac6-01257495587c.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Fly Delta Plus Before the Rough Winter or the Socialists Win!]]></title>
+      <link>https://noagendatube.com/videos/watch/7520b2b0-1f8d-4ddb-985d-58a75b993676</link>
+      <guid>https://noagendatube.com/videos/watch/7520b2b0-1f8d-4ddb-985d-58a75b993676</guid>
+      <pubDate>Sun, 27 Jun 2021 12:24:26 GMT</pubDate>
+      <description><![CDATA[From Episode 1358 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Nathan Lee Miller Foster, Sir Spud the Mighty, Tim Heeszel, and countless others sending sats via Podcasting 2.0! You too c...]]></description>
+      <content:encoded><![CDATA[From Episode 1358 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Nathan Lee Miller Foster, Sir Spud the Mighty, Tim Heeszel, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1358
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net
+]]>      </content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="19844895" url="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="19844895" bitrate="678457.9487179487" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13925865" bitrate="476097.9487179487" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10692454" bitrate="365553.9829059829" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9068062" bitrate="310019.2136752137" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7421981" bitrate="253742.94017094016" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4712044" bitrate="161095.52136752137">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7520b2b0-1f8d-4ddb-985d-58a75b993676-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7520b2b0-1f8d-4ddb-985d-58a75b993676-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/7520b2b0-1f8d-4ddb-985d-58a75b993676/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/d8fcc734-e779-4368-9e07-1a298ae67558.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - G7: -WE- Decide Who Lives or Dies!]]></title>
+      <link>https://noagendatube.com/videos/watch/b506f770-0327-4075-8dbf-0a9aff8ee99b</link>
+      <guid>https://noagendatube.com/videos/watch/b506f770-0327-4075-8dbf-0a9aff8ee99b</guid>
+      <pubDate>Tue, 15 Jun 2021 19:47:13 GMT</pubDate>
+      <description><![CDATA[From Episode 1354 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Brandon Gruber, Jon Noles, Dude Named Jeff, Sir Spud the Mighty, Lady MountainJay, Kevin Roa, Dame g33ksquared, and countless o...]]></description>
+      <content:encoded><![CDATA[From Episode 1354 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Brandon Gruber, Jon Noles, Dude Named Jeff, Sir Spud the Mighty, Lady MountainJay, Kevin Roa, Dame g33ksquared, and countless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1354
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="13369410" url="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13369410" bitrate="559975.2879581152" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10048017" bitrate="420859.3507853403" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7910687" bitrate="331337.67539267015" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6803783" bitrate="284975.2041884817" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5720802" bitrate="239614.74345549737" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3824616" bitrate="160193.34031413612">
+        <podcast:source uri="https://noagendatube.com/static/webseed/b506f770-0327-4075-8dbf-0a9aff8ee99b-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/b506f770-0327-4075-8dbf-0a9aff8ee99b-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/b506f770-0327-4075-8dbf-0a9aff8ee99b/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/e8d4a72a-b318-4d09-b34d-c82cbd1f32a6.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Noodle Guns Firing!]]></title>
+      <link>https://noagendatube.com/videos/watch/01e3b715-dd9d-44f4-b7a1-21052f35eb45</link>
+      <guid>https://noagendatube.com/videos/watch/01e3b715-dd9d-44f4-b7a1-21052f35eb45</guid>
+      <pubDate>Tue, 25 May 2021 00:07:27 GMT</pubDate>
+      <description><![CDATA[Animated No Agenda - Free Speech Irony
+
+From Episode 1348 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Jerry Khurl, Sir Kilgore Trout, MJ Fanta, Michael Knight, Robert Case, Christopher ...]]></description>
+      <content:encoded><![CDATA[Animated No Agenda - Free Speech Irony
+
+From Episode 1348 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Jerry Khurl, Sir Kilgore Trout, MJ Fanta, Michael Knight, Robert Case, Christopher Di Biase, Tim Heeszel, Kevin Roa, and counteless others sending sats via Podcasting 2.0! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1348
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="31584722" url="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="31584722" bitrate="998726.3873517787" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="18754058" bitrate="593013.6916996047" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13596807" bitrate="429938.56126482214" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="11074563" bitrate="350183.81027667987" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8595639" bitrate="271798.86166007904" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="5103690" bitrate="161381.50197628458">
+        <podcast:source uri="https://noagendatube.com/static/webseed/01e3b715-dd9d-44f4-b7a1-21052f35eb45-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/01e3b715-dd9d-44f4-b7a1-21052f35eb45-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/01e3b715-dd9d-44f4-b7a1-21052f35eb45/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/8734572f-7c84-403d-8925-d3505d8aa2cd.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Free Speech Irony]]></title>
+      <link>https://noagendatube.com/videos/watch/3efc9969-2e2d-44c9-9d15-61d337dd41b5</link>
+      <guid>https://noagendatube.com/videos/watch/3efc9969-2e2d-44c9-9d15-61d337dd41b5</guid>
+      <pubDate>Thu, 13 May 2021 01:01:09 GMT</pubDate>
+      <description><![CDATA[From Episode 1344 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: MountainJay, geeksquar3d, and counteless others sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can giv...]]></description>
+      <content:encoded><![CDATA[From Episode 1344 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: MountainJay, geeksquar3d, and counteless others sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1344
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="16993539" url="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="16993539" bitrate="620768.5479452055" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12400380" bitrate="452981.91780821915" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9629250" bitrate="351753.4246575342" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8197849" bitrate="299464.803652968" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6798134" bitrate="248333.66210045663" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4402644" bitrate="160827.1780821918">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3efc9969-2e2d-44c9-9d15-61d337dd41b5-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3efc9969-2e2d-44c9-9d15-61d337dd41b5-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/3efc9969-2e2d-44c9-9d15-61d337dd41b5/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/3a5d038e-69dd-4402-9951-25064d8e2c3d.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - If You Thought Big Tech Was the Problem. . .]]></title>
+      <link>https://noagendatube.com/videos/watch/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3</link>
+      <guid>https://noagendatube.com/videos/watch/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3</guid>
+      <pubDate>Sun, 02 May 2021 18:57:01 GMT</pubDate>
+      <description><![CDATA[From Episode 1342 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers, wildheretic.com, Sir Spud the Mighty, Thomas Hall and those sending sats via Podcasting 2.0! Get yerself the Podfriend app! You...]]></description>
+      <content:encoded><![CDATA[From Episode 1342 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers, wildheretic.com, Sir Spud the Mighty, Thomas Hall and those sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1342
+
+Full vid - Heroin's Hidden Ingredient: https://youtu.be/L0_DXMRQDOw
+Full vid - Sen. John Cornyn (R-TX): https://youtu.be/LH2GsaAJG7E
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="55633264" url="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="55633264" bitrate="1399578.968553459" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="28296829" bitrate="711869.9119496855" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="19968568" bitrate="502353.91194968554" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15666467" bitrate="394124.9559748428" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="11640951" bitrate="292854.11320754717" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="6434204" bitrate="161866.76729559747">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/7d3b7cd6-f7a7-482e-98af-e1a462f4a0a3/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/4561bffb-1b43-4abd-a741-15e62cb1dcb9.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - These Days Only Podcasters Bring the Truth]]></title>
+      <link>https://noagendatube.com/videos/watch/e1f9cd36-7045-435f-bdb9-39af693e0420</link>
+      <guid>https://noagendatube.com/videos/watch/e1f9cd36-7045-435f-bdb9-39af693e0420</guid>
+      <pubDate>Sun, 18 Apr 2021 23:20:30 GMT</pubDate>
+      <description><![CDATA[From Episode 1338 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers, those sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can give Value for Value in two ways, explained h...]]></description>
+      <content:encoded><![CDATA[From Episode 1338 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers, those sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1338
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite Podcasting 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="16391273" url="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="16391273" bitrate="544108.6473029045" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12673737" bitrate="420704.9626556017" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9972423" bitrate="331034.7883817427" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8607531" bitrate="285727.1701244813" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7205884" bitrate="239199.46887966804" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4833874" bitrate="160460.54771784233">
+        <podcast:source uri="https://noagendatube.com/static/webseed/e1f9cd36-7045-435f-bdb9-39af693e0420-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/e1f9cd36-7045-435f-bdb9-39af693e0420-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/e1f9cd36-7045-435f-bdb9-39af693e0420/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/0d71dd0d-2f59-4c35-b402-4ae680dcf997.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Defining Sexual Harassment [Remastered]]]></title>
+      <link>https://noagendatube.com/videos/watch/68c62b13-f7bf-42c1-b869-463913ead12b</link>
+      <guid>https://noagendatube.com/videos/watch/68c62b13-f7bf-42c1-b869-463913ead12b</guid>
+      <pubDate>Sat, 10 Apr 2021 19:05:48 GMT</pubDate>
+      <description><![CDATA[An old classic from simpler times in 2019, remastered while the hosts take a much-deserved vacation!
+
+From Episode 1187 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: MountainJay, geeksquar3d...]]></description>
+      <content:encoded><![CDATA[An old classic from simpler times in 2019, remastered while the hosts take a much-deserved vacation!
+
+From Episode 1187 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: MountainJay, geeksquar3d, and counteless others sending sats via Podcasting 2.0! Get yerself the Podfriend app! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1187
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="11475097" url="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="11475097" bitrate="577363.3710691824" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8761412" bitrate="440825.76100628934" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6878335" bitrate="346079.74842767295" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5896398" bitrate="296674.11320754717" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4879178" bitrate="245493.23270440253" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3198883" bitrate="160950.08805031446">
+        <podcast:source uri="https://noagendatube.com/static/webseed/68c62b13-f7bf-42c1-b869-463913ead12b-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/68c62b13-f7bf-42c1-b869-463913ead12b-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/68c62b13-f7bf-42c1-b869-463913ead12b/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/53e8e250-5a58-4eaa-abba-6ec205e7eea0.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Vax Gaffes]]></title>
+      <link>https://noagendatube.com/videos/watch/1cad3e89-b0ba-48bd-a6b1-3b1a79166330</link>
+      <guid>https://noagendatube.com/videos/watch/1cad3e89-b0ba-48bd-a6b1-3b1a79166330</guid>
+      <pubDate>Sat, 03 Apr 2021 22:18:03 GMT</pubDate>
+      <description><![CDATA[From Episode 1334 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Sidereal, Duke of Luna Sir Kevin A McLaughlin, Mark Hansens, and Laren Ball! You too can give Value for Value in two ways, ...]]></description>
+      <content:encoded><![CDATA[From Episode 1334 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Sir Sidereal, Duke of Luna Sir Kevin A McLaughlin, Mark Hansens, and Laren Ball! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1334
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="12183335" url="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-1080-fragmented.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12183335" bitrate="658558.6486486486" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-1080-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-1080-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9007813" bitrate="486908.8108108108" height="720">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-720-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-720-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6769036" bitrate="365893.8378378378" height="480">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-480-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-480-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5695734" bitrate="307877.5135135135" height="360">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-360-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-360-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4652178" bitrate="251469.0810810811" height="240">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-240-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-240-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="2959798" bitrate="159989.0810810811">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-0-fragmented.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/1cad3e89-b0ba-48bd-a6b1-3b1a79166330-0-hls.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/1cad3e89-b0ba-48bd-a6b1-3b1a79166330/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/a9ffad40-fa48-401b-b89c-be16e0044a46.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Back to Normal!]]></title>
+      <link>https://noagendatube.com/videos/watch/0577c14f-0d5f-4b46-8a84-39c8ddfe7238</link>
+      <guid>https://noagendatube.com/videos/watch/0577c14f-0d5f-4b46-8a84-39c8ddfe7238</guid>
+      <pubDate>Sat, 27 Mar 2021 21:35:43 GMT</pubDate>
+      <description><![CDATA[From Episode 1332 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Bobby Noobie and Duke of Luna Sir Kevin A McLaughlin! You too can give Value for Value in two ways, explained here: https://ana...]]></description>
+      <content:encoded><![CDATA[From Episode 1332 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Bobby Noobie and Duke of Luna Sir Kevin A McLaughlin! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1332
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="12249871" url="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12249871" bitrate="680548.3888888889" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8649812" bitrate="480545.1111111111" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6595735" bitrate="366429.72222222225" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5580279" bitrate="310015.5" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4558193" bitrate="253232.94444444444" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="2844935" bitrate="158051.94444444444">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0577c14f-0d5f-4b46-8a84-39c8ddfe7238-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/0577c14f-0d5f-4b46-8a84-39c8ddfe7238/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/34d17397-a79c-4142-813c-7927246f40e6.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Beware the LinkedIn Honeypot]]></title>
+      <link>https://noagendatube.com/videos/watch/604f5871-3ff7-47ca-8da7-fd3dcad6fef4</link>
+      <guid>https://noagendatube.com/videos/watch/604f5871-3ff7-47ca-8da7-fd3dcad6fef4</guid>
+      <pubDate>Sat, 20 Mar 2021 22:57:23 GMT</pubDate>
+      <description><![CDATA[From Episode 1330 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin and Bobby Noobie! You too can give Value for Value in two ways, explained here: https://ana...]]></description>
+      <content:encoded><![CDATA[From Episode 1330 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin and Bobby Noobie! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1330
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.net]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="14766713" url="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="14766713" bitrate="724746.6503067485" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10622742" bitrate="521361.5705521472" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7990973" bitrate="392194.9938650307" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6696751" bitrate="328674.89570552146" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5375381" bitrate="263822.38036809815" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3255132" bitrate="159761.07975460123">
+        <podcast:source uri="https://noagendatube.com/static/webseed/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/604f5871-3ff7-47ca-8da7-fd3dcad6fef4-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/604f5871-3ff7-47ca-8da7-fd3dcad6fef4/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/604f5871-3ff7-47ca-8da7-fd3dcad6fef4.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - NA Themes Explainer]]></title>
+      <link>https://noagendatube.com/videos/watch/6d5da91e-fcbf-4b76-876d-3b81f422928a</link>
+      <guid>https://noagendatube.com/videos/watch/6d5da91e-fcbf-4b76-876d-3b81f422928a</guid>
+      <pubDate>Sun, 14 Mar 2021 20:31:17 GMT</pubDate>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="18011979" url="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="18011979" bitrate="805004.6480446927" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="14145951" bitrate="632221.2737430168" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10407265" bitrate="465129.1620111732" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8486760" bitrate="379296.53631284914" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6614560" bitrate="295622.7932960894" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3632620" bitrate="162351.73184357543">
+        <podcast:source uri="https://noagendatube.com/static/webseed/6d5da91e-fcbf-4b76-876d-3b81f422928a-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/6d5da91e-fcbf-4b76-876d-3b81f422928a-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/6d5da91e-fcbf-4b76-876d-3b81f422928a/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/6d5da91e-fcbf-4b76-876d-3b81f422928a.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - We're Guinea Pigs Waiting for Data]]></title>
+      <link>https://noagendatube.com/videos/watch/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b</link>
+      <guid>https://noagendatube.com/videos/watch/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b</guid>
+      <pubDate>Sun, 14 Mar 2021 10:13:11 GMT</pubDate>
+      <description><![CDATA[From Episode 1328 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin, Sir Spud the Mighty, MountainJay, Thomas Hall, and geeksquar3d! You too can give Value for...]]></description>
+      <content:encoded><![CDATA[From Episode 1328 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin, Sir Spud the Mighty, MountainJay, Thomas Hall, and geeksquar3d! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1328
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.com]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="16686533" url="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="16686533" bitrate="593298.9511111111" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13981840" bitrate="497132.0888888889" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="10675026" bitrate="379556.48" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8942291" bitrate="317948.12444444443" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7315381" bitrate="260102.43555555557" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4528926" bitrate="161028.48">
+        <podcast:source uri="https://noagendatube.com/static/webseed/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/3b0cb2da-86ac-4c0b-a9b8-9d949af5aa4b.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - False Belief?]]></title>
+      <link>https://noagendatube.com/videos/watch/5425baef-b750-4ee4-a543-dfec258adf79</link>
+      <guid>https://noagendatube.com/videos/watch/5425baef-b750-4ee4-a543-dfec258adf79</guid>
+      <pubDate>Sun, 07 Mar 2021 02:03:56 GMT</pubDate>
+      <description><![CDATA[From Episode 1326 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Randy Filkins and Duke of Luna, Sir Kevin A McLaughlin! You too can give Value for Value in two ways, explained here: https://a...]]></description>
+      <content:encoded><![CDATA[From Episode 1326 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Randy Filkins and Duke of Luna, Sir Kevin A McLaughlin! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://mp3s.nashownotes.com/NA-1326-2021-03-04-Final.mp3
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.com]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="12105081" url="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12105081" bitrate="594114.4049079755" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9408610" bitrate="461772.2699386503" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7331543" bitrate="359830.3312883436" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6253914" bitrate="306940.5644171779" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5101081" bitrate="250359.8036809816" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3246862" bitrate="159355.19018404908">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5425baef-b750-4ee4-a543-dfec258adf79-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5425baef-b750-4ee4-a543-dfec258adf79-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/5425baef-b750-4ee4-a543-dfec258adf79/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/5425baef-b750-4ee4-a543-dfec258adf79.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Like Throwing a Dart from DC to Dallas!]]></title>
+      <link>https://noagendatube.com/videos/watch/7dfb5b2b-c2c5-465e-a616-856b5551c2d7</link>
+      <guid>https://noagendatube.com/videos/watch/7dfb5b2b-c2c5-465e-a616-856b5551c2d7</guid>
+      <pubDate>Sun, 28 Feb 2021 19:17:36 GMT</pubDate>
+      <description><![CDATA[From Episode 1323 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Link to the report on the bombing of the Chinese Embassy in Belgrade circa 1999: https://military.wikia.org/wiki/U.S._bombing_of_the_Chinese_embassy_in_Belgrade
+
+Special T...]]></description>
+      <content:encoded><![CDATA[From Episode 1323 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Link to the report on the bombing of the Chinese Embassy in Belgrade circa 1999: https://military.wikia.org/wiki/U.S._bombing_of_the_Chinese_embassy_in_Belgrade
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin and g33ksquared! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1323
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.com]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="15697081" url="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15697081" bitrate="660929.7263157895" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="11995459" bitrate="505071.95789473684" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9191340" bitrate="387003.7894736842" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="7792564" bitrate="328107.95789473684" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6193384" bitrate="260774.06315789474" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3812675" bitrate="160533.68421052632">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7dfb5b2b-c2c5-465e-a616-856b5551c2d7-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/7dfb5b2b-c2c5-465e-a616-856b5551c2d7/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/7dfb5b2b-c2c5-465e-a616-856b5551c2d7.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - Enron Meets r/wallstreetbets]]></title>
+      <link>https://noagendatube.com/videos/watch/5f42fb3f-811d-41e6-855e-de68f55bf879</link>
+      <guid>https://noagendatube.com/videos/watch/5f42fb3f-811d-41e6-855e-de68f55bf879</guid>
+      <pubDate>Mon, 22 Feb 2021 00:32:51 GMT</pubDate>
+      <description><![CDATA[From Episode 1322 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+About ERCOT (with explainer videos): http://www.ercot.com/about
+
+Special Thanks to this episode's Producer: Duke of Luna Sir Kevin A McLaughlin! You too can give Value for...]]></description>
+      <content:encoded><![CDATA[From Episode 1322 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+About ERCOT (with explainer videos): http://www.ercot.com/about
+
+Special Thanks to this episode's Producer: Duke of Luna Sir Kevin A McLaughlin! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1322
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.com
+]]>      </content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="73917043" url="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="73917043" bitrate="825888.748603352" height="1080" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="52042167" bitrate="581476.7262569832" height="720">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="38984288" bitrate="435578.6368715084" height="480">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="32345721" bitrate="361404.70391061454" height="360">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="25242484" bitrate="282038.92737430165" height="240">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="14518346" bitrate="162216.15642458102">
+        <podcast:source uri="https://noagendatube.com/static/webseed/5f42fb3f-811d-41e6-855e-de68f55bf879-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/5f42fb3f-811d-41e6-855e-de68f55bf879-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/5f42fb3f-811d-41e6-855e-de68f55bf879/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/5f42fb3f-811d-41e6-855e-de68f55bf879.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Animated No Agenda - GO PODCASTING!]]></title>
+      <link>https://noagendatube.com/videos/watch/df2cb75c-e7cf-48eb-8d34-f258c656aa8d</link>
+      <guid>https://noagendatube.com/videos/watch/df2cb75c-e7cf-48eb-8d34-f258c656aa8d</guid>
+      <pubDate>Sun, 14 Feb 2021 18:35:34 GMT</pubDate>
+      <description><![CDATA[From Episode 1320 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin, David J. Langford OD, MountainJay, and g33ksquared! You too can give Value for Value in tw...]]></description>
+      <content:encoded><![CDATA[From Episode 1320 of the No Agenda Show with Adam Curry and John C Dvorak.
+
+Special Thanks to this episode's Producers: Duke of Luna Sir Kevin A McLaughlin, David J. Langford OD, MountainJay, and g33ksquared! You too can give Value for Value in two ways, explained here: https://anav4v.com
+
+Episode link: https://www.noagendashow.net/listen/1320
+
+Listen live every Thursday and Sunday at 12p EST / 5p UTC or subscribe via your favorite podcast 2.0 app. http://noagendashow.com]]></content:encoded>
+      <dc:creator>Dame Jennifer</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/dame_jennifer" img="https://noagendatube.com/lazy-static/avatars/e96ee293-9104-4ebf-84db-ebbb04cf621c.jpg">Dame Jennifer</podcast:person>
+      <enclosure type="video/mp4" length="30891305" url="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-1080.mp4">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="30891305" bitrate="592638.9448441247" height="1080" language="en" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="26210942" bitrate="502847.8081534772" height="720" language="en">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="19946043" bitrate="382657.8992805755" height="480" language="en">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="16755686" bitrate="321452.0095923261" height="360" language="en">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="13577997" bitrate="260489.1510791367" height="240" language="en">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="8428511" bitrate="161698.05275779378" language="en">
+        <podcast:source uri="https://noagendatube.com/static/webseed/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/df2cb75c-e7cf-48eb-8d34-f258c656aa8d-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" language="en">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/df2cb75c-e7cf-48eb-8d34-f258c656aa8d/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/static/thumbnails/df2cb75c-e7cf-48eb-8d34-f258c656aa8d.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+  </channel>
+</rss>

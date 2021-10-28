@@ -94,8 +94,11 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[`podcast:${tag}`]);
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
+      log.trace(`Checking feed ${tag} support`);
 
       if (tagSupported) {
+        log.debug(`Feed supports ${tag}`);
+
         return {
           feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
@@ -120,8 +123,11 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck }) => {
       const node = (nodeTransform ?? defaultNodeTransform)(item[`podcast:${tag}`]);
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node);
+      log.trace(`Checking feed item ${tag} support`);
 
       if (tagSupported) {
+        log.debug(`Feed item supports ${tag}`);
+
         return {
           itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed)),
           phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [tag]: true } }),
