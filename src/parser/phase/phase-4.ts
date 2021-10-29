@@ -52,7 +52,8 @@ const validRecipient = (n: XmlNode): boolean =>
   Boolean(getAttribute(n, "type") && getAttribute(n, "address") && getAttribute(n, "split"));
 export const value = {
   phase: 4,
-  tag: "value",
+  tag: "podcast:value",
+  name: "value",
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean =>
     Boolean(getAttribute(node, "type")) &&

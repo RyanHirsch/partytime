@@ -96,7 +96,7 @@ const items: ItemUpdate[] = [
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
   return feedUpdates.reduce(
     ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
-      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
+      const tagName = tag;
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[tagName]);
       logger.trace(`Checking feed ${tagName} support`);
@@ -128,7 +128,7 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
 export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
   return itemUpdates.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
-      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
+      const tagName = tag;
       logger.trace(`Checking feed item ${tagName} support`);
 
       const node = (nodeTransform ?? defaultNodeTransform)(item[tagName]);

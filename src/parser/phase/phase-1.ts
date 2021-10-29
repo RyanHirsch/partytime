@@ -15,7 +15,8 @@ import type { FeedUpdate, ItemUpdate } from "./index";
  */
 export const locked: FeedUpdate = {
   phase: 1,
-  tag: "locked",
+  tag: "podcast:locked",
+  name: "locked",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "owner")),
   fn(node) {
@@ -67,7 +68,8 @@ enum TranscriptType {
 
 export const transcript: ItemUpdate = {
   phase: 1,
-  tag: "transcript",
+  tag: "podcast:transcript",
+  name: "transcript",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
     (node as XmlNode[]).some(
@@ -128,7 +130,8 @@ export type Phase1Funding = {
 };
 export const funding: FeedUpdate = {
   phase: 1,
-  tag: "funding",
+  tag: "podcast:funding",
+  name: "funding",
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[]) => Boolean(node.find((x) => getAttribute(x, "url"))),
   fn(node: XmlNode[]) {
@@ -166,7 +169,8 @@ export type Phase1Chapter = {
 };
 export const chapters: ItemUpdate = {
   phase: 1,
-  tag: "chapters",
+  tag: "podcast:chapters",
+  name: "chapters",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
   fn(node) {
@@ -198,7 +202,8 @@ export type Phase1SoundBite = {
 };
 export const soundbite: ItemUpdate = {
   phase: 1,
-  tag: "soundbite",
+  tag: "podcast:soundbite",
+  name: "soundbite",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
     (node as XmlNode[]).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),

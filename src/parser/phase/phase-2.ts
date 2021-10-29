@@ -24,7 +24,8 @@ export type Phase2Person = {
 };
 export const person = {
   phase: 2,
-  tag: "person",
+  tag: "podcast:person",
+  name: "person",
   nodeTransform: ensureArray,
   // As long as one of the person tags has text, we'll consider it valid
   supportCheck: (node: XmlNode): boolean =>
@@ -87,7 +88,8 @@ export type Phase2Location = {
 };
 export const location = {
   phase: 2,
-  tag: "location",
+  tag: "podcast:location",
+  name: "location",
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean => Boolean(getText(node)),
   fn(node: XmlNode): { podcastLocation: Phase2Location } {
@@ -124,7 +126,8 @@ export type Phase2SeasonNumber = {
 
 export const season: ItemUpdate = {
   phase: 2,
-  tag: "season",
+  tag: "podcast:season",
+  name: "season",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getNumber(node)),
   fn(node) {
@@ -162,7 +165,8 @@ export type Phase2EpisodeNumber = {
 
 export const episode: ItemUpdate = {
   phase: 2,
-  tag: "episode",
+  tag: "podcast:episode",
+  name: "episode",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getNumber(node)),
 

@@ -43,7 +43,8 @@ export type Phase3Trailer = {
 };
 export const trailer: FeedUpdate = {
   phase: 3,
-  tag: "trailer",
+  tag: "podcast:trailer",
+  name: "trailer",
   supportCheck: (node) => {
     const fNode = firstIfArray(node);
     return (
@@ -80,7 +81,8 @@ export type Phase3License = {
 };
 export const license = {
   phase: 3,
-  tag: "license",
+  tag: "podcast:license",
+  name: "license",
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean => {
     const identifier = getText(node);
@@ -167,7 +169,8 @@ enum IntegrityType {
 }
 export const alternativeEnclosure: ItemUpdate = {
   phase: 3,
-  tag: "alternateEnclosure",
+  tag: "podcast:alternateEnclosure",
+  name: "alternateEnclosure",
   nodeTransform: ensureArray,
   supportCheck: (node) => {
     return (node as XmlNode[]).some((i) => {
@@ -254,7 +257,8 @@ export const alternativeEnclosure: ItemUpdate = {
  */
 export const guid: FeedUpdate = {
   phase: 3,
-  tag: "guid",
+  tag: "podcast:guid",
+  name: "guid",
   supportCheck: (node) => Boolean(getText(node)),
   fn(node, _feed) {
     logger.info("guid");
