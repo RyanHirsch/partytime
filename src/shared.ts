@@ -1,9 +1,11 @@
-import fetch from "node-fetch";
 import * as fs from "fs";
-import { log } from "./logger";
+
+import fetch from "node-fetch";
+
+import { logger } from "./logger";
 
 export async function getFeedText(uri: string): Promise<string> {
-  log.info(uri);
+  logger.info(uri);
   if (uri.startsWith(`http`)) {
     const response = await fetch(uri, {
       headers: {

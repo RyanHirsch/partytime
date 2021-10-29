@@ -1,10 +1,6 @@
-import * as logger from "loglevel";
+import pino from "pino";
 
-// log.trace(msg)
-// log.debug(msg)
-// log.info(msg)
-// log.warn(msg)
-// log.error(msg)
-logger.setLevel((process.env.LOG ?? "warn") as logger.LogLevelDesc);
+import config from "./config";
 
-export const log = logger;
+export const logger = pino({ level: config.logLevel });
+logger.debug(config);

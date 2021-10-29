@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ensureArray, firstIfArray, getAttribute, getKnownAttribute, getText } from "../shared";
-
 import type { FeedObject, XmlNode } from "../types";
+import { logger } from "../../logger";
+
 import type { FeedUpdate, ItemUpdate } from "./index";
-import { log } from "../../logger";
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#locked
@@ -19,14 +19,14 @@ export const locked: FeedUpdate = {
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "owner")),
   fn(node) {
-    log.info("locked");
+    logger.info("locked");
 
     const feedUpdate: Partial<FeedObject> = {};
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
 
-    log.debug(`- Owner: ${owner ?? ""}`);
-    log.debug(`- Locked: ${lockedText}`);
+    logger.debug(`- Owner: ${owner ?? ""}`);
+    logger.debug(`- Locked: ${lockedText}`);
 
     if (["yes", "true"].includes(lockedText)) {
       feedUpdate.locked = true;
@@ -76,7 +76,7 @@ export const transcript: ItemUpdate = {
         Boolean(getAttribute(transcriptNode, "type"))
     ),
   fn(node, feed) {
-    log.info("transcript");
+    logger.info("transcript");
 
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
 
@@ -88,11 +88,11 @@ export const transcript: ItemUpdate = {
 
       const rel = getAttribute(transcriptNode, "rel");
 
-      log.debug(`- Feed Language: ${feedLanguage}`);
-      log.debug(`- URL: ${url ?? "<null>"}`);
-      log.debug(`- Type: ${type}`);
-      log.debug(`- Language: ${language}`);
-      log.debug(`- Rel: ${rel ?? "<null>"}`);
+      logger.debug(`- Feed Language: ${feedLanguage}`);
+      logger.debug(`- URL: ${url ?? "<null>"}`);
+      logger.debug(`- Type: ${type}`);
+      logger.debug(`- Language: ${language}`);
+      logger.debug(`- Rel: ${rel ?? "<null>"}`);
 
       if (url && type) {
         const transcriptValue: Phase1Transcript = {
@@ -132,7 +132,7 @@ export const funding: FeedUpdate = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[]) => Boolean(node.find((x) => getAttribute(x, "url"))),
   fn(node: XmlNode[]) {
-    log.info("funding");
+    logger.info("funding");
 
     return {
       podcastFunding: node
@@ -170,7 +170,7 @@ export const chapters: ItemUpdate = {
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
   fn(node) {
-    log.info("chapters");
+    logger.info("chapters");
 
     return {
       podcastChapters: {
@@ -203,7 +203,7 @@ export const soundbite: ItemUpdate = {
   supportCheck: (node) =>
     (node as XmlNode[]).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
   fn(node, feed) {
-    log.info("soundbite");
+    logger.info("soundbite");
 
     const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
 

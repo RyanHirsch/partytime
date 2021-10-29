@@ -4,8 +4,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import sqlite from "sqlite3";
 import * as path from "path";
+
+import sqlite from "sqlite3";
 
 import { getFeedText } from "../../shared";
 import { parseFeed } from "../index";

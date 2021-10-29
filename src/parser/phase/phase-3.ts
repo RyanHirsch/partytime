@@ -10,12 +10,12 @@ import {
   getKnownAttribute,
   getText,
 } from "../shared";
+import { logger } from "../../logger";
+import type { EmptyObj, XmlNode } from "../types";
 
 import { json as licenseDefinitions } from "./licenses";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
-import { log } from "../../logger";
-import type { EmptyObj, XmlNode } from "../types";
 
 // <podcast:guid>
 
@@ -93,7 +93,7 @@ export const license = {
     return Boolean(identifier) && Boolean(url);
   },
   fn(node: XmlNode, feed: XmlNode): EmptyObj | { license: Phase3License } {
-    log.info("license found");
+    logger.info("license found");
 
     const identifier = getText(node);
     const url =
@@ -103,13 +103,13 @@ export const license = {
       )?.reference;
 
     if (!url) {
-      log.warn(
+      logger.warn(
         `Missing License URL for ${identifier}, originating in ${feed.rss.channel.title as string}`
       );
       return {};
     }
 
-    log.info(`  [${identifier}](${url})`);
+    logger.info(`  [${identifier}](${url})`);
     return {
       license: {
         identifier,
@@ -184,7 +184,7 @@ export const alternativeEnclosure: ItemUpdate = {
     });
   },
   fn(node, _feed) {
-    log.info("alternateEnclosure");
+    logger.info("alternateEnclosure");
 
     const update: Phase3AltEnclosure[] = [];
 
@@ -257,7 +257,7 @@ export const guid: FeedUpdate = {
   tag: "guid",
   supportCheck: (node) => Boolean(getText(node)),
   fn(node, _feed) {
-    log.info("guid");
+    logger.info("guid");
 
     return {
       guid: getText(node),

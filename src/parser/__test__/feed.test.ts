@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { parseFeed } from "../index";
 import { ItunesFeedType } from "../types";
+
 import * as helpers from "./helpers";
 
 describe("feed handling", () => {

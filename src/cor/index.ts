@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import zip from "ramda/src/zip";
-import { log } from "../logger";
+
+import { logger } from "../logger";
 import { parseFeed } from "../parser";
 import type { Episode, FeedObject } from "../parser/types";
 import { getFeedText } from "../shared";
@@ -27,7 +28,7 @@ export function checkCors(
       // (resp.headers.get("access-control-allow-methods") as string[]).includes(methodToCheck)
     },
     (err) => {
-      log.error(err);
+      logger.error(err);
       return false;
     }
   );

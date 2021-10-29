@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+
 import type { FeedObject } from "../types";
 
 export async function loadFixture(name = "example"): Promise<string> {

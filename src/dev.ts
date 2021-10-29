@@ -3,15 +3,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as fs from "fs";
 import * as path from "path";
+import crypto from "crypto";
+
 import stringify from "fast-json-stable-stringify";
 import sqlite from "sqlite3";
-import crypto from "crypto";
 import { getStream$ } from "podping-client";
 import { take } from "rxjs/operators";
 
-import { log } from "./logger";
+import { logger } from "./logger";
 import { parseFeed } from "./parser";
-
 // import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
 
@@ -135,7 +135,7 @@ const randomInRange = (min: number, max: number): number => {
 export async function checkAll(): Promise<void> {
   for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
-    log.info(`Parsing ${name}: ${url}`);
+    logger.info(`Parsing ${name}: ${url}`);
     // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
@@ -158,7 +158,7 @@ export async function checkSome(limit: number): Promise<void> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { title, url } = randomFeeds[i];
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    log.info(`Parsing ${title}: ${url}`);
+    logger.info(`Parsing ${title}: ${url}`);
     // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
@@ -172,7 +172,7 @@ export async function checkAllDb(): Promise<void> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { title, url } = rows[i];
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    log.info(`Parsing ${title}: ${url}`);
+    logger.info(`Parsing ${title}: ${url}`);
     // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
@@ -189,7 +189,7 @@ function save<T>({
   parser: (d: T) => string;
 }): Promise<void> {
   const filePath = path.resolve(__dirname, relativePath);
-  log.info(`Save ${filePath}`);
+  logger.info(`Save ${filePath}`);
   return new Promise((resolve, reject) =>
     fs.writeFile(filePath, parser(data), (err) => {
       if (err) {
@@ -214,7 +214,7 @@ async function getFeed(uri: string): Promise<void> {
 
   const feedObject = parseFeed(xml);
   if (!feedObject) {
-    log.warn(`Failed to parse xml from ${uri}`);
+    logger.warn(`Failed to parse xml from ${uri}`);
     return;
   }
 
@@ -235,15 +235,15 @@ async function getFeed(uri: string): Promise<void> {
     "..",
     `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
   );
-  log.info(`Parsed feed object ${parsed}`);
+  logger.info(`Parsed feed object ${parsed}`);
   fs.writeFileSync(parsed, stringify({ ...feedObject, url: uri }));
   await Promise.all([xmlSave, listSave]);
 
   // const corsSupport = await checkFeedByUri(uri);
-  // log.info(corsSupport);
+  // logger.info(corsSupport);
 
   // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
-  log.info(feedObject.pc20support);
+  logger.info(feedObject.pc20support);
 }
 
 if (process.argv[2] === "--latest") {
@@ -256,7 +256,7 @@ if (process.argv[2] === "--latest") {
             resolve(getFeed(val.url));
           },
           complete() {
-            console.log("complete");
+            logger.info("complete");
           },
         });
     })
@@ -270,8 +270,8 @@ if (process.argv[2] === "--latest") {
 function runPromise(prom: Promise<any>): void {
   prom
     .then(
-      () => log.info("done"),
-      (err) => log.error(err)
+      () => logger.info("done"),
+      (err) => logger.error(err)
     )
     .finally(() => process.exit());
 }
