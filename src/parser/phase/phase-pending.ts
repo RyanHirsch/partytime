@@ -1,4 +1,3 @@
-import { log } from "../../logger";
 import {
   ensureArray,
   extractOptionalFloatAttribute,
@@ -6,10 +5,14 @@ import {
   getAttribute,
   getKnownAttribute,
   getText,
+  lookup,
   pubDateToDate,
 } from "../shared";
 import type { XmlNode } from "../types";
+
 import { XmlNodeSource } from "./types";
+
+import type { FeedUpdate } from ".";
 
 export type PhasePendingPodcastId = {
   platform: string;
@@ -23,7 +26,6 @@ export const id = {
   supportCheck: (node: XmlNode[]): boolean =>
     node.some((n) => Boolean(getAttribute(n, "platform")) && Boolean(getAttribute(n, "url"))),
   fn(node: XmlNode[]): { podcastId: PhasePendingPodcastId[] } {
-    log.info("id");
     return {
       podcastId: node
         .map((n) => ({
@@ -61,8 +63,6 @@ export const social = {
         (Boolean(getAttribute(n, "url")) || Boolean(getAttribute(n, "podcastAccountUrl")))
     ),
   fn(node: XmlNode[]): { podcastSocial: PhasePendingSocial[] } {
-    log.info("social");
-
     const isValidFeedNode = (n: XmlNode): boolean =>
       Boolean(getAttribute(n, "platform")) &&
       (Boolean(getAttribute(n, "url")) || Boolean(getAttribute(n, "podcastAccountUrl")));
@@ -160,5 +160,36 @@ export const socialInteraction = {
         return acc;
       }, []),
     };
+  },
+};
+
+export enum PhasePendingMedium {
+  Podcast = "podcast",
+  Music = "music",
+  Video = "video",
+  Film = "film",
+  Audiobook = "audiobook",
+  Newsletter = "newsletter",
+  Blog = "blog",
+}
+export const medium: FeedUpdate = {
+  tag: "podcast:medium",
+  name: "medium",
+  phase: Infinity,
+  nodeTransform: (node: XmlNode) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray<XmlNode>(node).find(
+      (n) => getText(n) && lookup(PhasePendingMedium, getText(n).toLowerCase())
+    ),
+  supportCheck: (node: XmlNode) => Boolean(node) && Boolean(getText(node)),
+  fn(node: XmlNode): { medium: PhasePendingMedium } {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      const parsed = lookup(PhasePendingMedium, nodeValue.toLowerCase());
+      if (parsed) {
+        return { medium: parsed };
+      }
+    }
+    throw new Error("Unable to extract medium from feed, `supportCheck` needs to be updated");
   },
 };

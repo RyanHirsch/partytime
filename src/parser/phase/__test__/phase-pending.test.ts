@@ -3,6 +3,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
+import { PhasePendingMedium } from "../phase-pending";
+
+const phase = Infinity;
 
 describe("phase pending", () => {
   let feed;
@@ -10,14 +13,14 @@ describe("phase pending", () => {
     feed = await helpers.loadSimple();
   });
 
-  describe("podcast id", () => {
+  describe("podcast:id", () => {
     const supportedName = "id";
 
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
 
       expect(result).not.toHaveProperty("podcastId");
-      expect(helpers.getPhaseSupport(result, Infinity)).not.toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
     });
 
     it("ignores missing platform", () => {
@@ -29,7 +32,7 @@ describe("phase pending", () => {
       const result = parseFeed(xml);
 
       expect(result).not.toHaveProperty("podcastId");
-      expect(helpers.getPhaseSupport(result, Infinity)).not.toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
     });
 
     it("extracts a single id", () => {
@@ -45,7 +48,7 @@ describe("phase pending", () => {
       expect(first).toHaveProperty("platform", "deezer");
       expect(first).toHaveProperty("id", "70471");
       expect(first).toHaveProperty("url", "https://www.deezer.com/show/70471");
-      expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
     it("extracts a multiple ids", () => {
@@ -67,7 +70,7 @@ describe("phase pending", () => {
       expect(second).toHaveProperty("platform", "overcast");
       expect(second).toHaveProperty("id", "1448151585");
       expect(second).toHaveProperty("url", "https://overcast.fm/itunes1448151585");
-      expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
     it("allows for optional id attribute", () => {
@@ -83,18 +86,18 @@ describe("phase pending", () => {
       expect(first).toHaveProperty("platform", "deezer");
       expect(first).toHaveProperty("url", "https://www.deezer.com/show/70471");
       expect(first).not.toHaveProperty("id");
-      expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
 
-  describe("podcast social", () => {
+  describe("podcast:social", () => {
     const supportedName = "social";
 
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
 
       expect(result).not.toHaveProperty("podcastSocial");
-      expect(helpers.getPhaseSupport(result, Infinity)).not.toContain(supportedName);
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
     });
 
     describe("feed", () => {
@@ -112,7 +115,7 @@ describe("phase pending", () => {
         expect(first).toHaveProperty("platform", "mastodon");
         expect(first).toHaveProperty("url", "https://enfants-et-famille.podcasts.chat/");
         expect(first).toHaveProperty("name", "enfants-et-famille.podcasts.chat");
-        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
 
       it("extracts a multiple social nodes", () => {
@@ -136,7 +139,7 @@ describe("phase pending", () => {
         expect(second).toHaveProperty("platform", "peertube");
         expect(second).toHaveProperty("url", "https://video.lespoesiesdheloise.fr/");
         expect(second).toHaveProperty("name", "heloise");
-        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
 
       it("extracts a multiple social spec nodes", () => {
@@ -188,7 +191,7 @@ describe("phase pending", () => {
           "https://www.facebook.com/r.php?display=page"
         );
         expect(firstSecondSignUp).toHaveProperty("homeUrl", "https://www.facebook.com/");
-        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
     });
 
@@ -224,8 +227,63 @@ describe("phase pending", () => {
           "https://twitter.com/Podverse/status/1375624446296395781"
         );
 
-        expect(helpers.getPhaseSupport(result, Infinity)).toContain(supportedName);
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
+    });
+  });
+
+  describe("podcast:medium", () => {
+    const supportedName = "medium";
+    it("correctly identifies a basic feed", () => {
+      const result = parseFeed(feed);
+
+      expect(result).not.toHaveProperty("medium");
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+    });
+
+    it("extracts node text", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>podcast</podcast:medium>
+        `
+      );
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("medium", PhasePendingMedium.Podcast);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts the first populated node", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium></podcast:medium>
+        <podcast:medium>audiobook</podcast:medium>
+        <podcast:medium>podcast</podcast:medium>
+        `
+      );
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("medium", PhasePendingMedium.Audiobook);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("ignores unknown types", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>asfd</podcast:medium>
+        <podcast:medium>audiobook</podcast:medium>
+        `
+      );
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("medium", PhasePendingMedium.Audiobook);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
 });

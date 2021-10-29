@@ -79,6 +79,7 @@ const feeds: FeedUpdate[] = [
 
   pending.id,
   pending.social,
+  pending.medium,
 ];
 
 const items: ItemUpdate[] = [

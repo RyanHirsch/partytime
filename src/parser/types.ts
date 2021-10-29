@@ -14,6 +14,7 @@ import type {
 import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
 import type { Phase4Value } from "./phase/phase-4";
 import {
+  PhasePendingMedium,
   PhasePendingPodcastId,
   PhasePendingSocial,
   PhasePendingSocialInteract,
@@ -161,6 +162,8 @@ export interface FeedObject {
   podcastId?: PhasePendingPodcastId[];
   /** PENDING AND LIKELY TO CHANGE where listeners can comment, share, or like podcast episodes */
   podcastSocial?: PhasePendingSocial[];
+  /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
+  medium?: PhasePendingMedium;
   // #endregion
 
   /** podcasting 2.0 phase compliance */
