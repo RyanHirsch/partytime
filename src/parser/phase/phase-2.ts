@@ -1,7 +1,6 @@
 import { ensureArray, firstIfArray, getAttribute, getNumber, getText } from "../shared";
 import { PersonGroup, PersonRole } from "../person-enum";
 import type { XmlNode } from "../types";
-import { logger } from "../../logger";
 
 import type { ItemUpdate } from "./index";
 
@@ -31,7 +30,6 @@ export const person = {
   supportCheck: (node: XmlNode): boolean =>
     (node as XmlNode[]).some((n: XmlNode) => Boolean(getText(n))),
   fn(node: XmlNode): { podcastPeople: Phase2Person[] } {
-    logger.info("person");
     const podcastPeople: Phase2Person[] = [];
 
     const groups = Object.values(PersonGroup);
@@ -93,8 +91,6 @@ export const location = {
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean => Boolean(getText(node)),
   fn(node: XmlNode): { podcastLocation: Phase2Location } {
-    logger.info("location");
-
     const update: { podcastLocation: Phase2Location } = {
       podcastLocation: { name: getText(node) },
     };

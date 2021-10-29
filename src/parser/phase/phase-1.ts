@@ -20,8 +20,6 @@ export const locked: FeedUpdate = {
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "owner")),
   fn(node) {
-    logger.info("locked");
-
     const feedUpdate: Partial<FeedObject> = {};
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
@@ -78,8 +76,6 @@ export const transcript: ItemUpdate = {
         Boolean(getAttribute(transcriptNode, "type"))
     ),
   fn(node, feed) {
-    logger.info("transcript");
-
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
 
     (node as XmlNode[]).forEach((transcriptNode) => {
@@ -135,8 +131,6 @@ export const funding: FeedUpdate = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[]) => Boolean(node.find((x) => getAttribute(x, "url"))),
   fn(node: XmlNode[]) {
-    logger.info("funding");
-
     return {
       podcastFunding: node
         .map((n) => {
@@ -174,8 +168,6 @@ export const chapters: ItemUpdate = {
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
   fn(node) {
-    logger.info("chapters");
-
     return {
       podcastChapters: {
         url: getKnownAttribute(node, "url"),
@@ -208,8 +200,6 @@ export const soundbite: ItemUpdate = {
   supportCheck: (node) =>
     (node as XmlNode[]).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
   fn(node, feed) {
-    logger.info("soundbite");
-
     const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
 
     (node as XmlNode[]).forEach((soundbiteNode: XmlNode) => {

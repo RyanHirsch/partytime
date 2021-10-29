@@ -95,8 +95,6 @@ export const license = {
     return Boolean(identifier) && Boolean(url);
   },
   fn(node: XmlNode, feed: XmlNode): EmptyObj | { license: Phase3License } {
-    logger.info("license found");
-
     const identifier = getText(node);
     const url =
       getAttribute(node, "url") ??
@@ -111,7 +109,7 @@ export const license = {
       return {};
     }
 
-    logger.info(`  [${identifier}](${url})`);
+    logger.debug(`license  [${identifier}](${url})`);
     return {
       license: {
         identifier,
@@ -187,8 +185,6 @@ export const alternativeEnclosure: ItemUpdate = {
     });
   },
   fn(node, _feed) {
-    logger.info("alternateEnclosure");
-
     const update: Phase3AltEnclosure[] = [];
 
     (node as XmlNode[])
@@ -261,8 +257,6 @@ export const guid: FeedUpdate = {
   name: "guid",
   supportCheck: (node) => Boolean(getText(node)),
   fn(node, _feed) {
-    logger.info("guid");
-
     return {
       guid: getText(node),
     };

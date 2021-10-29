@@ -104,7 +104,7 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
-        logger.debug(`Feed supports ${tagName}`);
+        logger.info(`Feed supports ${tagName}`);
 
         return {
           feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
@@ -135,7 +135,7 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Item);
 
       if (tagSupported) {
-        logger.debug(`Feed item supports ${tagName}`);
+        logger.info(`Feed item supports ${tagName}`);
 
         return {
           itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),

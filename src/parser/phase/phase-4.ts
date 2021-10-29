@@ -8,7 +8,6 @@ import {
   getBooleanAttribute,
   getKnownAttribute,
 } from "../shared";
-import { logger } from "../../logger";
 import type { XmlNode } from "../types";
 
 /**
@@ -61,8 +60,6 @@ export const value = {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ensureArray(node["podcast:valueRecipient"]).filter(validRecipient).length > 0,
   fn(node: XmlNode): { value: Phase4Value } {
-    logger.info("value");
-
     return {
       value: {
         type: getKnownAttribute(node, "type"),
