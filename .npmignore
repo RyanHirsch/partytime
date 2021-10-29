@@ -18,4 +18,4 @@ jest.config.js
 tsconfig.*
 yarn-error.log
 yarn.lock
-src/parser/__test__/fixtures/podcastindex_feeds.db
+__test__
