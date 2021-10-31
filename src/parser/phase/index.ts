@@ -96,7 +96,7 @@ const items: ItemUpdate[] = [
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
   return feedUpdates.reduce(
     ({ feedUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
-      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
+      const tagName = tag;
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[tagName]);
       logger.trace(`Checking feed ${tagName} support`);
@@ -104,7 +104,7 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
-        logger.debug(`Feed supports ${tagName}`);
+        logger.info(`Feed supports ${tagName}`);
 
         return {
           feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
@@ -128,14 +128,14 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
 export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): ItemUpdateResult {
   return itemUpdates.reduce(
     ({ itemUpdate, phaseUpdate }, { phase, tag, fn, nodeTransform, supportCheck, name }) => {
-      const tagName = tag.startsWith("podcast:") ? tag : `podcast:${tag}`;
+      const tagName = tag;
       logger.trace(`Checking feed item ${tagName} support`);
 
       const node = (nodeTransform ?? defaultNodeTransform)(item[tagName]);
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Item);
 
       if (tagSupported) {
-        logger.debug(`Feed item supports ${tagName}`);
+        logger.info(`Feed item supports ${tagName}`);
 
         return {
           itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),

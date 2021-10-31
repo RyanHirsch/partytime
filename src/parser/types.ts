@@ -158,6 +158,7 @@ export interface FeedObject {
   items: Episode[];
   newestItemPubDate?: Date;
   oldestItemPubDate?: Date;
+  /** Date this feed was parsed */
   lastUpdate: Date;
 }
 

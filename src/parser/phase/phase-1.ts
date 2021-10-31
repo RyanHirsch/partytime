@@ -15,12 +15,11 @@ import type { FeedUpdate, ItemUpdate } from "./index";
  */
 export const locked: FeedUpdate = {
   phase: 1,
-  tag: "locked",
+  tag: "podcast:locked",
+  name: "locked",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "owner")),
   fn(node) {
-    logger.info("locked");
-
     const feedUpdate: Partial<FeedObject> = {};
     const lockedText = getText(node).toLowerCase();
     const owner = getAttribute(node, "owner");
@@ -67,7 +66,8 @@ enum TranscriptType {
 
 export const transcript: ItemUpdate = {
   phase: 1,
-  tag: "transcript",
+  tag: "podcast:transcript",
+  name: "transcript",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
     (node as XmlNode[]).some(
@@ -76,8 +76,6 @@ export const transcript: ItemUpdate = {
         Boolean(getAttribute(transcriptNode, "type"))
     ),
   fn(node, feed) {
-    logger.info("transcript");
-
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
 
     (node as XmlNode[]).forEach((transcriptNode) => {
@@ -128,12 +126,11 @@ export type Phase1Funding = {
 };
 export const funding: FeedUpdate = {
   phase: 1,
-  tag: "funding",
+  tag: "podcast:funding",
+  name: "funding",
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[]) => Boolean(node.find((x) => getAttribute(x, "url"))),
   fn(node: XmlNode[]) {
-    logger.info("funding");
-
     return {
       podcastFunding: node
         .map((n) => {
@@ -166,12 +163,11 @@ export type Phase1Chapter = {
 };
 export const chapters: ItemUpdate = {
   phase: 1,
-  tag: "chapters",
+  tag: "podcast:chapters",
+  name: "chapters",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
   fn(node) {
-    logger.info("chapters");
-
     return {
       podcastChapters: {
         url: getKnownAttribute(node, "url"),
@@ -198,13 +194,12 @@ export type Phase1SoundBite = {
 };
 export const soundbite: ItemUpdate = {
   phase: 1,
-  tag: "soundbite",
+  tag: "podcast:soundbite",
+  name: "soundbite",
   nodeTransform: ensureArray,
   supportCheck: (node) =>
     (node as XmlNode[]).some((n) => getAttribute(n, "duration") && getAttribute(n, "startTime")),
   fn(node, feed) {
-    logger.info("soundbite");
-
     const itemUpdate = { podcastSoundbites: [] as Phase1SoundBite[] };
 
     (node as XmlNode[]).forEach((soundbiteNode: XmlNode) => {

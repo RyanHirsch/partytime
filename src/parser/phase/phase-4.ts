@@ -8,7 +8,6 @@ import {
   getBooleanAttribute,
   getKnownAttribute,
 } from "../shared";
-import { logger } from "../../logger";
 import type { XmlNode } from "../types";
 
 /**
@@ -52,7 +51,8 @@ const validRecipient = (n: XmlNode): boolean =>
   Boolean(getAttribute(n, "type") && getAttribute(n, "address") && getAttribute(n, "split"));
 export const value = {
   phase: 4,
-  tag: "value",
+  tag: "podcast:value",
+  name: "value",
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean =>
     Boolean(getAttribute(node, "type")) &&
@@ -60,8 +60,6 @@ export const value = {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ensureArray(node["podcast:valueRecipient"]).filter(validRecipient).length > 0,
   fn(node: XmlNode): { value: Phase4Value } {
-    logger.info("value");
-
     return {
       value: {
         type: getKnownAttribute(node, "type"),

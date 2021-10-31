@@ -1,7 +1,6 @@
 import { ensureArray, firstIfArray, getAttribute, getNumber, getText } from "../shared";
 import { PersonGroup, PersonRole } from "../person-enum";
 import type { XmlNode } from "../types";
-import { logger } from "../../logger";
 
 import type { ItemUpdate } from "./index";
 
@@ -24,13 +23,13 @@ export type Phase2Person = {
 };
 export const person = {
   phase: 2,
-  tag: "person",
+  tag: "podcast:person",
+  name: "person",
   nodeTransform: ensureArray,
   // As long as one of the person tags has text, we'll consider it valid
   supportCheck: (node: XmlNode): boolean =>
     (node as XmlNode[]).some((n: XmlNode) => Boolean(getText(n))),
   fn(node: XmlNode): { podcastPeople: Phase2Person[] } {
-    logger.info("person");
     const podcastPeople: Phase2Person[] = [];
 
     const groups = Object.values(PersonGroup);
@@ -87,12 +86,11 @@ export type Phase2Location = {
 };
 export const location = {
   phase: 2,
-  tag: "location",
+  tag: "podcast:location",
+  name: "location",
   nodeTransform: firstIfArray,
   supportCheck: (node: XmlNode): boolean => Boolean(getText(node)),
   fn(node: XmlNode): { podcastLocation: Phase2Location } {
-    logger.info("location");
-
     const update: { podcastLocation: Phase2Location } = {
       podcastLocation: { name: getText(node) },
     };
@@ -124,7 +122,8 @@ export type Phase2SeasonNumber = {
 
 export const season: ItemUpdate = {
   phase: 2,
-  tag: "season",
+  tag: "podcast:season",
+  name: "season",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getNumber(node)),
   fn(node) {
@@ -162,7 +161,8 @@ export type Phase2EpisodeNumber = {
 
 export const episode: ItemUpdate = {
   phase: 2,
-  tag: "episode",
+  tag: "podcast:episode",
+  name: "episode",
   nodeTransform: firstIfArray,
   supportCheck: (node) => Boolean(getNumber(node)),
 
