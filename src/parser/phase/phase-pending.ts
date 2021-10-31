@@ -5,14 +5,117 @@ import {
   getAttribute,
   getKnownAttribute,
   getText,
+  knownLookup,
   lookup,
   pubDateToDate,
 } from "../shared";
-import type { XmlNode } from "../types";
+import type { XmlNode, Episode, RSSFeed } from "../types";
+import * as ItemParser from "../item";
 
 import { XmlNodeSource } from "./types";
+import { person } from "./phase-2";
+import { alternativeEnclosure } from "./phase-3";
 
-import type { FeedUpdate } from ".";
+import type { FeedUpdate, ItemUpdate } from ".";
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+const defaultNodeTransform = (x: XmlNode): XmlNode => x;
+const defaultSupportCheck = (x: XmlNode): boolean => typeof x === "object";
+
+export enum PhasePendingLiveStatus {
+  Pending = "pending",
+  Live = "live",
+  Ended = "ended",
+}
+type PhasePendingPodcastLiveItemItem = Partial<
+  Pick<
+    Episode,
+    | "title"
+    | "description"
+    | "link"
+    | "guid"
+    | "author"
+    | "podcastPeople"
+    | "alternativeEnclosures"
+    | "podcastImages"
+  >
+>;
+export type PhasePendingPodcastLiveItem = {
+  status: PhasePendingLiveStatus;
+  start: Date;
+  end: Date;
+  item: PhasePendingPodcastLiveItemItem;
+};
+export const liveItem = {
+  phase: Infinity,
+  tag: "podcast:liveItem",
+  name: "liveItem",
+  nodeTransform: (node: XmlNode[] | XmlNode): XmlNode[] =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).filter((n) =>
+      Boolean(
+        n &&
+          getAttribute(n, "status") &&
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          lookup(PhasePendingLiveStatus, getAttribute(n, "status")!.toLowerCase()) &&
+          getAttribute(n, "start") &&
+          getAttribute(n, "end")
+      )
+    ),
+  supportCheck: (node: XmlNode[]): boolean => node.length > 0,
+  fn(node: XmlNode[]): { podcastLiveItems: PhasePendingPodcastLiveItem[] } {
+    const useParser = (
+      itemUpdate: ItemUpdate,
+      n: XmlNode,
+      item: PhasePendingPodcastLiveItemItem
+    ): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      const nodeContents = n[itemUpdate.tag];
+      if (nodeContents) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const transformedNode = (itemUpdate.nodeTransform ?? defaultNodeTransform)(nodeContents);
+        if (
+          transformedNode &&
+          (itemUpdate.supportCheck ?? defaultSupportCheck)(transformedNode, XmlNodeSource.Item)
+        ) {
+          Object.assign(item, itemUpdate.fn(transformedNode, {} as RSSFeed, XmlNodeSource.Item));
+        }
+      }
+    };
+
+    return {
+      podcastLiveItems: node
+        .map((n) => {
+          const item: PhasePendingPodcastLiveItemItem = {
+            ...ItemParser.getTitle(n),
+            ...ItemParser.getDescription(n),
+            ...ItemParser.getLink(n),
+            ...ItemParser.getAuthor(n),
+          };
+          const guid = ItemParser.getGuid(n);
+          if (guid) {
+            item.guid = guid;
+          }
+
+          useParser(person, n, item);
+          useParser(alternativeEnclosure, n, item);
+          useParser(alternativeEnclosure, n, item);
+          useParser(podcastImages, n, item);
+
+          return {
+            status: knownLookup(
+              PhasePendingLiveStatus,
+              getKnownAttribute(n, "status").toLowerCase()
+            ),
+            start: pubDateToDate(getKnownAttribute(n, "start")),
+            end: pubDateToDate(getKnownAttribute(n, "end")),
+            ...(Object.keys(item).length > 0 ? { item } : undefined),
+          };
+        })
+        .filter((x) => Boolean(x.start && x.end)) as PhasePendingPodcastLiveItem[],
+    };
+  },
+};
 
 export type PhasePendingPodcastId = {
   platform: string;
@@ -21,7 +124,8 @@ export type PhasePendingPodcastId = {
 };
 export const id = {
   phase: Infinity,
-  tag: "id",
+  tag: "podcast:id",
+  name: "id",
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[]): boolean =>
     node.some((n) => Boolean(getAttribute(n, "platform")) && Boolean(getAttribute(n, "url"))),
@@ -53,7 +157,8 @@ type SocialSignUp = {
 };
 export const social = {
   phase: Infinity,
-  tag: "social",
+  tag: "podcast:social",
+  name: "social",
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Feed &&
@@ -191,5 +296,59 @@ export const medium: FeedUpdate = {
       }
     }
     throw new Error("Unable to extract medium from feed, `supportCheck` needs to be updated");
+  },
+};
+
+type PhasePendingPodcastParsedImage =
+  | {
+      url: string;
+      width: number;
+    }
+  | {
+      url: string;
+      density: number;
+    }
+  | { url: string };
+
+export type PhasePendingPodcastImage = {
+  raw: string;
+  parsed: PhasePendingPodcastParsedImage;
+};
+export const podcastImages = {
+  phase: Infinity,
+  name: "images",
+  tag: "podcast:images",
+  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).find((n) => getAttribute(n, "srcset")),
+  supportCheck: (node: XmlNode): boolean => Boolean(node),
+  fn(node: XmlNode): { podcastImages: PhasePendingPodcastImage[] } {
+    return {
+      podcastImages: (getKnownAttribute(node, "srcset")
+        .split(",")
+        .reduce<PhasePendingPodcastImage[]>((acc, n) => {
+          const raw = n.trim();
+          if (raw) {
+            const components = raw.split(/\s+/);
+            const val: Partial<PhasePendingPodcastImage> = { raw };
+            if (components.length === 2) {
+              if (components[1].endsWith("w")) {
+                val.parsed = {
+                  url: components[0],
+                  width: parseInt(components[1].replace(/w$/, ""), 10),
+                };
+              } else if (components[1].endsWith("x"))
+                val.parsed = {
+                  url: components[0],
+                  density: parseFloat(components[1].replace(/x$/, "")),
+                };
+            } else {
+              val.parsed = { url: raw };
+            }
+            return [...acc, val as PhasePendingPodcastImage];
+          }
+          return acc;
+        }, [] as PhasePendingPodcastImage[]) as unknown) as PhasePendingPodcastImage[],
+    };
   },
 };

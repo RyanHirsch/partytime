@@ -22,7 +22,12 @@ import {
   timeToSeconds,
 } from "./shared";
 import type { Enclosure, Episode, FeedObject, XmlNode } from "./types";
-import { ItunesEpisodeType } from "./types";
+
+export enum ItunesEpisodeType {
+  Full = "full",
+  Trailer = "trailer",
+  Bonus = "bonus",
+}
 
 export function isValidItem(item: XmlNode): boolean {
   // If there is no enclosure, just skip this item and move on to the next
@@ -47,14 +52,14 @@ export function isValidItem(item: XmlNode): boolean {
 }
 
 /** If an item guid is empty, its considered invalid and will be skipped */
-function getGuid(item: XmlNode): string {
+export function getGuid(item: XmlNode): string {
   // The guid node also has a isPermaLink attribute which is being ignored
   // https://validator.w3.org/feed/docs/error/InvalidPermalink.html
   const node = firstWithValue(item.guid);
   return getText(node);
 }
 
-function getEnclosure(item: XmlNode): Enclosure | null {
+export function getEnclosure(item: XmlNode): Enclosure | null {
   const node = firstWithAttributes(item.enclosure, ["url"]);
   if (node) {
     return {
@@ -66,7 +71,7 @@ function getEnclosure(item: XmlNode): Enclosure | null {
   return null;
 }
 
-function getAuthor(item: XmlNode): undefined | { author: string } {
+export function getAuthor(item: XmlNode): undefined | { author: string } {
   const node = firstWithValue(item.author);
   const fallbackNode = firstWithValue(item["itunes:author"]);
   const author = getText(node) || getText(fallbackNode);
@@ -76,7 +81,7 @@ function getAuthor(item: XmlNode): undefined | { author: string } {
   return undefined;
 }
 
-function getTitle(item: XmlNode): undefined | { title: string } {
+export function getTitle(item: XmlNode): undefined | { title: string } {
   const node = firstWithValue(item.title);
   const fallbackNode = firstWithValue(item["itunes:title"]);
   const title = sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || getText(fallbackNode)));
@@ -86,7 +91,7 @@ function getTitle(item: XmlNode): undefined | { title: string } {
   return undefined;
 }
 
-function getDescription(item: XmlNode): undefined | { description: string } {
+export function getDescription(item: XmlNode): undefined | { description: string } {
   const node = firstWithValue(item.description);
 
   if (node) {
@@ -112,7 +117,7 @@ function getDescription(item: XmlNode): undefined | { description: string } {
   return undefined;
 }
 
-function getLink(item: XmlNode): undefined | { link: string } {
+export function getLink(item: XmlNode): undefined | { link: string } {
   const node = firstWithValue(item.link) || firstWithAttributes(item.link, ["href"]);
   const value = getText(node) || getAttribute(node, "href") || "";
 

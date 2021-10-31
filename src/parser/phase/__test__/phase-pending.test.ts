@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
-import { PhasePendingMedium } from "../phase-pending";
+import { PhasePendingLiveStatus, PhasePendingMedium } from "../phase-pending";
 
 const phase = Infinity;
 
@@ -11,6 +11,168 @@ describe("phase pending", () => {
   let feed;
   beforeAll(async () => {
     feed = await helpers.loadSimple();
+  });
+
+  describe("podcast:liveItem", () => {
+    const supportedName = "liveItem";
+
+    it("correctly identifies a basic feed", () => {
+      const result = parseFeed(feed);
+
+      expect(result).not.toHaveProperty("podcastLiveItems");
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+    });
+
+    it("supports multiple liveItem", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem
+          status="LIVE"
+          start="2021-09-26T07:30:00.000-0600"
+          end="2021-09-26T08:30:00.000-0600"
+        ></podcast:liveItem>
+        <podcast:liveItem
+          status="pending"
+          start="2021-09-27T07:30:00.000-0600"
+          end="2021-09-27T08:30:00.000-0600"
+        ></podcast:liveItem>
+        <podcast:liveItem
+          status="ended"
+          start="2021-09-28T07:30:00.000-0600"
+          end="2021-09-28T08:30:00.000-0600"
+        ></podcast:liveItem>
+        `
+      );
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+      expect(result.podcastLiveItems).toHaveLength(3);
+
+      expect(result.podcastLiveItems[0]).toHaveProperty("status", PhasePendingLiveStatus.Live);
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "start",
+        new Date("2021-09-26T07:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "end",
+        new Date("2021-09-26T08:30:00.000-0600")
+      );
+
+      expect(result.podcastLiveItems[1]).toHaveProperty("status", PhasePendingLiveStatus.Pending);
+      expect(result.podcastLiveItems[1]).toHaveProperty(
+        "start",
+        new Date("2021-09-27T07:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[1]).toHaveProperty(
+        "end",
+        new Date("2021-09-27T08:30:00.000-0600")
+      );
+
+      expect(result.podcastLiveItems[2]).toHaveProperty("status", PhasePendingLiveStatus.Ended);
+      expect(result.podcastLiveItems[2]).toHaveProperty(
+        "start",
+        new Date("2021-09-28T07:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[2]).toHaveProperty(
+        "end",
+        new Date("2021-09-28T08:30:00.000-0600")
+      );
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("supports a basic liveItem", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem
+          status="live"
+          start="2021-09-26T07:30:00.000-0600"
+          end="2021-09-26T08:30:00.000-0600"
+        ></podcast:liveItem>
+        `
+      );
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+      expect(result.podcastLiveItems).toHaveLength(1);
+
+      expect(result.podcastLiveItems[0]).not.toHaveProperty("item");
+      expect(result.podcastLiveItems[0]).toHaveProperty("status", PhasePendingLiveStatus.Live);
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "start",
+        new Date("2021-09-26T07:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "end",
+        new Date("2021-09-26T08:30:00.000-0600")
+      );
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("support a sub-set of nested item tags", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem
+          status="live"
+          start="2021-09-26T07:30:00.000-0600"
+          end="2021-09-26T08:30:00.000-0600"
+        >
+            <title>Podcasting 2.0 Live Show</title>
+            <description>A look into the future of podcasting and how we get to Podcasting 2.0!</description>
+            <link>https://example.com/podcast/live</link>
+            <guid isPermaLink="true">https://example.com/live</guid>
+            <author>John Doe (john@example.com)</author>
+            <podcast:images srcset="https://example.com/images/ep3/pci_avatar-massive.jpg 1500w,
+                https://example.com/images/ep3/pci_avatar-middle.jpg 600w,
+                https://example.com/images/ep3/pci_avatar-small.jpg 300w,
+                https://example.com/images/ep3/pci_avatar-tiny.jpg 150w"
+            />
+            <podcast:person href="https://www.podchaser.com/creators/adam-curry-107ZzmWE5f" img="https://example.com/images/adamcurry.jpg">Adam Curry</podcast:person>
+            <podcast:person role="guest" href="https://github.com/daveajones/" img="https://example.com/images/davejones.jpg">Dave Jones</podcast:person>
+            <podcast:person group="visuals" role="cover art designer" href="https://example.com/artist/beckysmith">Becky Smith</podcast:person>
+            <podcast:alternateEnclosure type="audio/mpeg" length="312">
+                <podcast:source uri="https://example.com/pc20/livestream" />
+            </podcast:alternateEnclosure>
+        </podcast:liveItem>
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+      expect(result.podcastLiveItems).toHaveLength(1);
+
+      expect(result.podcastLiveItems[0]).toHaveProperty("status", PhasePendingLiveStatus.Live);
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "start",
+        new Date("2021-09-26T07:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[0]).toHaveProperty(
+        "end",
+        new Date("2021-09-26T08:30:00.000-0600")
+      );
+      expect(result.podcastLiveItems[0]).toHaveProperty("item");
+      expect(result.podcastLiveItems[0].item).toHaveProperty("title", "Podcasting 2.0 Live Show");
+      expect(result.podcastLiveItems[0].item).toHaveProperty(
+        "description",
+        "A look into the future of podcasting and how we get to Podcasting 2.0!"
+      );
+      expect(result.podcastLiveItems[0].item).toHaveProperty("guid", "https://example.com/live");
+      expect(result.podcastLiveItems[0].item).toHaveProperty(
+        "author",
+        "John Doe (john@example.com)"
+      );
+
+      expect(result.podcastLiveItems[0].item.podcastImages).toHaveLength(4);
+      expect(result.podcastLiveItems[0].item.podcastPeople).toHaveLength(3);
+      expect(result.podcastLiveItems[0].item.alternativeEnclosures).toHaveLength(1);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
   });
 
   describe("podcast:id", () => {

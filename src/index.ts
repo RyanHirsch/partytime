@@ -1,13 +1,7 @@
 export { parseFeed } from "./parser";
 export { checkFeedByObject, checkFeedByUri } from "./cor";
-export {
-  FeedType,
-  ItunesFeedType,
-  ItunesEpisodeType,
-  FeedObject,
-  Enclosure,
-  Episode,
-} from "./parser/types";
+export { FeedType, ItunesFeedType, FeedObject, Enclosure, Episode } from "./parser/types";
+export { ItunesEpisodeType } from "./parser/item";
 export {
   Phase1Transcript,
   Phase1Funding,
