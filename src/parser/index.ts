@@ -4,8 +4,6 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import crypto from "crypto";
-
 import { logger } from "../logger";
 
 import { unifiedParser } from "./unified";
@@ -37,20 +35,6 @@ function handleValidFeed(xml: string): FeedObject | null {
     return null;
   }
 
-  const feedHash = crypto
-    .createHash("md5")
-    .update(
-      feedObj.title +
-        feedObj.link +
-        feedObj.language +
-        feedObj.generator +
-        (feedObj.author ?? "") +
-        (feedObj.owner?.name ?? "") +
-        (feedObj.owner?.email ?? "")
-    )
-    .digest("hex");
-
-  logger.debug(" - ", feedHash);
   return feedObj;
 }
 

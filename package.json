@@ -22,6 +22,7 @@
     "postpublish": "git push --tags",
     "build": "tsc",
     "test": "LOG=silent jest",
+    "test:debug": "LOG=trace jest",
     "lint": "npm-run-all -p lint:*",
     "lint:lint": "eslint --ext .js,.ts src/",
     "lint:typecheck": "tsc --noEmit",

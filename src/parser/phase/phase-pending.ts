@@ -11,6 +11,7 @@ import {
 } from "../shared";
 import type { XmlNode, Episode, RSSFeed } from "../types";
 import * as ItemParser from "../item";
+import { logger } from "../../logger";
 
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
@@ -337,11 +338,17 @@ export const podcastImages = {
                   url: components[0],
                   width: parseInt(components[1].replace(/w$/, ""), 10),
                 };
-              } else if (components[1].endsWith("x"))
+              } else if (components[1].endsWith("x")) {
                 val.parsed = {
                   url: components[0],
                   density: parseFloat(components[1].replace(/x$/, "")),
                 };
+              } else {
+                logger.warn(components, "Unexpected descriptor");
+                val.parsed = {
+                  url: components[0],
+                };
+              }
             } else {
               val.parsed = { url: raw };
             }

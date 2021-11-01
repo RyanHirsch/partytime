@@ -115,10 +115,16 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       if (tagSupported) {
         logger.info(`Feed supports ${tagName}`);
 
-        return {
-          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
-        };
+        try {
+          const feedResult = fn(node, theFeed, XmlNodeSource.Feed);
+          logger.debug(feedResult, `Feed update for ${tagName}`);
+          return {
+            feedUpdate: mergeWith(concat, feedUpdate, feedResult),
+            phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
+          };
+        } catch (err) {
+          logger.warn(err, `Exception thrown while trying to parse feed tag ${tagName}`);
+        }
       }
 
       logger.trace(`Feed doesn't support ${tagName}`, node, tagSupported);
@@ -145,11 +151,16 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
 
       if (tagSupported) {
         logger.info(`Feed item supports ${tagName}`);
-
-        return {
-          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
-        };
+        try {
+          const itemResult = fn(node, feed, XmlNodeSource.Item);
+          logger.debug(itemResult, `Item update for ${tagName}`);
+          return {
+            itemUpdate: mergeWith(concat, itemUpdate, itemResult),
+            phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
+          };
+        } catch (err) {
+          logger.warn(err, `Exception thrown while trying to parse item tag ${tagName}`);
+        }
       }
       logger.trace(`Feed item doesn't support ${tagName}`, node, tagSupported);
       return {
