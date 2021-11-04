@@ -625,7 +625,7 @@ describe("phase pending", () => {
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
 
-      it.only("ignores malformed input", () => {
+      it("ignores malformed input", () => {
         const xml = helpers.spliceLastItem(
           feed,
           `
@@ -649,6 +649,217 @@ describe("phase pending", () => {
         );
         expect(result.items[2].podcastImages[0].parsed).not.toHaveProperty("width");
         expect(result.items[2].podcastImages[0].parsed).not.toHaveProperty("density");
+      });
+    });
+  });
+
+  describe("podcast:recommendations", () => {
+    const supportedName = "recommendations";
+
+    it("correctly identifies a basic feed", () => {
+      const result = parseFeed(feed);
+
+      expect(result).not.toHaveProperty("podcastRecommendations");
+
+      result.items.forEach((item) => {
+        expect(item).not.toHaveProperty("podcastRecommendations");
+      });
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+    });
+
+    describe("feed", () => {
+      it("extracts the sample values", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.podcastRecommendations).toHaveLength(1);
+
+        expect(result.podcastRecommendations[0]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=1234"
+        );
+        expect(result.podcastRecommendations[0]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations[0]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations[0]).not.toHaveProperty("text");
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("supports multiple values", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=5678" type="application/json" language="es"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=9012" type="application/json" language="en"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=3456" type="application/json">Content</podcast:recommendations>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.podcastRecommendations).toHaveLength(4);
+
+        expect(result.podcastRecommendations[0]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=1234"
+        );
+        expect(result.podcastRecommendations[0]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations[0]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations[0]).not.toHaveProperty("text");
+
+        expect(result.podcastRecommendations[1]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=5678"
+        );
+        expect(result.podcastRecommendations[1]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations[1]).toHaveProperty("language", "es");
+        expect(result.podcastRecommendations[1]).not.toHaveProperty("text");
+
+        expect(result.podcastRecommendations[2]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=9012"
+        );
+        expect(result.podcastRecommendations[2]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations[2]).toHaveProperty("language", "en");
+        expect(result.podcastRecommendations[2]).not.toHaveProperty("text");
+
+        expect(result.podcastRecommendations[3]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=3456"
+        );
+        expect(result.podcastRecommendations[3]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations[3]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations[3]).toHaveProperty("text", "Content");
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("ignores nodes missing required attributes", () => {
+        const xml = helpers.spliceFeed(
+          feed,
+          `
+          <podcast:recommendations url="" type="application/json" />
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=5678" type="" language="es"/>
+          <podcast:recommendations type="application/json" language="en"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=3456">Content</podcast:recommendations>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result).not.toHaveProperty("podcastRecommendations");
+
+        expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+      });
+    });
+
+    describe("item", () => {
+      it("extracts the sample values", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.items[0].podcastRecommendations).toHaveLength(1);
+
+        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=1234"
+        );
+        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+          "type",
+          "application/json"
+        );
+        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("text");
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("supports multiple values", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=5678" type="application/json" language="es"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=9012" type="application/json" language="en"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=3456" type="application/json">Content</podcast:recommendations>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result.items[0].podcastRecommendations).toHaveLength(4);
+
+        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=1234"
+        );
+        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+          "type",
+          "application/json"
+        );
+        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("text");
+
+        expect(result.items[0].podcastRecommendations[1]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=5678"
+        );
+        expect(result.items[0].podcastRecommendations[1]).toHaveProperty(
+          "type",
+          "application/json"
+        );
+        expect(result.items[0].podcastRecommendations[1]).toHaveProperty("language", "es");
+        expect(result.items[0].podcastRecommendations[1]).not.toHaveProperty("text");
+
+        expect(result.items[0].podcastRecommendations[2]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=9012"
+        );
+        expect(result.items[0].podcastRecommendations[2]).toHaveProperty(
+          "type",
+          "application/json"
+        );
+        expect(result.items[0].podcastRecommendations[2]).toHaveProperty("language", "en");
+        expect(result.items[0].podcastRecommendations[2]).not.toHaveProperty("text");
+
+        expect(result.items[0].podcastRecommendations[3]).toHaveProperty(
+          "url",
+          "https://domain.tld/recommendation?guid=3456"
+        );
+        expect(result.items[0].podcastRecommendations[3]).toHaveProperty(
+          "type",
+          "application/json"
+        );
+        expect(result.items[0].podcastRecommendations[3]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations[3]).toHaveProperty("text", "Content");
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("ignores nodes missing required attributes", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:recommendations url="" type="application/json" />
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=5678" type="" language="es"/>
+          <podcast:recommendations type="application/json" language="en"/>
+          <podcast:recommendations url="https://domain.tld/recommendation?guid=3456">Content</podcast:recommendations>
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result).not.toHaveProperty("podcastRecommendations");
+        expect(result.items[0]).not.toHaveProperty("podcastRecommendations");
+
+        expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
       });
     });
   });

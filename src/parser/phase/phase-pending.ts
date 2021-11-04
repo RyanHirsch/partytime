@@ -359,3 +359,29 @@ export const podcastImages = {
     };
   },
 };
+
+export type PhasePendingPodcastRecommendation = {
+  url: string;
+  type: string;
+  language?: string;
+  text?: string;
+};
+export const podcastRecommendations = {
+  phase: Infinity,
+  name: "recommendations",
+  tag: "podcast:recommendations",
+  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).filter((n) => getAttribute(n, "url") && getAttribute(n, "type")),
+  supportCheck: (node: XmlNode[]): boolean => node.length > 0,
+  fn(node: XmlNode[]): { podcastRecommendations: PhasePendingPodcastRecommendation[] } {
+    return {
+      podcastRecommendations: node.map((n) => ({
+        url: getKnownAttribute(n, "url"),
+        type: getKnownAttribute(n, "type"),
+        ...extractOptionalStringAttribute(n, "language"),
+        ...(getText(n) ? { text: getText(n) } : undefined),
+      })),
+    };
+  },
+};

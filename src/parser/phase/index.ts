@@ -82,6 +82,7 @@ const feeds: FeedUpdate[] = [
   pending.social,
   pending.medium,
   pending.podcastImages,
+  pending.podcastRecommendations,
 ];
 
 const items: ItemUpdate[] = [
@@ -101,6 +102,7 @@ const items: ItemUpdate[] = [
 
   pending.socialInteraction,
   pending.podcastImages,
+  pending.podcastRecommendations,
 ];
 
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {

@@ -21,6 +21,7 @@ import {
   PhasePendingSocial,
   PhasePendingSocialInteract,
   PhasePendingPodcastImage,
+  PhasePendingPodcastRecommendation,
 } from "./phase/phase-pending";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -163,6 +164,7 @@ export interface FeedObject {
   /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
   medium?: PhasePendingMedium;
   podcastImages?: PhasePendingPodcastImage[];
+  podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
 
   /** podcasting 2.0 phase compliance */
@@ -224,6 +226,7 @@ export interface Episode {
   // #region Pending Phase
   podcastSocialInteraction?: PhasePendingSocialInteract[];
   podcastImages?: PhasePendingPodcastImage[];
+  podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
 }
 
