@@ -1,6 +1,7 @@
 import {
   ensureArray,
   extractOptionalFloatAttribute,
+  extractOptionalIntegerAttribute,
   extractOptionalStringAttribute,
   getAttribute,
   getKnownAttribute,
@@ -382,6 +383,28 @@ export const podcastRecommendations = {
         ...extractOptionalStringAttribute(n, "language"),
         ...(getText(n) ? { text: getText(n) } : undefined),
       })),
+    };
+  },
+};
+
+export type PhasePendingGateway = {
+  order?: number;
+  message: string;
+};
+export const podcastGateway = {
+  phase: Infinity,
+  name: "gateway",
+  tag: "podcast:gateway",
+  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).find((n) => getText(n)),
+  supportCheck: (node: XmlNode): boolean => Boolean(getText(node)),
+  fn(node: XmlNode): { podcastGateway: PhasePendingGateway } {
+    return {
+      podcastGateway: {
+        message: getText(node),
+        ...extractOptionalIntegerAttribute(node, "order"),
+      },
     };
   },
 };

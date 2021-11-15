@@ -863,4 +863,68 @@ describe("phase pending", () => {
       });
     });
   });
+
+  describe("podcast:gateway", () => {
+    const supportedName = "gateway";
+
+    it("is not marked as supported when it isn't in the feed", () => {
+      const result = parseFeed(feed);
+
+      result.items.forEach((item) => {
+        expect(item).not.toHaveProperty("podcastGateway");
+      });
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+    });
+
+    it("is marked as supported when the first item has only a message", () => {
+      const xml = helpers.spliceFirstItem(feed, `<podcast:gateway>Start here!</podcast:gateway>`);
+      const result = parseFeed(xml);
+
+      const [first, second, third] = result.items;
+      expect(first).toHaveProperty("podcastGateway");
+      expect(first.podcastGateway).toHaveProperty("message", "Start here!");
+      expect(second).not.toHaveProperty("podcastGateway");
+      expect(third).not.toHaveProperty("podcastGateway");
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("is marked as supported when the third item has a message and order", () => {
+      const xml = helpers.spliceLastItem(
+        feed,
+        `<podcast:gateway order="2">Start </podcast:gateway>`
+      );
+      const result = parseFeed(xml);
+
+      const [first, second, third] = result.items;
+      expect(first).not.toHaveProperty("podcastGateway");
+      expect(second).not.toHaveProperty("podcastGateway");
+      expect(third).toHaveProperty("podcastGateway");
+      expect(third.podcastGateway).toHaveProperty("order", 2);
+      expect(third.podcastGateway).toHaveProperty("message", "Start");
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    // will revisit this later, its a cool idea, but won't actually work given how things are
+    // structured today
+    it.skip("episodes are listed on the feed level in descending order", () => {
+      const xml = helpers.spliceLastItem(
+        feed,
+        `<podcast:gateway order="1">Start Here</podcast:gateway>`
+      );
+      const result = parseFeed(
+        helpers.spliceFirstItem(xml, `<podcast:gateway order="2">Start There</podcast:gateway>`)
+      );
+
+      const [first, second, third] = result.items;
+      expect(first).toHaveProperty("podcastGateway");
+      expect(second).not.toHaveProperty("podcastGateway");
+      expect(third).toHaveProperty("podcastGateway");
+
+      expect(result).toHaveProperty("gatewayEpisodes", [third.guid, first.guid]);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+  });
 });

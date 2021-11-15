@@ -22,6 +22,7 @@ import {
   PhasePendingSocialInteract,
   PhasePendingPodcastImage,
   PhasePendingPodcastRecommendation,
+  PhasePendingGateway,
 } from "./phase/phase-pending";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -227,6 +228,7 @@ export interface Episode {
   podcastSocialInteraction?: PhasePendingSocialInteract[];
   podcastImages?: PhasePendingPodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
+  podcastGateway?: PhasePendingGateway;
   // #endregion
 }
 
