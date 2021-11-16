@@ -1,4 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+import { ItunesEpisodeType } from "./item";
 import type {
   Phase1Transcript,
   Phase1Funding,
@@ -13,6 +14,16 @@ import type {
 } from "./phase/phase-2";
 import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
 import type { Phase4Value } from "./phase/phase-4";
+import {
+  PhasePendingMedium,
+  PhasePendingPodcastId,
+  PhasePendingPodcastLiveItem,
+  PhasePendingSocial,
+  PhasePendingSocialInteract,
+  PhasePendingPodcastImage,
+  PhasePendingPodcastRecommendation,
+  PhasePendingGateway,
+} from "./phase/phase-pending";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
@@ -53,12 +64,6 @@ export enum ItunesFeedType {
    * if using seasons.
    */
   Serial = "serial",
-}
-
-export enum ItunesEpisodeType {
-  Full = "full",
-  Trailer = "trailer",
-  Bonus = "bonus",
 }
 
 export interface FeedObject {
@@ -151,6 +156,17 @@ export interface FeedObject {
   // #region Phase 4
   value?: Phase4Value;
   // #endregion
+  // #region Pending Phase
+  podcastLiveItems?: PhasePendingPodcastLiveItem[];
+  /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */
+  podcastId?: PhasePendingPodcastId[];
+  /** PENDING AND LIKELY TO CHANGE where listeners can comment, share, or like podcast episodes */
+  podcastSocial?: PhasePendingSocial[];
+  /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
+  medium?: PhasePendingMedium;
+  podcastImages?: PhasePendingPodcastImage[];
+  podcastRecommendations?: PhasePendingPodcastRecommendation[];
+  // #endregion
 
   /** podcasting 2.0 phase compliance */
   pc20support: Record<number, string[]>;
@@ -207,6 +223,12 @@ export interface Episode {
   // #endregion
   // #region Phase 4
   value?: Phase4Value;
+  // #endregion
+  // #region Pending Phase
+  podcastSocialInteraction?: PhasePendingSocialInteract[];
+  podcastImages?: PhasePendingPodcastImage[];
+  podcastRecommendations?: PhasePendingPodcastRecommendation[];
+  podcastGateway?: PhasePendingGateway;
   // #endregion
 }
 

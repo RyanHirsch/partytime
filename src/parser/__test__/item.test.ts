@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { parseFeed } from "../index";
-import { ItunesEpisodeType } from "../types";
+import { ItunesEpisodeType } from "../item";
 
 import * as helpers from "./helpers";
 

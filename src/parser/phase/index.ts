@@ -12,6 +12,7 @@ import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import * as pending from "./phase-pending";
 import { XmlNodeSource } from "./types";
 
 type FeedUpdateResult = {
@@ -75,6 +76,13 @@ const feeds: FeedUpdate[] = [
   phase3.guid,
 
   phase4.value,
+
+  pending.liveItem,
+  pending.id,
+  pending.social,
+  pending.medium,
+  pending.podcastImages,
+  pending.podcastRecommendations,
 ];
 
 const items: ItemUpdate[] = [
@@ -91,6 +99,11 @@ const items: ItemUpdate[] = [
   phase3.alternativeEnclosure,
 
   phase4.value,
+
+  pending.socialInteraction,
+  pending.podcastImages,
+  pending.podcastRecommendations,
+  pending.podcastGateway,
 ];
 
 export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateResult {
@@ -100,19 +113,24 @@ export function updateFeed(theFeed: RSSFeed, feedUpdates = feeds): FeedUpdateRes
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const node = (nodeTransform ?? defaultNodeTransform)(theFeed.rss.channel[tagName]);
       logger.trace(`Checking feed ${tagName} support`);
-
       const tagSupported = node && (supportCheck ?? defaultSupportCheck)(node, XmlNodeSource.Feed);
 
       if (tagSupported) {
         logger.info(`Feed supports ${tagName}`);
 
-        return {
-          feedUpdate: mergeWith(concat, feedUpdate, fn(node, theFeed, XmlNodeSource.Feed)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
-        };
+        try {
+          const feedResult = fn(node, theFeed, XmlNodeSource.Feed);
+          logger.debug(feedResult, `Feed update for ${tagName}`);
+          return {
+            feedUpdate: mergeWith(concat, feedUpdate, feedResult),
+            phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
+          };
+        } catch (err) {
+          logger.warn(err, `Exception thrown while trying to parse feed tag ${tagName}`);
+        }
       }
 
-      logger.debug(`Feed doesn't support ${tagName}`, node, tagSupported);
+      logger.trace(`Feed doesn't support ${tagName}`, node, tagSupported);
       return {
         feedUpdate,
         phaseUpdate,
@@ -136,13 +154,18 @@ export function updateItem(item: XmlNode, feed: RSSFeed, itemUpdates = items): I
 
       if (tagSupported) {
         logger.info(`Feed item supports ${tagName}`);
-
-        return {
-          itemUpdate: mergeWith(concat, itemUpdate, fn(node, feed, XmlNodeSource.Item)),
-          phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
-        };
+        try {
+          const itemResult = fn(node, feed, XmlNodeSource.Item);
+          logger.debug(itemResult, `Item update for ${tagName}`);
+          return {
+            itemUpdate: mergeWith(concat, itemUpdate, itemResult),
+            phaseUpdate: mergeDeepRight(phaseUpdate, { [phase]: { [name ?? tag]: true } }),
+          };
+        } catch (err) {
+          logger.warn(err, `Exception thrown while trying to parse item tag ${tagName}`);
+        }
       }
-      logger.debug(`Feed item doesn't support ${tagName}`, node, tagSupported);
+      logger.trace(`Feed item doesn't support ${tagName}`, node, tagSupported);
       return {
         itemUpdate,
         phaseUpdate,

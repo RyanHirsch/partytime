@@ -321,6 +321,15 @@ export function lookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof 
   return undefined;
 }
 
+export function knownLookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof E] {
+  const lookupValue = lookup(stringEnum, s);
+  if (lookupValue) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return lookupValue;
+  }
+  throw new Error("Known value didn't exist, ");
+}
+
 export function extractOptionalFloatAttribute(
   node: { attr: Record<string, string> },
   attrName: string,
