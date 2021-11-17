@@ -10,7 +10,6 @@ import sqlite from "sqlite3";
 
 import { getFeedText } from "../../shared";
 import { parseFeed } from "../index";
-import { log } from "../../logger";
 
 const randomInRange = (min: number, max: number): number => {
   const range = max - min;

@@ -20,6 +20,7 @@ import type { Episode, FeedType, PhaseUpdate, XmlNode } from "./types";
 import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
 import { handleFeed } from "./feed";
+import { supportedNamespaces } from "./supported-namespaces";
 
 export function unifiedParser(theFeed: XmlNode, type: FeedType) {
   const epochDate = new Date(0);
@@ -28,7 +29,36 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType) {
     return null;
   }
 
+  const namespaces = Object.keys(theFeed.rss.attr)
+    .filter((k) => k.startsWith("@_xmlns:"))
+    .map((nsDeclaration) => ({
+      namespace: theFeed.rss.attr[nsDeclaration].toLowerCase(),
+      alias: nsDeclaration.replace("@_xmlns:", "").toLowerCase(),
+    }));
+
   let feedObj = handleFeed(theFeed.rss.channel, type);
+
+  Object.entries(theFeed.rss.channel).forEach(([tagName, node]) => {
+    const isNamespacedTag = tagName.includes(":");
+    // const hasNamespaceAttribute = Array.isArray(node)
+    //   ? node.some((n) => getAttribute(n, "xmlns"))
+    //   : Boolean(getAttribute(node as XmlNode, "xmlns"));
+
+    if (isNamespacedTag) {
+      const [alias, tag] = tagName.split(":");
+      const knownNamespace = namespaces.find((ns) => ns.alias === alias.toLowerCase());
+      if (knownNamespace && supportedNamespaces.has(knownNamespace.namespace)) {
+        const monkey = supportedNamespaces.get(knownNamespace.namespace);
+        const tagConfig = monkey.feed[tag];
+        if (tagConfig) {
+          const eligibleNodes = tagConfig.nodeTransform(ensureArray(node));
+          if (eligibleNodes.length > 0) {
+            Object.assign(feedObj, tagConfig.fn(eligibleNodes));
+          }
+        }
+      }
+    }
+  });
 
   let phaseSupport: PhaseUpdate = {};
 

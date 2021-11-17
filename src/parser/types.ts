@@ -28,6 +28,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
 export type XmlNode = TODO;
+export type NamespaceConfig = TODO;
 
 /** Represents basic object type with typed values */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

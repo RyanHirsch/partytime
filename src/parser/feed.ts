@@ -497,34 +497,6 @@ function getCategories(feed: XmlNode): undefined | { categories: string[] } {
   return undefined;
 }
 
-function getPubSub(
-  feed: XmlNode
-): undefined | { pubsub: { hub?: string; self?: string; next?: string } } {
-  const getNode = (key: string, type: string): XmlNode | null =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray(feed[key]).find((n) => getAttribute(n, "href") && getAttribute(n, "rel") === type);
-
-  const selfNode = getNode("atom:link", "self") ?? getNode("link", "self");
-  const hubNode = getNode("atom:link", "hub") ?? getNode("link", "hub");
-  const nextNode = getNode("atom:link", "next") ?? getNode("link", "next");
-
-  if (!selfNode && !hubNode && !nextNode) {
-    return undefined;
-  }
-  const pubsub: { hub?: string; self?: string; next?: string } = {};
-
-  if (selfNode) {
-    pubsub.self = getKnownAttribute(selfNode, "href");
-  }
-  if (hubNode) {
-    pubsub.hub = getKnownAttribute(hubNode, "href");
-  }
-  if (nextNode) {
-    pubsub.next = getKnownAttribute(nextNode, "href");
-  }
-  return { pubsub };
-}
-
 function getAuthor(feed: XmlNode): undefined | { author: string } {
   const node = firstWithValue(feed["itunes:author"]);
 
@@ -635,7 +607,6 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
     ...getItunesType(feed),
     ...getItunesNewFeedUrl(feed),
     ...getCategories(feed),
-    ...getPubSub(feed),
     ...getAuthor(feed),
     ...getOwner(feed),
     ...getImage(feed),
