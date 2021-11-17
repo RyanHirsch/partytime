@@ -706,6 +706,52 @@ describe("feed handling", () => {
       );
     });
 
+    it("extracts the hub url with inline atom namespace (plain link last)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <link href="https://feeds.soundcloud.com/users/soundcloud:users:220400255/lies.rss" rel="hub" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom" />
+        <link href="https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss?before=267424206" rel="next" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom"/>
+        <link>https://some-url-here</link>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("link", "https://some-url-here");
+      expect(result).toHaveProperty("pubsub");
+      expect(result.pubsub).toHaveProperty(
+        "next",
+        "https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss?before=267424206"
+      );
+      expect(result.pubsub).toHaveProperty(
+        "hub",
+        "https://feeds.soundcloud.com/users/soundcloud:users:220400255/lies.rss"
+      );
+    });
+
+    it("extracts the hub url with inline atom namespace (plain link first)", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <link>https://some-url-here</link>
+        <link href="https://feeds.soundcloud.com/users/soundcloud:users:220400255/lies.rss" rel="hub" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom" />
+        <link href="https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss?before=267424206" rel="next" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom"/>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("link", "https://some-url-here");
+      expect(result).toHaveProperty("pubsub");
+      expect(result.pubsub).toHaveProperty(
+        "next",
+        "https://feeds.soundcloud.com/users/soundcloud:users:220400255/sounds.rss?before=267424206"
+      );
+      expect(result.pubsub).toHaveProperty(
+        "hub",
+        "https://feeds.soundcloud.com/users/soundcloud:users:220400255/lies.rss"
+      );
+    });
+
     it("handles non-atom links", () => {
       const xml = helpers.spliceFeed(
         feed,
