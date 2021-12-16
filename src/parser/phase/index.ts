@@ -76,12 +76,12 @@ const feeds: FeedUpdate[] = [
   phase3.guid,
 
   phase4.value,
+  phase4.medium,
+  phase4.podcastImages,
 
   pending.liveItem,
   pending.id,
   pending.social,
-  pending.medium,
-  pending.podcastImages,
   pending.podcastRecommendations,
 ];
 
@@ -99,9 +99,9 @@ const items: ItemUpdate[] = [
   phase3.alternativeEnclosure,
 
   phase4.value,
+  phase4.podcastImages,
 
   pending.socialInteraction,
-  pending.podcastImages,
   pending.podcastRecommendations,
   pending.podcastGateway,
 ];
