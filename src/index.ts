@@ -15,9 +15,8 @@ export {
   Phase2EpisodeNumber,
 } from "./parser/phase/phase-2";
 export { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./parser/phase/phase-3";
-export { Phase4Value, Phase4ValueRecipient } from "./parser/phase/phase-4";
+export { Phase4Value, Phase4ValueRecipient, Phase4Medium } from "./parser/phase/phase-4";
 export {
-  PhasePendingMedium as Medium,
   PhasePendingPodcastId,
   PhasePendingSocial,
   PhasePendingSocialInteract,

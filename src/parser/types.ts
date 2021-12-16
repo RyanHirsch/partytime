@@ -13,14 +13,12 @@ import type {
   Phase2EpisodeNumber,
 } from "./phase/phase-2";
 import type { Phase3Trailer, Phase3License, Phase3AltEnclosure } from "./phase/phase-3";
-import type { Phase4Value } from "./phase/phase-4";
+import type { Phase4Value, Phase4Medium, Phase4PodcastImage } from "./phase/phase-4";
 import {
-  PhasePendingMedium,
   PhasePendingPodcastId,
   PhasePendingPodcastLiveItem,
   PhasePendingSocial,
   PhasePendingSocialInteract,
-  PhasePendingPodcastImage,
   PhasePendingPodcastRecommendation,
   PhasePendingGateway,
 } from "./phase/phase-pending";
@@ -163,8 +161,8 @@ export interface FeedObject {
   /** PENDING AND LIKELY TO CHANGE where listeners can comment, share, or like podcast episodes */
   podcastSocial?: PhasePendingSocial[];
   /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
-  medium?: PhasePendingMedium;
-  podcastImages?: PhasePendingPodcastImage[];
+  medium?: Phase4Medium;
+  podcastImages?: Phase4PodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
 
@@ -226,7 +224,7 @@ export interface Episode {
   // #endregion
   // #region Pending Phase
   podcastSocialInteraction?: PhasePendingSocialInteract[];
-  podcastImages?: PhasePendingPodcastImage[];
+  podcastImages?: Phase4PodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   podcastGateway?: PhasePendingGateway;
   // #endregion

@@ -12,13 +12,13 @@ import {
 } from "../shared";
 import type { XmlNode, Episode, RSSFeed } from "../types";
 import * as ItemParser from "../item";
-import { logger } from "../../logger";
 
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
 import { alternativeEnclosure } from "./phase-3";
+import { podcastImages } from "./phase-4";
 
-import type { FeedUpdate, ItemUpdate } from ".";
+import type { ItemUpdate } from "./index";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
 const defaultNodeTransform = (x: XmlNode): XmlNode => x;
@@ -266,97 +266,6 @@ export const socialInteraction = {
 
         return acc;
       }, []),
-    };
-  },
-};
-
-export enum PhasePendingMedium {
-  Podcast = "podcast",
-  Music = "music",
-  Video = "video",
-  Film = "film",
-  Audiobook = "audiobook",
-  Newsletter = "newsletter",
-  Blog = "blog",
-}
-export const medium: FeedUpdate = {
-  tag: "podcast:medium",
-  name: "medium",
-  phase: Infinity,
-  nodeTransform: (node: XmlNode) =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray<XmlNode>(node).find(
-      (n) => getText(n) && lookup(PhasePendingMedium, getText(n).toLowerCase())
-    ),
-  supportCheck: (node: XmlNode) => Boolean(node) && Boolean(getText(node)),
-  fn(node: XmlNode): { medium: PhasePendingMedium } {
-    const nodeValue = getText(node);
-    if (nodeValue) {
-      const parsed = lookup(PhasePendingMedium, nodeValue.toLowerCase());
-      if (parsed) {
-        return { medium: parsed };
-      }
-    }
-    throw new Error("Unable to extract medium from feed, `supportCheck` needs to be updated");
-  },
-};
-
-type PhasePendingPodcastParsedImage =
-  | {
-      url: string;
-      width: number;
-    }
-  | {
-      url: string;
-      density: number;
-    }
-  | { url: string };
-
-export type PhasePendingPodcastImage = {
-  raw: string;
-  parsed: PhasePendingPodcastParsedImage;
-};
-export const podcastImages = {
-  phase: Infinity,
-  name: "images",
-  tag: "podcast:images",
-  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray(node).find((n) => getAttribute(n, "srcset")),
-  supportCheck: (node: XmlNode): boolean => Boolean(node),
-  fn(node: XmlNode): { podcastImages: PhasePendingPodcastImage[] } {
-    return {
-      podcastImages: (getKnownAttribute(node, "srcset")
-        .split(",")
-        .reduce<PhasePendingPodcastImage[]>((acc, n) => {
-          const raw = n.trim();
-          if (raw) {
-            const components = raw.split(/\s+/);
-            const val: Partial<PhasePendingPodcastImage> = { raw };
-            if (components.length === 2) {
-              if (components[1].endsWith("w")) {
-                val.parsed = {
-                  url: components[0],
-                  width: parseInt(components[1].replace(/w$/, ""), 10),
-                };
-              } else if (components[1].endsWith("x")) {
-                val.parsed = {
-                  url: components[0],
-                  density: parseFloat(components[1].replace(/x$/, "")),
-                };
-              } else {
-                logger.warn(components, "Unexpected descriptor");
-                val.parsed = {
-                  url: components[0],
-                };
-              }
-            } else {
-              val.parsed = { url: raw };
-            }
-            return [...acc, val as PhasePendingPodcastImage];
-          }
-          return acc;
-        }, [] as PhasePendingPodcastImage[]) as unknown) as PhasePendingPodcastImage[],
     };
   },
 };
