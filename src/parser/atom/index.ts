@@ -36,6 +36,6 @@ const pubSubLinks = {
 
 export const config = {
   namespace: "http://www.w3.org/2005/Atom",
-  items: [],
+  items: {},
   feed: { link: pubSubLinks },
 };

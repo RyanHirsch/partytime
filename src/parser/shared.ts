@@ -168,19 +168,24 @@ export function ensureArray<T>(maybeArr: T | T[]): T[] {
 
 /** Gets the value of the XML node as text */
 export function getText(
-  node: { "#text": string } | string,
+  node: { "#text": string } | string | { value: string },
   { sanitize = false }: { sanitize?: boolean } = {}
 ): string {
   let text = "";
   if (typeof node === "string") {
-    text = node.trim();
-  } else if (typeof node !== "undefined" && node !== null && typeof node["#text"] === "string") {
-    text = node["#text"].trim();
+    text = node;
+  } else if (typeof node !== "undefined" && node !== null) {
+    if ("#text" in node && typeof node["#text"] === "string") {
+      text = node["#text"];
+    } else if ("value" in node && typeof node.value === "string") {
+      text = node.value;
+    }
   }
+
   if (text && sanitize) {
     text = sanitizeText(text);
   }
-  return text;
+  return text.trim();
 }
 
 export function sanitizeNewLines(text: string): string {

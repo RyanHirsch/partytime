@@ -43,9 +43,9 @@ export interface RSSFeed {
 }
 
 export enum FeedType {
-  RSS = 0,
-  ATOM = 1,
-  BadFormat = 9,
+  RSS = "rss",
+  ATOM = "atom",
+  BadFormat = "bad-format",
 }
 
 export enum ItunesFeedType {

@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "ignore": ["*.test.js", "*/fixtures/*"],
+  "ext": "ts",
+  "watch": ["src"],
+  "exec": "LOG=debug esr ./src/dev.ts"
+}

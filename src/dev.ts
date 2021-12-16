@@ -5,6 +5,7 @@ import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
 
+import prettier from "prettier";
 import stringify from "fast-json-stable-stringify";
 import sqlite from "sqlite3";
 import { getStream$ } from "podping-client";
@@ -236,7 +237,12 @@ async function getFeed(uri: string): Promise<void> {
     `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
   );
   logger.info(`Parsed feed object ${parsed}`);
-  fs.writeFileSync(parsed, stringify({ ...feedObject, url: uri }));
+  fs.writeFileSync(
+    parsed,
+    prettier.format(stringify({ ...feedObject, url: uri }), {
+      parser: "json",
+    })
+  );
   await Promise.all([xmlSave, listSave]);
 
   // const corsSupport = await checkFeedByUri(uri);
