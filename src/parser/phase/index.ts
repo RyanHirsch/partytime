@@ -78,8 +78,8 @@ const feeds: FeedUpdate[] = [
   phase4.value,
   phase4.medium,
   phase4.podcastImages,
+  phase4.liveItem,
 
-  pending.liveItem,
   pending.id,
   pending.social,
   pending.podcastRecommendations,
