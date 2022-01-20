@@ -9,11 +9,22 @@ import {
   getBooleanAttribute,
   getKnownAttribute,
   getText,
+  knownLookup,
   lookup,
+  pubDateToDate,
 } from "../shared";
-import type { XmlNode } from "../types";
+import type { Episode, RSSFeed, XmlNode } from "../types";
+import * as ItemParser from "../item";
 
-import type { FeedUpdate } from "./index";
+import { XmlNodeSource } from "./types";
+import { person } from "./phase-2";
+import { alternativeEnclosure } from "./phase-3";
+
+import type { FeedUpdate, ItemUpdate } from "./index";
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+const defaultNodeTransform = (x: XmlNode): XmlNode => x;
+const defaultSupportCheck = (x: XmlNode): boolean => typeof x === "object";
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value
@@ -193,6 +204,98 @@ export const podcastImages = {
           }
           return acc;
         }, [] as Phase4PodcastImage[]) as unknown) as Phase4PodcastImage[],
+    };
+  },
+};
+
+export enum Phase4LiveStatus {
+  Pending = "pending",
+  Live = "live",
+  Ended = "ended",
+}
+type Phase4PodcastLiveItemItem = Partial<
+  Pick<
+    Episode,
+    | "title"
+    | "description"
+    | "link"
+    | "guid"
+    | "author"
+    | "podcastPeople"
+    | "alternativeEnclosures"
+    | "podcastImages"
+  >
+>;
+export type Phase4PodcastLiveItem = {
+  status: Phase4LiveStatus;
+  start: Date;
+  end: Date;
+  item: Phase4PodcastLiveItemItem;
+};
+export const liveItem = {
+  phase: 4,
+  tag: "podcast:liveItem",
+  name: "liveItem",
+  nodeTransform: (node: XmlNode[] | XmlNode): XmlNode[] =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).filter((n) =>
+      Boolean(
+        n &&
+          getAttribute(n, "status") &&
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          lookup(Phase4LiveStatus, getAttribute(n, "status")!.toLowerCase()) &&
+          getAttribute(n, "start") &&
+          getAttribute(n, "end")
+      )
+    ),
+  supportCheck: (node: XmlNode[]): boolean => node.length > 0,
+  fn(node: XmlNode[]): { podcastLiveItems: Phase4PodcastLiveItem[] } {
+    const useParser = (
+      itemUpdate: ItemUpdate,
+      n: XmlNode,
+      item: Phase4PodcastLiveItemItem
+    ): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      const nodeContents = n[itemUpdate.tag];
+      if (nodeContents) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const transformedNode = (itemUpdate.nodeTransform ?? defaultNodeTransform)(nodeContents);
+        if (
+          transformedNode &&
+          (itemUpdate.supportCheck ?? defaultSupportCheck)(transformedNode, XmlNodeSource.Item)
+        ) {
+          Object.assign(item, itemUpdate.fn(transformedNode, {} as RSSFeed, XmlNodeSource.Item));
+        }
+      }
+    };
+
+    return {
+      podcastLiveItems: node
+        .map((n) => {
+          const item: Phase4PodcastLiveItemItem = {
+            ...ItemParser.getTitle(n),
+            ...ItemParser.getDescription(n),
+            ...ItemParser.getLink(n),
+            ...ItemParser.getAuthor(n),
+          };
+          const guid = ItemParser.getGuid(n);
+          if (guid) {
+            item.guid = guid;
+          }
+
+          useParser(person, n, item);
+          useParser(alternativeEnclosure, n, item);
+          useParser(alternativeEnclosure, n, item);
+          useParser(podcastImages, n, item);
+
+          return {
+            status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),
+            start: pubDateToDate(getKnownAttribute(n, "start")),
+            end: pubDateToDate(getKnownAttribute(n, "end")),
+            ...(Object.keys(item).length > 0 ? { item } : undefined),
+          };
+        })
+        .filter((x) => Boolean(x.start && x.end)) as Phase4PodcastLiveItem[],
     };
   },
 };

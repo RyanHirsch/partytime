@@ -6,118 +6,11 @@ import {
   getAttribute,
   getKnownAttribute,
   getText,
-  knownLookup,
-  lookup,
   pubDateToDate,
 } from "../shared";
-import type { XmlNode, Episode, RSSFeed } from "../types";
-import * as ItemParser from "../item";
+import type { XmlNode } from "../types";
 
 import { XmlNodeSource } from "./types";
-import { person } from "./phase-2";
-import { alternativeEnclosure } from "./phase-3";
-import { podcastImages } from "./phase-4";
-
-import type { ItemUpdate } from "./index";
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-return
-const defaultNodeTransform = (x: XmlNode): XmlNode => x;
-const defaultSupportCheck = (x: XmlNode): boolean => typeof x === "object";
-
-export enum PhasePendingLiveStatus {
-  Pending = "pending",
-  Live = "live",
-  Ended = "ended",
-}
-type PhasePendingPodcastLiveItemItem = Partial<
-  Pick<
-    Episode,
-    | "title"
-    | "description"
-    | "link"
-    | "guid"
-    | "author"
-    | "podcastPeople"
-    | "alternativeEnclosures"
-    | "podcastImages"
-  >
->;
-export type PhasePendingPodcastLiveItem = {
-  status: PhasePendingLiveStatus;
-  start: Date;
-  end: Date;
-  item: PhasePendingPodcastLiveItemItem;
-};
-export const liveItem = {
-  phase: Infinity,
-  tag: "podcast:liveItem",
-  name: "liveItem",
-  nodeTransform: (node: XmlNode[] | XmlNode): XmlNode[] =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray(node).filter((n) =>
-      Boolean(
-        n &&
-          getAttribute(n, "status") &&
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          lookup(PhasePendingLiveStatus, getAttribute(n, "status")!.toLowerCase()) &&
-          getAttribute(n, "start") &&
-          getAttribute(n, "end")
-      )
-    ),
-  supportCheck: (node: XmlNode[]): boolean => node.length > 0,
-  fn(node: XmlNode[]): { podcastLiveItems: PhasePendingPodcastLiveItem[] } {
-    const useParser = (
-      itemUpdate: ItemUpdate,
-      n: XmlNode,
-      item: PhasePendingPodcastLiveItemItem
-    ): void => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      const nodeContents = n[itemUpdate.tag];
-      if (nodeContents) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const transformedNode = (itemUpdate.nodeTransform ?? defaultNodeTransform)(nodeContents);
-        if (
-          transformedNode &&
-          (itemUpdate.supportCheck ?? defaultSupportCheck)(transformedNode, XmlNodeSource.Item)
-        ) {
-          Object.assign(item, itemUpdate.fn(transformedNode, {} as RSSFeed, XmlNodeSource.Item));
-        }
-      }
-    };
-
-    return {
-      podcastLiveItems: node
-        .map((n) => {
-          const item: PhasePendingPodcastLiveItemItem = {
-            ...ItemParser.getTitle(n),
-            ...ItemParser.getDescription(n),
-            ...ItemParser.getLink(n),
-            ...ItemParser.getAuthor(n),
-          };
-          const guid = ItemParser.getGuid(n);
-          if (guid) {
-            item.guid = guid;
-          }
-
-          useParser(person, n, item);
-          useParser(alternativeEnclosure, n, item);
-          useParser(alternativeEnclosure, n, item);
-          useParser(podcastImages, n, item);
-
-          return {
-            status: knownLookup(
-              PhasePendingLiveStatus,
-              getKnownAttribute(n, "status").toLowerCase()
-            ),
-            start: pubDateToDate(getKnownAttribute(n, "start")),
-            end: pubDateToDate(getKnownAttribute(n, "end")),
-            ...(Object.keys(item).length > 0 ? { item } : undefined),
-          };
-        })
-        .filter((x) => Boolean(x.start && x.end)) as PhasePendingPodcastLiveItem[],
-    };
-  },
-};
 
 export type PhasePendingPodcastId = {
   platform: string;
