@@ -230,6 +230,7 @@ type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
       | "podcastPeople"
       | "alternativeEnclosures"
       | "podcastImages"
+      | "value"
     >
   >;
 type Phase4ContentLink = {
@@ -288,6 +289,12 @@ export const liveItem = {
           if (!(guid && title && enclosure)) {
             return {} as EmptyObj;
           }
+
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          const transformed = value.nodeTransform(n[value.tag]);
+          const v =
+            transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
+
           const item: Phase4PodcastLiveItemItem = {
             guid,
             enclosure,
@@ -296,6 +303,7 @@ export const liveItem = {
             ...ItemParser.getDescription(n),
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
+            ...v,
           };
 
           useParser(person, n, item);
