@@ -555,21 +555,27 @@ describe("phase 4", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <podcast:liveItem
-          status="LIVE"
-          start="2021-09-26T07:30:00.000-0600"
-          end="2021-09-26T08:30:00.000-0600"
-        ></podcast:liveItem>
-        <podcast:liveItem
-          status="pending"
-          start="2021-09-27T07:30:00.000-0600"
-          end="2021-09-27T08:30:00.000-0600"
-        ></podcast:liveItem>
-        <podcast:liveItem
-          status="ended"
-          start="2021-09-28T07:30:00.000-0600"
-          end="2021-09-28T08:30:00.000-0600"
-        ></podcast:liveItem>
+        <podcast:liveItem status="LIVE" start="2021-09-26T07:30:00.000-0600"
+        end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
+        <podcast:liveItem status="pending" start="2021-09-27T07:30:00.000-0600"
+        end="2021-09-27T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
+        <podcast:liveItem status="ENded" start="2021-09-28T07:30:00.000-0600"
+        end="2021-09-28T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
         `
       );
       const result = parseFeed(xml);
@@ -614,11 +620,12 @@ describe("phase 4", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <podcast:liveItem
-          status="live"
-          start="2021-09-26T07:30:00.000-0600"
-          end="2021-09-26T08:30:00.000-0600"
-        ></podcast:liveItem>
+        <podcast:liveItem status="live" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
         `
       );
       const result = parseFeed(xml);
@@ -659,6 +666,7 @@ describe("phase 4", () => {
                 https://example.com/images/ep3/pci_avatar-small.jpg 300w,
                 https://example.com/images/ep3/pci_avatar-tiny.jpg 150w"
             />
+            <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
             <podcast:person href="https://www.podchaser.com/creators/adam-curry-107ZzmWE5f" img="https://example.com/images/adamcurry.jpg">Adam Curry</podcast:person>
             <podcast:person role="guest" href="https://github.com/daveajones/" img="https://example.com/images/davejones.jpg">Dave Jones</podcast:person>
             <podcast:person group="visuals" role="cover art designer" href="https://example.com/artist/beckysmith">Becky Smith</podcast:person>

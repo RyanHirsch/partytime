@@ -13,7 +13,7 @@ import {
   lookup,
   pubDateToDate,
 } from "../shared";
-import type { Episode, RSSFeed, XmlNode } from "../types";
+import type { EmptyObj, Episode, RSSFeed, XmlNode } from "../types";
 import * as ItemParser from "../item";
 
 import { XmlNodeSource } from "./types";
@@ -220,19 +220,18 @@ export enum Phase4LiveStatus {
   Live = "live",
   Ended = "ended",
 }
-type Phase4PodcastLiveItemItem = Partial<
-  Pick<
-    Episode,
-    | "title"
-    | "description"
-    | "link"
-    | "guid"
-    | "author"
-    | "podcastPeople"
-    | "alternativeEnclosures"
-    | "podcastImages"
-  >
->;
+type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
+  Partial<
+    Pick<
+      Episode,
+      | "description"
+      | "link"
+      | "author"
+      | "podcastPeople"
+      | "alternativeEnclosures"
+      | "podcastImages"
+    >
+  >;
 type Phase4ContentLink = {
   url: string;
   title: string;
@@ -283,16 +282,21 @@ export const liveItem = {
     return {
       podcastLiveItems: node
         .map((n) => {
+          const guid = ItemParser.getGuid(n);
+          const title = ItemParser.getTitle(n);
+          const enclosure = ItemParser.getEnclosure(n);
+          if (!(guid && title && enclosure)) {
+            return {} as EmptyObj;
+          }
           const item: Phase4PodcastLiveItemItem = {
-            ...ItemParser.getTitle(n),
+            guid,
+            enclosure,
+            ...title,
+            ...title,
             ...ItemParser.getDescription(n),
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
           };
-          const guid = ItemParser.getGuid(n);
-          if (guid) {
-            item.guid = guid;
-          }
 
           useParser(person, n, item);
           useParser(alternativeEnclosure, n, item);
@@ -307,7 +311,9 @@ export const liveItem = {
             contentLinks: getContentLinks(n),
           } as Phase4PodcastLiveItem;
         })
-        .filter((x) => Boolean(x.start && x.end)),
+        .filter((x: EmptyObj | Phase4PodcastLiveItem) =>
+          Boolean("start" in x && "end" in x)
+        ) as Phase4PodcastLiveItem[],
     };
   },
 };
