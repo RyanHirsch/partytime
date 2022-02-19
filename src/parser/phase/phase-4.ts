@@ -208,6 +208,13 @@ export const podcastImages = {
   },
 };
 
+function getContentLinks(node: XmlNode): Phase4ContentLink[] {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  return ensureArray(node["podcast:contentLink"]).map((cln) => ({
+    title: getText(cln),
+    url: getAttribute(cln, "href") ?? "",
+  }));
+}
 export enum Phase4LiveStatus {
   Pending = "pending",
   Live = "live",
@@ -226,11 +233,15 @@ type Phase4PodcastLiveItemItem = Partial<
     | "podcastImages"
   >
 >;
-export type Phase4PodcastLiveItem = {
+type Phase4ContentLink = {
+  url: string;
+  title: string;
+};
+export type Phase4PodcastLiveItem = Phase4PodcastLiveItemItem & {
   status: Phase4LiveStatus;
   start: Date;
   end: Date;
-  item: Phase4PodcastLiveItemItem;
+  contentLinks: Phase4ContentLink[];
 };
 export const liveItem = {
   phase: 4,
@@ -292,10 +303,11 @@ export const liveItem = {
             status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),
             start: pubDateToDate(getKnownAttribute(n, "start")),
             end: pubDateToDate(getKnownAttribute(n, "end")),
-            ...(Object.keys(item).length > 0 ? { item } : undefined),
-          };
+            ...(Object.keys(item).length > 0 ? item : undefined),
+            contentLinks: getContentLinks(n),
+          } as Phase4PodcastLiveItem;
         })
-        .filter((x) => Boolean(x.start && x.end)) as Phase4PodcastLiveItem[],
+        .filter((x) => Boolean(x.start && x.end)),
     };
   },
 };

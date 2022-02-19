@@ -665,6 +665,9 @@ describe("phase 4", () => {
             <podcast:alternateEnclosure type="audio/mpeg" length="312">
                 <podcast:source uri="https://example.com/pc20/livestream" />
             </podcast:alternateEnclosure>
+            <podcast:contentLink href="https://youtube.com/pc20/livestream">YouTube!</podcast:contentLink>
+            <podcast:contentLink href="https://twitch.com/pc20/livestream">Twitch!</podcast:contentLink>
+            <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
         </podcast:liveItem>
         `
       );
@@ -683,21 +686,25 @@ describe("phase 4", () => {
         "end",
         new Date("2021-09-26T08:30:00.000-0600")
       );
-      expect(result.podcastLiveItems[0]).toHaveProperty("item");
-      expect(result.podcastLiveItems[0].item).toHaveProperty("title", "Podcasting 2.0 Live Show");
-      expect(result.podcastLiveItems[0].item).toHaveProperty(
+      expect(result.podcastLiveItems[0]).toHaveProperty("title", "Podcasting 2.0 Live Show");
+      expect(result.podcastLiveItems[0]).toHaveProperty(
         "description",
         "A look into the future of podcasting and how we get to Podcasting 2.0!"
       );
-      expect(result.podcastLiveItems[0].item).toHaveProperty("guid", "https://example.com/live");
-      expect(result.podcastLiveItems[0].item).toHaveProperty(
-        "author",
-        "John Doe (john@example.com)"
-      );
+      expect(result.podcastLiveItems[0]).toHaveProperty("guid", "https://example.com/live");
+      expect(result.podcastLiveItems[0]).toHaveProperty("author", "John Doe (john@example.com)");
 
-      expect(result.podcastLiveItems[0].item.podcastImages).toHaveLength(4);
-      expect(result.podcastLiveItems[0].item.podcastPeople).toHaveLength(3);
-      expect(result.podcastLiveItems[0].item.alternativeEnclosures).toHaveLength(1);
+      expect(result.podcastLiveItems[0].podcastImages).toHaveLength(4);
+      expect(result.podcastLiveItems[0].podcastPeople).toHaveLength(3);
+      expect(result.podcastLiveItems[0].alternativeEnclosures).toHaveLength(1);
+      expect(result.podcastLiveItems[0].contentLinks).toHaveLength(3);
+      expect(result.podcastLiveItems[0].contentLinks).toHaveLength(3);
+
+      expect(result.podcastLiveItems[0].contentLinks[0]).toHaveProperty(
+        "url",
+        "https://youtube.com/pc20/livestream"
+      );
+      expect(result.podcastLiveItems[0].contentLinks[0]).toHaveProperty("title", "YouTube!");
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
