@@ -8,5 +8,10 @@
     "uri": "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
     "file": "animated-no-agenda.xml",
     "title": "Animated No Agenda"
+  },
+  {
+    "uri": "https://podcasts.subsplash.com/8f2y3mw/podcast.rss",
+    "file": "changing-the-tide.xml",
+    "title": "Changing the Tide"
   }
 ]
