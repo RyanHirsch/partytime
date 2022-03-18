@@ -21,7 +21,11 @@ import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
 import { handleFeed } from "./feed";
 
-export function unifiedParser(theFeed: XmlNode, type: FeedType) {
+export type ParserOptions = {
+  allowMissingGuid?: boolean;
+};
+
+export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: ParserOptions) {
   const epochDate = new Date(0);
   if (typeof theFeed.rss.channel === "undefined") {
     logger.warn("Provided XML has no channel node, unparsable");
@@ -43,7 +47,7 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType) {
     // Items
     feedObj.items = ensureArray(theFeed.rss.channel.item)
       .map((item: XmlNode): Episode | undefined => {
-        if (!isValidItem(item)) {
+        if (!isValidItem(item, options)) {
           return undefined;
         }
 

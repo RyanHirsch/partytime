@@ -34,4 +34,24 @@ describe("real-world feeds", () => {
       expect(exampleEpisode.enclosure).toHaveProperty("url", expectedUrl);
     });
   });
+
+  // This feed has missing GUIDs while I don't think this should be encouraged, it can be allowed via options
+  describe("DK Podcast", () => {
+    let xml = "";
+    beforeEach(async () => {
+      xml = await helpers.loadFixture(`real-world/dk-podcast.xml`);
+    });
+
+    it(`parses all items with GUID missing flag allowed`, () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+
+      expect(result.items).toHaveLength(59);
+    });
+
+    it(`parses no items with GUID missing flag disabled`, () => {
+      const result = parseFeed(xml, { allowMissingGuid: false });
+
+      expect(result.items).toHaveLength(0);
+    });
+  });
 });

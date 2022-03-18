@@ -13,5 +13,10 @@
     "uri": "https://podcasts.subsplash.com/8f2y3mw/podcast.rss",
     "file": "changing-the-tide.xml",
     "title": "Changing the Tide"
+  },
+  {
+    "uri": "https://rss.dw.com/xml/DKpodcast_lgn_de",
+    "file": "dk-podcast.xml",
+    "title": "Langsam gesprochene Nachrichten | Audios | DW Deutsch lernen"
   }
 ]

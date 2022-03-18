@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:georss="http://www.georss.org/georss"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Langsam gesprochene Nachrichten | Audios | DW Deutsch lernen</title>
+    <link>http://www.dw.com/langsamenachrichten?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+    <description>C1 | Deutsch für Profis: Verbessert euer Deutsch mit aktuellen Tagesnachrichten der Deutschen Welle – für Deutschlerner besonders langsam und deutlich gesprochen.</description>
+    <language>de</language>
+    <copyright>2022 DW.COM, Deutsche Welle</copyright>
+    <pubDate>Fri, 18 Mar 2022 14:34:21 GMT</pubDate>
+    <lastBuildDate>Fri, 18 Mar 2022 14:34:21 GMT</lastBuildDate>
+    <atom:link href="https://rss.dw.com/xml/DKpodcast_lgn_de" rel="self"/>
+    <image>
+      <url>https://static.dw.com/image/18800113_7.jpg</url>
+      <title>Langsam gesprochene Nachrichten | Audios | DW Deutsch lernen</title>
+      <link>http://www.dw.com/langsamenachrichten?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+    </image>
+    <itunes:image href="https://static.dw.com/image/18800113_7.jpg"/>
+    <itunes:block>no</itunes:block>
+    <itunes:explicit>clean</itunes:explicit>
+    <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+    <itunes:owner>
+      <itunes:name>DW.COM | Deutsche Welle</itunes:name>
+      <itunes:email>podcasts@dw.com</itunes:email>
+    </itunes:owner>
+    <itunes:subtitle>C1 | Deutsch für Profis: Verbessert euer Deutsch mit aktuellen Tagesnachrichten der Deutschen Welle – für Deutschlerner besonders langsam und deutlich gesprochen.</itunes:subtitle>
+    <itunes:summary>C1 | Deutsch für Profis: Verbessert euer Deutsch mit aktuellen Tagesnachrichten der Deutschen Welle – für Deutschlerner besonders langsam und deutlich gesprochen.</itunes:summary>
+    <itunes:category text="Education">
+      <itunes:category text="Language Learning"/>
+    </itunes:category>
+    <ttl>10</ttl>
+    <item>
+      <guid isPermaLink="false">61170826</guid>
+      <pubDate>Fri, 18 Mar 2022 09:46:00 GMT</pubDate>
+      <title>18.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/18-03-2022-langsam-gesprochene-nachrichten/av-61170826?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/5F52703B_2-podcast-2288-61170826.mp3" type="audio/mpeg" length="7191317"/>
+      <itunes:duration>07:00</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61163550</guid>
+      <pubDate>Thu, 17 Mar 2022 13:47:00 GMT</pubDate>
+      <title>17.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/17-03-2022-langsam-gesprochene-nachrichten/av-61163550?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/D6F2E643_2-podcast-2288-61163550.mp3" type="audio/mpeg" length="8578682"/>
+      <itunes:duration>08:27</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61142718</guid>
+      <pubDate>Wed, 16 Mar 2022 09:26:00 GMT</pubDate>
+      <title>16.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/16-03-2022-langsam-gesprochene-nachrichten/av-61142718?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/D9E892A3_2-podcast-2288-61142718.mp3" type="audio/mpeg" length="8126650"/>
+      <itunes:duration>07:59</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61129826</guid>
+      <pubDate>Tue, 15 Mar 2022 09:50:00 GMT</pubDate>
+      <title>15.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/15-03-2022-langsam-gesprochene-nachrichten/av-61129826?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/47E5C0F3_2-podcast-2288-61129826.mp3" type="audio/mpeg" length="9607834"/>
+      <itunes:duration>09:32</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61116088</guid>
+      <pubDate>Mon, 14 Mar 2022 09:36:00 GMT</pubDate>
+      <title>14.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/14-03-2022-langsam-gesprochene-nachrichten/av-61116088?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/E6AC3089_2-podcast-2288-61116088.mp3" type="audio/mpeg" length="7801386"/>
+      <itunes:duration>07:39</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61105219</guid>
+      <pubDate>Sat, 12 Mar 2022 09:36:00 GMT</pubDate>
+      <title>12.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/12-03-2022-langsam-gesprochene-nachrichten/av-61105219?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/4D2CBF95_2-podcast-2288-61105219.mp3" type="audio/mpeg" length="8127482"/>
+      <itunes:duration>07:59</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61094429</guid>
+      <pubDate>Fri, 11 Mar 2022 10:38:00 GMT</pubDate>
+      <title>11.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/11-03-2022-langsam-gesprochene-nachrichten/av-61094429?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/D34333E7_2-podcast-2288-61094429.mp3" type="audio/mpeg" length="9249629"/>
+      <itunes:duration>09:09</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61094030</guid>
+      <pubDate>Fri, 11 Mar 2022 10:14:00 GMT</pubDate>
+      <title>10.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/10-03-2022-langsam-gesprochene-nachrichten/av-61094030?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/DD673768_2-podcast-2288-61094030.mp3" type="audio/mpeg" length="7825163"/>
+      <itunes:duration>07:40</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61077833</guid>
+      <pubDate>Thu, 10 Mar 2022 09:48:00 GMT</pubDate>
+      <title>10.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/10-03-2022-langsam-gesprochene-nachrichten/av-61077833?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/F324A9B2_2-podcast-2288-61077833.mp3" type="audio/mpeg" length="7802645"/>
+      <itunes:duration>07:39</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61061891</guid>
+      <pubDate>Wed, 9 Mar 2022 10:19:00 GMT</pubDate>
+      <title>09.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/09-03-2022-langsam-gesprochene-nachrichten/av-61061891?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/512E860F_2-podcast-2288-61061891.mp3" type="audio/mpeg" length="6986572"/>
+      <itunes:duration>06:48</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61049542</guid>
+      <pubDate>Tue, 8 Mar 2022 10:28:00 GMT</pubDate>
+      <title>08.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/08-03-2022-langsam-gesprochene-nachrichten/av-61049542?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/7EFF9092_2-podcast-2288-61049542.mp3" type="audio/mpeg" length="8015311"/>
+      <itunes:duration>07:52</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61038965</guid>
+      <pubDate>Mon, 7 Mar 2022 10:15:00 GMT</pubDate>
+      <title>07.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/07-03-2022-langsam-gesprochene-nachrichten/av-61038965?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>THEMEN</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/E9AC4F57_2-podcast-2288-61038965.mp3" type="audio/mpeg" length="8913525"/>
+      <itunes:duration>08:48</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61027026</guid>
+      <pubDate>Sat, 5 Mar 2022 11:45:00 GMT</pubDate>
+      <title>05.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/05-03-2022-langsam-gesprochene-nachrichten/av-61027026?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/6212D5BD_2-podcast-2288-61027026.mp3" type="audio/mpeg" length="8046165"/>
+      <itunes:duration>07:54</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">61010837</guid>
+      <pubDate>Fri, 4 Mar 2022 09:23:00 GMT</pubDate>
+      <title>04.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/04-03-2022-langsam-gesprochene-nachrichten/av-61010837?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/7A1A243A_2-podcast-2288-61010837.mp3" type="audio/mpeg" length="8191698"/>
+      <itunes:duration>08:03</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60996751</guid>
+      <pubDate>Thu, 3 Mar 2022 09:22:00 GMT</pubDate>
+      <title>03.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/03-03-2022-langsam-gesprochene-nachrichten/av-60996751?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/CCFC1F24_2-podcast-2288-60996751.mp3" type="audio/mpeg" length="6334805"/>
+      <itunes:duration>06:07</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60984826</guid>
+      <pubDate>Wed, 2 Mar 2022 10:42:00 GMT</pubDate>
+      <title>02.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/02-03-2022-langsam-gesprochene-nachrichten/av-60984826?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/A333838A_2-podcast-2288-60984826.mp3" type="audio/mpeg" length="7126684"/>
+      <itunes:duration>06:56</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60982268</guid>
+      <pubDate>Wed, 2 Mar 2022 09:45:00 GMT</pubDate>
+      <title>02.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/02-03-2022-langsam-gesprochene-nachrichten/av-60982268?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/56A7EE91_2-podcast-2288-60982268.mp3" type="audio/mpeg" length="7153372"/>
+      <itunes:duration>06:58</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60957136</guid>
+      <pubDate>Tue, 1 Mar 2022 10:10:00 GMT</pubDate>
+      <title>01.03.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/01-03-2022-langsam-gesprochene-nachrichten/av-60957136?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/92DD523E_2-podcast-2288-60957136.mp3" type="audio/mpeg" length="8087452"/>
+      <itunes:duration>07:57</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60942487</guid>
+      <pubDate>Mon, 28 Feb 2022 10:00:00 GMT</pubDate>
+      <title>28.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/28-02-2022-langsam-gesprochene-nachrichten/av-60942487?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/7CA3D2ED_2-podcast-2288-60942487.mp3" type="audio/mpeg" length="9822585"/>
+      <itunes:duration>09:45</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60927005</guid>
+      <pubDate>Sat, 26 Feb 2022 10:01:00 GMT</pubDate>
+      <title>26.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/26-02-2022-langsam-gesprochene-nachrichten/av-60927005?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/53F7C2C4_2-podcast-2288-60927005.mp3" type="audio/mpeg" length="6459065"/>
+      <itunes:duration>06:15</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60911623</guid>
+      <pubDate>Fri, 25 Feb 2022 08:40:00 GMT</pubDate>
+      <title>25.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/25-02-2022-langsam-gesprochene-nachrichten/av-60911623?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/56013F46_2-podcast-2288-60911623.mp3" type="audio/mpeg" length="6055409"/>
+      <itunes:duration>05:49</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60895423</guid>
+      <pubDate>Thu, 24 Feb 2022 08:42:00 GMT</pubDate>
+      <title>24.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/24-02-2022-langsam-gesprochene-nachrichten/av-60895423?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/84CFDCF8_2-podcast-2288-60895423.mp3" type="audio/mpeg" length="7059134"/>
+      <itunes:duration>06:52</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60882961</guid>
+      <pubDate>Wed, 23 Feb 2022 09:25:00 GMT</pubDate>
+      <title>23.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/23-02-2022-langsam-gesprochene-nachrichten/av-60882961?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/2DCB31B5_2-podcast-2288-60882961.mp3" type="audio/mpeg" length="7514077"/>
+      <itunes:duration>07:21</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60870048</guid>
+      <pubDate>Tue, 22 Feb 2022 10:27:00 GMT</pubDate>
+      <title>22.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/22-02-2022-langsam-gesprochene-nachrichten/av-60870048?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/EFF214F4_2-podcast-2288-60870048.mp3" type="audio/mpeg" length="8515711"/>
+      <itunes:duration>08:23</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60854387</guid>
+      <pubDate>Mon, 21 Feb 2022 10:04:00 GMT</pubDate>
+      <title>21.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/21-02-2022-langsam-gesprochene-nachrichten/av-60854387?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/2E99AF03_2-podcast-2288-60854387.mp3" type="audio/mpeg" length="7449021"/>
+      <itunes:duration>07:17</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60839984</guid>
+      <pubDate>Sat, 19 Feb 2022 09:37:00 GMT</pubDate>
+      <title>19.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/19-02-2022-langsam-gesprochene-nachrichten/av-60839984?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/2C027D85_2-podcast-2288-60839984.mp3" type="audio/mpeg" length="8072438"/>
+      <itunes:duration>07:56</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60825419</guid>
+      <pubDate>Fri, 18 Feb 2022 09:30:00 GMT</pubDate>
+      <title>18.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/18-02-2022-langsam-gesprochene-nachrichten/av-60825419?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/3613FE81_2-podcast-2288-60825419.mp3" type="audio/mpeg" length="8362253"/>
+      <itunes:duration>08:14</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60810836</guid>
+      <pubDate>Thu, 17 Feb 2022 10:34:00 GMT</pubDate>
+      <title>17.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/17-02-2022-langsam-gesprochene-nachrichten/av-60810836?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/88018AE5_2-podcast-2288-60810836.mp3" type="audio/mpeg" length="8314721"/>
+      <itunes:duration>08:11</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60797521</guid>
+      <pubDate>Wed, 16 Feb 2022 10:22:00 GMT</pubDate>
+      <title>16.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/16-02-2022-langsam-gesprochene-nachrichten/av-60797521?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/ACFFC1DB_2-podcast-2288-60797521.mp3" type="audio/mpeg" length="7317253"/>
+      <itunes:duration>07:08</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60783116</guid>
+      <pubDate>Tue, 15 Feb 2022 10:24:00 GMT</pubDate>
+      <title>15.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/15-02-2022-langsam-gesprochene-nachrichten/av-60783116?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/F9C94540_2-podcast-2288-60783116.mp3" type="audio/mpeg" length="8302624"/>
+      <itunes:duration>08:10</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60769737</guid>
+      <pubDate>Mon, 14 Feb 2022 10:18:00 GMT</pubDate>
+      <title>14.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/14-02-2022-langsam-gesprochene-nachrichten/av-60769737?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/8DBD1801_2-podcast-2288-60769737.mp3" type="audio/mpeg" length="12386718"/>
+      <itunes:duration>12:26</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60745006</guid>
+      <pubDate>Fri, 11 Feb 2022 12:25:00 GMT</pubDate>
+      <title>11.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/11-02-2022-langsam-gesprochene-nachrichten/av-60745006?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/38BD81C0_2-podcast-2288-60745006.mp3" type="audio/mpeg" length="13049331"/>
+      <itunes:duration>13:07</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60724937</guid>
+      <pubDate>Thu, 10 Feb 2022 09:40:00 GMT</pubDate>
+      <title>10.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/10-02-2022-langsam-gesprochene-nachrichten/av-60724937?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/EB009A15_2-podcast-2288-60724937.mp3" type="audio/mpeg" length="14437115"/>
+      <itunes:duration>14:34</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60709863</guid>
+      <pubDate>Wed, 9 Feb 2022 09:33:00 GMT</pubDate>
+      <title>09.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/09-02-2022-langsam-gesprochene-nachrichten/av-60709863?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/91CBC40A_2-podcast-2288-60709863.mp3" type="audio/mpeg" length="12428422"/>
+      <itunes:duration>12:28</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60694775</guid>
+      <pubDate>Tue, 8 Feb 2022 09:38:00 GMT</pubDate>
+      <title>08.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/08-02-2022-langsam-gesprochene-nachrichten/av-60694775?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/9DB07967_2-podcast-2288-60694775.mp3" type="audio/mpeg" length="12853762"/>
+      <itunes:duration>12:55</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60685239</guid>
+      <pubDate>Mon, 7 Feb 2022 11:12:00 GMT</pubDate>
+      <title>07.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/07-02-2022-langsam-gesprochene-nachrichten/av-60685239?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/BDE148B5_2-podcast-2288-60685239.mp3" type="audio/mpeg" length="14429601"/>
+      <itunes:duration>14:34</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60683864</guid>
+      <pubDate>Mon, 7 Feb 2022 09:52:00 GMT</pubDate>
+      <title>07.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/07-02-2022-langsam-gesprochene-nachrichten/av-60683864?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/9798987B_2-podcast-2288-60683864.mp3" type="audio/mpeg" length="14428249"/>
+      <itunes:duration>14:34</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60671189</guid>
+      <pubDate>Sat, 5 Feb 2022 10:23:00 GMT</pubDate>
+      <title>05.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/05-02-2022-langsam-gesprochene-nachrichten/av-60671189?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/D1E50C21_2-podcast-2288-60671189.mp3" type="audio/mpeg" length="13263254"/>
+      <itunes:duration>13:21</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60660010</guid>
+      <pubDate>Fri, 4 Feb 2022 11:59:00 GMT</pubDate>
+      <title>04.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/04-02-2022-langsam-gesprochene-nachrichten/av-60660010?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/7E99081D_2-podcast-2288-60660010.mp3" type="audio/mpeg" length="15581774"/>
+      <itunes:duration>15:46</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60642748</guid>
+      <pubDate>Thu, 3 Feb 2022 09:47:00 GMT</pubDate>
+      <title>03.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/03-02-2022-langsam-gesprochene-nachrichten/av-60642748?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/F6FA7FDC_2-podcast-2288-60642748.mp3" type="audio/mpeg" length="14508005"/>
+      <itunes:duration>14:39</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60632916</guid>
+      <pubDate>Wed, 2 Feb 2022 10:45:00 GMT</pubDate>
+      <title>02.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/02-02-2022-langsam-gesprochene-nachrichten/av-60632916?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/8008CCDE_2-podcast-2288-60632916.mp3" type="audio/mpeg" length="13801186"/>
+      <itunes:duration>13:54</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60620840</guid>
+      <pubDate>Tue, 1 Feb 2022 10:51:00 GMT</pubDate>
+      <title>01.02.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/01-02-2022-langsam-gesprochene-nachrichten/av-60620840?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/6CE7E3FA_2-podcast-2288-60620840.mp3" type="audio/mpeg" length="15351054"/>
+      <itunes:duration>15:32</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60608114</guid>
+      <pubDate>Mon, 31 Jan 2022 09:39:00 GMT</pubDate>
+      <title>31.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/31-01-2022-langsam-gesprochene-nachrichten/av-60608114?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/217FCD3E_2-podcast-2288-60608114.mp3" type="audio/mpeg" length="15647241"/>
+      <itunes:duration>15:50</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60597168</guid>
+      <pubDate>Sat, 29 Jan 2022 10:48:00 GMT</pubDate>
+      <title>29.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/29-01-2022-langsam-gesprochene-nachrichten/av-60597168?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/25DAB2A2_2-podcast-2288-60597168.mp3" type="audio/mpeg" length="8424249"/>
+      <itunes:duration>08:18</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60587563</guid>
+      <pubDate>Fri, 28 Jan 2022 10:40:00 GMT</pubDate>
+      <title>28.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/28-01-2022-langsam-gesprochene-nachrichten/av-60587563?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/2143929E_2-podcast-2288-60587563.mp3" type="audio/mpeg" length="15127659"/>
+      <itunes:duration>15:18</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60571825</guid>
+      <pubDate>Thu, 27 Jan 2022 10:07:00 GMT</pubDate>
+      <title>27.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/27-01-2022-langsam-gesprochene-nachrichten/av-60571825?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/BAFFFB83_2-podcast-2288-60571825.mp3" type="audio/mpeg" length="14513718"/>
+      <itunes:duration>14:39</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60560753</guid>
+      <pubDate>Wed, 26 Jan 2022 12:04:00 GMT</pubDate>
+      <title>26.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/26-01-2022-langsam-gesprochene-nachrichten/av-60560753?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/6343D721_2-podcast-2288-60560753.mp3" type="audio/mpeg" length="11978364"/>
+      <itunes:duration>12:00</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60560187</guid>
+      <pubDate>Wed, 26 Jan 2022 11:34:00 GMT</pubDate>
+      <title>26.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/26-01-2022-langsam-gesprochene-nachrichten/av-60560187?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/AA9D0480_2-podcast-2288-60560187.mp3" type="audio/mpeg" length="7204937"/>
+      <itunes:duration>07:01</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60545550</guid>
+      <pubDate>Tue, 25 Jan 2022 10:04:00 GMT</pubDate>
+      <title>25.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/25-01-2022-langsam-gesprochene-nachrichten/av-60545550?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/52B039BF_2-podcast-2288-60545550.mp3" type="audio/mpeg" length="12861685"/>
+      <itunes:duration>12:56</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60534809</guid>
+      <pubDate>Mon, 24 Jan 2022 09:54:00 GMT</pubDate>
+      <title>24.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/24-01-2022-langsam-gesprochene-nachrichten/av-60534809?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/0880E28D_2-podcast-2288-60534809.mp3" type="audio/mpeg" length="8298031"/>
+      <itunes:duration>08:10</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60523249</guid>
+      <pubDate>Sat, 22 Jan 2022 10:01:00 GMT</pubDate>
+      <title>22.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/22-01-2022-langsam-gesprochene-nachrichten/av-60523249?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/7AC861DA_2-podcast-2288-60523249.mp3" type="audio/mpeg" length="6993939"/>
+      <itunes:duration>06:48</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60508242</guid>
+      <pubDate>Fri, 21 Jan 2022 10:08:00 GMT</pubDate>
+      <title>21.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/21-01-2022-langsam-gesprochene-nachrichten/av-60508242?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/77EA09D2_2-podcast-2288-60508242.mp3" type="audio/mpeg" length="7178670"/>
+      <itunes:duration>07:00</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60492031</guid>
+      <pubDate>Thu, 20 Jan 2022 09:40:00 GMT</pubDate>
+      <title>20.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/20-01-2022-langsam-gesprochene-nachrichten/av-60492031?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/A7D04A0F_2-podcast-2288-60492031.mp3" type="audio/mpeg" length="8370033"/>
+      <itunes:duration>08:14</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60474785</guid>
+      <pubDate>Wed, 19 Jan 2022 09:26:00 GMT</pubDate>
+      <title>19.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/19-01-2022-langsam-gesprochene-nachrichten/av-60474785?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Mittwoch – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/E85F2262_2-podcast-2288-60474785.mp3" type="audio/mpeg" length="9288690"/>
+      <itunes:duration>09:12</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60458264</guid>
+      <pubDate>Tue, 18 Jan 2022 09:50:00 GMT</pubDate>
+      <title>18.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/18-01-2022-langsam-gesprochene-nachrichten/av-60458264?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Dienstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/CA835193_2-podcast-2288-60458264.mp3" type="audio/mpeg" length="9536944"/>
+      <itunes:duration>09:27</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60447185</guid>
+      <pubDate>Mon, 17 Jan 2022 10:22:00 GMT</pubDate>
+      <title>17.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/17-01-2022-langsam-gesprochene-nachrichten/av-60447185?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Montag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>Deutsch XXL</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/4C826490_2-podcast-2288-60447185.mp3" type="audio/mpeg" length="9954774"/>
+      <itunes:duration>09:53</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60434014</guid>
+      <pubDate>Sat, 15 Jan 2022 11:04:00 GMT</pubDate>
+      <title>15.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/15-01-2022-langsam-gesprochene-nachrichten/av-60434014?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Samstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/3DC7E9BE_2-podcast-2288-60434014.mp3" type="audio/mpeg" length="6580412"/>
+      <itunes:duration>06:22</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60423115</guid>
+      <pubDate>Fri, 14 Jan 2022 10:35:00 GMT</pubDate>
+      <title>14.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/14-01-2022-langsam-gesprochene-nachrichten/av-60423115?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Freitag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>BAKU</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/B7E7681E_2-podcast-2288-60423115.mp3" type="audio/mpeg" length="9769211"/>
+      <itunes:duration>09:42</itunes:duration>
+    </item>
+    <item>
+      <guid isPermaLink="false">60408118</guid>
+      <pubDate>Thu, 13 Jan 2022 09:58:00 GMT</pubDate>
+      <title>13.01.2022 – Langsam gesprochene Nachrichten</title>
+      <link>https://www.dw.com/de/13-01-2022-langsam-gesprochene-nachrichten/av-60408118?maca=de-DKpodcast_lgn_de-2288-xml-mrss</link>
+      <description>Trainiere dein Hörverstehen mit den Nachrichten der Deutschen Welle von Donnerstag – als Text und als verständlich gesprochene Audio-Datei.</description>
+      <category>Deutsch XXL</category>
+      <itunes:author>DW.COM | Deutsche Welle</itunes:author>
+      <itunes:keywords>Deutsch lernen</itunes:keywords>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="https://radiodownloaddw-a.akamaihd.net/Events/podcasts/de/2288_DKpodcast_lgn_de/B8D361CA_2-podcast-2288-60408118.mp3" type="audio/mpeg" length="9786731"/>
+      <itunes:duration>09:43</itunes:duration>
+    </item>
+  </channel>
+</rss>
