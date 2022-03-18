@@ -6,25 +6,25 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { logger } from "../logger";
 
-import { unifiedParser } from "./unified";
+import { ParserOptions, unifiedParser } from "./unified";
 import { parse, validate } from "./xml-parser";
 import { FeedObject, FeedType } from "./types";
 
-export function parseFeed(xml: string): FeedObject | null {
+export function parseFeed(xml: string, options?: ParserOptions): FeedObject | null {
   const parsedContent = validate(xml.trim());
   if (parsedContent === true) {
-    return handleValidFeed(xml);
+    return handleValidFeed(xml, options);
   }
   return handleInvalidFeed(xml);
 }
 
-function handleValidFeed(xml: string): FeedObject | null {
+function handleValidFeed(xml: string, options?: ParserOptions): FeedObject | null {
   const theFeed = parse(xml.trim());
   let feedObj: FeedObject | null;
   if (typeof theFeed.rss === "object") {
-    feedObj = unifiedParser(theFeed, FeedType.RSS);
+    feedObj = unifiedParser(theFeed, FeedType.RSS, options);
   } else if (typeof theFeed.feed === "object") {
-    feedObj = unifiedParser(theFeed, FeedType.ATOM);
+    feedObj = unifiedParser(theFeed, FeedType.ATOM, options);
   } else {
     // Unsupported
     return null;

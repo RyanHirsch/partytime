@@ -101,6 +101,22 @@ describe("item handling", () => {
       expect(result.items).toHaveLength(0);
     });
 
+    it("allow missing guid with flag", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>Hello</title>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+        </item>
+      `
+      );
+
+      const result = parseFeed(xml, { allowMissingGuid: true });
+
+      expect(result.items).toHaveLength(1);
+    });
+
     it("handles invalid item (missing enclosure)", () => {
       const xml = helpers.spliceFeed(
         feed,
