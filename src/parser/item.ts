@@ -22,6 +22,7 @@ import {
   timeToSeconds,
 } from "./shared";
 import type { Enclosure, Episode, FeedObject, XmlNode } from "./types";
+import { unescape } from "./unescape";
 
 export enum ItunesEpisodeType {
   Full = "full",
@@ -63,7 +64,7 @@ export function getEnclosure(item: XmlNode): Enclosure | null {
   const node = firstWithAttributes(item.enclosure, ["url"]);
   if (node) {
     return {
-      url: getKnownAttribute(node, "url"),
+      url: unescape(getKnownAttribute(node, "url")),
       length: parseInt(getAttribute(node, "length") ?? "0", 10),
       type: getAttribute(node, "type") ?? guessEnclosureType(getKnownAttribute(node, "url")),
     };

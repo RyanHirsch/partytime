@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <atom:link rel="self" href="https://podcasts.subsplash.com/8f2y3mw/podcast.rss" type="application/rss+xml"/>
+
+    <title>Changing the Tide</title>
+    <itunes:author>Jonathan Crabtree</itunes:author>
+    <itunes:owner>
+      <itunes:email>jonathan@crabtree.tech</itunes:email>
+      <itunes:name>Jonathan Crabtree</itunes:name>
+    </itunes:owner>
+
+    <itunes:summary>Bitcoin on Lightning Network is a gravitational force. It&apos;s changing the tide towards greater freedom and prosperity (and fun) worldwide.
+
+Hosted by Jon Crabtree.</itunes:summary>
+    <description>Bitcoin on Lightning Network is a gravitational force. It&apos;s changing the tide towards greater freedom and prosperity (and fun) worldwide.
+
+Hosted by Jon Crabtree.</description>
+
+    <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD04NGNhOWU4Mi1iNmVkLTQyNDktOGNjYy1hNzA4NjQ2YjhlYWImdz0zMDAwJmg9MzAwMCZhbGxvd191cHNjYWxlPXRydWU.jpg"/>
+    <itunes:category text="Technology"/>
+
+    <language>en</language>
+    <copyright>&#xA9; 2022 Jonathan Crabtree</copyright>
+    <itunes:explicit>no</itunes:explicit>
+
+    <item>
+      <title>0.00000015: Andy Schroder, Distributed Charge + A0</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Andy Schroder</itunes:author>
+      <itunes:summary>Andy Schroder is an engineer and entrepreneur who has created the Bitcoin Fluid Dispenser and Distributed Charge.
+
+These projects are Changing the Tide by providing a smooth path that vendors can use to dispense commodities and energy for Bitcoin in a trustless or near-trustless way. Both the seller and the buyer(s) can rely on their Bitcoin and Lightning full nodes to transact, bolstering their financial privacy and sovereignty.
+
+Distributed Charge&apos;s proprietary Board A0 is &quot;The First Building Block of a Bitcoin Lightning Network Enabled Energy Grid.&quot; The goal is to create a truly distributed network of charging stations for electric cars.
+
+Links: ​
+Andy&apos;s website: http://andyschroder.com/
+Andy&apos;s Twitter handle: @_andy_schroder_
+Bitcoin Fluid Dispenser overview: http://andyschroder.com/BitcoinFluidDispenser/TheOriginal/
+Distributed Charge overview:
+http://andyschroder.com/DistributedCharge/alpha/InitialDemonstration/
+Board A0 overview:
+http://andyschroder.com/DistributedCharge/BoardA0/Overview/
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree
+
+Correction: At approximately 3:20, I mention that &quot;90.29% of Bitcoin...has been issued by miners.&quot; In reality, &quot;90.29% of Bitcoin...has been issued TO miners.&quot;</itunes:summary>
+      <description>Andy Schroder is an engineer and entrepreneur who has created the Bitcoin Fluid Dispenser and Distributed Charge.
+
+These projects are Changing the Tide by providing a smooth path that vendors can use to dispense commodities and energy for Bitcoin in a trustless or near-trustless way. Both the seller and the buyer(s) can rely on their Bitcoin and Lightning full nodes to transact, bolstering their financial privacy and sovereignty.
+
+Distributed Charge&apos;s proprietary Board A0 is &quot;The First Building Block of a Bitcoin Lightning Network Enabled Energy Grid.&quot; The goal is to create a truly distributed network of charging stations for electric cars.
+
+Links: ​
+Andy&apos;s website: http://andyschroder.com/
+Andy&apos;s Twitter handle: @_andy_schroder_
+Bitcoin Fluid Dispenser overview: http://andyschroder.com/BitcoinFluidDispenser/TheOriginal/
+Distributed Charge overview:
+http://andyschroder.com/DistributedCharge/alpha/InitialDemonstration/
+Board A0 overview:
+http://andyschroder.com/DistributedCharge/BoardA0/Overview/
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree
+
+Correction: At approximately 3:20, I mention that &quot;90.29% of Bitcoin...has been issued by miners.&quot; In reality, &quot;90.29% of Bitcoin...has been issued TO miners.&quot;</description>
+      <pubDate>Mon, 21 Feb 2022 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzYyNDE4MDRhLWE0MTktNGI2OS1iOGQwLTUwMjY3NmJkNTQ5NC9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=33xnjwg" length="70168907" type="audio/mp3"/>
+      <itunes:duration>4385</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD04NGNhOWU4Mi1iNmVkLTQyNDktOGNjYy1hNzA4NjQ2YjhlYWImdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>1</itunes:order>
+      <guid isPermaLink="false">baffe8902e8478c8c8482fd094cedd8c</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000014: 8₿it, BTC.email</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, 8ƀit</itunes:author>
+      <itunes:summary>8ƀit is building BTC.email. This concept reaches all the way back to a very famous email exchange on the Cryptography Mailing List dated January 16, 2009.
+
+8ƀit is Changing the Tide. This product will allow people to have their time bought by those wanting to get their attention. So it lets them store the time they&apos;ve spent in and on their email persona in Bitcoin and take it with them. And thus give them greater freedom over another huge aspect of their lives: digital communications.
+
+As a fun side benefit, he is also documenting this journey.
+
+Links: ​
+8ƀit&apos;s Twitter handle: @8BIT
+BTC.email&apos;s Twitter handle: @BTCemail
+Email Exchange URL: https://satoshi.nakamotoinstitute.org/emails/cryptography/17/
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>8ƀit is building BTC.email. This concept reaches all the way back to a very famous email exchange on the Cryptography Mailing List dated January 16, 2009.
+
+8ƀit is Changing the Tide. This product will allow people to have their time bought by those wanting to get their attention. So it lets them store the time they&apos;ve spent in and on their email persona in Bitcoin and take it with them. And thus give them greater freedom over another huge aspect of their lives: digital communications.
+
+As a fun side benefit, he is also documenting this journey.
+
+Links: ​
+8ƀit&apos;s Twitter handle: @8BIT
+BTC.email&apos;s Twitter handle: @BTCemail
+Email Exchange URL: https://satoshi.nakamotoinstitute.org/emails/cryptography/17/
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Wed, 19 Jan 2022 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzBhYTU3OTYxLWZhM2QtNGM1Yi04ZmVjLTllOGRmNDM4OTVjZC9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=67bxc3f" length="84013387" type="audio/mp3"/>
+      <itunes:duration>5250</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD04NGNhOWU4Mi1iNmVkLTQyNDktOGNjYy1hNzA4NjQ2YjhlYWImdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>2</itunes:order>
+      <guid isPermaLink="false">4ea6884c2efc74fd546d4c08cbfba789</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000013: Desiree Dickerson, Lightning to THNDR</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Desiree Dickerson</itunes:author>
+      <itunes:summary>Desiree Dickerson is CEO and Co-Founder of THNDR Games, a company onboarding new Bitcoiners through engaging mobile video games.
+
+Des has been Changing the Tide for years. As part of both Lightning Labs and MintGox, she was pivotal in driving Lightning adoption through video games. Now at THNDR Games, she is ready to help scale THNDR&apos;s impact across the world.
+
+Links: ​
+Des&apos;s Twitter handle: @dickerson_des
+THNDR Games Twitter handle: @THNDRGAMES
+THNDR&apos;s website: https://www.thndr.gg/
+THNDR&apos;s games in app stores:
+*Turbo &apos;84
+*Bitcoin Bounce
+*THNDR Bay
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Desiree Dickerson is CEO and Co-Founder of THNDR Games, a company onboarding new Bitcoiners through engaging mobile video games.
+
+Des has been Changing the Tide for years. As part of both Lightning Labs and MintGox, she was pivotal in driving Lightning adoption through video games. Now at THNDR Games, she is ready to help scale THNDR&apos;s impact across the world.
+
+Links: ​
+Des&apos;s Twitter handle: @dickerson_des
+THNDR Games Twitter handle: @THNDRGAMES
+THNDR&apos;s website: https://www.thndr.gg/
+THNDR&apos;s games in app stores:
+*Turbo &apos;84
+*Bitcoin Bounce
+*THNDR Bay
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Thu, 23 Dec 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2U1ODdmZWU2LTFhNjAtNDc5Yi04MmVlLTMzNTNmMGY1YTlhMy9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=r39fmh9" length="59993273" type="audio/mp3"/>
+      <itunes:duration>3749</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0xMWZhYTcyZC0zZTQ1LTQ2YzAtYWZlYS04Y2NiZGRmNTgzYjImdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>3</itunes:order>
+      <guid isPermaLink="false">1558753e465a56f790fb85538ef93a31</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000012: Cory Klippsten, Swan Bitcoin</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Cory Klippsten</itunes:author>
+      <itunes:summary>Cory Klippsten is CEO and Founder of Swan Bitcoin, a service that allows you to purchase Bitcoin with your bank account. He is also Founder of Bitcoiner Ventures and Bitcoiner Jobs.
+
+Cory and Swan are Changing the Tide by offering educational services that teach people foundational Bitcoiner concepts, from a user interface and experience that encourages buys only and withdrawal to self-custody, all the way to video and audio content via YouTube, Twitter Spaces, and Clubhouse.
+
+He is also connecting like-minded investors through Bitcoiner Ventures and like-minded people to work in the industry via Bitcoiner Jobs.
+
+Links: ​
+Cory&apos;s Twitter handle: @coryklippsten
+Cory&apos;s email: cory@swanbitcoin.com
+Swan&apos;s Twitter handle: @SwanBitcoin
+Swan&apos;s website: https://www.swan.com
+Swan Private&apos;s website: https://www.swanbitcoin.com/private/
+Jon&apos;s Swan Force link:
+https://www.swanbitcoin.com/joncrabtree
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Cory Klippsten is CEO and Founder of Swan Bitcoin, a service that allows you to purchase Bitcoin with your bank account. He is also Founder of Bitcoiner Ventures and Bitcoiner Jobs.
+
+Cory and Swan are Changing the Tide by offering educational services that teach people foundational Bitcoiner concepts, from a user interface and experience that encourages buys only and withdrawal to self-custody, all the way to video and audio content via YouTube, Twitter Spaces, and Clubhouse.
+
+He is also connecting like-minded investors through Bitcoiner Ventures and like-minded people to work in the industry via Bitcoiner Jobs.
+
+Links: ​
+Cory&apos;s Twitter handle: @coryklippsten
+Cory&apos;s email: cory@swanbitcoin.com
+Swan&apos;s Twitter handle: @SwanBitcoin
+Swan&apos;s website: https://www.swan.com
+Swan Private&apos;s website: https://www.swanbitcoin.com/private/
+Jon&apos;s Swan Force link:
+https://www.swanbitcoin.com/joncrabtree
+
+*Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, legal, or medical decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Sun, 12 Dec 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2FmOGRiMGY1LWRmYWItNGY4MC05NDUxLTVmZDhlNzBlNTM4Yy9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=p77jthd" length="50435382" type="audio/mp3"/>
+      <itunes:duration>3152</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0wMWYwMDAzYS02YTI0LTQxZWItYjIwNC05OTgyZmNhYzc1NjYmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>4</itunes:order>
+      <guid isPermaLink="false">28c38faa3447735c5ae8820f7a8e771a</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000011: Oscar Merry, Fountain.fm</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Oscar Merry</itunes:author>
+      <itunes:summary>Oscar Merry is a co-founder of Fountain, an app that allows you to create clips of your favorite podcasts and view clips from those you follow.
+
+Oscar and Fountain are Changing the Tide by taking advantage of Podcasting 2.0&apos;s value block standard. This allows podcast listeners to stream sats by the minute to their favorite podcasters, or send a one-time sats boost with a message. Check out podcastindex.org for more on Podcasting 2.0.
+
+Thanks to Oscar, Changing the Tide is now available in Fountain, Breez, and other podcasting apps that support value for value!
+
+Links:
+Oscar&apos;s Twitter handle: @MerryOscar
+Fountain&apos;s Twitter handle: @fountain_app
+Fountain&apos;s website: https://fountain.fm
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Oscar Merry is a co-founder of Fountain, an app that allows you to create clips of your favorite podcasts and view clips from those you follow.
+
+Oscar and Fountain are Changing the Tide by taking advantage of Podcasting 2.0&apos;s value block standard. This allows podcast listeners to stream sats by the minute to their favorite podcasters, or send a one-time sats boost with a message. Check out podcastindex.org for more on Podcasting 2.0.
+
+Thanks to Oscar, Changing the Tide is now available in Fountain, Breez, and other podcasting apps that support value for value!
+
+Links:
+Oscar&apos;s Twitter handle: @MerryOscar
+Fountain&apos;s Twitter handle: @fountain_app
+Fountain&apos;s website: https://fountain.fm
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Thu, 25 Nov 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzliNjRiNzg4LTQwYWUtNGExOS05NzZiLWY5MzA3MTlmNDMyOS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=w84jgsk" length="51484460" type="audio/mp3"/>
+      <itunes:duration>3217</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD05NTkxMDdkYi04ZjM2LTQ5NWYtODZiZC1hMThjMjAxMmU3YWUmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>5</itunes:order>
+      <guid isPermaLink="false">837acc28cbeff8d29afa8995e03762b2</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000010: Alejandro de la Torre, proofofwork.energy</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Alejandro de la Torre</itunes:author>
+      <itunes:summary>Alejandro de la Torre has an extensive background in Bitcoin mining. He co-founded the mining pool BTC.com, which was later acquired by Bitmain, the maker of the Antminer. For the past 2+ years, he was VP at Poolin, a large Bitcoin mining pool.
+
+Alejandro is Changing the Tide with Proofofwork.energy. He founded this new business just two weeks ago and is committed to decentralizing Bitcoin mining by making it happen in places where it has not yet proliferated. As the remaining supply of Bitcoin to be mined continues to decrease, this is going to help bring greater freedom and prosperity to those areas. It will also help better secure the network by combatting moves by governments that could significantly decrease hashrate, like the recent ban in the summer of 2021 by the People&apos;s Republic of China (PRC).
+
+We talk about:
+*the mission of Proofofwork.energy
+*stories from his time in the PRC at BTC.com, Bitmain, and Poolin
+*Alejandro&apos;s work coordinating communication with mining pools and Bitcoin Core developers in the lead up to Taproot activation, and how this stemmed from &quot;PTSD&quot; caused by the 2017 blocksize wars
+*the benefits of Proof of Work (PoW) versus Proof of Stake (PoS)
+*how the PRC came to dominate Bitcoin mining, and how he assisted the &quot;great miner migration&quot; after the mining ban there earlier this year
+
+Links:
+Alejandro&apos;s Twitter handle: @bitentrepreneur
+Proofofwork.energy Twitter handle: @proofofwork_e
+Proofofwork.energy website: https://proofofwork.energy/
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Alejandro de la Torre has an extensive background in Bitcoin mining. He co-founded the mining pool BTC.com, which was later acquired by Bitmain, the maker of the Antminer. For the past 2+ years, he was VP at Poolin, a large Bitcoin mining pool.
+
+Alejandro is Changing the Tide with Proofofwork.energy. He founded this new business just two weeks ago and is committed to decentralizing Bitcoin mining by making it happen in places where it has not yet proliferated. As the remaining supply of Bitcoin to be mined continues to decrease, this is going to help bring greater freedom and prosperity to those areas. It will also help better secure the network by combatting moves by governments that could significantly decrease hashrate, like the recent ban in the summer of 2021 by the People&apos;s Republic of China (PRC).
+
+We talk about:
+*the mission of Proofofwork.energy
+*stories from his time in the PRC at BTC.com, Bitmain, and Poolin
+*Alejandro&apos;s work coordinating communication with mining pools and Bitcoin Core developers in the lead up to Taproot activation, and how this stemmed from &quot;PTSD&quot; caused by the 2017 blocksize wars
+*the benefits of Proof of Work (PoW) versus Proof of Stake (PoS)
+*how the PRC came to dominate Bitcoin mining, and how he assisted the &quot;great miner migration&quot; after the mining ban there earlier this year
+
+Links:
+Alejandro&apos;s Twitter handle: @bitentrepreneur
+Proofofwork.energy Twitter handle: @proofofwork_e
+Proofofwork.energy website: https://proofofwork.energy/
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Sun, 14 Nov 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzNhYTk0ZGJkLWY0YzctNDBiZC1iNTQxLTg3YzRjZGQ0Y2FmNi9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=ngv5c57" length="57307467" type="audio/mp3"/>
+      <itunes:duration>3581</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0zYmI3YjQzYi1jZGJmLTQ4MWYtOGQ2ZC04MDFhNGEwNTQzNTMmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>6</itunes:order>
+      <guid isPermaLink="false">5b0bed7fd61d5d6739623ea8ddbf29de</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000009: Conor Okus, Hello Bitcoin</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Conor Okus</itunes:author>
+      <itunes:summary>Fellow Class of 2017 Bitcoiner Conor Okus is part of the founding team that is building out Hello Bitcoin, a series dedicated to being &quot;Your friendly place to learn about Bitcoin.&quot; He is also host of Advancing Bitcoin, a podcast related to the 2-day Advancing Bitcoin event in London, featuring developers and designers who are making it easier to onboard new Bitcoiners. His day job is Product Manager at Square Crypto, where he and his team focus specifically on improving the developer experience in Bitcoin via the Lightning Development Kit.
+
+Conor is Changing the Tide by helping guide the building out of ways for developers to choose Lightning features they want to integrate into their Bitcoin wallets. His team is also funding BTCPayServer, Bitcoin Core developers, designers working in the Bitcoin Design Community, and Lightning infrastructure projects. Outside of his 9-5, he is working tirelessly with others to build out educational material (like &quot;Hello Bitcoin&quot;) to onboard new people, as well as help decentralize the funding of Bitcoin&apos;s and Lightning&apos;s open-source development.
+
+We talk about:
+*what drew him into Bitcoin
+*the ethos of Square Crypto, and Jack Dorsey&apos;s desire to build &quot;the native digital currency of the Internet&quot;
+*the first three episodes of &quot;Hello Bitcoin,&quot; as well as what is coming in the next two
+*what he&apos;s most excited about over the next couple of years
+*how to onboard others to Bitcoin in a way that helps them &quot;get it&quot;
+
+Links:
+Conor&apos;s Twitter handle: @ConorOkus
+Hello Bitcoin Twitter handle: @hello_bitcoin
+Hello Bitcoin website: https://hellobitco.in/
+Advancing Bitcoin podcast website: https://podcast.advancingbitcoin.com/
+Advancing Bitcoin Twitter handle: @advbitcoin
+Square Crypto Twitter handle: @sqcrypto
+Adopting Bitcoin website: https://adoptingbitcoin.org/
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Fellow Class of 2017 Bitcoiner Conor Okus is part of the founding team that is building out Hello Bitcoin, a series dedicated to being &quot;Your friendly place to learn about Bitcoin.&quot; He is also host of Advancing Bitcoin, a podcast related to the 2-day Advancing Bitcoin event in London, featuring developers and designers who are making it easier to onboard new Bitcoiners. His day job is Product Manager at Square Crypto, where he and his team focus specifically on improving the developer experience in Bitcoin via the Lightning Development Kit.
+
+Conor is Changing the Tide by helping guide the building out of ways for developers to choose Lightning features they want to integrate into their Bitcoin wallets. His team is also funding BTCPayServer, Bitcoin Core developers, designers working in the Bitcoin Design Community, and Lightning infrastructure projects. Outside of his 9-5, he is working tirelessly with others to build out educational material (like &quot;Hello Bitcoin&quot;) to onboard new people, as well as help decentralize the funding of Bitcoin&apos;s and Lightning&apos;s open-source development.
+
+We talk about:
+*what drew him into Bitcoin
+*the ethos of Square Crypto, and Jack Dorsey&apos;s desire to build &quot;the native digital currency of the Internet&quot;
+*the first three episodes of &quot;Hello Bitcoin,&quot; as well as what is coming in the next two
+*what he&apos;s most excited about over the next couple of years
+*how to onboard others to Bitcoin in a way that helps them &quot;get it&quot;
+
+Links:
+Conor&apos;s Twitter handle: @ConorOkus
+Hello Bitcoin Twitter handle: @hello_bitcoin
+Hello Bitcoin website: https://hellobitco.in/
+Advancing Bitcoin podcast website: https://podcast.advancingbitcoin.com/
+Advancing Bitcoin Twitter handle: @advbitcoin
+Square Crypto Twitter handle: @sqcrypto
+Adopting Bitcoin website: https://adoptingbitcoin.org/
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Mon, 08 Nov 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzk3OTZlMzg4LTRkMGQtNDdlOS1hODE1LWRiODkxYmNhYjYzMi9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=p2h4n4d" length="54634618" type="audio/mp3"/>
+      <itunes:duration>3414</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0zMWYxMzIyYi1hYzNjLTRhMGYtYjNjYy1mOGQzZTFkZDg2MTMmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>7</itunes:order>
+      <guid isPermaLink="false">ef1851b5f2e558bf5d80c3d8a3219d7e</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000008: Natalie Brunell, Coin Stories Podcast</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Natalie Brunell</itunes:author>
+      <itunes:summary>Natalie Brunell (Twitter: @natbrunell) is a former news reporter and anchor, and now the host of Coin Stories Podcast (www.youtube.com/channel/UCru3nlhzHrbgK21x0MdB_eg). Launched just this year, she has interviewed many of the leading voices in Bitcoin. Most of these interviews are regularly seeing tens of thousands of views via YouTube, and good engagement on the podcast platforms. She also launched a course this month with Anthony Pompliano called Bitcoin for Women (btcforwomen.com).
+
+Natalie is Changing the Tide by capturing the origin stories of some of the most influential thinkers and builders in Bitcoin. And spreading the word about Bitcoin with her Emmy-award-winning energy and work ethic, from network news interviews to her very own virtual classroom.
+
+We talk about:
+*her recent appearances on local Los Angeles news shows to talk about inflation and money printing, and why that foundational understanding is so important for people to understand Bitcoin
+*how she landed interviews with Michael Saylor and Saifedean Ammous as a result of Bitcoin 2021
+*her course with Pomp, Bitcoin for Women, and how that came about
+*some of the most interesting stories she&apos;s learned from her interviews
+*and more
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Natalie Brunell (Twitter: @natbrunell) is a former news reporter and anchor, and now the host of Coin Stories Podcast (www.youtube.com/channel/UCru3nlhzHrbgK21x0MdB_eg). Launched just this year, she has interviewed many of the leading voices in Bitcoin. Most of these interviews are regularly seeing tens of thousands of views via YouTube, and good engagement on the podcast platforms. She also launched a course this month with Anthony Pompliano called Bitcoin for Women (btcforwomen.com).
+
+Natalie is Changing the Tide by capturing the origin stories of some of the most influential thinkers and builders in Bitcoin. And spreading the word about Bitcoin with her Emmy-award-winning energy and work ethic, from network news interviews to her very own virtual classroom.
+
+We talk about:
+*her recent appearances on local Los Angeles news shows to talk about inflation and money printing, and why that foundational understanding is so important for people to understand Bitcoin
+*how she landed interviews with Michael Saylor and Saifedean Ammous as a result of Bitcoin 2021
+*her course with Pomp, Bitcoin for Women, and how that came about
+*some of the most interesting stories she&apos;s learned from her interviews
+*and more
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Thu, 28 Oct 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2NkMjI5MDNiLWE0MzItNDhhNC1hMmM4LTk4NjRiYWRkZTVlYS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=zd32nw5" length="59974047" type="audio/mp3"/>
+      <itunes:duration>3748</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1jNWQ0YjVjMy03YTk5LTQxMTAtOTRhYS0yM2I4MzBkZDRiZGEmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>8</itunes:order>
+      <guid isPermaLink="false">4121521a1e4a62b7b7b0104203a64ee6</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000007: NVK, Bitcoin Freedom Devices @ Coinkite</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, NVK</itunes:author>
+      <itunes:summary>NVK (Twitter: @nvk) is CEO and Co-Founder of Coinkite (website: www.coinkite.com). The company created COLDCARD Wallet (website: www.coldcard.com), an air-gapped hardware wallet to securely store Bitcoin. It also created OPENDIME (website: www.opendime.com), the first physical bearer instrument to allow you to hold and transfer Bitcoin. Coinkite released the original limited-edition BLOCKCLOCK for Bitcoin&apos;s 10-year anniversary, and now offers BLOCKCLOCK mini (www.blockclockmini.com) for sale.
+
+NVK is Changing the Tide by building secure storage and transactional devices for users worldwide. And doing so in the spirit of Bitcoin: transparently, in the open, and making the process of learning about Bitcoin into fun games.
+
+We talk about:
+*his early days learning about Bitcoin
+*starting Coinkite, including a block explorer and an early version of a Bitcoin bank
+*the murky early days: &quot;am I legally allowed to build on this technology?&quot;
+*why Mark Cuban and other Cantillionaires don&apos;t get it
+*Coinkite&apos;s design aesthetic and principles, including for OPENDIME and COLDCARD
+*launching products into the market as the perfect testing environment
+*NVK&apos;s sauna maximalism
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>NVK (Twitter: @nvk) is CEO and Co-Founder of Coinkite (website: www.coinkite.com). The company created COLDCARD Wallet (website: www.coldcard.com), an air-gapped hardware wallet to securely store Bitcoin. It also created OPENDIME (website: www.opendime.com), the first physical bearer instrument to allow you to hold and transfer Bitcoin. Coinkite released the original limited-edition BLOCKCLOCK for Bitcoin&apos;s 10-year anniversary, and now offers BLOCKCLOCK mini (www.blockclockmini.com) for sale.
+
+NVK is Changing the Tide by building secure storage and transactional devices for users worldwide. And doing so in the spirit of Bitcoin: transparently, in the open, and making the process of learning about Bitcoin into fun games.
+
+We talk about:
+*his early days learning about Bitcoin
+*starting Coinkite, including a block explorer and an early version of a Bitcoin bank
+*the murky early days: &quot;am I legally allowed to build on this technology?&quot;
+*why Mark Cuban and other Cantillionaires don&apos;t get it
+*Coinkite&apos;s design aesthetic and principles, including for OPENDIME and COLDCARD
+*launching products into the market as the perfect testing environment
+*NVK&apos;s sauna maximalism
+
+**Note: Nothing in this podcast constitutes financial, legal, or medical advice. The content within is solely for educational purposes. Please consult tax, legal, or medical professionals before making financial, medical or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Thu, 21 Oct 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2FmMGJmMDg3LTBhMTctNGZiYi04Yjk4LWVjNTIwZWVmMjYxOS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=6y2w67k" length="62901015" type="audio/mp3"/>
+      <itunes:duration>3931</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0yNDljY2MyZi0zZWY1LTRjNjMtOGExZC1jZGQwY2UxNWQ4MmQmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>9</itunes:order>
+      <guid isPermaLink="false">e885dd45d564dc5625b24151acf0a811</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000006: Mike Jarmuz, LTNG.Ventures</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Mike Jarmuz</itunes:author>
+      <itunes:summary>Mike Jarmuz (Twitter: @MikeJarmuz) is a co-founder of Lightning Ventures (website: https://ltng.ventures/). Its aim is to invest in Bitcoin companies with an emphasis on Lightning Network technology. There is both a fund (website: https://angel.co/i/ArCtj) and a syndicate (website: https://angel.co/s/lightningventures/ld5f4) that accredited investors can join.
+
+Along with Tone Vays, he also also helps run Unconfiscatable, an annual &quot;bitcoin not blockchain&quot; conference in Las Vegas.
+
+Mike is Changing the Tide by supporting entrepreneurs building Bitcoin companies on the rails of the Lightning Network. He is stoked on being a champion of Bitcoin companies bringing freedom and prosperity across the world.
+
+You won&apos;t want to miss this show. We talk about:
+*Mike&apos;s start in the music industry and how it got him interested in investing in private companies
+*Mike&apos;s big break with two exits in the healthcare industry, and getting into BTC at the same time
+*Who were his BTC influences?
+*How angel investing can change your life
+*How investing in BTC companies whose business models are decoupled from price movement can complement your HODL
+*How to get started in angel investing, and with Lightning Ventures
+*and more
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</itunes:summary>
+      <description>Mike Jarmuz (Twitter: @MikeJarmuz) is a co-founder of Lightning Ventures (website: https://ltng.ventures/). Its aim is to invest in Bitcoin companies with an emphasis on Lightning Network technology. There is both a fund (website: https://angel.co/i/ArCtj) and a syndicate (website: https://angel.co/s/lightningventures/ld5f4) that accredited investors can join.
+
+Along with Tone Vays, he also also helps run Unconfiscatable, an annual &quot;bitcoin not blockchain&quot; conference in Las Vegas.
+
+Mike is Changing the Tide by supporting entrepreneurs building Bitcoin companies on the rails of the Lightning Network. He is stoked on being a champion of Bitcoin companies bringing freedom and prosperity across the world.
+
+You won&apos;t want to miss this show. We talk about:
+*Mike&apos;s start in the music industry and how it got him interested in investing in private companies
+*Mike&apos;s big break with two exits in the healthcare industry, and getting into BTC at the same time
+*Who were his BTC influences?
+*How angel investing can change your life
+*How investing in BTC companies whose business models are decoupled from price movement can complement your HODL
+*How to get started in angel investing, and with Lightning Ventures
+*and more
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**
+
+Music: &quot;Summer Nights&quot; by Bobo Renthlei
+Graphics: Kal Kassa
+Host: Jon Crabtree
+Producer: Jon Crabtree</description>
+      <pubDate>Sun, 10 Oct 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2Y1ZTc2ZTIxLWI5ZDgtNDRhYy04YmE1LTI3MjI0MmRkZGI1OS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=yds9pxw" length="69416163" type="audio/mp3"/>
+      <itunes:duration>4338</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD00NjRhYzE5My0wMjg0LTRlYjAtYjg1Yi0wNGViOTFjY2FjZmMmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>10</itunes:order>
+      <guid isPermaLink="false">231604eb9acc917466a325eed69ea163</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000005: Ian Gaines, The Nature of Sovereignty</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Ian Gaines</itunes:author>
+      <itunes:summary>Ian Gaines (Twitter @NatureofG) is Media Director at Black Bitcoin Billionaires (Twitter: @BlkBTCBillions). He runs an interview series called Nature of Sovereignty on BBB&apos;s YouTube Channel: https://www.youtube.com/channel/UCF8ghwxt1DJsh-Z3Opp4InQ.
+
+Some guests he has hosted include:
+*Olaoluwa Osuntokun of Lightning Labs
+*Former FRB regulator turned Bitcoin educator Charlene Fadirepo
+*Paxful CEO Ray Youssef
+*Togolese Human Rights Activist Farida Nabourema
+*Chief Visionary Officer of Crypto Blockchain Plug Najah Roberts, and
+*Robert Breedlove
+
+Ian is Changing the Tide when it comes to highlighting Bitcoin&apos;s most innovative game-changers from the Black community. He also wrote a powerful essay called &quot;The Black Case for Bitcoin,&quot; which you can read here: https://natureofg.medium.com/the-black-case-for-bitcoin-9e3d75646f4c
+
+We also talked about:
+*the recent Black Blockchain Summit in DC, and Najah Roberts&apos;s 30-city digital financial revolution tour
+*his discovery of Bitcoin as a tool to liberate billions from centralized control
+*his compelling thesis on how Black American culture influences world culture, and how mass adoption within the Black community will lead to truly mass adoption worldwide
+*the CFA Franc system in West Africa
+*where he sees BBB in 2-5 years
+*how he would pitch Congresspeople on the fence about Bitcoin
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</itunes:summary>
+      <description>Ian Gaines (Twitter @NatureofG) is Media Director at Black Bitcoin Billionaires (Twitter: @BlkBTCBillions). He runs an interview series called Nature of Sovereignty on BBB&apos;s YouTube Channel: https://www.youtube.com/channel/UCF8ghwxt1DJsh-Z3Opp4InQ.
+
+Some guests he has hosted include:
+*Olaoluwa Osuntokun of Lightning Labs
+*Former FRB regulator turned Bitcoin educator Charlene Fadirepo
+*Paxful CEO Ray Youssef
+*Togolese Human Rights Activist Farida Nabourema
+*Chief Visionary Officer of Crypto Blockchain Plug Najah Roberts, and
+*Robert Breedlove
+
+Ian is Changing the Tide when it comes to highlighting Bitcoin&apos;s most innovative game-changers from the Black community. He also wrote a powerful essay called &quot;The Black Case for Bitcoin,&quot; which you can read here: https://natureofg.medium.com/the-black-case-for-bitcoin-9e3d75646f4c
+
+We also talked about:
+*the recent Black Blockchain Summit in DC, and Najah Roberts&apos;s 30-city digital financial revolution tour
+*his discovery of Bitcoin as a tool to liberate billions from centralized control
+*his compelling thesis on how Black American culture influences world culture, and how mass adoption within the Black community will lead to truly mass adoption worldwide
+*the CFA Franc system in West Africa
+*where he sees BBB in 2-5 years
+*how he would pitch Congresspeople on the fence about Bitcoin
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</description>
+      <pubDate>Tue, 05 Oct 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzg2OTkzYWQyLThmNTAtNDYyMy04YjQ3LTViYjFlMGVlMTBlOS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=7rs266b" length="56079921" type="audio/mp3"/>
+      <itunes:duration>3504</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1iMjFkNWI1ZS05MWI0LTRmNzYtOWNiOS1iNDRiNmJkNTE3MTMmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>11</itunes:order>
+      <guid isPermaLink="false">22650dde750eaaf8cf89b9ae5dc93d0f</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000004: Kal Kassa, Bitcoin in Ethiopia</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Kal Kassa</itunes:author>
+      <itunes:summary>Kal Kassa (Twitter @KalKassa) runs BitcoinBirr.org, an open-source Bitcoin educational initiative for Ethiopia. He also runs DIDIBold (DIDIBold.com), a branding/tech/marketing company. To strengthen the Bitcoin circular economy, I collaborated with Kal and DIDIBold for this podcast&apos;s logo and branding assets.
+
+Kal is Changing the Tide when it comes to onboarding Ethiopians to Bitcoin. He has a goal to onboard 10,000 Ethiopians to a Lightning wallet by September 2022 and is currently at 12% of the goal. He is set to speak on &quot;Bitcoin in the Developing World&quot; at the upcoming Oslo Freedom Forum. Next year, he will also host a Bitcoin conference in Addis Ababa next year.
+
+We also talked about:
+*his family&apos;s migration to California, moving back to Ethiopia after college, and landing in Austin
+*what laid the groundwork for him to become a Bitcoiner
+*inflation as Ethiopia&apos;s biggest burden, and what Ethiopians are doing to beat it
+*Bitcoin as the answer to the inflation problem in Ethiopia
+*what people like Neel Kashkari of the Minneapolis Fed misunderstand about how Bitcoin can create new opportunities in places like Ethiopia
+*meeting Lightning developers at PlebFi and BitDevs in Austin, including a cool realization about how much sense it makes for @roasbeef to be working on the network
+*my Bitcoin journey, which Kal was kind enough to ask about
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</itunes:summary>
+      <description>Kal Kassa (Twitter @KalKassa) runs BitcoinBirr.org, an open-source Bitcoin educational initiative for Ethiopia. He also runs DIDIBold (DIDIBold.com), a branding/tech/marketing company. To strengthen the Bitcoin circular economy, I collaborated with Kal and DIDIBold for this podcast&apos;s logo and branding assets.
+
+Kal is Changing the Tide when it comes to onboarding Ethiopians to Bitcoin. He has a goal to onboard 10,000 Ethiopians to a Lightning wallet by September 2022 and is currently at 12% of the goal. He is set to speak on &quot;Bitcoin in the Developing World&quot; at the upcoming Oslo Freedom Forum. Next year, he will also host a Bitcoin conference in Addis Ababa next year.
+
+We also talked about:
+*his family&apos;s migration to California, moving back to Ethiopia after college, and landing in Austin
+*what laid the groundwork for him to become a Bitcoiner
+*inflation as Ethiopia&apos;s biggest burden, and what Ethiopians are doing to beat it
+*Bitcoin as the answer to the inflation problem in Ethiopia
+*what people like Neel Kashkari of the Minneapolis Fed misunderstand about how Bitcoin can create new opportunities in places like Ethiopia
+*meeting Lightning developers at PlebFi and BitDevs in Austin, including a cool realization about how much sense it makes for @roasbeef to be working on the network
+*my Bitcoin journey, which Kal was kind enough to ask about
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</description>
+      <pubDate>Fri, 24 Sep 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzI5OTE4ZWE5LWQzMTctNDgyNS1iZTM5LTM1OWYzYmEwOWU1MS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=vdn33b6" length="63996904" type="audio/mp3"/>
+      <itunes:duration>3999</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD04YWQ1OGYzMy0zNWMyLTRlZTktOWZlYi0xNTk5NGVhOWJlNWImdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>12</itunes:order>
+      <guid isPermaLink="false">6e7321f9a97a39f96fee038c28156337</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000003: Jack Everitt, THNDR and Lightning</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Jack Everitt</itunes:author>
+      <itunes:summary>Jack Everitt (Twitter: @jackeveritt) founded and heads up THNDR Games (Twitter: @THNDRGAMES), a mobile gaming company. Currently, they have two different games in the app stores that allow people in jurisdictions where Bitcoin is legal to play for free, win Bitcoin, and withdraw to a Lightning wallet.
+
+Jack and his company are Changing the Tide when it comes to onboarding people to Bitcoin. Like a Bitcoin faucet, you can win Bitcoin for &quot;free&quot; through his games. And the only investment you make is the time you spend within them. Unlike a Bitcoin faucet, the games are a fun challenge. And they cleverly incorporate current events to educate players on the latest happenings in the space.
+
+We also talked about:
+*the two current THNDR Games in the app stores, and the differences between Apple and Google Play in terms of what you can win
+*his early start in mobile games + how he got into Bitcoin/Lightning Network
+*his focus on branding and why it is important
+*being an entrepreneur in the Bitcoin industry, and working with others on Lightning (like the ZEBEDEE crew)
+*the growth he&apos;s seen in the number of players downloading his games, and where growth has been hottest
+*THNDR&apos;s upcoming merch drop in the Lightning Store
+*what&apos;s coming next for THNDR Games
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</itunes:summary>
+      <description>Jack Everitt (Twitter: @jackeveritt) founded and heads up THNDR Games (Twitter: @THNDRGAMES), a mobile gaming company. Currently, they have two different games in the app stores that allow people in jurisdictions where Bitcoin is legal to play for free, win Bitcoin, and withdraw to a Lightning wallet.
+
+Jack and his company are Changing the Tide when it comes to onboarding people to Bitcoin. Like a Bitcoin faucet, you can win Bitcoin for &quot;free&quot; through his games. And the only investment you make is the time you spend within them. Unlike a Bitcoin faucet, the games are a fun challenge. And they cleverly incorporate current events to educate players on the latest happenings in the space.
+
+We also talked about:
+*the two current THNDR Games in the app stores, and the differences between Apple and Google Play in terms of what you can win
+*his early start in mobile games + how he got into Bitcoin/Lightning Network
+*his focus on branding and why it is important
+*being an entrepreneur in the Bitcoin industry, and working with others on Lightning (like the ZEBEDEE crew)
+*the growth he&apos;s seen in the number of players downloading his games, and where growth has been hottest
+*THNDR&apos;s upcoming merch drop in the Lightning Store
+*what&apos;s coming next for THNDR Games
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</description>
+      <pubDate>Thu, 09 Sep 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2I5NTZhNjM4LTQyN2ItNGVhZS05OGE3LTQ5N2ZhMWVmZjRlMC9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=f7xwx8v" length="51989355" type="audio/mp3"/>
+      <itunes:duration>3249</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD00ZGIzNmU1Yi0xZjI4LTQzM2UtOGI5Yi0zYTJiZmZkZjlmNGEmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>13</itunes:order>
+      <guid isPermaLink="false">74e368fc5f5734b1b3d547a5e7bf1ef4</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000002: Mike Peterson, Bitcoin Beach</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Mike Peterson</itunes:author>
+      <itunes:summary>Mike Peterson runs the Twitter handle @Bitcoinbeach and helped start that initiative in El Zonte, El Salvador. Many point to this community-led movement as instrumental in offering a playbook that made possible the adoption of Bitcoin as legal tender in El Salvador on June 8, 2021. That law goes into effect today (September 7, 2021).
+
+As Bitcoin Beach has been Changing the Tide in terms of Lightning Network adoption in El Salvador, it is coinciding with some rather interesting positive side effects. People who generally could not think in terms of savings have begun to do so. The virtuous cycle of growth on Lightning Network leading to growth in cellular service, leading back to growth on Lightning. And more.
+
+We also talked about:
+*Why he&apos;s hoping for a slow rollout of the Bitcoin Law
+*Most of Mike&apos;s life being preparation for understanding Bitcoin
+*Bitcoin Beach&apos;s origin as a community-led initiative
+*What most in financially privileged positions miss about the importance of Bitcoin and Lightning Network in areas locked out of the G7 financial system
+*How Galoy is miles ahead because of their help developing Bitcoin Beach&apos;s Wallet
+*Why lack of Internet access is a misguided critique of the new Bitcoin Law due to high levels of smartphone penetration and improvements in smartphone tech
+*The power of Lightning Network, how it&apos;s bringing benefits to people in places like El Salvador, and how this wave may make it back to the shores of traditional centers of power
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</itunes:summary>
+      <description>Mike Peterson runs the Twitter handle @Bitcoinbeach and helped start that initiative in El Zonte, El Salvador. Many point to this community-led movement as instrumental in offering a playbook that made possible the adoption of Bitcoin as legal tender in El Salvador on June 8, 2021. That law goes into effect today (September 7, 2021).
+
+As Bitcoin Beach has been Changing the Tide in terms of Lightning Network adoption in El Salvador, it is coinciding with some rather interesting positive side effects. People who generally could not think in terms of savings have begun to do so. The virtuous cycle of growth on Lightning Network leading to growth in cellular service, leading back to growth on Lightning. And more.
+
+We also talked about:
+*Why he&apos;s hoping for a slow rollout of the Bitcoin Law
+*Most of Mike&apos;s life being preparation for understanding Bitcoin
+*Bitcoin Beach&apos;s origin as a community-led initiative
+*What most in financially privileged positions miss about the importance of Bitcoin and Lightning Network in areas locked out of the G7 financial system
+*How Galoy is miles ahead because of their help developing Bitcoin Beach&apos;s Wallet
+*Why lack of Internet access is a misguided critique of the new Bitcoin Law due to high levels of smartphone penetration and improvements in smartphone tech
+*The power of Lightning Network, how it&apos;s bringing benefits to people in places like El Salvador, and how this wave may make it back to the shores of traditional centers of power
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</description>
+      <pubDate>Mon, 06 Sep 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTL2QxODg3YjNlLTA2MDAtNDRkOC1hZTQ3LWVmMzM2ZTI0N2UwNS9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=9njcjwt" length="57501818" type="audio/mp3"/>
+      <itunes:duration>3593</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0xNDNlYWQ0ZC05MDI3LTQ0ODMtOWE4Ny03ZTExNmU1ZjY2MTImdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>14</itunes:order>
+      <guid isPermaLink="false">3b5ad8b5d42a392ce1b298e4e2eb75dc</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>0.00000001: Brian Harrington, BTC Circular Economy</title>
+      <itunes:subtitle></itunes:subtitle>
+      <itunes:author>Jon Crabtree, Brian Harrington</itunes:author>
+      <itunes:summary>Brian Harrington (Twitter: @BrainHarrington) is a Product Marketing Manager at Choice by KT (Twitter: @choicebyKT). Choice allows United States citizens to track all their retirement assets in one account, including alternative and digital assets such as Bitcoin.
+
+In the final weeks of July 2021, Choice announced a way they are Changing the Tide when it comes to retirement. We talk about Brian&apos;s role in the go-to-market messaging for the announcement that Choice account holders can use IRA funds to purchase mining equipment through Compass Mining. He is also helping the Choice team &quot;get in the comments&quot; with users as they build their iOS app for customer accounts in public.
+
+We also talked about:
+*how we met through Bitcoin Twitter and the Orange County Bitcoin Meetup
+*his Bitcoin origin story, which started in student government
+*his thoughts on recent government debates over the industry, how to interact with politicians regarding Bitcoin, and building during this moment
+*using a variety of analogies to make Bitcoin accessible
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</itunes:summary>
+      <description>Brian Harrington (Twitter: @BrainHarrington) is a Product Marketing Manager at Choice by KT (Twitter: @choicebyKT). Choice allows United States citizens to track all their retirement assets in one account, including alternative and digital assets such as Bitcoin.
+
+In the final weeks of July 2021, Choice announced a way they are Changing the Tide when it comes to retirement. We talk about Brian&apos;s role in the go-to-market messaging for the announcement that Choice account holders can use IRA funds to purchase mining equipment through Compass Mining. He is also helping the Choice team &quot;get in the comments&quot; with users as they build their iOS app for customer accounts in public.
+
+We also talked about:
+*how we met through Bitcoin Twitter and the Orange County Bitcoin Meetup
+*his Bitcoin origin story, which started in student government
+*his thoughts on recent government debates over the industry, how to interact with politicians regarding Bitcoin, and building during this moment
+*using a variety of analogies to make Bitcoin accessible
+
+**Note: Nothing in this podcast constitutes financial or legal advice. The content within is solely for educational purposes. Please consult tax and legal professionals before making financial or other decisions based on what you hear.**</description>
+      <pubDate>Thu, 05 Aug 2021 10:00:00 +0000</pubDate>
+
+      <enclosure url="https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvR0JNOTlTLzcyMGRkNDk4LTA1MjAtNGVkOC05YzBjLWJlZGJjZjg5ZGMxMC9hdWRpby5tcDM.mp3?k=GBM99S&amp;s=3&amp;sapid=mctt2g3" length="48378187" type="audio/mp3"/>
+      <itunes:duration>3023</itunes:duration>
+      <itunes:image href="https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD0wOWQ5OGQ5ZS03MThmLTRiYjUtODQ4OC0yZDI3NzAwNTcxMTQmdz0xNDAwJmg9MTQwMA.jpg"/>
+      <itunes:order>15</itunes:order>
+      <guid isPermaLink="false">9f797464605cd84c4ebfbba0c7a1e08f</guid>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+  </channel>
+</rss>

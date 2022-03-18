@@ -13,7 +13,7 @@ import {
   lookup,
   pubDateToDate,
 } from "../shared";
-import type { Episode, RSSFeed, XmlNode } from "../types";
+import type { EmptyObj, Episode, RSSFeed, XmlNode } from "../types";
 import * as ItemParser from "../item";
 
 import { XmlNodeSource } from "./types";
@@ -208,29 +208,40 @@ export const podcastImages = {
   },
 };
 
+function getContentLinks(node: XmlNode): Phase4ContentLink[] {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  return ensureArray(node["podcast:contentLink"]).map((cln) => ({
+    title: getText(cln),
+    url: getAttribute(cln, "href") ?? "",
+  }));
+}
 export enum Phase4LiveStatus {
   Pending = "pending",
   Live = "live",
   Ended = "ended",
 }
-type Phase4PodcastLiveItemItem = Partial<
-  Pick<
-    Episode,
-    | "title"
-    | "description"
-    | "link"
-    | "guid"
-    | "author"
-    | "podcastPeople"
-    | "alternativeEnclosures"
-    | "podcastImages"
-  >
->;
-export type Phase4PodcastLiveItem = {
+type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
+  Partial<
+    Pick<
+      Episode,
+      | "description"
+      | "link"
+      | "author"
+      | "podcastPeople"
+      | "alternativeEnclosures"
+      | "podcastImages"
+      | "value"
+    >
+  >;
+type Phase4ContentLink = {
+  url: string;
+  title: string;
+};
+export type Phase4PodcastLiveItem = Phase4PodcastLiveItemItem & {
   status: Phase4LiveStatus;
   start: Date;
   end: Date;
-  item: Phase4PodcastLiveItemItem;
+  contentLinks: Phase4ContentLink[];
 };
 export const liveItem = {
   phase: 4,
@@ -272,16 +283,28 @@ export const liveItem = {
     return {
       podcastLiveItems: node
         .map((n) => {
+          const guid = ItemParser.getGuid(n);
+          const title = ItemParser.getTitle(n);
+          const enclosure = ItemParser.getEnclosure(n);
+          if (!(guid && title && enclosure)) {
+            return {} as EmptyObj;
+          }
+
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          const transformed = value.nodeTransform(n[value.tag]);
+          const v =
+            transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
+
           const item: Phase4PodcastLiveItemItem = {
-            ...ItemParser.getTitle(n),
+            guid,
+            enclosure,
+            ...title,
+            ...title,
             ...ItemParser.getDescription(n),
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
+            ...v,
           };
-          const guid = ItemParser.getGuid(n);
-          if (guid) {
-            item.guid = guid;
-          }
 
           useParser(person, n, item);
           useParser(alternativeEnclosure, n, item);
@@ -292,10 +315,13 @@ export const liveItem = {
             status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),
             start: pubDateToDate(getKnownAttribute(n, "start")),
             end: pubDateToDate(getKnownAttribute(n, "end")),
-            ...(Object.keys(item).length > 0 ? { item } : undefined),
-          };
+            ...(Object.keys(item).length > 0 ? item : undefined),
+            contentLinks: getContentLinks(n),
+          } as Phase4PodcastLiveItem;
         })
-        .filter((x) => Boolean(x.start && x.end)) as Phase4PodcastLiveItem[],
+        .filter((x: EmptyObj | Phase4PodcastLiveItem) =>
+          Boolean("start" in x && "end" in x)
+        ) as Phase4PodcastLiveItem[],
     };
   },
 };

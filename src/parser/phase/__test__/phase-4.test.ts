@@ -555,21 +555,27 @@ describe("phase 4", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <podcast:liveItem
-          status="LIVE"
-          start="2021-09-26T07:30:00.000-0600"
-          end="2021-09-26T08:30:00.000-0600"
-        ></podcast:liveItem>
-        <podcast:liveItem
-          status="pending"
-          start="2021-09-27T07:30:00.000-0600"
-          end="2021-09-27T08:30:00.000-0600"
-        ></podcast:liveItem>
-        <podcast:liveItem
-          status="ended"
-          start="2021-09-28T07:30:00.000-0600"
-          end="2021-09-28T08:30:00.000-0600"
-        ></podcast:liveItem>
+        <podcast:liveItem status="LIVE" start="2021-09-26T07:30:00.000-0600"
+        end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
+        <podcast:liveItem status="pending" start="2021-09-27T07:30:00.000-0600"
+        end="2021-09-27T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
+        <podcast:liveItem status="ENded" start="2021-09-28T07:30:00.000-0600"
+        end="2021-09-28T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
         `
       );
       const result = parseFeed(xml);
@@ -614,11 +620,12 @@ describe("phase 4", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <podcast:liveItem
-          status="live"
-          start="2021-09-26T07:30:00.000-0600"
-          end="2021-09-26T08:30:00.000-0600"
-        ></podcast:liveItem>
+        <podcast:liveItem status="live" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
         `
       );
       const result = parseFeed(xml);
@@ -659,12 +666,16 @@ describe("phase 4", () => {
                 https://example.com/images/ep3/pci_avatar-small.jpg 300w,
                 https://example.com/images/ep3/pci_avatar-tiny.jpg 150w"
             />
+            <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
             <podcast:person href="https://www.podchaser.com/creators/adam-curry-107ZzmWE5f" img="https://example.com/images/adamcurry.jpg">Adam Curry</podcast:person>
             <podcast:person role="guest" href="https://github.com/daveajones/" img="https://example.com/images/davejones.jpg">Dave Jones</podcast:person>
             <podcast:person group="visuals" role="cover art designer" href="https://example.com/artist/beckysmith">Becky Smith</podcast:person>
             <podcast:alternateEnclosure type="audio/mpeg" length="312">
                 <podcast:source uri="https://example.com/pc20/livestream" />
             </podcast:alternateEnclosure>
+            <podcast:contentLink href="https://youtube.com/pc20/livestream">YouTube!</podcast:contentLink>
+            <podcast:contentLink href="https://twitch.com/pc20/livestream">Twitch!</podcast:contentLink>
+            <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
         </podcast:liveItem>
         `
       );
@@ -683,21 +694,25 @@ describe("phase 4", () => {
         "end",
         new Date("2021-09-26T08:30:00.000-0600")
       );
-      expect(result.podcastLiveItems[0]).toHaveProperty("item");
-      expect(result.podcastLiveItems[0].item).toHaveProperty("title", "Podcasting 2.0 Live Show");
-      expect(result.podcastLiveItems[0].item).toHaveProperty(
+      expect(result.podcastLiveItems[0]).toHaveProperty("title", "Podcasting 2.0 Live Show");
+      expect(result.podcastLiveItems[0]).toHaveProperty(
         "description",
         "A look into the future of podcasting and how we get to Podcasting 2.0!"
       );
-      expect(result.podcastLiveItems[0].item).toHaveProperty("guid", "https://example.com/live");
-      expect(result.podcastLiveItems[0].item).toHaveProperty(
-        "author",
-        "John Doe (john@example.com)"
-      );
+      expect(result.podcastLiveItems[0]).toHaveProperty("guid", "https://example.com/live");
+      expect(result.podcastLiveItems[0]).toHaveProperty("author", "John Doe (john@example.com)");
 
-      expect(result.podcastLiveItems[0].item.podcastImages).toHaveLength(4);
-      expect(result.podcastLiveItems[0].item.podcastPeople).toHaveLength(3);
-      expect(result.podcastLiveItems[0].item.alternativeEnclosures).toHaveLength(1);
+      expect(result.podcastLiveItems[0].podcastImages).toHaveLength(4);
+      expect(result.podcastLiveItems[0].podcastPeople).toHaveLength(3);
+      expect(result.podcastLiveItems[0].alternativeEnclosures).toHaveLength(1);
+      expect(result.podcastLiveItems[0].contentLinks).toHaveLength(3);
+      expect(result.podcastLiveItems[0].contentLinks).toHaveLength(3);
+
+      expect(result.podcastLiveItems[0].contentLinks[0]).toHaveProperty(
+        "url",
+        "https://youtube.com/pc20/livestream"
+      );
+      expect(result.podcastLiveItems[0].contentLinks[0]).toHaveProperty("title", "YouTube!");
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
