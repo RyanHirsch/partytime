@@ -6,7 +6,6 @@ import {
   getAttribute,
   getKnownAttribute,
   getText,
-  pubDateToDate,
 } from "../shared";
 import type { XmlNode } from "../types";
 
@@ -117,10 +116,13 @@ export const social = {
 };
 
 export type PhasePendingSocialInteract = {
-  platform: string;
-  id: string;
-  url: string;
-  pubDate?: Date;
+  protocol: string;
+  platform?: string;
+  /** The account id (on the commenting platform) of the account that created this root post. */
+  accountId?: string;
+  /** The public url (on the commenting platform) of the account that created this root post. */
+  accountUrl?: string;
+  url?: string;
   priority?: number;
 };
 export const socialInteraction = {
@@ -130,29 +132,25 @@ export const socialInteraction = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Item &&
-    node.some(
-      (n) =>
-        Boolean(getAttribute(n, "platform")) &&
-        Boolean(getAttribute(n, "podcastAccountId") && Boolean(getText(n)))
-    ),
+    ensureArray(node).some((n) => Boolean(getAttribute(n, "protocol"))),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
-    const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getAttribute(n, "platform")) &&
-      Boolean(getAttribute(n, "podcastAccountId") && Boolean(getText(n)));
+    const isValidItemNode = (n: XmlNode): boolean => Boolean(getAttribute(n, "protocol"));
 
     return {
       podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
         if (isValidItemNode(n)) {
-          const pubDateText = getAttribute(n, "pubDate");
-          const pubDateAsDate = pubDateText && pubDateToDate(pubDateText);
+          const url = getText(n);
+          const accountId = getAttribute(n, "podcastAccountId") ?? getAttribute(n, "accountId");
+          const accountUrl = getAttribute(n, "podcastAccountUrl") ?? getAttribute(n, "accountUrl");
           return [
             ...acc,
             {
-              platform: getKnownAttribute(n, "platform"),
-              id: getKnownAttribute(n, "podcastAccountId"),
-              url: getText(n),
+              protocol: getKnownAttribute(n, "protocol"),
+              ...(url ? { url } : undefined),
+              ...(accountId ? { accountId } : undefined),
+              ...(accountUrl ? { accountUrl } : undefined),
               ...extractOptionalFloatAttribute(n, "priority"),
-              ...(pubDateAsDate ? { pubDate: pubDateAsDate } : undefined),
+              ...extractOptionalStringAttribute(n, "platform"),
             },
           ];
         }
