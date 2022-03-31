@@ -116,6 +116,7 @@ export const social = {
 };
 
 export type PhasePendingSocialInteract = {
+  uri: string;
   protocol: string;
   platform?: string;
   /** The account id (on the commenting platform) of the account that created this root post. */
@@ -132,31 +133,49 @@ export const socialInteraction = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Item &&
-    ensureArray(node).some((n) => Boolean(getAttribute(n, "protocol"))),
+    ensureArray(node).some(
+      (n) => Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri"))
+    ),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
-    const isValidItemNode = (n: XmlNode): boolean => Boolean(getAttribute(n, "protocol"));
+    const isValidItemNode = (n: XmlNode): boolean =>
+      Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri"));
 
     return {
-      podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
-        if (isValidItemNode(n)) {
-          const url = getText(n);
-          const accountId = getAttribute(n, "podcastAccountId") ?? getAttribute(n, "accountId");
-          const accountUrl = getAttribute(n, "podcastAccountUrl") ?? getAttribute(n, "accountUrl");
-          return [
-            ...acc,
-            {
-              protocol: getKnownAttribute(n, "protocol"),
-              ...(url ? { url } : undefined),
-              ...(accountId ? { accountId } : undefined),
-              ...(accountUrl ? { accountUrl } : undefined),
-              ...extractOptionalFloatAttribute(n, "priority"),
-              ...extractOptionalStringAttribute(n, "platform"),
-            },
-          ];
-        }
+      podcastSocialInteraction: node
+        .reduce<PhasePendingSocialInteract[]>((acc, n) => {
+          if (isValidItemNode(n)) {
+            const url = getText(n);
+            const accountId = getAttribute(n, "podcastAccountId") ?? getAttribute(n, "accountId");
+            const accountUrl =
+              getAttribute(n, "podcastAccountUrl") ?? getAttribute(n, "accountUrl");
+            return [
+              ...acc,
+              {
+                protocol: getKnownAttribute(n, "protocol"),
+                uri: getKnownAttribute(n, "uri"),
+                ...(url ? { url } : undefined),
+                ...(accountId ? { accountId } : undefined),
+                ...(accountUrl ? { accountUrl } : undefined),
+                ...extractOptionalIntegerAttribute(n, "priority"),
+                ...extractOptionalStringAttribute(n, "platform"),
+              },
+            ];
+          }
 
-        return acc;
-      }, []),
+          return acc;
+        }, [])
+        .sort((a, b) => {
+          if (a.priority && !b.priority) {
+            return -1;
+          }
+          if (b.priority && !a.priority) {
+            return 1;
+          }
+          if (a.priority && b.priority) {
+            return a.priority - b.priority;
+          }
+          return 0;
+        }),
     };
   },
 };
