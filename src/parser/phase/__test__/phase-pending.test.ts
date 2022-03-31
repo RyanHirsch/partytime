@@ -199,7 +199,7 @@ describe("phase pending", () => {
         const xml = helpers.spliceFirstItem(
           feed,
           `
-          <podcast:socialInteract protocol="activitypub" accountId="@dave">https://podcastindex.social/web/@dave/108013847520053258</podcast:socialInteract>
+          <podcast:socialInteract uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" />
           `
         );
         const result = parseFeed(xml);
@@ -214,9 +214,76 @@ describe("phase pending", () => {
         expect(first.podcastSocialInteraction[0]).toHaveProperty("accountId", "@dave");
         expect(first.podcastSocialInteraction[0]).not.toHaveProperty("priority");
         expect(first.podcastSocialInteraction[0]).toHaveProperty(
-          "url",
+          "uri",
           "https://podcastindex.social/web/@dave/108013847520053258"
         );
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("extracts a complex interact node", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:socialInteract priority="2" uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115" protocol="twitter" accountId="@podcastindexorg" accountUrl="https://twitter.com/PodcastindexOrg" />
+          <podcast:socialInteract priority="1" uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" accountUrl="https://podcastindex.social/web/@dave" />
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result).not.toHaveProperty("podcastSocialInteraction");
+        const [first] = result.items;
+
+        expect(first).toHaveProperty("podcastSocialInteraction");
+        expect(first.podcastSocialInteraction).toHaveLength(2);
+
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("protocol", "activitypub");
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("accountId", "@dave");
+        expect(first.podcastSocialInteraction[0]).toHaveProperty(
+          "accountUrl",
+          "https://podcastindex.social/web/@dave"
+        );
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("priority", 1);
+        expect(first.podcastSocialInteraction[0]).toHaveProperty(
+          "uri",
+          "https://podcastindex.social/web/@dave/108013847520053258"
+        );
+        expect(first.podcastSocialInteraction[1]).toHaveProperty("protocol", "twitter");
+        expect(first.podcastSocialInteraction[1]).toHaveProperty("accountId", "@podcastindexorg");
+        expect(first.podcastSocialInteraction[1]).toHaveProperty(
+          "accountUrl",
+          "https://twitter.com/PodcastindexOrg"
+        );
+        expect(first.podcastSocialInteraction[1]).toHaveProperty("priority", 2);
+        expect(first.podcastSocialInteraction[1]).toHaveProperty(
+          "uri",
+          "https://twitter.com/PodcastindexOrg/status/1507120226361647115"
+        );
+
+        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+      });
+
+      it("uses priority for sorting the node", () => {
+        const xml = helpers.spliceFirstItem(
+          feed,
+          `
+          <podcast:socialInteract uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115" protocol="twitter" accountId="@podcastindexorg" accountUrl="https://twitter.com/PodcastindexOrg" />
+          <podcast:socialInteract priority="1" uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" accountUrl="https://podcastindex.social/web/@dave" />
+          `
+        );
+        const result = parseFeed(xml);
+
+        expect(result).not.toHaveProperty("podcastSocialInteraction");
+        const [first] = result.items;
+
+        expect(first).toHaveProperty("podcastSocialInteraction");
+        expect(first.podcastSocialInteraction).toHaveLength(2);
+
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("protocol", "activitypub");
+        expect(first.podcastSocialInteraction[0]).toHaveProperty("priority", 1);
+
+        expect(first.podcastSocialInteraction[1]).toHaveProperty("protocol", "twitter");
+        expect(first.podcastSocialInteraction[1]).not.toHaveProperty("priority");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
