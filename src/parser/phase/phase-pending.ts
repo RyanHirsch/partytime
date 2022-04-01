@@ -134,11 +134,11 @@ export const socialInteraction = {
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Item &&
     ensureArray(node).some(
-      (n) => Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri"))
+      (n) => Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n))
     ),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
     const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri"));
+      Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n));
 
     return {
       podcastSocialInteraction: node
@@ -152,7 +152,7 @@ export const socialInteraction = {
               ...acc,
               {
                 protocol: getKnownAttribute(n, "protocol"),
-                uri: getKnownAttribute(n, "uri"),
+                uri: getAttribute(n, "uri") || url,
                 ...(url ? { url } : undefined),
                 ...(accountId ? { accountId } : undefined),
                 ...(accountUrl ? { accountUrl } : undefined),
