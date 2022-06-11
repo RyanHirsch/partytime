@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md">
+  <channel>
+    <title>Boo Bury: Mothman of the Minneapocalypse</title>
+    <link>https://noagendatube.com/accounts/boo_bury</link>
+    <description>Spook. The Dead Kind.  Host on Behind The Sch3m3s.
+
+I Like Fresh MindCrime Motherfucker
+
+https://www.behindthesch3m3s.com/
+
+    </description>
+    <lastBuildDate>Sat, 11 Jun 2022 21:12:01 GMT</lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator>Toraifōsu</generator>
+    <podcast:medium>video</podcast:medium>
+    <podcast:person img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+    <itunes:author>Boo Bury: Mothman of the Minneapocalypse</itunes:author>
+    <itunes:explicit>no</itunes:explicit>
+    <image>
+      <title>Boo Bury: Mothman of the Minneapocalypse</title>
+      <url>https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg</url>
+      <link>https://noagendatube.com/accounts/boo_bury</link>
+    </image>
+    <itunes:image href="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">
+    </itunes:image>
+    <copyright>All rights reserved, unless otherwise specified in the terms specified at https://noagendatube.com/about and potential licenses granted by each content&apos;s rightholder.</copyright>
+    <podcast:liveItem status="live" start="2022-06-11T18:30:34.948Z">
+      <title><![CDATA[Saturn Daze: It Was Lit Radio!]]></title>
+      <link>https://noagendatube.com/w/c4e99b72-4124-4698-b0fe-d6801b28143c</link>
+      <guid>https://noagendatube.com/w/c4e99b72-4124-4698-b0fe-d6801b28143c</guid>
+      <description><![CDATA[<p>Toasting the LITstream!</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/c4e99b72-4124-4698-b0fe-d6801b28143c" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="application/x-mpegURL" url="https://noagendatube.com/static/streaming-playlists/hls/c4e99b72-4124-4698-b0fe-d6801b28143c/master.m3u8">
+      </enclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="Live Stream 1" default="true">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/c4e99b72-4124-4698-b0fe-d6801b28143c/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/3cba4aaa-6e3b-4f4c-9ee3-b80d012f7fba.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </podcast:liveItem>
+    <item>
+      <title><![CDATA[GWAR - Joe Biden @ First Ave 2021]]></title>
+      <link>https://noagendatube.com/w/8d581e1f-1cf4-4e67-95f2-8fd4c1029009</link>
+      <guid>https://noagendatube.com/w/8d581e1f-1cf4-4e67-95f2-8fd4c1029009</guid>
+      <pubDate>Sun, 12 Dec 2021 18:33:44 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/8d581e1f-1cf4-4e67-95f2-8fd4c1029009" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-2160.mp4" length="419484773">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="419484773" bitrate="30507983.490909092" title="2160p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-2160.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-2160.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="154262921" bitrate="11219121.527272727" title="1440p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-1440.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-1440.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="83589514" bitrate="6079237.381818182" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="31983899" bitrate="2326101.7454545456" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15714230" bitrate="1142853.0909090908" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9854780" bitrate="716711.2727272727" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5698104" bitrate="414407.56363636366" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="2542853" bitrate="184934.76363636364" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/8d581e1f-1cf4-4e67-95f2-8fd4c1029009-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/8d581e1f-1cf4-4e67-95f2-8fd4c1029009/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/f47c45f4-a2b6-44d1-bf8c-df9e644add27.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[GWAR - Maggots (Guitar Duel) @ First Ave 2021]]></title>
+      <link>https://noagendatube.com/w/cb913fd5-4fcc-4100-92e0-86f8fec957b0</link>
+      <guid>https://noagendatube.com/w/cb913fd5-4fcc-4100-92e0-86f8fec957b0</guid>
+      <pubDate>Sun, 12 Dec 2021 17:32:53 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/cb913fd5-4fcc-4100-92e0-86f8fec957b0" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-2160.mp4" length="553852478">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="553852478" bitrate="30984754.013986014" title="2160p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-2160.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-2160.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="252624037" bitrate="14132813.25874126" title="1440p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-1440.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-1440.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="133511874" bitrate="7469195.748251748" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="72604231" bitrate="4061775.160839161" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="30104737" bitrate="1684181.0909090908" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="17245372" bitrate="964776.0559440559" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="9013562" bitrate="504255.2167832168" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="3153068" bitrate="176395.41258741257" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/cb913fd5-4fcc-4100-92e0-86f8fec957b0-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/cb913fd5-4fcc-4100-92e0-86f8fec957b0-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/cb913fd5-4fcc-4100-92e0-86f8fec957b0/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/ac584ab8-9a27-4ece-86ff-b38d1ebabb05.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[GWAR - Black and Huge @ First Ave 2021]]></title>
+      <link>https://noagendatube.com/w/0c4670f8-d852-4f99-aa26-1c1c56ae67fd</link>
+      <guid>https://noagendatube.com/w/0c4670f8-d852-4f99-aa26-1c1c56ae67fd</guid>
+      <pubDate>Sun, 12 Dec 2021 01:53:58 GMT</pubDate>
+      <description><![CDATA[<p>GWAR decimates the Bad Biker Bitch</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/0c4670f8-d852-4f99-aa26-1c1c56ae67fd" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-2160.mp4" length="1187235816">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1187235816" bitrate="30837293.92207792" title="2160p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-2160.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-2160.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="488966916" bitrate="12700439.376623377" title="1440p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-1440.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-1440.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="265719744" bitrate="6901811.532467533" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="125498617" bitrate="3259704.337662338" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="56105234" bitrate="1457278.8051948051" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="33252757" bitrate="863707.974025974" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="18259068" bitrate="474261.5064935065" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="6714948" bitrate="174414.23376623375" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0c4670f8-d852-4f99-aa26-1c1c56ae67fd-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/0c4670f8-d852-4f99-aa26-1c1c56ae67fd/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/144ca605-e54c-4ac4-b502-edcfdeebcc9b.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[S01E66: Soylent Green New Deal]]></title>
+      <link>https://noagendatube.com/w/62bbaa2d-0da4-41f9-a4ad-0554afab065c</link>
+      <guid>https://noagendatube.com/w/62bbaa2d-0da4-41f9-a4ad-0554afab065c</guid>
+      <pubDate>Tue, 12 Oct 2021 23:53:31 GMT</pubDate>
+      <description><![CDATA[<p>Straight from the rabbit hole, the man the myth the Moe.</p>
+<p>Moe Factz.</p>
+<p>Now sit back, and pour yourself some Moe Shine.</p>
+<p>One for the ages, the podcaster who can leave your floor stuck to the jaw, Moe joins Behind The Sch3m3s to breakdown the age old debate: Pro Choice vs Anti Choice. He takes us down hole after hole exploring the binary schemes that bind us together. The rap group formally known as Boo n' Lavish cut straight lines of truth as we have an honest and empathetic conversation about the natural unnaturalness. Or was it unnatural naturalness?</p>
+<p>Second 2nd Half of Show, Lavish discusses how the FBI likely founded the Black Panthers, and Boo-Bury starts a pyramid scheme trying to fund money to buy murder houses.</p>
+<p>You ain't gonna steal my joy, make it happen for a reason, and…</p>
+<p>Enjoy Every Sandwich.</p>
+<p>BYO3-DG</p>
+<p>https://linktr.ee/moefactz</p>
+<p>Call in and leave your Scream-Mail on the Cr33p Phone!</p>
+<p>612-263-SXXY</p>
+<p>https://zososcorner.substack.com/p/s01e66</p>
+<p>If you like what you heard here, check out our revue show!</p>
+<p>https://www.podserve.fm/series/website/ms-informed-nation,2605/36761</p>
+<p>Follow us on Social Sesame at FeedBag (Facebook), Insta-Groan (Instagram) and The Twits (Twitter)!</p>
+<p>@behindthesch3m3s</p>
+<p>https://www.behindthesch3m3s.com/</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/62bbaa2d-0da4-41f9-a4ad-0554afab065c" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-480.mp4" length="290273923">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="290273923" bitrate="181067.5543079922" title="480p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="286587195" bitrate="178767.84093567252" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="284946573" bitrate="177744.45099415205" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="213636231" bitrate="133262.36631578946" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="196717120" bitrate="122708.53489278753" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="106483007" bitrate="66422.1486159844" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/62bbaa2d-0da4-41f9-a4ad-0554afab065c-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/62bbaa2d-0da4-41f9-a4ad-0554afab065c-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/62bbaa2d-0da4-41f9-a4ad-0554afab065c/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/716a77e4-c091-4d4e-bd03-7b9d844cac23.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Behind The Sch3m3s VHS]]></title>
+      <link>https://noagendatube.com/w/06fdae7f-1ac4-42fb-8e94-fbb548e737c1</link>
+      <guid>https://noagendatube.com/w/06fdae7f-1ac4-42fb-8e94-fbb548e737c1</guid>
+      <pubDate>Thu, 01 Jul 2021 22:44:00 GMT</pubDate>
+      <description><![CDATA[<p>http://loveislit.com</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/06fdae7f-1ac4-42fb-8e94-fbb548e737c1" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-1080.mp4" length="14382822">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="14382822" bitrate="5753128.8" title="1080p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8115135" bitrate="3246054" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4732223" bitrate="1892889.2" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2856391" bitrate="1142556.4" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1653582" bitrate="661432.8" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="800968" bitrate="320387.2" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/06fdae7f-1ac4-42fb-8e94-fbb548e737c1-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/06fdae7f-1ac4-42fb-8e94-fbb548e737c1/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/05f8f7fe-45d5-4fcc-9aa8-2534b348f42d.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[S01E47: Go Find Yourself]]></title>
+      <link>https://noagendatube.com/w/71f9f1f0-c4da-4e14-b216-4a9f81175e69</link>
+      <guid>https://noagendatube.com/w/71f9f1f0-c4da-4e14-b216-4a9f81175e69</guid>
+      <pubDate>Mon, 07 Jun 2021 04:02:00 GMT</pubDate>
+      <description><![CDATA[<p>Back on the attack and ready to drop $999!</p>
+<p>It's Behind The Sch3m3s, now with added schemes! More schemes than you could shake a stick to!</p>
+<p>Lavish and Boo Bury cut wide and cut hard across more news about jabs. Need a shirt? Friends got you Covered. We got…fuckin…zombie fires! DNA on the Moon! Microsoft-84! And finally a trendy way to wear your third eye on your sleeve.</p>
+<p>For 2nd half of show, the note turns more somber as a mass grave was discovered on the property of a Residential School in Canada. Disturbing and disgusting shit.</p>
+<p>Also, punk is dead.</p>
+<p>BYO3-DG</p>
+<p>Call in and leave your Scream-Mail on the Cr33p Phone!</p>
+<p>612-263-SXXY</p>
+<p>ZOSO'S CORNER (Show Notes)</p>
+<p>Follow us on Social Sesame at FeedBag (Facebook), Insta-Groan (Instagram) and The Twits (Twitter)!</p>
+<p>@behindthesch3m3s</p>
+<p>https://www.behindthesch3m3s.com/</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/71f9f1f0-c4da-4e14-b216-4a9f81175e69" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-480.mp4" length="187360528">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="187360528" bitrate="196343.2308095363" title="480p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="187345999" bitrate="196328.00523971705" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="170756161" bitrate="178942.79381713388" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="124268165" bitrate="130226.00471574535" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="122667253" bitrate="128548.33953366519" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="63241887" bitrate="66273.91878438565" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/71f9f1f0-c4da-4e14-b216-4a9f81175e69-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/71f9f1f0-c4da-4e14-b216-4a9f81175e69-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/71f9f1f0-c4da-4e14-b216-4a9f81175e69/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/608dd2d4-b220-4026-b308-c1715cb5604f.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Joe Biden Said Cum]]></title>
+      <link>https://noagendatube.com/w/7f11d01d-157f-43b0-86be-b5a3141132b5</link>
+      <guid>https://noagendatube.com/w/7f11d01d-157f-43b0-86be-b5a3141132b5</guid>
+      <pubDate>Mon, 31 May 2021 03:53:08 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/7f11d01d-157f-43b0-86be-b5a3141132b5" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-1080.mp4" length="35413643">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="35413643" bitrate="5448252.769230769" title="1080p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="4198996" bitrate="645999.3846153846" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="3341698" bitrate="514107.3846153846" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2968183" bitrate="456643.53846153844" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2588423" bitrate="398218.92307692306" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="2077334" bitrate="319589.8461538461" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7f11d01d-157f-43b0-86be-b5a3141132b5-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7f11d01d-157f-43b0-86be-b5a3141132b5-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/7f11d01d-157f-43b0-86be-b5a3141132b5/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/791b392c-52e7-4568-898a-814fb6e35c1d.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Existential Quantifier]]></title>
+      <link>https://noagendatube.com/w/2561b8f6-4645-45ff-9b92-738a5040e07f</link>
+      <guid>https://noagendatube.com/w/2561b8f6-4645-45ff-9b92-738a5040e07f</guid>
+      <pubDate>Wed, 26 May 2021 06:15:53 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/2561b8f6-4645-45ff-9b92-738a5040e07f" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-720.mp4" length="2739722">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2739722" bitrate="137847.64779874214" title="720p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2738070" bitrate="137764.5283018868" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2735196" bitrate="137619.9245283019" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="2137249" bitrate="107534.54088050315" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1836472" bitrate="92401.10691823899" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="882901" bitrate="44422.69182389937" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2561b8f6-4645-45ff-9b92-738a5040e07f-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2561b8f6-4645-45ff-9b92-738a5040e07f-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/2561b8f6-4645-45ff-9b92-738a5040e07f/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/cfdc0fd7-8462-4587-923f-c17c31551ad6.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[S01E46: Elites Say The Darnedest Things]]></title>
+      <link>https://noagendatube.com/w/0814b6ca-cd27-4e09-a68e-6a160f95ca17</link>
+      <guid>https://noagendatube.com/w/0814b6ca-cd27-4e09-a68e-6a160f95ca17</guid>
+      <pubDate>Wed, 26 May 2021 05:30:33 GMT</pubDate>
+      <description><![CDATA[<p>Watch out left coast, prepare thyself, cuz in comes the best coast!</p>
+<p>Host?</p>
+<p>Most.</p>
+<p>Ghost.</p>
+<p>It's BillyBon3s, here to lay down not THE truth, but his very own estimation of the truth! It's that good shit we're coming back for more of. From bad policies to bad extraspacial deals, BillyBon3s walks Boo-Bury and Lavish thru all the corridors, but we very much ensure not to film any of it.</p>
+<p>Grab your "invisibilty blankets", and enjoy one hell of a show tonight on Behind The Sch3m3s!</p>
+<p>Hahaha a pharma company is taking heat for sharing the "PillBillies" song. Hahahaha. Fuck them.</p>
+<p>http://www.billybon3s.com/</p>
+<p>BYO3-DG</p>
+<p>Call in and leave your Scream-Mail on the Cr33p Phone!</p>
+<p>612-263-SXXY</p>
+<p>ZOSO'S CORNER (Show Notes)</p>
+<p>Follow us on Social Sesame at FeedBag (Facebook), Insta-Groan (Instagram) and The Twits (Twitter)!</p>
+<p>@behindthesch3m3s</p>
+<p>https://www.behindthesch3m3s.com/</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/0814b6ca-cd27-4e09-a68e-6a160f95ca17" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-720.mp4" length="175078249">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="175078249" bitrate="190509.5201305767" title="720p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="175019522" bitrate="190445.6169749728" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="169893707" bitrate="184868.0163220892" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="120373453" bitrate="130983.08269858542" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="112571123" bitrate="122493.06093579979" title="1080p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="61350807" bitrate="66758.22306855278" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/0814b6ca-cd27-4e09-a68e-6a160f95ca17-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/0814b6ca-cd27-4e09-a68e-6a160f95ca17-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/0814b6ca-cd27-4e09-a68e-6a160f95ca17/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/73f1de20-4992-473a-b4e2-395355f6e1dd.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[The Ew Song]]></title>
+      <link>https://noagendatube.com/w/7ac95136-82ec-4b97-a833-f11f66407195</link>
+      <guid>https://noagendatube.com/w/7ac95136-82ec-4b97-a833-f11f66407195</guid>
+      <pubDate>Sat, 15 May 2021 06:41:19 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/7ac95136-82ec-4b97-a833-f11f66407195" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/7ac95136-82ec-4b97-a833-f11f66407195-360.mp4" length="6614007">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6614007" bitrate="359945.9591836735" title="360p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7ac95136-82ec-4b97-a833-f11f66407195-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7ac95136-82ec-4b97-a833-f11f66407195-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="6093829" bitrate="331636.95238095237" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7ac95136-82ec-4b97-a833-f11f66407195-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7ac95136-82ec-4b97-a833-f11f66407195-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="5697884" bitrate="310088.92517006805" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7ac95136-82ec-4b97-a833-f11f66407195-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7ac95136-82ec-4b97-a833-f11f66407195-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="5182058" bitrate="282016.7619047619" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/7ac95136-82ec-4b97-a833-f11f66407195-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/7ac95136-82ec-4b97-a833-f11f66407195-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/7ac95136-82ec-4b97-a833-f11f66407195/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/61fbdb3d-bf7c-449a-a486-f10c8e4b2d37.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Boo Bury Wants Some Action]]></title>
+      <link>https://noagendatube.com/w/030a5e01-8340-479e-9441-2302b67d7c3b</link>
+      <guid>https://noagendatube.com/w/030a5e01-8340-479e-9441-2302b67d7c3b</guid>
+      <pubDate>Mon, 10 May 2021 01:03:07 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/030a5e01-8340-479e-9441-2302b67d7c3b" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/030a5e01-8340-479e-9441-2302b67d7c3b-360.mp4" length="1543832">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1543832" bitrate="514610.6666666667" title="360p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/030a5e01-8340-479e-9441-2302b67d7c3b-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/030a5e01-8340-479e-9441-2302b67d7c3b-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1372740" bitrate="457580" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/030a5e01-8340-479e-9441-2302b67d7c3b-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/030a5e01-8340-479e-9441-2302b67d7c3b-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="1277239" bitrate="425746.3333333333" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/030a5e01-8340-479e-9441-2302b67d7c3b-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/030a5e01-8340-479e-9441-2302b67d7c3b-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="1122286" bitrate="374095.3333333333" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/030a5e01-8340-479e-9441-2302b67d7c3b-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/030a5e01-8340-479e-9441-2302b67d7c3b-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/030a5e01-8340-479e-9441-2302b67d7c3b/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/a891a5ae-00fe-44ec-8072-ede74d42eb5a.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[ABS Coof Cretched]]></title>
+      <link>https://noagendatube.com/w/060a5a79-0340-4d45-bb71-22a5162d1ebd</link>
+      <guid>https://noagendatube.com/w/060a5a79-0340-4d45-bb71-22a5162d1ebd</guid>
+      <pubDate>Sun, 09 May 2021 00:50:49 GMT</pubDate>
+      <description><![CDATA[<p>https://www.absna6pack.com/podcast/episode-77-coof</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/060a5a79-0340-4d45-bb71-22a5162d1ebd" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-1080.mp4" length="152507481">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="152507481" bitrate="4899838.746987952" title="1080p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="81943147" bitrate="2632711.550200803" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="49134603" bitrate="1578621.78313253" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="33388423" bitrate="1072720.4176706828" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="19787736" bitrate="635750.5542168674" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="9928518" bitrate="318988.5301204819" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/060a5a79-0340-4d45-bb71-22a5162d1ebd-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/060a5a79-0340-4d45-bb71-22a5162d1ebd-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/060a5a79-0340-4d45-bb71-22a5162d1ebd/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/e6e8c1d8-7186-41a5-b422-2d45f02565ab.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[Grumpy Old Bens - Podcasting 2.0 Chapters]]></title>
+      <link>https://noagendatube.com/w/17b8409e-aa17-42a5-a1f4-b7b269316c95</link>
+      <guid>https://noagendatube.com/w/17b8409e-aa17-42a5-a1f4-b7b269316c95</guid>
+      <pubDate>Sat, 08 May 2021 08:15:03 GMT</pubDate>
+      <description><![CDATA[<p>Two old guys yell at podcasts not using chapters.</p>
+<p>Episode 158: Use The Tip Jar</p>
+<p>http://grumpyoldbens.com/</p>]]></description>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/17b8409e-aa17-42a5-a1f4-b7b269316c95" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-1080.mp4" length="127694460">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="127694460" bitrate="5433806.808510638" title="1080p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="73161044" bitrate="3113235.914893617" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="42772823" bitrate="1820120.1276595744" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="25946777" bitrate="1104118.170212766" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15173819" bitrate="645694.4255319149" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="7502485" bitrate="319254.6808510638" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/17b8409e-aa17-42a5-a1f4-b7b269316c95-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/17b8409e-aa17-42a5-a1f4-b7b269316c95-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/17b8409e-aa17-42a5-a1f4-b7b269316c95/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/92fb0247-d8a3-4a10-9caf-5ad13d0b0ad6.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[HS Give It TO ME Promo]]></title>
+      <link>https://noagendatube.com/w/2c59985d-e493-48bf-bc7e-6ce72943d453</link>
+      <guid>https://noagendatube.com/w/2c59985d-e493-48bf-bc7e-6ce72943d453</guid>
+      <pubDate>Fri, 07 May 2021 07:10:53 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/2c59985d-e493-48bf-bc7e-6ce72943d453" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-1000.mp4" length="130075768">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="130075768" bitrate="3162936.6079027355" title="1000p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-1000.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-1000.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="70666269" bitrate="1718328.7294832827" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="43101528" bitrate="1048061.4711246201" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="31394231" bitrate="763385.556231003" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="22013743" bitrate="535288.5835866261" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="13098549" bitrate="318505.7507598784" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/2c59985d-e493-48bf-bc7e-6ce72943d453-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/2c59985d-e493-48bf-bc7e-6ce72943d453-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/2c59985d-e493-48bf-bc7e-6ce72943d453/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/08696bda-13f7-48cd-a8c8-40be51a3cb5f.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    <item>
+      <title><![CDATA[BAB Promo 1]]></title>
+      <link>https://noagendatube.com/w/09f88ea7-79e7-4bba-b1df-cc589b4e495a</link>
+      <guid>https://noagendatube.com/w/09f88ea7-79e7-4bba-b1df-cc589b4e495a</guid>
+      <pubDate>Wed, 05 May 2021 07:02:33 GMT</pubDate>
+      <dc:creator>Boo Bury: Mothman of the Minneapocalypse</dc:creator>
+      <podcast:person href="https://noagendatube.com/accounts/boo_bury" img="https://noagendatube.com/lazy-static/avatars/1075e1f8-7e0c-4a8b-807c-6ccb66a740d0.jpg">Boo Bury: Mothman of the Minneapocalypse</podcast:person>
+      <podcast:tracker>https://noagendatube.com/tracker/announce</podcast:tracker>
+      <podcast:tracker>wss://noagendatube.com:443/tracker/socket</podcast:tracker>
+      <podcast:socialInteract uri="https://noagendatube.com/videos/watch/09f88ea7-79e7-4bba-b1df-cc589b4e495a" protocol="activitypub">
+      </podcast:socialInteract>
+      <enclosure type="video/mp4" url="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-1080.mp4" length="38124287">
+      </enclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="38124287" bitrate="2798112.8073394494" title="1080p" default="true">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-1080.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-1080.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="23014379" bitrate="1689128.7339449541" title="720p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-720.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-720.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="15597238" bitrate="1144751.4128440367" title="480p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-480.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-480.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="12158642" bitrate="892377.3944954128" title="360p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-360.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-360.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="video/mp4" length="8243240" bitrate="605008.4403669725" title="240p">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-240.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-240.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/mp4" length="4335832" bitrate="318226.2018348624" title="Audio">
+        <podcast:source uri="https://noagendatube.com/static/webseed/09f88ea7-79e7-4bba-b1df-cc589b4e495a-0.mp4">
+        </podcast:source>
+        <podcast:source uri="https://noagendatube.com/lazy-static/torrents/09f88ea7-79e7-4bba-b1df-cc589b4e495a-0.torrent" contentType="application/x-bittorrent">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="application/x-mpegURL" title="HLS">
+        <podcast:source uri="https://noagendatube.com/static/streaming-playlists/hls/09f88ea7-79e7-4bba-b1df-cc589b4e495a/master.m3u8">
+        </podcast:source>
+      </podcast:alternateEnclosure>
+      <itunes:image href="https://noagendatube.com/lazy-static/previews/35a0a7fb-0d15-4690-8774-1048a7edd081.jpg">
+      </itunes:image>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+  </channel>
+</rss>

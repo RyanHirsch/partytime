@@ -18,7 +18,7 @@ import * as ItemParser from "../item";
 
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
-import { alternativeEnclosure } from "./phase-3";
+import { alternativeEnclosure, liveItemAlternativeEnclosure } from "./phase-3";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 
@@ -307,8 +307,8 @@ export const liveItem = {
           };
 
           useParser(person, n, item);
-          useParser(alternativeEnclosure, n, item);
-          useParser(alternativeEnclosure, n, item);
+
+          useParser(liveItemAlternativeEnclosure, n, item);
           useParser(podcastImages, n, item);
 
           return {

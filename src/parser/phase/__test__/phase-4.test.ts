@@ -620,7 +620,7 @@ describe("phase 4", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
-        <podcast:liveItem status="live" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+        <podcast:liveItem status="livE" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
           <title>Podcasting 2.0 Live Stream</title>
           <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
           <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
@@ -652,7 +652,7 @@ describe("phase 4", () => {
         feed,
         `
         <podcast:liveItem
-          status="live"
+          status="liVe"
           start="2021-09-26T07:30:00.000-0600"
           end="2021-09-26T08:30:00.000-0600"
         >
@@ -686,6 +686,7 @@ describe("phase 4", () => {
       expect(result.podcastLiveItems).toHaveLength(1);
 
       expect(result.podcastLiveItems[0]).toHaveProperty("status", Phase4LiveStatus.Live);
+      expect(result.podcastLiveItems[0]).toHaveProperty("status", "live");
       expect(result.podcastLiveItems[0]).toHaveProperty(
         "start",
         new Date("2021-09-26T07:30:00.000-0600")
