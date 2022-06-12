@@ -240,7 +240,7 @@ type Phase4ContentLink = {
 export type Phase4PodcastLiveItem = Phase4PodcastLiveItemItem & {
   status: Phase4LiveStatus;
   start: Date;
-  end: Date;
+  end?: Date;
   contentLinks: Phase4ContentLink[];
 };
 export const liveItem = {
@@ -255,8 +255,7 @@ export const liveItem = {
           getAttribute(n, "status") &&
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           lookup(Phase4LiveStatus, getAttribute(n, "status")!.toLowerCase()) &&
-          getAttribute(n, "start") &&
-          getAttribute(n, "end")
+          getAttribute(n, "start")
       )
     ),
   supportCheck: (node: XmlNode[]): boolean => node.length > 0,
@@ -314,13 +313,15 @@ export const liveItem = {
           return {
             status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),
             start: pubDateToDate(getKnownAttribute(n, "start")),
-            end: pubDateToDate(getKnownAttribute(n, "end")),
+            ...(getAttribute(n, "end")
+              ? { end: pubDateToDate(getKnownAttribute(n, "end")) }
+              : undefined),
             ...(Object.keys(item).length > 0 ? item : undefined),
             contentLinks: getContentLinks(n),
           } as Phase4PodcastLiveItem;
         })
         .filter((x: EmptyObj | Phase4PodcastLiveItem) =>
-          Boolean("start" in x && "end" in x)
+          Boolean("start" in x)
         ) as Phase4PodcastLiveItem[],
     };
   },
