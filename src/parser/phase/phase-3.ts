@@ -165,6 +165,7 @@ enum IntegrityType {
   SRI = "sri",
   PGP = "pgp-signature",
 }
+const podcastSource = "podcast:source";
 export const alternativeEnclosure: ItemUpdate = {
   phase: 3,
   tag: "podcast:alternateEnclosure",
@@ -174,7 +175,7 @@ export const alternativeEnclosure: ItemUpdate = {
     return (node as XmlNode[]).some((i) => {
       const type = getAttribute(i, "type");
       const length = getAttribute(i, "length");
-      const sourceNodes = ensureArray(i?.["podcast:source"] ?? []);
+      const sourceNodes = ensureArray(i?.[podcastSource] ?? []);
 
       return (
         Boolean(type) &&
@@ -192,7 +193,7 @@ export const alternativeEnclosure: ItemUpdate = {
       .forEach((altEncNode) => {
         const type = getKnownAttribute(altEncNode, "type");
         const length = getKnownAttribute(altEncNode, "length");
-        const sourceUris = ensureArray(altEncNode["podcast:source"] ?? [])
+        const sourceUris = ensureArray(altEncNode[podcastSource] ?? [])
           .map((sourceNode) => ({
             uri: getAttribute(sourceNode, "uri"),
             contentType: getAttribute(sourceNode, "contentType"),
@@ -210,7 +211,7 @@ export const alternativeEnclosure: ItemUpdate = {
           getAttribute(integrityNode, "value")
             ? {
                 type:
-                  getKnownAttribute(integrityNode, "type") === "pgp-signature"
+                  getKnownAttribute(integrityNode, "type") === IntegrityType.PGP
                     ? IntegrityType.PGP
                     : IntegrityType.SRI,
                 value: getKnownAttribute(integrityNode, "value"),
@@ -221,6 +222,74 @@ export const alternativeEnclosure: ItemUpdate = {
           update.push({
             type,
             length: parseInt(length, 10),
+            source: sourceUris,
+            default: /^true$/i.test(getAttribute(altEncNode, "default") ?? ""),
+            ...(integrity ? { integrity } : undefined),
+            ...extractOptionalFloatAttribute(altEncNode, "bitrate"),
+            ...extractOptionalIntegerAttribute(altEncNode, "height"),
+            ...extractOptionalStringAttribute(altEncNode, "lang"),
+            ...extractOptionalStringAttribute(altEncNode, "title"),
+            ...extractOptionalStringAttribute(altEncNode, "rel"),
+            ...extractOptionalStringAttribute(altEncNode, "codecs"),
+          });
+        }
+      });
+
+    return { alternativeEnclosures: update };
+  },
+};
+
+export const liveItemAlternativeEnclosure: ItemUpdate = {
+  phase: 3,
+  tag: "podcast:alternateEnclosure",
+  name: "alternateEnclosure",
+  nodeTransform: ensureArray,
+  supportCheck: (node) => {
+    return (node as XmlNode[]).some((i) => {
+      const type = getAttribute(i, "type");
+      const sourceNodes = ensureArray(i?.[podcastSource] ?? []);
+
+      return (
+        Boolean(type) && sourceNodes.length > 0 && sourceNodes.some((n) => getAttribute(n, "uri"))
+      );
+    });
+  },
+  fn(node, _feed) {
+    const update: Phase3AltEnclosure[] = [];
+
+    (node as XmlNode[])
+      .filter((n) => getAttribute(n, "type"))
+      .forEach((altEncNode) => {
+        const type = getKnownAttribute(altEncNode, "type");
+        const sourceUris = ensureArray(altEncNode[podcastSource] ?? [])
+          .map((sourceNode) => ({
+            uri: getAttribute(sourceNode, "uri"),
+            contentType: getAttribute(sourceNode, "contentType"),
+          }))
+          .filter(
+            (x): x is { uri: string; contentType: string | null } =>
+              x.uri !== null && Boolean(x.uri.trim())
+          )
+          .map((x) => ({ ...x, contentType: x.contentType || type }));
+
+        const integrityNode = altEncNode["podcast:integrity"];
+        const integrity =
+          integrityNode &&
+          getAttribute(integrityNode, "type") &&
+          getAttribute(integrityNode, "value")
+            ? {
+                type:
+                  getKnownAttribute(integrityNode, "type") === IntegrityType.PGP
+                    ? IntegrityType.PGP
+                    : IntegrityType.SRI,
+                value: getKnownAttribute(integrityNode, "value"),
+              }
+            : null;
+
+        if (type && sourceUris.length > 0) {
+          update.push({
+            type,
+            length: 0,
             source: sourceUris,
             default: /^true$/i.test(getAttribute(altEncNode, "default") ?? ""),
             ...(integrity ? { integrity } : undefined),

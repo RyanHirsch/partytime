@@ -54,4 +54,29 @@ describe("real-world feeds", () => {
       expect(result.items).toHaveLength(0);
     });
   });
+
+  describe("Podverse Test Feed", () => {
+    let xml = "";
+    beforeEach(async () => {
+      xml = await helpers.loadFixture(`podverse-test-feed.xml`);
+    });
+
+    it(`parses all live-items`, () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      expect(result.podcastLiveItems).toHaveLength(4);
+    });
+    it(`extracts both enclosure and alt-enclosure for the last live-item`, () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      const lastLiveItem = result.podcastLiveItems[3];
+
+      expect(lastLiveItem.alternativeEnclosures).toHaveLength(1);
+    });
+  });
+
+  // describe("NATube Feed", () => {
+  //   let xml = "";
+  //   beforeEach(async () => {
+  //     xml = await helpers.loadFixture(`natube-test.xml`);
+  //   });
+  // });
 });
