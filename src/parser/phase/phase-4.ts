@@ -18,7 +18,7 @@ import * as ItemParser from "../item";
 
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
-import { alternativeEnclosure, liveItemAlternativeEnclosure } from "./phase-3";
+import { liveItemAlternativeEnclosure } from "./phase-3";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 
