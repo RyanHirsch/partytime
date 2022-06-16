@@ -116,6 +116,17 @@ export const social = {
   },
 };
 
+function getSocialPlatform(n: XmlNode): string | null {
+  return (getAttribute(n, "platform") || getAttribute(n, "protocol")) ?? null;
+}
+
+function getSocialAccount(n: XmlNode): string | null {
+  return (getAttribute(n, "podcastAccountId") || getAttribute(n, "accountId")) ?? null;
+}
+function getSocialUrl(n: XmlNode): string | null {
+  return (getAttribute(n, "accountUrl") || getText(n)) ?? null;
+}
+
 export type PhasePendingSocialInteract = {
   platform: string;
   id: string;
@@ -132,13 +143,11 @@ export const socialInteraction = {
     type === XmlNodeSource.Item &&
     node.some(
       (n) =>
-        Boolean(getAttribute(n, "platform")) &&
-        Boolean(getAttribute(n, "podcastAccountId") && Boolean(getText(n)))
+        Boolean(getSocialPlatform(n)) && Boolean(getSocialAccount(n)) && Boolean(getSocialUrl(n))
     ),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
     const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getAttribute(n, "platform")) &&
-      Boolean(getAttribute(n, "podcastAccountId") && Boolean(getText(n)));
+      Boolean(getSocialPlatform(n)) && Boolean(getSocialAccount(n)) && Boolean(getSocialUrl(n));
 
     return {
       podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
@@ -148,9 +157,9 @@ export const socialInteraction = {
           return [
             ...acc,
             {
-              platform: getKnownAttribute(n, "platform"),
-              id: getKnownAttribute(n, "podcastAccountId"),
-              url: getText(n),
+              platform: getSocialPlatform(n)!,
+              id: getSocialAccount(n)!,
+              url: getSocialUrl(n)!,
               ...extractOptionalFloatAttribute(n, "priority"),
               ...(pubDateAsDate ? { pubDate: pubDateAsDate } : undefined),
             },
