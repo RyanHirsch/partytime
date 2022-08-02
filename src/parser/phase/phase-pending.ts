@@ -124,14 +124,24 @@ function getSocialAccount(n: XmlNode): string | null {
   return (getAttribute(n, "podcastAccountId") || getAttribute(n, "accountId")) ?? null;
 }
 function getSocialUrl(n: XmlNode): string | null {
-  return (getAttribute(n, "accountUrl") || getText(n)) ?? null;
+  return (getAttribute(n, "uri") || getText(n)) ?? null;
+}
+function getSocialProfileUrl(n: XmlNode): string | null {
+  return getAttribute(n, "accountUrl") ?? null;
 }
 
 export type PhasePendingSocialInteract = {
+  /** slug of social protocol being used */
   platform: string;
+  /** account id of posting party */
   id: string;
+  /** uri of root post/comment */
   url: string;
+  /** url to posting party's platform profile */
+  profileUrl?: string;
+  /** DEPRECATED */
   pubDate?: Date;
+  /** the order of rendering */
   priority?: number;
 };
 export const socialInteraction = {
@@ -152,6 +162,7 @@ export const socialInteraction = {
     return {
       podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
         if (isValidItemNode(n)) {
+          const profileUrl = getSocialProfileUrl(n);
           const pubDateText = getAttribute(n, "pubDate");
           const pubDateAsDate = pubDateText && pubDateToDate(pubDateText);
           return [
@@ -162,6 +173,7 @@ export const socialInteraction = {
               url: getSocialUrl(n)!,
               ...extractOptionalFloatAttribute(n, "priority"),
               ...(pubDateAsDate ? { pubDate: pubDateAsDate } : undefined),
+              ...(profileUrl ? { profileUrl } : undefined),
             },
           ];
         }
