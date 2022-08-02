@@ -22,7 +22,7 @@ import { categoryLookup } from "./itunes-categories";
 function getTitle(feed: XmlNode): string {
   const node = firstWithValue(feed.title);
 
-  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node)));
+  return sanitizeMultipleSpaces(sanitizeNewLines(getText(node) || `${getNumber(node) ?? ""}`));
 }
 
 function getDescription(feed: XmlNode): string {

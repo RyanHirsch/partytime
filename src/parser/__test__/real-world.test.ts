@@ -73,10 +73,15 @@ describe("real-world feeds", () => {
     });
   });
 
-  // describe("NATube Feed", () => {
-  //   let xml = "";
-  //   beforeEach(async () => {
-  //     xml = await helpers.loadFixture(`natube-test.xml`);
-  //   });
-  // });
+  describe("1865 Feed", () => {
+    let xml = "";
+    beforeEach(async () => {
+      xml = await helpers.loadFixture(`real-world/1865.xml`);
+    });
+
+    it("allows for numeric titles", () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      expect(result?.title).toEqual("1865");
+    });
+  });
 });
