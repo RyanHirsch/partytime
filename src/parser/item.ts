@@ -147,7 +147,7 @@ function getItunesImage(item: XmlNode): undefined | { itunesImage: string } {
   };
 }
 
-function getImage(item: XmlNode): undefined | { image: string } {
+export function getImage(item: XmlNode): undefined | { image: string } {
   const node = ensureArray(item.image).find((n) => getText(n?.url));
   const image = sanitizeUrl(getText(node?.url));
   if (image) {

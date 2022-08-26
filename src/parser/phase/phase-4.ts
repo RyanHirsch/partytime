@@ -302,6 +302,7 @@ export const liveItem = {
             ...ItemParser.getDescription(n),
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
+            ...ItemParser.getImage(n),
             ...v,
           };
 
