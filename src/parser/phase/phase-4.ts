@@ -241,6 +241,8 @@ export type Phase4PodcastLiveItem = Phase4PodcastLiveItemItem & {
   status: Phase4LiveStatus;
   start: Date;
   end?: Date;
+  image?: string;
+  chat?: string;
   contentLinks: Phase4ContentLink[];
 };
 export const liveItem = {
@@ -294,15 +296,17 @@ export const liveItem = {
           const v =
             transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
 
+          const chat = getAttribute(n, "chat");
+
           const item: Phase4PodcastLiveItemItem = {
             guid,
             enclosure,
-            ...title,
             ...title,
             ...ItemParser.getDescription(n),
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
             ...ItemParser.getImage(n),
+            ...(chat ? { chat } : undefined),
             ...v,
           };
 
