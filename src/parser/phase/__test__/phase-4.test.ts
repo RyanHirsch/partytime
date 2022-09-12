@@ -1,4 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import invariant from "tiny-invariant";
 
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
@@ -59,6 +60,7 @@ describe("phase 4", () => {
 
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
+      invariant(result);
 
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
     });
@@ -100,6 +102,7 @@ describe("phase 4", () => {
         expect(block.value).toHaveProperty("type", "lightning");
         expect(block.value).toHaveProperty("method", "keysend");
         expect(block.value).toHaveProperty("suggested", 0.00000015);
+        invariant(block.value);
 
         expect(block.value.recipients).toHaveLength(4);
 
@@ -111,6 +114,7 @@ describe("phase 4", () => {
       };
 
       const result = parseFeed(xml);
+      invariant(result);
       expect(result).toHaveProperty("value");
       assertBlockProperties(result);
 
@@ -151,6 +155,7 @@ describe("phase 4", () => {
       `
         )
       );
+      invariant(result);
 
       const assertBlockProperties = (block: FeedObject | Episode): void => {
         expect(block.value).toHaveProperty("type", "lightning");
@@ -204,6 +209,7 @@ describe("phase 4", () => {
       `
         )
       );
+      invariant(result);
 
       const assertBlockProperties = (block: FeedObject | Episode): void => {
         expect(block.value).toHaveProperty("type", "lightning");
@@ -267,6 +273,7 @@ describe("phase 4", () => {
       };
 
       const result = parseFeed(xml);
+      invariant(result);
       expect(result).toHaveProperty("value");
 
       const [first, second, third] = result.items;
@@ -285,6 +292,7 @@ describe("phase 4", () => {
     const supportedName = "medium";
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
+      invariant(result);
 
       expect(result).not.toHaveProperty("medium");
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -298,6 +306,7 @@ describe("phase 4", () => {
         `
       );
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Podcast);
 
@@ -314,6 +323,7 @@ describe("phase 4", () => {
         `
       );
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Audiobook);
 
@@ -329,6 +339,7 @@ describe("phase 4", () => {
         `
       );
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Audiobook);
 
@@ -341,6 +352,7 @@ describe("phase 4", () => {
 
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
+      invariant(result);
 
       expect(result).not.toHaveProperty("podcastImages");
 
@@ -364,6 +376,7 @@ describe("phase 4", () => {
           `
         );
         const result = parseFeed(xml);
+        invariant(result);
 
         expect(result.podcastImages).toHaveLength(4);
 
@@ -426,6 +439,7 @@ describe("phase 4", () => {
           `
         );
         const result = parseFeed(xml);
+        invariant(result);
 
         expect(result.podcastImages).toHaveLength(3);
 
@@ -462,6 +476,7 @@ describe("phase 4", () => {
           `
         );
         const result = parseFeed(xml);
+        invariant(result);
 
         expect(result).not.toHaveProperty("podcastImages");
         expect(result.items[2].podcastImages).toHaveLength(4);
@@ -523,6 +538,7 @@ describe("phase 4", () => {
             `
         );
         const result = parseFeed(xml);
+        invariant(result);
 
         expect(result).not.toHaveProperty("podcastImages");
         expect(result.items[2].podcastImages).toHaveLength(1);
@@ -546,6 +562,7 @@ describe("phase 4", () => {
 
     it("correctly identifies a basic feed", () => {
       const result = parseFeed(feed);
+      invariant(result);
 
       expect(result).not.toHaveProperty("podcastLiveItems");
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -579,6 +596,7 @@ describe("phase 4", () => {
         `
       );
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
       expect(result.podcastLiveItems).toHaveLength(3);
@@ -629,9 +647,12 @@ describe("phase 4", () => {
         `
       );
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
+
       expect(result.podcastLiveItems).toHaveLength(1);
+      invariant(result.podcastLiveItems);
 
       expect(result.podcastLiveItems[0]).not.toHaveProperty("item");
       expect(result.podcastLiveItems[0]).toHaveProperty("status", Phase4LiveStatus.Live);
@@ -643,6 +664,31 @@ describe("phase 4", () => {
         "end",
         new Date("2021-09-26T08:30:00.000-0600")
       );
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("supports chat liveItem", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem status="livE" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600" chat="https://talky.io">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+        </podcast:liveItem>
+        `
+      );
+      const result = parseFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+
+      expect(result.podcastLiveItems).toHaveLength(1);
+      invariant(result.podcastLiveItems);
+
+      expect(result.podcastLiveItems[0]).toHaveProperty("chat", "https://talky.io");
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
@@ -681,9 +727,13 @@ describe("phase 4", () => {
       );
 
       const result = parseFeed(xml);
+      invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
+      invariant(result);
+
       expect(result.podcastLiveItems).toHaveLength(1);
+      invariant(result.podcastLiveItems);
 
       expect(result.podcastLiveItems[0]).toHaveProperty("status", Phase4LiveStatus.Live);
       expect(result.podcastLiveItems[0]).toHaveProperty("status", "live");
