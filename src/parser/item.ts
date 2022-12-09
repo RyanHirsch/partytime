@@ -63,7 +63,18 @@ export function getGuid(item: XmlNode): string {
   // The guid node also has a isPermaLink attribute which is being ignored
   // https://validator.w3.org/feed/docs/error/InvalidPermalink.html
   const node = firstWithValue(item.guid);
-  return getText(node);
+  const textValue = getText(node);
+  if (textValue) {
+    return textValue;
+  }
+
+  const numberValue = getNumber(node);
+  if (typeof numberValue === "number") {
+    return numberValue.toString();
+  }
+
+  console.warn("Empty/missing guid, returning empty string");
+  return "";
 }
 
 export function getEnclosure(item: XmlNode): Enclosure | null {

@@ -51,7 +51,8 @@ describe("real-world feeds", () => {
     it(`parses no items with GUID missing flag disabled`, () => {
       const result = parseFeed(xml, { allowMissingGuid: false });
 
-      expect(result.items).toHaveLength(0);
+      // 59 total times, 58 have numbers as guids, one is legit blank
+      expect(result.items).toHaveLength(58);
     });
   });
 

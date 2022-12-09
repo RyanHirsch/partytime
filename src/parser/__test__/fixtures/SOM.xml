@@ -1,0 +1,76 @@
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
+  <channel>
+    <title>S.O.M.</title>
+    <description>Read between the lines, the message is a state of mind.</description>
+    <language>en</language>
+    <itunes:image href="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1655225771733-SK7MKUFZ9KOP6JRWWYUE/SOM.png?format=3000w"/>
+    <link>https://soundcloud.com/jake-hider-934689971</link>
+    <generator>Sovereign Feeds</generator>
+    <image>
+      <url>https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1655225771733-SK7MKUFZ9KOP6JRWWYUE/SOM.png?format=3000w</url>
+      <link>https://soundcloud.com/jake-hider-934689971</link>
+      <title>S.O.M.</title>
+      <description>Read between the lines, the message is a state of mind.</description>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <podcast:value type="lightning" method="keysend" suggested="0.00000005000">
+      <podcast:valueRecipient name="Jake Hider" type="node" split="95" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="DpG3zzMtEjPCzRiHZ5qu"/>
+      <podcast:valueRecipient name="SLIEK Media" type="node" split="5" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="molMLBnBARvRdanMCRAb"/>
+    </podcast:value>
+    <itunes:category text="Music"/>
+    <itunes:category text=""/>
+    <podcast:medium>music</podcast:medium>
+    <podcast:images srcset="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1655225771733-SK7MKUFZ9KOP6JRWWYUE/SOM.png?format=3000w 2500w"/>
+    <podcast:person href="https://twitter.com/1JakeHider" img="https://pbs.twimg.com/profile_images/1500941620346331138/Ndzo2xWO_400x400.jpg" group="band" role="guitar">Jake Hider</podcast:person>
+    <podcast:person href="https://sliekmedia.com" img="https://pbs.twimg.com/profile_images/1535365804052684803/lWMAh7hw_400x400.jpg" group="administration" role="content manager">SLIEK Media</podcast:person>
+    <itunes:owner>
+      <itunes:email>sliekmedia@gmail.com</itunes:email>
+      <itunes:name>Brando Sellers</itunes:name>
+    </itunes:owner>
+    <itunes:author>Jake Hider</itunes:author>
+    <managingEditor>Brando</managingEditor>
+    <podcast:funding url="https://www.paypal.com/paypalme/jakehider">PayPal</podcast:funding>
+    <pubDate>Wed, 15 Jun 2022 02:22:56 +0000</pubDate>
+    <lastBuildDate>Wed, 15 Jun 2022 02:22:56 +0000</lastBuildDate>
+    <podcast:guid>a5ad6f3f-a279-504c-bc6a-30054e6b50e1</podcast:guid>
+    <item>
+      <title>Desperate Pleasure</title>
+      <description><![CDATA[<p>Sitting under an acoustic bridge witnessing the duality of desperate pleasure.</p>]]></description>
+      <itunes:image href="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1643477507742-IP1FPBRM9ETFY6XMSDWD/Screen+Shot+2022-01-29+at+12.31.29+PM.png?format=3000w"/>
+      <enclosure url="https://feeds.soundcloud.com/stream/319791095-jake-hider-934689971-my-song-3.m4a" length="0" type="audio/mpeg"/>
+      <podcast:person href="https://twitter.com/1JakeHider" img="https://pbs.twimg.com/profile_images/1500941620346331138/Ndzo2xWO_400x400.jpg" group="band" role="guitar">Jake Hider</podcast:person>
+      <podcast:person href="https://sliekmedia.com" img="https://pbs.twimg.com/profile_images/1535365804052684803/lWMAh7hw_400x400.jpg" group="administration" role="content manager">SLIEK Media</podcast:person>
+      <podcast:socialInteract uri="https://twitter.com/1JakeHider/status/1536770859943219200" protocol="twitter" accountId="@1JakeHider" accountUrl="https://twitter.com/1JakeHider"/>
+      <podcast:images srcset="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1643477507742-IP1FPBRM9ETFY6XMSDWD/Screen+Shot+2022-01-29+at+12.31.29+PM.png?format=3000w 680w"/>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/319791095</guid>
+      <itunes:subtitle>Desperate Pleasure</itunes:subtitle>
+      <link>https://soundcloud.com/jake-hider-934689971/my-song-3</link>
+      <pubDate>Wed, 08 Jun 2022 02:38:05 +0000</pubDate>
+      <itunes:explicit>No</itunes:explicit>
+      <author>Jake Hider</author>
+      <itunes:author>Jake Hider</itunes:author>
+      <itunes:summary><![CDATA[<p>Sitting under an acoustic bridge witnessing the duality of desperate pleasure.</p>]]></itunes:summary>
+      <itunes:duration>166</itunes:duration>
+    </item>
+    <item>
+      <title>Outlasted Motion</title>
+      <description><![CDATA[<p>On a cool jeweled moon, ripples scattered across a wave of outlasted motion.</p>]]></description>
+      <itunes:image href="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1655227959841-QECY61ZZ7YEJC71Z03G8/Outlasted+Motion.png?format=3000w"/>
+      <enclosure url="https://feeds.soundcloud.com/stream/319789777-jake-hider-934689971-my-song-6.m4a" length="0" type="audio/mpeg"/>
+      <podcast:person href="https://twitter.com/1JakeHider" img="https://pbs.twimg.com/profile_images/1500941620346331138/Ndzo2xWO_400x400.jpg" group="band" role="guitar">Jake Hider</podcast:person>
+      <podcast:person href="https://sliekmedia.com" img="https://pbs.twimg.com/profile_images/1535365804052684803/lWMAh7hw_400x400.jpg" group="administration" role="content manager">SLIEK Media</podcast:person>
+      <podcast:socialInteract uri="https://twitter.com/1JakeHider/status/1536771002163679236" protocol="twitter" accountId="@1JakeHider" accountUrl="https://twitter.com/1JakeHider"/>
+      <podcast:images srcset="https://images.squarespace-cdn.com/content/v1/59287886e4fcb5d6921caa94/1655227959841-QECY61ZZ7YEJC71Z03G8/Outlasted+Motion.png?format=3000w 2500w"/>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/319789777</guid>
+      <itunes:subtitle>Outlasted Motion</itunes:subtitle>
+      <link>https://soundcloud.com/jake-hider-934689971/my-song-6</link>
+      <pubDate>Wed, 08 Jun 2022 02:51:07 +0000</pubDate>
+      <itunes:explicit>No</itunes:explicit>
+      <author>Jake Hider</author>
+      <itunes:author>Jake Hider</itunes:author>
+      <itunes:summary><![CDATA[<p>On a cool jeweled moon, ripples scattered across a wave of outlasted motion.</p>]]></itunes:summary>
+      <itunes:duration>177</itunes:duration>
+    </item>
+  </channel>
+</rss>
