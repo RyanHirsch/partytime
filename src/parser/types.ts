@@ -202,7 +202,12 @@ export interface Episode {
   keywords?: string[];
   pubDate?: Date;
   guid: string;
+  /** Podcast description first looks for description, then content:encoded, and finally falls back to the summary.
+   * If you have an explicit need for content:encoded or summary please use those properties
+   */
   description?: string;
+  /** value of content:encoded, usually description is sufficient but some feeds do unexpected things */
+  content?: string;
   image?: string;
   // #region Phase 1
   /**

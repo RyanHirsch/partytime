@@ -108,17 +108,26 @@ export function getDescription(item: XmlNode): undefined | { description: string
     }
   }
 
-  const contentNode = firstWithValue(item["content:encoded"]);
-  if (contentNode) {
-    const contentValue = getText(contentNode);
-    if (contentValue) {
-      return { description: contentValue };
-    }
+  const contentValue = getContent(item);
+  if (contentValue?.content) {
+    return { description: contentValue.content };
   }
 
   const summary = getSummary(item);
   if (summary) {
     return { description: summary.summary };
+  }
+
+  return undefined;
+}
+
+export function getContent(item: XmlNode): undefined | { content: string } {
+  const contentNode = firstWithValue(item["content:encoded"]);
+  if (contentNode) {
+    const contentValue = getText(contentNode);
+    if (contentValue) {
+      return { content: contentValue };
+    }
   }
 
   return undefined;
@@ -297,5 +306,6 @@ export function handleItem(item: XmlNode, _feed: FeedObject): Episode {
     ...getSummary(item),
     ...getDescription(item),
     ...getSubtitle(item),
+    ...getContent(item),
   };
 }
