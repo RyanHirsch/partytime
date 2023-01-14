@@ -60,7 +60,8 @@ export type Phase1Transcript = {
 enum TranscriptType {
   Plain = "text/plain",
   HTML = "text/html",
-  SRT = "application/srt",
+  SRT = "application/x-subrip",
+  SRTlegacy = "application/srt",
   JSON = "application/json",
 }
 
@@ -85,6 +86,11 @@ export const transcript: ItemUpdate = {
       const language = getAttribute(transcriptNode, "language") || feedLanguage;
 
       const rel = getAttribute(transcriptNode, "rel");
+      
+      if (type=="SRTlegacy") {
+        type = "SRT";
+        /** This catches the incorrect mimetype. This is an incorrect but occasionally used alternative. */
+      }
 
       logger.debug(`- Feed Language: ${feedLanguage}`);
       logger.debug(`- URL: ${url ?? "<null>"}`);
