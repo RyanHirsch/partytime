@@ -57,11 +57,32 @@ export type Phase1Transcript = {
   /**  If the rel="captions" attribute is present, the linked file is considered to be a closed captions file, regardless of what the mime type is. In that scenario, time codes are assumed to be present in the file in some capacity. */
   rel?: "captions";
 };
-enum TranscriptType {
+
+export enum TranscriptType {
   Plain = "text/plain",
   HTML = "text/html",
   SRT = "application/srt",
   JSON = "application/json",
+  UNKNOWN = "unknown",
+}
+
+function deriveMimeType(typeAttribute: string | null): TranscriptType {
+  switch (typeAttribute) {
+    case "application/srt":
+    case "application/x-subrip":
+    case "text/srt":
+      return TranscriptType.SRT;
+    case "text/plain":
+      return TranscriptType.Plain;
+    case "text/html":
+      return TranscriptType.HTML;
+    case "application/json":
+      return TranscriptType.JSON;
+    default:
+      console.warn("Unexpected transcript type", typeAttribute);
+      console.warn(" Please open an issue - https://github.com/RyanHirsch/partytime/issues");
+      return TranscriptType.UNKNOWN;
+  }
 }
 
 export const transcript: ItemUpdate = {
@@ -77,13 +98,11 @@ export const transcript: ItemUpdate = {
     ),
   fn(node, feed) {
     const itemUpdate = { podcastTranscripts: [] as Phase1Transcript[] };
-
     (node as XmlNode[]).forEach((transcriptNode) => {
       const feedLanguage: string = feed ? feed.rss.channel.language : null;
       const url = getAttribute(transcriptNode, "url");
-      const type = getAttribute(transcriptNode, "type") as TranscriptType;
+      const type = deriveMimeType(getAttribute(transcriptNode, "type"));
       const language = getAttribute(transcriptNode, "language") || feedLanguage;
-
       const rel = getAttribute(transcriptNode, "rel");
 
       logger.debug(`- Feed Language: ${feedLanguage}`);
