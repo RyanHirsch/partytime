@@ -3,6 +3,7 @@ export { checkFeedByObject, checkFeedByUri } from "./cor";
 export { FeedType, ItunesFeedType, FeedObject, Enclosure, Episode } from "./parser/types";
 export { ItunesEpisodeType } from "./parser/item";
 export {
+  TranscriptType,
   Phase1Transcript,
   Phase1Funding,
   Phase1Chapter,

@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import * as helpers from "../../__test__/helpers";
 import { parseFeed } from "../../index";
+import { TranscriptType } from "../phase-1";
 
 describe("phase 1", () => {
   let feed;
@@ -158,7 +159,41 @@ describe("phase 1", () => {
         "url",
         "https://example.com/episode1/transcript.srt"
       );
-      expect(first.podcastTranscripts[1]).toHaveProperty("type", "text/srt");
+      expect(first.podcastTranscripts[1]).toHaveProperty("type", TranscriptType.SRT);
+      expect(first.podcastTranscripts[1]).toHaveProperty("rel", "captions");
+      expect(first.podcastTranscripts[1]).toHaveProperty("language", result.language);
+
+      expect(second).not.toHaveProperty("podcastTranscripts");
+      expect(third).not.toHaveProperty("podcastTranscripts");
+
+      expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
+    });
+
+    it("supports multiple transcripts (alternative SRT extension)", () => {
+      const xml = helpers.spliceFirstItem(
+        feed,
+        `<podcast:transcript url="https://example.com/episode1/transcript.json" type="application/json" language="es" rel="captions" />
+        <podcast:transcript url="https://podnews.net/audio/podnews230126.mp3.srt" type="application/x-subrip" rel="captions" />`
+      );
+
+      const result = parseFeed(xml);
+      const [first, second, third] = result.items;
+
+      expect(first).toHaveProperty("podcastTranscripts");
+      expect(first.podcastTranscripts).toHaveLength(2);
+      expect(first.podcastTranscripts[0]).toHaveProperty(
+        "url",
+        "https://example.com/episode1/transcript.json"
+      );
+      expect(first.podcastTranscripts[0]).toHaveProperty("type", "application/json");
+      expect(first.podcastTranscripts[0]).toHaveProperty("language", "es");
+      expect(first.podcastTranscripts[0]).toHaveProperty("rel", "captions");
+
+      expect(first.podcastTranscripts[1]).toHaveProperty(
+        "url",
+        "https://podnews.net/audio/podnews230126.mp3.srt"
+      );
+      expect(first.podcastTranscripts[1]).toHaveProperty("type", "application/srt");
       expect(first.podcastTranscripts[1]).toHaveProperty("rel", "captions");
       expect(first.podcastTranscripts[1]).toHaveProperty("language", result.language);
 
