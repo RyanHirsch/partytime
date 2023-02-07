@@ -151,13 +151,10 @@ export const socialInteraction = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Item &&
-    node.some(
-      (n) =>
-        Boolean(getSocialPlatform(n)) && Boolean(getSocialAccount(n)) && Boolean(getSocialUrl(n))
-    ),
+    node.some((n) => Boolean(getSocialPlatform(n)) && Boolean(getSocialUrl(n))),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
     const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getSocialPlatform(n)) && Boolean(getSocialAccount(n)) && Boolean(getSocialUrl(n));
+      Boolean(getSocialPlatform(n)) && Boolean(getSocialUrl(n));
 
     return {
       podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
@@ -169,7 +166,7 @@ export const socialInteraction = {
             ...acc,
             {
               platform: getSocialPlatform(n)!,
-              id: getSocialAccount(n)!,
+              id: getSocialAccount(n) ?? "", // per https://podcastindex.social/@mitch/109821341789189954
               url: getSocialUrl(n)!,
               ...extractOptionalFloatAttribute(n, "priority"),
               ...(pubDateAsDate ? { pubDate: pubDateAsDate } : undefined),
