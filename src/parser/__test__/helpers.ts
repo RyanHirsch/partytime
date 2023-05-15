@@ -1,7 +1,10 @@
 import * as fs from "fs";
 import * as path from "path";
 
+import invariant from "tiny-invariant";
+
 import type { FeedObject } from "../types";
+import { parseFeed } from "../index";
 
 export async function loadFixture(name = "example"): Promise<string> {
   const filename = name.endsWith(".xml") ? name : `${name}.xml`;
@@ -55,4 +58,11 @@ export function spliceLastItem(feedXml: string, str: string): string {
 function splice(feedXml: string, str: string, after: string, startSearchAt = 0): string {
   const start = feedXml.indexOf(after, startSearchAt) + after.length;
   return [feedXml.slice(0, start), str, feedXml.slice(start)].join("");
+}
+
+export function parseValidFeed(xml: string): NonNullable<ReturnType<typeof parseFeed>> {
+  const parsed = parseFeed(xml);
+
+  invariant(parsed);
+  return parsed;
 }

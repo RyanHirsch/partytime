@@ -1,6 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import * as helpers from "../../__test__/helpers";
-import { parseFeed } from "../../index";
 
 describe("phase 3", () => {
   let feed;
@@ -22,12 +21,12 @@ describe("phase 3", () => {
       `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("trailers");
       expect(result.trailers).toHaveLength(1);
 
-      const [trailer] = result.trailers;
+      const [trailer] = result.trailers ?? [];
 
       expect(trailer).toHaveProperty("url", url);
       expect(trailer).toHaveProperty("pubdate", new Date(pubdate));
@@ -47,12 +46,12 @@ describe("phase 3", () => {
       `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("trailers");
       expect(result.trailers).toHaveLength(1);
 
-      const [trailer] = result.trailers;
+      const [trailer] = result.trailers ?? [];
 
       expect(trailer).toHaveProperty("url", url);
       expect(trailer).toHaveProperty("pubdate", new Date(pubdate));
@@ -76,12 +75,12 @@ describe("phase 3", () => {
       `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("trailers");
       expect(result.trailers).toHaveLength(2);
 
-      const [firstTrailer, secondTrailer] = result.trailers;
+      const [firstTrailer, secondTrailer] = result.trailers ?? [];
 
       expect(firstTrailer).toHaveProperty("url", url);
       expect(firstTrailer).toHaveProperty("pubdate", new Date(pubdate));
@@ -108,7 +107,7 @@ describe("phase 3", () => {
         `<podcast:trailer season="${season}" pubdate="${pubdate}" length="${length}" type="${mimeType}">${title}</podcast:trailer>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("trailers");
 
@@ -126,7 +125,7 @@ describe("phase 3", () => {
         `<podcast:license url="${url}">${name}</podcast:license>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("license");
       expect(result.license).toHaveProperty("identifier", name);
@@ -140,7 +139,7 @@ describe("phase 3", () => {
       const url = "https://spdx.org/licenses/CC-BY-4.0.html";
       const xml = helpers.spliceFeed(feed, `<podcast:license>${name}</podcast:license>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("license");
       expect(result.license).toHaveProperty("identifier", name);
@@ -153,7 +152,7 @@ describe("phase 3", () => {
       const name = customLicense;
       const xml = helpers.spliceFeed(feed, `<podcast:license>${name}</podcast:license>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("license");
 
@@ -172,7 +171,7 @@ describe("phase 3", () => {
         `<podcast:license url="${url}">${name}</podcast:license>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first, second, third] = result.items;
 
@@ -191,7 +190,7 @@ describe("phase 3", () => {
       const url = "https://spdx.org/licenses/CC-BY-4.0.html";
       const xml = helpers.spliceFirstItem(feed, `<podcast:license>${name}</podcast:license>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first, second, third] = result.items;
 
@@ -209,7 +208,7 @@ describe("phase 3", () => {
       const name = customLicense;
       const xml = helpers.spliceFirstItem(feed, `<podcast:license>${name}</podcast:license>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first, second, third] = result.items;
 
@@ -231,14 +230,14 @@ describe("phase 3", () => {
     </podcast:alternateEnclosure>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
       expect(first).toHaveProperty("alternativeEnclosures");
       expect(first.alternativeEnclosures).toHaveLength(1);
 
-      const [altEnclosure] = first.alternativeEnclosures;
+      const [altEnclosure] = first.alternativeEnclosures ?? [];
       expect(altEnclosure).not.toHaveProperty("integrity");
       expect(altEnclosure).toHaveProperty("default", true);
       expect(altEnclosure).toHaveProperty("length", 43200000);
@@ -247,7 +246,7 @@ describe("phase 3", () => {
 
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       expect(altEnclosure.source).toHaveLength(2);
-      const [s1, s2] = first.alternativeEnclosures[0].source;
+      const [s1, s2] = first.alternativeEnclosures?.[0].source ?? [];
       expect(s1).toHaveProperty("uri", "https://example.com/file-720.torrent");
       expect(s1).toHaveProperty("contentType", "application/x-bittorrent");
 
@@ -280,20 +279,20 @@ describe("phase 3", () => {
         `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
       expect(first).toHaveProperty("alternativeEnclosures");
       expect(first.alternativeEnclosures).toHaveLength(2);
-      expect(first.alternativeEnclosures[0]).not.toHaveProperty("integrity");
-      expect(first.alternativeEnclosures[0]).toHaveProperty("default", false);
-      expect(first.alternativeEnclosures[0]).toHaveProperty("type", "video/mp4");
-      expect(first.alternativeEnclosures[0]).toHaveProperty("length", 8830410);
-      expect(first.alternativeEnclosures[0]).toHaveProperty("bitrate", 240283.26530612246);
-      expect(first.alternativeEnclosures[0]).toHaveProperty("height", 240);
+      expect(first.alternativeEnclosures?.[0]).not.toHaveProperty("integrity");
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("default", false);
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("type", "video/mp4");
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("length", 8830410);
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("bitrate", 240283.26530612246);
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("height", 240);
 
-      const [s1, s2] = first.alternativeEnclosures[0].source;
+      const [s1, s2] = first.alternativeEnclosures?.[0].source ?? [];
 
       expect(s1).toHaveProperty(
         "uri",
@@ -306,14 +305,14 @@ describe("phase 3", () => {
       );
       expect(s2).toHaveProperty("contentType", "application/x-bittorrent");
 
-      expect(first.alternativeEnclosures[1]).not.toHaveProperty("integrity");
-      expect(first.alternativeEnclosures[1]).toHaveProperty("default", false);
-      expect(first.alternativeEnclosures[1]).toHaveProperty("type", "audio/mp4");
-      expect(first.alternativeEnclosures[1]).toHaveProperty("length", 5910119);
-      expect(first.alternativeEnclosures[1]).toHaveProperty("bitrate", 160819.56462585033);
-      expect(first.alternativeEnclosures[1]).not.toHaveProperty("height");
+      expect(first.alternativeEnclosures?.[1]).not.toHaveProperty("integrity");
+      expect(first.alternativeEnclosures?.[1]).toHaveProperty("default", false);
+      expect(first.alternativeEnclosures?.[1]).toHaveProperty("type", "audio/mp4");
+      expect(first.alternativeEnclosures?.[1]).toHaveProperty("length", 5910119);
+      expect(first.alternativeEnclosures?.[1]).toHaveProperty("bitrate", 160819.56462585033);
+      expect(first.alternativeEnclosures?.[1]).not.toHaveProperty("height");
 
-      const [s1Second, s2Second] = first.alternativeEnclosures[1].source;
+      const [s1Second, s2Second] = first.alternativeEnclosures?.[1].source ?? [];
 
       expect(s1Second).toHaveProperty(
         "uri",
@@ -337,16 +336,16 @@ describe("phase 3", () => {
     </podcast:alternateEnclosure>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
       expect(first).toHaveProperty("alternativeEnclosures");
       expect(first.alternativeEnclosures).toHaveLength(1);
-      expect(first.alternativeEnclosures[0]).not.toHaveProperty("integrity");
-      expect(first.alternativeEnclosures[0]).toHaveProperty("default", false);
+      expect(first.alternativeEnclosures?.[0]).not.toHaveProperty("integrity");
+      expect(first.alternativeEnclosures?.[0]).toHaveProperty("default", false);
 
-      const [s1] = first.alternativeEnclosures[0].source;
+      const [s1] = first.alternativeEnclosures?.[0].source ?? [];
 
       expect(s1).toHaveProperty("uri", "http://example.onion/file-720");
       expect(s1).toHaveProperty("contentType", "audio/mpeg");
@@ -364,17 +363,17 @@ describe("phase 3", () => {
         </podcast:alternateEnclosure>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
       expect(first).toHaveProperty("alternativeEnclosures");
       expect(first.alternativeEnclosures).toHaveLength(1);
-      expect(first.alternativeEnclosures[0].integrity).toHaveProperty(
+      expect(first.alternativeEnclosures?.[0].integrity).toHaveProperty(
         "value",
         "sha384-ExVqijgYHm15PqQqdXfW95x+Rs6C+d6E/ICxyQOeFevnxNLR/wtJNrNYTjIysUBo"
       );
-      expect(first.alternativeEnclosures[0].integrity).toHaveProperty("type", "sri");
+      expect(first.alternativeEnclosures?.[0].integrity).toHaveProperty("type", "sri");
 
       expect(helpers.getPhaseSupport(result, 3)).toContain("alternateEnclosure");
     });
@@ -387,7 +386,7 @@ describe("phase 3", () => {
     </podcast:alternateEnclosure>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
@@ -402,7 +401,7 @@ describe("phase 3", () => {
     </podcast:alternateEnclosure>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
 
@@ -418,7 +417,7 @@ describe("phase 3", () => {
         `<podcast:guid>917393e3-1b1e-5cef-ace4-edaa54e1f810</podcast:guid>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("guid", "917393e3-1b1e-5cef-ace4-edaa54e1f810");
 
@@ -428,7 +427,7 @@ describe("phase 3", () => {
     it("ignores missing feed guid value", () => {
       const xml = helpers.spliceFeed(feed, `<podcast:guid></podcast:guid>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("guid");
 
