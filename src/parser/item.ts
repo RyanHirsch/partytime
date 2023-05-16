@@ -21,7 +21,7 @@ import {
   sanitizeUrl,
   timeToSeconds,
 } from "./shared";
-import type { Enclosure, Episode, FeedObject, XmlNode } from "./types";
+import type { BasicFeed, Enclosure, Episode, XmlNode } from "./types";
 import { unescape } from "./unescape";
 
 export enum ItunesEpisodeType {
@@ -297,7 +297,7 @@ function getSubtitle(item: XmlNode): undefined | { subtitle: string } {
   return undefined;
 }
 
-export function handleItem(item: XmlNode, _feed: FeedObject): Episode {
+export function handleItem(item: XmlNode, _feed: BasicFeed): Episode {
   return {
     guid: getGuid(item),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

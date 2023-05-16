@@ -12,6 +12,8 @@ import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import * as phase5 from "./phase-5";
+import * as phase6 from "./phase-6";
 import * as pending from "./phase-pending";
 import { XmlNodeSource } from "./types";
 
@@ -80,6 +82,10 @@ const feeds: FeedUpdate[] = [
   phase4.podcastImages,
   phase4.liveItem,
 
+  phase5.block,
+
+  phase6.txt,
+
   pending.id,
   pending.social,
   pending.podcastRecommendations,
@@ -101,7 +107,10 @@ const items: ItemUpdate[] = [
   phase4.value,
   phase4.podcastImages,
 
-  pending.socialInteraction,
+  phase5.socialInteraction,
+
+  phase6.txt,
+
   pending.podcastRecommendations,
   pending.podcastGateway,
 ];
