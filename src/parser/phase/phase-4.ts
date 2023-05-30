@@ -3,10 +3,8 @@ import { logger } from "../../logger";
 import {
   ensureArray,
   extractOptionalFloatAttribute,
-  extractOptionalStringAttribute,
   firstIfArray,
   getAttribute,
-  getBooleanAttribute,
   getKnownAttribute,
   getText,
   knownLookup,
@@ -19,8 +17,9 @@ import * as ItemParser from "../item";
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
 import { liveItemAlternativeEnclosure } from "./phase-3";
-import { addLitSubTag, litSubTags } from "./phase-4-helpers";
+import { addSubTag, getSubTags } from "./helpers";
 import type { PhasePendingChat } from "./phase-pending";
+import { extractRecipients, validRecipient } from "./value-helpers";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 
@@ -65,8 +64,6 @@ export type Phase4ValueRecipient = {
   split: number;
   fee: boolean;
 };
-const validRecipient = (n: XmlNode): boolean =>
-  Boolean(getAttribute(n, "type") && getAttribute(n, "address") && getAttribute(n, "split"));
 export const value = {
   phase: 4,
   tag: "podcast:value",
@@ -84,22 +81,12 @@ export const value = {
         method: getKnownAttribute(node, "method"),
         ...extractOptionalFloatAttribute(node, "suggested"),
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        recipients: ensureArray(node["podcast:valueRecipient"])
-          .filter(validRecipient)
-          .map((innerNode) => ({
-            ...extractOptionalStringAttribute(innerNode, "name"),
-            ...extractOptionalStringAttribute(innerNode, "customKey"),
-            ...extractOptionalStringAttribute(innerNode, "customValue"),
-            type: getKnownAttribute(innerNode, "type"),
-            address: getKnownAttribute(innerNode, "address"),
-            split: parseInt(getKnownAttribute(innerNode, "split"), 10),
-            fee: getBooleanAttribute(innerNode, "fee"),
-          })),
+        recipients: extractRecipients(ensureArray(node["podcast:valueRecipient"])),
       },
     };
   },
 };
-addLitSubTag(value);
+addSubTag("liveItem", value);
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium
@@ -236,7 +223,7 @@ export type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclos
       | "value"
     >
   > & {
-    // phased in properties assumed to be dynamically added via addLitSubTag
+    // phased in properties assumed to be dynamically added via addSubTag
 
     // Pending
     chat?: PhasePendingChat;
@@ -318,7 +305,7 @@ export const liveItem = {
           useParser(liveItemAlternativeEnclosure, n, item);
           useParser(podcastImages, n, item);
 
-          litSubTags.forEach((tag) => {
+          getSubTags("liveItem").forEach((tag) => {
             useParser(tag, n, item);
           });
 

@@ -10,7 +10,7 @@ import {
 import type { XmlNode } from "../types";
 
 import type { Phase4PodcastLiveItem } from "./phase-4";
-import { addLitSubTag } from "./phase-4-helpers";
+import { addSubTag } from "./helpers";
 import { XmlNodeSource } from "./types";
 
 export type PhasePendingPodcastId = {
@@ -223,4 +223,4 @@ export const podcastChat = {
   },
 };
 
-addLitSubTag<Phase4PodcastLiveItem>(podcastChat);
+addSubTag<Phase4PodcastLiveItem>("liveItem", podcastChat);
