@@ -667,6 +667,67 @@ describe("phase 4", () => {
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
+    it("supports a liveItem with value tags", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem status="livE" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+          <podcast:value type="lightning" method="keysend" suggested="0.00000015000">
+            <podcast:valueRecipient
+                name="Alice (Podcaster)"
+                type="node"
+                address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52"
+                split="40"
+            />
+            <podcast:valueRecipient
+                name="Bob (Podcaster)"
+                type="node"
+                address="032f4ffbbafffbe51726ad3c164a3d0d37ec27bc67b29a159b0f49ae8ac21b8508"
+                split="40"
+            />
+            <podcast:valueRecipient
+                name="Carol (Producer)"
+                type="node"
+                address="02dd306e68c46681aa21d88a436fb35355a8579dd30201581cefa17cb179fc4c15"
+                split="15"
+            />
+            <podcast:valueRecipient
+                name="Hosting Provider"
+                type="node"
+                address="03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a"
+                split="5"
+                fee="true"
+            />
+        </podcast:value>
+        </podcast:liveItem>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+
+      expect(result.podcastLiveItems).toHaveLength(1);
+      invariant(result.podcastLiveItems);
+
+      const [lit] = result.podcastLiveItems;
+      expect(lit).not.toHaveProperty("item");
+      expect(lit).toHaveProperty("status", Phase4LiveStatus.Live);
+      expect(lit).toHaveProperty("start", new Date("2021-09-26T07:30:00.000-0600"));
+      expect(lit).toHaveProperty("end", new Date("2021-09-26T08:30:00.000-0600"));
+
+      expect(lit).toHaveProperty("value");
+      expect(lit.value).toHaveProperty("type", "lightning");
+      expect(lit.value).toHaveProperty("method", "keysend");
+      expect(lit.value).toHaveProperty("suggested", 0.00000015);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
     // skipping this as it feel like its been superseded in spirit by the child item tag
     // see https://github.com/Podcastindex-org/podcast-namespace/discussions/502
     it.skip("supports chat liveItem", () => {

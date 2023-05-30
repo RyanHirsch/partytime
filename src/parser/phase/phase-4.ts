@@ -19,7 +19,7 @@ import * as ItemParser from "../item";
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
 import { liveItemAlternativeEnclosure } from "./phase-3";
-import { litSubTags } from "./phase-4-helpers";
+import { addLitSubTag, litSubTags } from "./phase-4-helpers";
 import type { PhasePendingChat } from "./phase-pending";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
@@ -99,6 +99,7 @@ export const value = {
     };
   },
 };
+addLitSubTag(value);
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium
@@ -297,10 +298,10 @@ export const liveItem = {
             return {} as EmptyObj;
           }
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          const transformed = value.nodeTransform(n[value.tag]);
-          const v =
-            transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
+          // // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          // const transformed = value.nodeTransform(n[value.tag]);
+          // const v =
+          //   transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
 
           const item: Phase4PodcastLiveItemItem = {
             guid,
@@ -310,7 +311,7 @@ export const liveItem = {
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
             ...ItemParser.getImage(n),
-            ...v,
+            // ...v,
           };
 
           useParser(person, n, item);

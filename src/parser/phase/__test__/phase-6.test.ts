@@ -85,6 +85,8 @@ describe("phase 6", () => {
   describe("valueTimeSplit", () => {});
 
   describe("remoteItem", () => {
+    const supportedName = "remoteItem";
+
     it("extracts remote item with optional fields", () => {
       const result = helpers.parseValidFeed(`<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
       <channel>
@@ -117,6 +119,7 @@ describe("phase 6", () => {
         "https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f810/rss.xml"
       );
       expect(first).toHaveProperty("medium", Phase4Medium.Music);
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
     it("extracts remote items from a playlist feed", () => {
       const result = helpers.parseValidFeed(`<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
@@ -151,6 +154,7 @@ describe("phase 6", () => {
       expect(third).toHaveProperty("feedGuid", "a5ad6f3f-a279-504c-bc6a-30054e6b50e1");
       expect(fourth).toHaveProperty("itemGuid", "tag:soundcloud,2010:tracks/319789777");
       expect(fourth).toHaveProperty("feedGuid", "a5ad6f3f-a279-504c-bc6a-30054e6b50e1");
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
 });
