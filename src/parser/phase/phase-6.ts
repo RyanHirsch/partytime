@@ -111,3 +111,5 @@ export const valueTimeSplit = {
     };
   },
 };
+
+addSubTag("value", valueTimeSplit);

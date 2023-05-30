@@ -11,21 +11,14 @@ import {
   lookup,
   pubDateToDate,
 } from "../shared";
-import type { EmptyObj, Episode, RSSFeed, XmlNode } from "../types";
+import type { EmptyObj, Episode, XmlNode } from "../types";
 import * as ItemParser from "../item";
 
-import { XmlNodeSource } from "./types";
-import { person } from "./phase-2";
-import { liveItemAlternativeEnclosure } from "./phase-3";
-import { addSubTag, getSubTags } from "./helpers";
+import { addSubTag, getSubTags, useParser } from "./helpers";
 import type { PhasePendingChat } from "./phase-pending";
 import { extractRecipients, validRecipient } from "./value-helpers";
 
-import type { FeedUpdate, ItemUpdate } from "./index";
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-return
-const defaultNodeTransform = (x: XmlNode): XmlNode => x;
-const defaultSupportCheck = (x: XmlNode): boolean => typeof x === "object";
+import type { FeedUpdate } from "./index";
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value
@@ -75,6 +68,11 @@ export const value = {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ensureArray(node["podcast:valueRecipient"]).filter(validRecipient).length > 0,
   fn(node: XmlNode): { value: Phase4Value } {
+    const item = {};
+    getSubTags("value").forEach((tag) => {
+      useParser(tag, node, item);
+    });
+
     return {
       value: {
         type: getKnownAttribute(node, "type"),
@@ -82,6 +80,7 @@ export const value = {
         ...extractOptionalFloatAttribute(node, "suggested"),
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         recipients: extractRecipients(ensureArray(node["podcast:valueRecipient"])),
+        ...item,
       },
     };
   },
@@ -197,6 +196,7 @@ export const podcastImages = {
     };
   },
 };
+addSubTag("liveItem", podcastImages);
 
 function getContentLinks(node: XmlNode): Phase4ContentLink[] {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -256,25 +256,6 @@ export const liveItem = {
     ),
   supportCheck: (node: XmlNode[]): boolean => node.length > 0,
   fn(node: XmlNode[]): { podcastLiveItems: Phase4PodcastLiveItem[] } {
-    const useParser = (
-      itemUpdate: ItemUpdate,
-      n: XmlNode,
-      item: Phase4PodcastLiveItemItem
-    ): void => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      const nodeContents = n[itemUpdate.tag];
-      if (nodeContents) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const transformedNode = (itemUpdate.nodeTransform ?? defaultNodeTransform)(nodeContents);
-        if (
-          transformedNode &&
-          (itemUpdate.supportCheck ?? defaultSupportCheck)(transformedNode, XmlNodeSource.Item)
-        ) {
-          Object.assign(item, itemUpdate.fn(transformedNode, {} as RSSFeed, XmlNodeSource.Item));
-        }
-      }
-    };
-
     return {
       podcastLiveItems: node
         .map((n) => {
@@ -285,11 +266,6 @@ export const liveItem = {
             return {} as EmptyObj;
           }
 
-          // // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          // const transformed = value.nodeTransform(n[value.tag]);
-          // const v =
-          //   transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
-
           const item: Phase4PodcastLiveItemItem = {
             guid,
             enclosure,
@@ -298,12 +274,7 @@ export const liveItem = {
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
             ...ItemParser.getImage(n),
-            // ...v,
           };
-
-          useParser(person, n, item);
-          useParser(liveItemAlternativeEnclosure, n, item);
-          useParser(podcastImages, n, item);
 
           getSubTags("liveItem").forEach((tag) => {
             useParser(tag, n, item);

@@ -2,6 +2,8 @@ import { ensureArray, firstIfArray, getAttribute, getNumber, getText } from "../
 import { PersonGroup, PersonRole } from "../person-enum";
 import type { XmlNode } from "../types";
 
+import { addSubTag } from "./helpers";
+
 import type { ItemUpdate } from "./index";
 
 /**
@@ -67,6 +69,7 @@ export const person = {
     return { podcastPeople };
   },
 };
+addSubTag("liveItem", person);
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#location
