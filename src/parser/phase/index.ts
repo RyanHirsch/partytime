@@ -47,7 +47,7 @@ export type FeedUpdate = {
 };
 
 /** Describes an Item processing object intended to provide extensible item parsing */
-export type ItemUpdate = {
+export type ItemUpdate<T = Episode> = {
   /** What phase was this added to the namespace */
   phase: number;
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
@@ -55,7 +55,7 @@ export type ItemUpdate = {
   /** What is the name of feature, falls back to tag if missing */
   name?: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<Episode>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<T>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -85,6 +85,7 @@ const feeds: FeedUpdate[] = [
   phase5.block,
 
   phase6.txt,
+  phase6.remoteItem,
 
   pending.id,
   pending.social,

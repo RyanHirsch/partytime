@@ -667,7 +667,9 @@ describe("phase 4", () => {
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
-    it("supports chat liveItem", () => {
+    // skipping this as it feel like its been superseded in spirit by the child item tag
+    // see https://github.com/Podcastindex-org/podcast-namespace/discussions/502
+    it.skip("supports chat liveItem", () => {
       const xml = helpers.spliceFeed(
         feed,
         `

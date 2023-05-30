@@ -20,7 +20,7 @@ import type {
   Phase4PodcastLiveItem,
 } from "./phase/phase-4";
 import type { Phase5Blocked, Phase5BlockedPlatforms, Phase5SocialInteract } from "./phase/phase-5";
-import type { Phase6TxtEntry } from "./phase/phase-6";
+import type { Phase6RemoteItem, Phase6TxtEntry } from "./phase/phase-6";
 import {
   PhasePendingPodcastId,
   PhasePendingSocial,
@@ -177,6 +177,7 @@ export interface FeedObject extends BasicFeed {
   // #endregion
   // #region Phase 6
   podcastTxt?: Phase6TxtEntry[];
+  podcastRemoteItems?: Phase6RemoteItem[];
   // #endregion
   // #region Pending Phase
   /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */
@@ -246,6 +247,7 @@ export interface Episode {
   // #endregion
   // #region Phase 6
   podcastTxt?: Phase6TxtEntry[];
+  podcastRemoteItems?: Phase6RemoteItem[];
   // #endregion
   // #region Pending Phase
   podcastImages?: Phase4PodcastImage[];

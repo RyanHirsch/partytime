@@ -19,6 +19,8 @@ import * as ItemParser from "../item";
 import { XmlNodeSource } from "./types";
 import { person } from "./phase-2";
 import { liveItemAlternativeEnclosure } from "./phase-3";
+import { litSubTags } from "./phase-4-helpers";
+import type { PhasePendingChat } from "./phase-pending";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 
@@ -220,7 +222,7 @@ export enum Phase4LiveStatus {
   Live = "live",
   Ended = "ended",
 }
-type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
+export type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
   Partial<
     Pick<
       Episode,
@@ -232,7 +234,12 @@ type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclosure"> &
       | "podcastImages"
       | "value"
     >
-  >;
+  > & {
+    // phased in properties assumed to be dynamically added via addLitSubTag
+
+    // Pending
+    chat?: PhasePendingChat;
+  };
 type Phase4ContentLink = {
   url: string;
   title: string;
@@ -242,7 +249,6 @@ export type Phase4PodcastLiveItem = Phase4PodcastLiveItemItem & {
   start: Date;
   end?: Date;
   image?: string;
-  chat?: string;
   contentLinks: Phase4ContentLink[];
 };
 export const liveItem = {
@@ -296,8 +302,6 @@ export const liveItem = {
           const v =
             transformed && value.supportCheck(transformed) ? value.fn(transformed) : undefined;
 
-          const chat = getAttribute(n, "chat");
-
           const item: Phase4PodcastLiveItemItem = {
             guid,
             enclosure,
@@ -306,14 +310,16 @@ export const liveItem = {
             ...ItemParser.getLink(n),
             ...ItemParser.getAuthor(n),
             ...ItemParser.getImage(n),
-            ...(chat ? { chat } : undefined),
             ...v,
           };
 
           useParser(person, n, item);
-
           useParser(liveItemAlternativeEnclosure, n, item);
           useParser(podcastImages, n, item);
+
+          litSubTags.forEach((tag) => {
+            useParser(tag, n, item);
+          });
 
           return {
             status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),
