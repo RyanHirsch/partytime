@@ -87,7 +87,7 @@ describe("phase 6", () => {
   describe("valueTimeSplit", () => {
     // const supportedName = "valueTimeSplit";
 
-    it("supports feed level single person valueTimeSplits", () => {
+    it("supports feed level remoteItem valueTimeSplits", () => {
       const result = helpers.parseValidFeed(
         helpers.spliceFirstItem(
           feed,
@@ -114,6 +114,82 @@ describe("phase 6", () => {
       invariant(firstItem.value.valueTimeSplits);
       expect(firstItem.value.valueTimeSplits).toHaveLength(2);
       const [firstSplit, secondSplit] = firstItem.value.valueTimeSplits;
+
+      expect(firstSplit).toHaveProperty("startTime", 60);
+      expect(firstSplit).toHaveProperty("duration", 237);
+      expect(firstSplit).toHaveProperty("remotePercentage", 95);
+      expect(firstSplit).toHaveProperty("remoteStartTime", 0);
+      expect(firstSplit).toHaveProperty("remoteItem");
+      invariant(firstSplit.type === "remoteItem");
+      expect(firstSplit.remoteItem).toHaveProperty(
+        "itemGuid",
+        "https://podcastindex.org/podcast/4148683#1"
+      );
+      expect(firstSplit.remoteItem).toHaveProperty(
+        "feedGuid",
+        "a94f5cc9-8c58-55fc-91fe-a324087a655b"
+      );
+      expect(firstSplit.remoteItem).toHaveProperty("medium", Phase4Medium.Music);
+      expect(firstSplit).not.toHaveProperty("recipients");
+
+      invariant(secondSplit.type === "remoteItem");
+      expect(secondSplit).toHaveProperty("startTime", 330);
+      expect(secondSplit).toHaveProperty("duration", 53);
+      expect(secondSplit).toHaveProperty("remotePercentage", 95);
+      expect(secondSplit).toHaveProperty("remoteStartTime", 174);
+      expect(secondSplit).toHaveProperty("remoteItem");
+      expect(secondSplit.remoteItem).toHaveProperty(
+        "itemGuid",
+        "https://podcastindex.org/podcast/4148683#3"
+      );
+      expect(secondSplit.remoteItem).toHaveProperty(
+        "feedGuid",
+        "a94f5cc9-8c58-55fc-91fe-a324087a655b"
+      );
+      expect(secondSplit.remoteItem).toHaveProperty("medium", Phase4Medium.Music);
+      expect(secondSplit).not.toHaveProperty("recipients");
+
+      // expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("supports lit remote item splits", () => {
+      const result = helpers.parseValidFeed(
+        helpers.spliceFeed(
+          feed,
+          `
+          <podcast:liveItem status="livE" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+            <title>Podcasting 2.0 Live Stream</title>
+            <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+            <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+            <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000015000">
+              <podcast:valueRecipient
+                  name="Alice (Podcaster)"
+                  type="node"
+                  address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52"
+                  split="40"
+              />
+              <podcast:valueTimeSplit startTime="60" duration="237" remotePercentage="95">
+                  <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#1" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" medium="music" />
+              </podcast:valueTimeSplit>
+
+              <podcast:valueTimeSplit startTime="330" duration="53" remoteStartTime="174" remotePercentage="95">
+                  <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#3" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" medium="music" />
+              </podcast:valueTimeSplit>
+          </podcast:value>
+        </podcast:liveItem>`
+        )
+      );
+      expect(result.podcastLiveItems).toHaveLength(1);
+      const [lit] = result.podcastLiveItems ?? [];
+      invariant(lit);
+      expect(lit).toHaveProperty("value");
+      invariant(lit.value);
+      expect(lit.value.recipients).toHaveLength(1);
+      expect(lit.value).toHaveProperty("valueTimeSplits");
+      invariant(lit.value.valueTimeSplits);
+      expect(lit.value.valueTimeSplits).toHaveLength(2);
+      const [firstSplit, secondSplit] = lit.value.valueTimeSplits;
 
       expect(firstSplit).toHaveProperty("startTime", 60);
       expect(firstSplit).toHaveProperty("duration", 237);
