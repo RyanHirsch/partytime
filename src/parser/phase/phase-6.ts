@@ -8,8 +8,9 @@ import {
 } from "../shared";
 import type { XmlNode } from "../types";
 
-import { Phase4Medium } from "./phase-4";
+import { Phase4Medium, Phase4ValueRecipient } from "./phase-4";
 import { addSubTag } from "./helpers";
+import { extractRecipients } from "./value-helpers";
 
 export type Phase6TxtEntry = {
   value: string;
@@ -64,16 +65,26 @@ export const remoteItem = {
 
 addSubTag("liveItem", remoteItem);
 
-export type Phase6ValueTimeSplit = {
+type ValueTimeSplitBase = {
   /** time in seconds for the current item where the value split begins */
   startTime: number;
   /** time in seconds for how long the split lasts */
   duration: number;
+};
+type RemoteItemValueTimeSplit = ValueTimeSplitBase & {
   /** The time in the remote item where the value split begins. Allows the timestamp to be set correctly in value metadata. If not defined, defaults to 0 */
   remoteStartTime: number;
   /** the percentage of the payment the remote recipients will receive if a <podcast:remoteItem> is present. If not defined, defaults to 100. If the value is less than 0, 0 is assumed. If the value is greater than 100, 100 is assumed */
   remotePercentage: number;
+  remoteItem: Phase6RemoteItem;
+  type: "remoteItem";
 };
+type RecipientItemValueTimeSplit = ValueTimeSplitBase & {
+  recipients: Phase4ValueRecipient[];
+  type: "recipients";
+};
+
+export type Phase6ValueTimeSplit = RemoteItemValueTimeSplit | RecipientItemValueTimeSplit;
 
 export const valueTimeSplit = {
   phase: 6,
@@ -96,17 +107,40 @@ export const valueTimeSplit = {
   fn(nodes: XmlNode[]): { valueTimeSplits: Phase6ValueTimeSplit[] } {
     return {
       valueTimeSplits: nodes.map((n) => {
-        const remotePercentage = Math.min(
-          parseFloat(getAttribute(n, "remotePercentage") ?? "100"),
-          100
-        );
-        const remoteStartTime = Math.max(parseFloat(getAttribute(n, "remoteStartTime") ?? "0"), 0);
-        return {
+        const split: ValueTimeSplitBase = {
           startTime: parseFloat(getKnownAttribute(n, "startTime")),
           duration: parseFloat(getKnownAttribute(n, "duration")),
-          remoteStartTime,
-          remotePercentage,
         };
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        const r = remoteItem.nodeTransform(n[remoteItem.tag]);
+        if (
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          remoteItem.supportCheck(r)
+        ) {
+          const { podcastRemoteItems } = remoteItem.fn(r);
+
+          const remotePercentage = Math.min(
+            parseFloat(getAttribute(n, "remotePercentage") ?? "100"),
+            100
+          );
+          const remoteStartTime = Math.max(
+            parseFloat(getAttribute(n, "remoteStartTime") ?? "0"),
+            0
+          );
+          return {
+            type: "remoteItem",
+            ...split,
+            remoteStartTime,
+            remotePercentage,
+            remoteItem: podcastRemoteItems[0],
+          } as RemoteItemValueTimeSplit;
+        }
+        return {
+          type: "recipients",
+          ...split,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          recipients: extractRecipients(ensureArray(n["podcast:valueRecipient"])),
+        } as RecipientItemValueTimeSplit;
       }),
     };
   },

@@ -17,6 +17,7 @@ import * as ItemParser from "../item";
 import { addSubTag, getSubTags, useParser } from "./helpers";
 import type { PhasePendingChat } from "./phase-pending";
 import { extractRecipients, validRecipient } from "./value-helpers";
+import type { Phase6ValueTimeSplit } from "./phase-6";
 
 import type { FeedUpdate } from "./index";
 
@@ -40,6 +41,7 @@ export type Phase4Value = {
   /** This is an optional suggestion on how much cryptocurrency to send with each payment. */
   suggested?: string;
   recipients: Phase4ValueRecipient[];
+  valueTimeSplits?: Phase6ValueTimeSplit[];
 };
 
 export type Phase4ValueRecipient = {
@@ -69,8 +71,8 @@ export const value = {
     ensureArray(node["podcast:valueRecipient"]).filter(validRecipient).length > 0,
   fn(node: XmlNode): { value: Phase4Value } {
     const item = {};
-    getSubTags("value").forEach((tag) => {
-      useParser(tag, node, item);
+    getSubTags("value").forEach((updater) => {
+      useParser(updater, node, item);
     });
 
     return {

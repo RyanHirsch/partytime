@@ -1,4 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import invariant from "tiny-invariant";
+
 import * as helpers from "../../__test__/helpers";
 import { Phase4Medium } from "../phase-4";
 import { Phase6RemoteItem } from "../phase-6";
@@ -82,24 +84,14 @@ describe("phase 6", () => {
     });
   });
 
-  describe.skip("valueTimeSplit", () => {
-    const supportedName = "valueTimeSplit";
+  describe("valueTimeSplit", () => {
+    // const supportedName = "valueTimeSplit";
 
     it("supports feed level single person valueTimeSplits", () => {
-      const result = helpers.parseValidFeed(`<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
-      <channel>
-      <title>Metal Showcase</title>
-      <description>This is a podcast featuring badass v4v metal music</description>
-      <link>https://example.com/rss-metal-showcase.xml</link>
-      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-      <language>en</language>
-      <generator>Alecks Gates wrote this by hand in Joplin</generator>
-      <pubDate>Fri, 21 Apr 2023 18:56:30 -0500</pubDate>
-      <lastBuildDate>Fri, 21 Apr 2023 18:56:30 -0500</lastBuildDate>
-      <podcast:medium>podcast</podcast:medium>
-      <item>
-          <title>Special interview with Torcon VII</title>
-          <otherTagsHere>...</otherTagsHere>
+      const result = helpers.parseValidFeed(
+        helpers.spliceFirstItem(
+          feed,
+          `
           <podcast:value type="lightning" method="keysend">
               <podcast:valueRecipient name="Alice (Podcaster)" type="node" address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52" split="95" />
               <podcast:valueRecipient name="Hosting Provider" type="node" address="03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a" split="5" fee="true" />
@@ -111,28 +103,60 @@ describe("phase 6", () => {
               <podcast:valueTimeSplit startTime="330" duration="53" remoteStartTime="174" remotePercentage="95">
                   <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#3" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" medium="music" />
               </podcast:valueTimeSplit>
-          </podcast:value>
-      </item>
-      </channel>
-  </rss>`);
-      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+          </podcast:value>`
+        )
+      );
+      const [firstItem] = result.items;
+      expect(firstItem).toHaveProperty("value");
+      invariant(firstItem.value);
+      expect(firstItem.value.recipients).toHaveLength(2);
+      expect(firstItem.value).toHaveProperty("valueTimeSplits");
+      invariant(firstItem.value.valueTimeSplits);
+      expect(firstItem.value.valueTimeSplits).toHaveLength(2);
+      const [firstSplit, secondSplit] = firstItem.value.valueTimeSplits;
+
+      expect(firstSplit).toHaveProperty("startTime", 60);
+      expect(firstSplit).toHaveProperty("duration", 237);
+      expect(firstSplit).toHaveProperty("remotePercentage", 95);
+      expect(firstSplit).toHaveProperty("remoteStartTime", 0);
+      expect(firstSplit).toHaveProperty("remoteItem");
+      invariant(firstSplit.type === "remoteItem");
+      expect(firstSplit.remoteItem).toHaveProperty(
+        "itemGuid",
+        "https://podcastindex.org/podcast/4148683#1"
+      );
+      expect(firstSplit.remoteItem).toHaveProperty(
+        "feedGuid",
+        "a94f5cc9-8c58-55fc-91fe-a324087a655b"
+      );
+      expect(firstSplit.remoteItem).toHaveProperty("medium", Phase4Medium.Music);
+      expect(firstSplit).not.toHaveProperty("recipients");
+
+      invariant(secondSplit.type === "remoteItem");
+      expect(secondSplit).toHaveProperty("startTime", 330);
+      expect(secondSplit).toHaveProperty("duration", 53);
+      expect(secondSplit).toHaveProperty("remotePercentage", 95);
+      expect(secondSplit).toHaveProperty("remoteStartTime", 174);
+      expect(secondSplit).toHaveProperty("remoteItem");
+      expect(secondSplit.remoteItem).toHaveProperty(
+        "itemGuid",
+        "https://podcastindex.org/podcast/4148683#3"
+      );
+      expect(secondSplit.remoteItem).toHaveProperty(
+        "feedGuid",
+        "a94f5cc9-8c58-55fc-91fe-a324087a655b"
+      );
+      expect(secondSplit.remoteItem).toHaveProperty("medium", Phase4Medium.Music);
+      expect(secondSplit).not.toHaveProperty("recipients");
+
+      // expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
     it("supports feed level multiple person valueTimeSplits", () => {
-      const result = helpers.parseValidFeed(`<rss xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
-      <channel>
-      <title>Cool Pod</title>
-      <description>This is a cool pod</description>
-      <link>https://example.com/rss-cool-pod.xml</link>
-      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-      <language>en</language>
-      <generator>Alecks Gates wrote this by hand in Joplin</generator>
-      <pubDate>Fri, 21 Apr 2023 18:56:30 -0500</pubDate>
-      <lastBuildDate>Fri, 21 Apr 2023 18:56:30 -0500</lastBuildDate>
-      <podcast:medium>podcast</podcast:medium>
-      <item>
-          <title>Adam Hates the word "pod" (and I do, too)</title>
-          <otherTagsHere>...</otherTagsHere>
+      const result = helpers.parseValidFeed(
+        helpers.spliceFirstItem(
+          feed,
+          `
           <podcast:value type="lightning" method="keysend">
               <podcast:valueRecipient name="Alice (Podcaster)" type="node" address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52" split="95" />
               <podcast:valueRecipient name="Hosting Provider" type="node" address="03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a" split="5" fee="true" />
@@ -146,11 +170,45 @@ describe("phase 6", () => {
                   <podcast:valueRecipient name="Alice (Podcaster)" type="node" address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52" split="85" />
                   <podcast:valueRecipient name="Bobjim (Guest)" type="node" address="032f4ffbbafffbe51726ad3c164a3d0d37ec27bc67b29a159b0f49ae8ac21b8508" split="10" />
               </podcast:valueTimeSplit>
-          </podcast:value>
-      </item>
-      </channel>
-  </rss>`);
-      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+          </podcast:value>`
+        )
+      );
+      const [firstItem] = result.items;
+      expect(firstItem).toHaveProperty("value");
+      invariant(firstItem.value);
+      expect(firstItem.value.recipients).toHaveLength(2);
+      expect(firstItem.value).toHaveProperty("valueTimeSplits");
+      invariant(firstItem.value.valueTimeSplits);
+      expect(firstItem.value.valueTimeSplits).toHaveLength(2);
+
+      const [firstSplit, secondSplit] = firstItem.value.valueTimeSplits;
+
+      invariant(firstSplit.type === "recipients");
+      expect(firstSplit).toHaveProperty("startTime", 60);
+      expect(firstSplit).toHaveProperty("duration", 300);
+      expect(firstSplit).not.toHaveProperty("remotePercentage");
+      expect(firstSplit).not.toHaveProperty("remoteItem");
+      expect(firstSplit).toHaveProperty("recipients");
+      expect(firstSplit.recipients).toHaveLength(2);
+
+      expect(firstSplit.recipients[0]).toHaveProperty("name", "Alice (Podcaster)");
+      expect(firstSplit.recipients[0]).toHaveProperty("type", "node");
+      expect(firstSplit.recipients[0]).toHaveProperty(
+        "address",
+        "02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52"
+      );
+      expect(firstSplit.recipients[0]).toHaveProperty("split", 85);
+      expect(firstSplit.recipients[0]).toHaveProperty("fee", false);
+      expect(firstSplit.recipients[0]).not.toHaveProperty("customKey");
+      expect(firstSplit.recipients[0]).not.toHaveProperty("customValue");
+
+      invariant(secondSplit.type === "recipients");
+      expect(secondSplit).toHaveProperty("startTime", 360);
+      expect(secondSplit).toHaveProperty("duration", 240);
+      expect(secondSplit).not.toHaveProperty("remotePercentage");
+      expect(secondSplit).not.toHaveProperty("remoteItem");
+      expect(secondSplit).toHaveProperty("recipients");
+      expect(secondSplit.recipients).toHaveLength(2);
     });
   });
 
