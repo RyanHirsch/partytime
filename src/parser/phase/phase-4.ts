@@ -228,7 +228,7 @@ export type Phase4PodcastLiveItemItem = Pick<Episode, "title" | "guid" | "enclos
     // phased in properties assumed to be dynamically added via addSubTag
 
     // Pending
-    chat?: PhasePendingChat;
+    chat?: PhasePendingChat | { phase: "4"; url: string };
   };
 type Phase4ContentLink = {
   url: string;
@@ -281,6 +281,14 @@ export const liveItem = {
           getSubTags("liveItem").forEach((tag) => {
             useParser(tag, n, item);
           });
+
+          const chatAttribute = getAttribute(n, "chat");
+          if (!item.chat && chatAttribute) {
+            item.chat = {
+              phase: "4",
+              url: chatAttribute,
+            };
+          }
 
           return {
             status: knownLookup(Phase4LiveStatus, getKnownAttribute(n, "status").toLowerCase()),

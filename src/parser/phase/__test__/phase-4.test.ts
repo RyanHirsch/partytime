@@ -730,7 +730,7 @@ describe("phase 4", () => {
 
     // skipping this as it feel like its been superseded in spirit by the child item tag
     // see https://github.com/Podcastindex-org/podcast-namespace/discussions/502
-    it.skip("supports chat liveItem", () => {
+    it("supports chat liveItem", () => {
       const xml = helpers.spliceFeed(
         feed,
         `
@@ -750,7 +750,9 @@ describe("phase 4", () => {
       expect(result.podcastLiveItems).toHaveLength(1);
       invariant(result.podcastLiveItems);
 
-      expect(result.podcastLiveItems[0]).toHaveProperty("chat", "https://talky.io");
+      expect(result.podcastLiveItems[0]).toHaveProperty("chat");
+      expect(result.podcastLiveItems[0].chat).toHaveProperty("phase", "4");
+      expect(result.podcastLiveItems[0].chat).toHaveProperty("url", "https://talky.io");
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });

@@ -166,6 +166,7 @@ export const podcastGateway = {
 };
 
 export type PhasePendingChat = {
+  phase: "pending";
   /** (required) The [protocol](https://github.com/Podcastindex-org/podcast-namespace/blob/main/proposal-docs/chat/chatprotocols.txt) in use on the server */
   protocol: string;
   /** (recommended) The account id of the podcaster on the server or platform being connected to. */
@@ -213,6 +214,7 @@ export const podcastChat = {
     const protocol = getKnownAttribute(node, "protocol");
     return {
       chat: {
+        phase: "pending",
         protocol: sanitizeProtocol(protocol),
         ...extractOptionalStringAttribute(node, "accountId"),
         ...extractOptionalStringAttribute(node, "server"),
