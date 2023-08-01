@@ -6,7 +6,6 @@ import * as path from "path";
 import crypto from "crypto";
 
 import stringify from "fast-json-stable-stringify";
-import sqlite from "sqlite3";
 import { getStream$ } from "podping-client";
 import { take } from "rxjs/operators";
 
@@ -14,44 +13,6 @@ import { logger } from "./logger";
 import { parseFeed } from "./parser";
 // import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
-
-function getDb(): Promise<sqlite.Database> {
-  return new Promise((resolve, reject) => {
-    const db = new sqlite.Database(
-      path.resolve(__dirname, "parser/__test__/fixtures/podcastindex_feeds.db"),
-      (err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(db);
-        }
-      }
-    );
-  });
-}
-
-function run(sql: string, db: sqlite.Database): Promise<any[]> {
-  return new Promise((resolve, reject) => {
-    db.all(sql, (err, rows) => {
-      if (err) {
-        reject(err);
-      } else resolve(rows);
-    });
-  });
-}
-
-async function getRows(limit = 1000, offset = 0): Promise<{ db: sqlite.Database; rows: any[] }> {
-  const db = await getDb();
-  return {
-    db,
-    rows: await run(
-      `SELECT * FROM podcasts WHERE dead = 0 AND lastHttpStatus = 200 LIMIT ${limit} OFFSET ${
-        offset * limit
-      };`,
-      db
-    ),
-  };
-}
 
 const feeds: Array<{ name: string; url: string }> = [
   // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
@@ -126,12 +87,6 @@ const feeds: Array<{ name: string; url: string }> = [
   // { name: "Dudes and Dads", url: "https://feeds.podcastmirror.com/dudesanddadspodcast" },
 ];
 
-const randomInRange = (min: number, max: number): number => {
-  const range = max - min;
-  const random = Math.random() * range + min;
-  return Math.floor(random);
-};
-
 export async function checkAll(): Promise<void> {
   for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
@@ -139,44 +94,6 @@ export async function checkAll(): Promise<void> {
     // eslint-disable-next-line no-await-in-loop
     await getFeed(url);
   }
-}
-
-export async function checkSome(limit: number): Promise<void> {
-  const db = await getDb();
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const [maxItem] = await run("SELECT max(itunesId) as max FROM podcasts;", db);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const [avgItem] = await run("SELECT avg(itunesId) as avg FROM podcasts;", db);
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  const start = randomInRange(avgItem.avg, maxItem.max);
-
-  const statement = `SELECT * FROM podcasts WHERE itunesId > ${start} AND dead = 0 AND lastHttpStatus = 200 LIMIT ${limit};`;
-  const randomFeeds = await run(statement, db);
-  for (let i = 0; i < randomFeeds.length; i += 1) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { title, url } = randomFeeds[i];
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    logger.info(`Parsing ${title}: ${url}`);
-    // eslint-disable-next-line no-await-in-loop
-    await getFeed(url);
-  }
-  db.close();
-}
-
-export async function checkAllDb(): Promise<void> {
-  // const { db, rows } = await getRows(1_000);
-  const { db, rows } = await getRows(10);
-  for (let i = 0; i < rows.length; i += 1) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const { title, url } = rows[i];
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    logger.info(`Parsing ${title}: ${url}`);
-    // eslint-disable-next-line no-await-in-loop
-    await getFeed(url);
-  }
-  db.close();
 }
 
 function save<T>({
@@ -263,8 +180,6 @@ if (process.argv[2] === "--latest") {
   );
 } else if (process.argv[2]) {
   runPromise(getFeed(process.argv[2]));
-} else {
-  runPromise(checkSome(15));
 }
 
 function runPromise(prom: Promise<any>): void {
