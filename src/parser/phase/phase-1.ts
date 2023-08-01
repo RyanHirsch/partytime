@@ -185,12 +185,12 @@ export const chapters: ItemUpdate = {
   tag: "podcast:chapters",
   name: "chapters",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
+  supportCheck: (node) => Boolean(getAttribute(node, "url")),
   fn(node) {
     return {
       podcastChapters: {
         url: getKnownAttribute(node, "url"),
-        type: getKnownAttribute(node, "type"),
+        type: getAttribute(node, "type") ?? "application/json",
       },
     };
   },

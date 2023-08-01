@@ -374,6 +374,29 @@ describe("phase 1", () => {
 
       expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
     });
+
+    it("defaults to application json", () => {
+      const xml = helpers.spliceFirstItem(
+        feed,
+        `
+        <podcast:chapters url="https://example.com/episode1/chapters.json" />
+        `
+      );
+
+      const result = parseFeed(xml);
+
+      expect(result.items[0]).toHaveProperty("podcastChapters");
+      expect(result.items[1]).not.toHaveProperty("podcastChapters");
+      expect(result.items[2]).not.toHaveProperty("podcastChapters");
+
+      expect(result.items[0].podcastChapters).toHaveProperty(
+        "url",
+        "https://example.com/episode1/chapters.json"
+      );
+      expect(result.items[0].podcastChapters).toHaveProperty("type", "application/json");
+
+      expect(helpers.getPhaseSupport(result, 1)).toContain(supportedName);
+    });
   });
 
   describe("soundbite", () => {
