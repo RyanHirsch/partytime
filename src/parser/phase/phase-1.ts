@@ -63,7 +63,7 @@ export enum TranscriptType {
   Plain = "text/plain",
   HTML = "text/html",
   SRT = "application/srt",
-  JSON = JSON_MIMETYPE,
+  JSON = "application/json",
   UNKNOWN = "unknown",
 }
 
