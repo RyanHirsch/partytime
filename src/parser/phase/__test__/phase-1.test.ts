@@ -380,7 +380,7 @@ describe("phase 1", () => {
         `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result.items[0]).toHaveProperty("podcastChapters");
       expect(result.items[1]).not.toHaveProperty("podcastChapters");
