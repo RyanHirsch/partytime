@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import * as helpers from "../../__test__/helpers";
-import { parseFeed } from "../../index";
 
 const phase = Infinity;
 
@@ -16,7 +15,7 @@ describe("phase pending", () => {
     const supportedName = "id";
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       expect(result).not.toHaveProperty("podcastId");
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -28,7 +27,7 @@ describe("phase pending", () => {
         // missing platform, not valid
         `<podcast:id id="70471" url="https://www.deezer.com/show/70471"/>`
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("podcastId");
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -39,10 +38,10 @@ describe("phase pending", () => {
         feed,
         `<podcast:id platform="deezer" id="70471" url="https://www.deezer.com/show/70471"/>`
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result.podcastId).toHaveLength(1);
-      const [first] = result.podcastId;
+      const [first] = result.podcastId ?? [];
 
       expect(first).toHaveProperty("platform", "deezer");
       expect(first).toHaveProperty("id", "70471");
@@ -57,10 +56,10 @@ describe("phase pending", () => {
         <podcast:id platform="overcast" id="1448151585" url="https://overcast.fm/itunes1448151585"/>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result.podcastId).toHaveLength(2);
-      const [first, second] = result.podcastId;
+      const [first, second] = result.podcastId ?? [];
 
       expect(first).toHaveProperty("platform", "deezer");
       expect(first).toHaveProperty("id", "70471");
@@ -77,10 +76,10 @@ describe("phase pending", () => {
         feed,
         `<podcast:id platform="deezer" url="https://www.deezer.com/show/70471"/>`
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result.podcastId).toHaveLength(1);
-      const [first] = result.podcastId;
+      const [first] = result.podcastId ?? [];
 
       expect(first).toHaveProperty("platform", "deezer");
       expect(first).toHaveProperty("url", "https://www.deezer.com/show/70471");
@@ -93,7 +92,7 @@ describe("phase pending", () => {
     const supportedName = "social";
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       expect(result).not.toHaveProperty("podcastSocial");
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -106,10 +105,10 @@ describe("phase pending", () => {
           `<podcast:social platform="mastodon" url="https://enfants-et-famille.podcasts.chat/">enfants-et-famille.podcasts.chat</podcast:social>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.podcastSocial).toHaveLength(1);
-        const [first] = result.podcastSocial;
+        const [first] = result.podcastSocial ?? [];
 
         expect(first).toHaveProperty("platform", "mastodon");
         expect(first).toHaveProperty("url", "https://enfants-et-famille.podcasts.chat/");
@@ -124,10 +123,10 @@ describe("phase pending", () => {
           <podcast:social platform="peertube" url="https://video.lespoesiesdheloise.fr/">heloise</podcast:social>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.podcastSocial).toHaveLength(2);
-        const [first, second] = result.podcastSocial;
+        const [first, second] = result.podcastSocial ?? [];
 
         expect(first).toHaveProperty("platform", "mastodon");
         expect(first).toHaveProperty("url", "https://enfants-et-famille.podcasts.chat/");
@@ -155,10 +154,10 @@ describe("phase pending", () => {
           </podcast:social>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.podcastSocial).toHaveLength(2);
-        const [first, second] = result.podcastSocial;
+        const [first, second] = result.podcastSocial ?? [];
 
         expect(first).toHaveProperty("platform", "activitypub");
         expect(first).toHaveProperty("priority", 1);
@@ -166,7 +165,7 @@ describe("phase pending", () => {
         expect(first).toHaveProperty("url", "https://lespoesiesdheloise.fr/@heloise");
         expect(first).not.toHaveProperty("name");
         expect(first.signUp).toHaveLength(3);
-        const [firstFirstSignUp] = first.signUp;
+        const [firstFirstSignUp] = first.signUp ?? [];
         expect(firstFirstSignUp).toHaveProperty("priority", 1);
         expect(firstFirstSignUp).toHaveProperty(
           "signUpUrl",
@@ -183,7 +182,7 @@ describe("phase pending", () => {
         expect(second).toHaveProperty("url", "https://www.facebook.com/LesPoesiesDHeloise");
         expect(second).not.toHaveProperty("name");
         expect(second.signUp).toHaveLength(1);
-        const [firstSecondSignUp] = second.signUp;
+        const [firstSecondSignUp] = second.signUp ?? [];
         expect(firstSecondSignUp).not.toHaveProperty("priority");
         expect(firstSecondSignUp).toHaveProperty(
           "signUpUrl",
@@ -193,108 +192,13 @@ describe("phase pending", () => {
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
     });
-
-    describe("item", () => {
-      it("extracts a single interact node", () => {
-        const xml = helpers.spliceFirstItem(
-          feed,
-          `
-          <podcast:socialInteract uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" />
-          `
-        );
-        const result = parseFeed(xml);
-
-        expect(result).not.toHaveProperty("podcastSocialInteraction");
-        const [first] = result.items;
-
-        expect(first).toHaveProperty("podcastSocialInteraction");
-        expect(first.podcastSocialInteraction).toHaveLength(1);
-
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("protocol", "activitypub");
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("accountId", "@dave");
-        expect(first.podcastSocialInteraction[0]).not.toHaveProperty("priority");
-        expect(first.podcastSocialInteraction[0]).toHaveProperty(
-          "uri",
-          "https://podcastindex.social/web/@dave/108013847520053258"
-        );
-
-        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
-      });
-
-      it("extracts a complex interact node", () => {
-        const xml = helpers.spliceFirstItem(
-          feed,
-          `
-          <podcast:socialInteract priority="2" uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115" protocol="twitter" accountId="@podcastindexorg" accountUrl="https://twitter.com/PodcastindexOrg" />
-          <podcast:socialInteract priority="1" uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" accountUrl="https://podcastindex.social/web/@dave" />
-          `
-        );
-        const result = parseFeed(xml);
-
-        expect(result).not.toHaveProperty("podcastSocialInteraction");
-        const [first] = result.items;
-
-        expect(first).toHaveProperty("podcastSocialInteraction");
-        expect(first.podcastSocialInteraction).toHaveLength(2);
-
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("protocol", "activitypub");
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("accountId", "@dave");
-        expect(first.podcastSocialInteraction[0]).toHaveProperty(
-          "accountUrl",
-          "https://podcastindex.social/web/@dave"
-        );
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("priority", 1);
-        expect(first.podcastSocialInteraction[0]).toHaveProperty(
-          "uri",
-          "https://podcastindex.social/web/@dave/108013847520053258"
-        );
-        expect(first.podcastSocialInteraction[1]).toHaveProperty("protocol", "twitter");
-        expect(first.podcastSocialInteraction[1]).toHaveProperty("accountId", "@podcastindexorg");
-        expect(first.podcastSocialInteraction[1]).toHaveProperty(
-          "accountUrl",
-          "https://twitter.com/PodcastindexOrg"
-        );
-        expect(first.podcastSocialInteraction[1]).toHaveProperty("priority", 2);
-        expect(first.podcastSocialInteraction[1]).toHaveProperty(
-          "uri",
-          "https://twitter.com/PodcastindexOrg/status/1507120226361647115"
-        );
-
-        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
-      });
-
-      it("uses priority for sorting the node", () => {
-        const xml = helpers.spliceFirstItem(
-          feed,
-          `
-          <podcast:socialInteract uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115" protocol="twitter" accountId="@podcastindexorg" accountUrl="https://twitter.com/PodcastindexOrg" />
-          <podcast:socialInteract priority="1" uri="https://podcastindex.social/web/@dave/108013847520053258" protocol="activitypub" accountId="@dave" accountUrl="https://podcastindex.social/web/@dave" />
-          `
-        );
-        const result = parseFeed(xml);
-
-        expect(result).not.toHaveProperty("podcastSocialInteraction");
-        const [first] = result.items;
-
-        expect(first).toHaveProperty("podcastSocialInteraction");
-        expect(first.podcastSocialInteraction).toHaveLength(2);
-
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("protocol", "activitypub");
-        expect(first.podcastSocialInteraction[0]).toHaveProperty("priority", 1);
-
-        expect(first.podcastSocialInteraction[1]).toHaveProperty("protocol", "twitter");
-        expect(first.podcastSocialInteraction[1]).not.toHaveProperty("priority");
-
-        expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
-      });
-    });
   });
 
   describe("podcast:recommendations", () => {
     const supportedName = "recommendations";
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       expect(result).not.toHaveProperty("podcastRecommendations");
 
@@ -312,17 +216,17 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.podcastRecommendations).toHaveLength(1);
 
-        expect(result.podcastRecommendations[0]).toHaveProperty(
+        expect(result.podcastRecommendations?.[0]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=1234"
         );
-        expect(result.podcastRecommendations[0]).toHaveProperty("type", "application/json");
-        expect(result.podcastRecommendations[0]).not.toHaveProperty("language");
-        expect(result.podcastRecommendations[0]).not.toHaveProperty("text");
+        expect(result.podcastRecommendations?.[0]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations?.[0]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations?.[0]).not.toHaveProperty("text");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -337,41 +241,41 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=3456" type="application/json">Content</podcast:recommendations>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.podcastRecommendations).toHaveLength(4);
 
-        expect(result.podcastRecommendations[0]).toHaveProperty(
+        expect(result.podcastRecommendations?.[0]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=1234"
         );
-        expect(result.podcastRecommendations[0]).toHaveProperty("type", "application/json");
-        expect(result.podcastRecommendations[0]).not.toHaveProperty("language");
-        expect(result.podcastRecommendations[0]).not.toHaveProperty("text");
+        expect(result.podcastRecommendations?.[0]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations?.[0]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations?.[0]).not.toHaveProperty("text");
 
-        expect(result.podcastRecommendations[1]).toHaveProperty(
+        expect(result.podcastRecommendations?.[1]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=5678"
         );
-        expect(result.podcastRecommendations[1]).toHaveProperty("type", "application/json");
-        expect(result.podcastRecommendations[1]).toHaveProperty("language", "es");
-        expect(result.podcastRecommendations[1]).not.toHaveProperty("text");
+        expect(result.podcastRecommendations?.[1]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations?.[1]).toHaveProperty("language", "es");
+        expect(result.podcastRecommendations?.[1]).not.toHaveProperty("text");
 
-        expect(result.podcastRecommendations[2]).toHaveProperty(
+        expect(result.podcastRecommendations?.[2]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=9012"
         );
-        expect(result.podcastRecommendations[2]).toHaveProperty("type", "application/json");
-        expect(result.podcastRecommendations[2]).toHaveProperty("language", "en");
-        expect(result.podcastRecommendations[2]).not.toHaveProperty("text");
+        expect(result.podcastRecommendations?.[2]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations?.[2]).toHaveProperty("language", "en");
+        expect(result.podcastRecommendations?.[2]).not.toHaveProperty("text");
 
-        expect(result.podcastRecommendations[3]).toHaveProperty(
+        expect(result.podcastRecommendations?.[3]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=3456"
         );
-        expect(result.podcastRecommendations[3]).toHaveProperty("type", "application/json");
-        expect(result.podcastRecommendations[3]).not.toHaveProperty("language");
-        expect(result.podcastRecommendations[3]).toHaveProperty("text", "Content");
+        expect(result.podcastRecommendations?.[3]).toHaveProperty("type", "application/json");
+        expect(result.podcastRecommendations?.[3]).not.toHaveProperty("language");
+        expect(result.podcastRecommendations?.[3]).toHaveProperty("text", "Content");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -386,7 +290,7 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=3456">Content</podcast:recommendations>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result).not.toHaveProperty("podcastRecommendations");
 
@@ -402,20 +306,20 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=1234" type="application/json" />
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.items[0].podcastRecommendations).toHaveLength(1);
 
-        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[0]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=1234"
         );
-        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[0]).toHaveProperty(
           "type",
           "application/json"
         );
-        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("language");
-        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("text");
+        expect(result.items[0].podcastRecommendations?.[0]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations?.[0]).not.toHaveProperty("text");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -430,53 +334,53 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=3456" type="application/json">Content</podcast:recommendations>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result.items[0].podcastRecommendations).toHaveLength(4);
 
-        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[0]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=1234"
         );
-        expect(result.items[0].podcastRecommendations[0]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[0]).toHaveProperty(
           "type",
           "application/json"
         );
-        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("language");
-        expect(result.items[0].podcastRecommendations[0]).not.toHaveProperty("text");
+        expect(result.items[0].podcastRecommendations?.[0]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations?.[0]).not.toHaveProperty("text");
 
-        expect(result.items[0].podcastRecommendations[1]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[1]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=5678"
         );
-        expect(result.items[0].podcastRecommendations[1]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[1]).toHaveProperty(
           "type",
           "application/json"
         );
-        expect(result.items[0].podcastRecommendations[1]).toHaveProperty("language", "es");
-        expect(result.items[0].podcastRecommendations[1]).not.toHaveProperty("text");
+        expect(result.items[0].podcastRecommendations?.[1]).toHaveProperty("language", "es");
+        expect(result.items[0].podcastRecommendations?.[1]).not.toHaveProperty("text");
 
-        expect(result.items[0].podcastRecommendations[2]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[2]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=9012"
         );
-        expect(result.items[0].podcastRecommendations[2]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[2]).toHaveProperty(
           "type",
           "application/json"
         );
-        expect(result.items[0].podcastRecommendations[2]).toHaveProperty("language", "en");
-        expect(result.items[0].podcastRecommendations[2]).not.toHaveProperty("text");
+        expect(result.items[0].podcastRecommendations?.[2]).toHaveProperty("language", "en");
+        expect(result.items[0].podcastRecommendations?.[2]).not.toHaveProperty("text");
 
-        expect(result.items[0].podcastRecommendations[3]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[3]).toHaveProperty(
           "url",
           "https://domain.tld/recommendation?guid=3456"
         );
-        expect(result.items[0].podcastRecommendations[3]).toHaveProperty(
+        expect(result.items[0].podcastRecommendations?.[3]).toHaveProperty(
           "type",
           "application/json"
         );
-        expect(result.items[0].podcastRecommendations[3]).not.toHaveProperty("language");
-        expect(result.items[0].podcastRecommendations[3]).toHaveProperty("text", "Content");
+        expect(result.items[0].podcastRecommendations?.[3]).not.toHaveProperty("language");
+        expect(result.items[0].podcastRecommendations?.[3]).toHaveProperty("text", "Content");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -491,7 +395,7 @@ describe("phase pending", () => {
           <podcast:recommendations url="https://domain.tld/recommendation?guid=3456">Content</podcast:recommendations>
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
 
         expect(result).not.toHaveProperty("podcastRecommendations");
         expect(result.items[0]).not.toHaveProperty("podcastRecommendations");
@@ -505,7 +409,7 @@ describe("phase pending", () => {
     const supportedName = "gateway";
 
     it("is not marked as supported when it isn't in the feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       result.items.forEach((item) => {
         expect(item).not.toHaveProperty("podcastGateway");
@@ -515,7 +419,7 @@ describe("phase pending", () => {
 
     it("is marked as supported when the first item has only a message", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:gateway>Start here!</podcast:gateway>`);
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first, second, third] = result.items;
       expect(first).toHaveProperty("podcastGateway");
@@ -531,7 +435,7 @@ describe("phase pending", () => {
         feed,
         `<podcast:gateway order="2">Start </podcast:gateway>`
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first, second, third] = result.items;
       expect(first).not.toHaveProperty("podcastGateway");
@@ -550,7 +454,7 @@ describe("phase pending", () => {
         feed,
         `<podcast:gateway order="1">Start Here</podcast:gateway>`
       );
-      const result = parseFeed(
+      const result = helpers.parseValidFeed(
         helpers.spliceFirstItem(xml, `<podcast:gateway order="2">Start There</podcast:gateway>`)
       );
 
@@ -562,6 +466,124 @@ describe("phase pending", () => {
       expect(result).toHaveProperty("gatewayEpisodes", [third.guid, first.guid]);
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+  });
+
+  describe("chat", () => {
+    function spliceInLiveItem(thisFeed: string, chatBlock: string, item = 0): string {
+      if (item > 2) {
+        throw new Error("Only three items eligible, zero based index");
+      }
+      return helpers.spliceFeed(
+        thisFeed,
+        `
+        <podcast:liveItem status="LIVE" start="2021-09-26T07:30:00.000-0600"
+        end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+          ${item === 0 ? chatBlock : ""}
+        </podcast:liveItem>
+        <podcast:liveItem status="pending" start="2021-09-27T07:30:00.000-0600"
+        end="2021-09-27T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+          ${item === 1 ? chatBlock : ""}
+        </podcast:liveItem>
+        <podcast:liveItem status="ENded" start="2021-09-28T07:30:00.000-0600"
+        end="2021-09-28T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+          ${item === 2 ? chatBlock : ""}
+        </podcast:liveItem>
+        `
+      );
+    }
+    // parent is liveItem - https://github.com/Podcastindex-org/podcast-namespace/discussions/502
+    it("extracts IRC", () => {
+      const chatBlock = `<podcast:chat
+          server="irc.zeronode.net"
+          protocol="irc"
+          accountId="@jsmith"
+          space="#myawesomepodcast"
+          embedUrl="https://map.example.org/chat/iframe.html"
+      />`;
+      const result = helpers.parseValidFeed(spliceInLiveItem(feed, chatBlock));
+
+      expect(result.podcastLiveItems).toHaveLength(3);
+      const [firstLIT] = result.podcastLiveItems ?? [];
+
+      expect(firstLIT.chat).toHaveProperty("server", "irc.zeronode.net");
+      expect(firstLIT.chat).toHaveProperty("protocol", "irc");
+      expect(firstLIT.chat).toHaveProperty("accountId", "@jsmith");
+      expect(firstLIT.chat).toHaveProperty("space", "#myawesomepodcast");
+      expect(firstLIT.chat).toHaveProperty("embedUrl", "https://map.example.org/chat/iframe.html");
+    });
+
+    it("extracts XMPP", () => {
+      const chatBlock = `<podcast:chat
+        server="jabber.example.com"
+        protocol="XMPP"
+        accountId="jsmith@jabber.example.org"
+        space="myawesomepodcast@jabber.example.org"
+    />`;
+      const result = helpers.parseValidFeed(spliceInLiveItem(feed, chatBlock));
+
+      expect(result.podcastLiveItems).toHaveLength(3);
+      const [firstLIT] = result.podcastLiveItems ?? [];
+
+      expect(firstLIT.chat).toHaveProperty("server", "jabber.example.com");
+      expect(firstLIT.chat).toHaveProperty("protocol", "xmpp");
+      expect(firstLIT.chat).toHaveProperty("accountId", "jsmith@jabber.example.org");
+      expect(firstLIT.chat).toHaveProperty("space", "myawesomepodcast@jabber.example.org");
+      expect(firstLIT.chat).not.toHaveProperty("embedUrl");
+    });
+
+    it("extracts nostril", () => {
+      const chatBlock = `<podcast:chat
+        server="relay.example.com"
+        protocol="NoSTr"
+        accountId="npub1pvdw7mm7k20t9dn9gful8n5xua5yv8rmgd9wul88qq5dxj80lpxqd39r3u"
+        space="#myawesomepodcast_episode129"
+    />`;
+
+      const result = helpers.parseValidFeed(spliceInLiveItem(feed, chatBlock, 2));
+
+      expect(result.podcastLiveItems).toHaveLength(3);
+      const [, , thirdLIT] = result.podcastLiveItems ?? [];
+
+      expect(thirdLIT.chat).toHaveProperty("server", "relay.example.com");
+      expect(thirdLIT.chat).toHaveProperty("protocol", "nostr");
+      expect(thirdLIT.chat).toHaveProperty(
+        "accountId",
+        "npub1pvdw7mm7k20t9dn9gful8n5xua5yv8rmgd9wul88qq5dxj80lpxqd39r3u"
+      );
+      expect(thirdLIT.chat).toHaveProperty("space", "#myawesomepodcast_episode129");
+      expect(thirdLIT.chat).not.toHaveProperty("embedUrl");
+    });
+
+    it("extracts matrix", () => {
+      const chatBlock = `<podcast:chat
+        server="jupiterbroadcasting.com"
+        protocol="matrix"
+        accountId="@chrislas:jupiterbroadcasting.com"
+        space="#general:jupiterbroadcasting.com"
+    />`;
+      const result = helpers.parseValidFeed(spliceInLiveItem(feed, chatBlock));
+
+      expect(result.podcastLiveItems).toHaveLength(3);
+      const [firstLIT] = result.podcastLiveItems ?? [];
+
+      expect(firstLIT.chat).toHaveProperty("server", "jupiterbroadcasting.com");
+      expect(firstLIT.chat).toHaveProperty("protocol", "matrix");
+      expect(firstLIT.chat).toHaveProperty("accountId", "@chrislas:jupiterbroadcasting.com");
+      expect(firstLIT.chat).toHaveProperty("space", "#general:jupiterbroadcasting.com");
+      expect(firstLIT.chat).not.toHaveProperty("embedUrl");
     });
   });
 });

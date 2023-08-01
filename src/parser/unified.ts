@@ -16,10 +16,11 @@ import mergeDeepRight from "ramda/src/mergeDeepRight";
 import { logger } from "../logger";
 
 import { ensureArray } from "./shared";
-import type { Episode, FeedType, PhaseUpdate, XmlNode } from "./types";
+import type { Episode, FeedObject, FeedType, PhaseUpdate, XmlNode } from "./types";
 import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
 import { handleFeed } from "./feed";
+import type { Phase4Value } from "./phase/phase-4";
 
 export type ParserOptions = {
   allowMissingGuid?: boolean;
@@ -59,8 +60,8 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
         phaseSupport = mergeDeepRight(phaseSupport, itemResult.phaseUpdate);
 
         // Value Block Fallback
-        if (!newFeedItem.value && feedObj.value) {
-          newFeedItem.value = feedObj.value;
+        if (!newFeedItem.value && "value" in feedObj && feedObj.value) {
+          newFeedItem.value = feedObj.value as Phase4Value;
         }
 
         return newFeedItem;
@@ -93,5 +94,8 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
     );
   }
 
-  return feedObj;
+  return {
+    podcastBlocked: "no",
+    ...feedObj,
+  } as FeedObject;
 }

@@ -14,6 +14,7 @@ import { logger } from "../../logger";
 import type { EmptyObj, XmlNode } from "../types";
 
 import { json as licenseDefinitions } from "./licenses";
+import { addSubTag } from "./helpers";
 
 import type { FeedUpdate, ItemUpdate } from "./index";
 
@@ -306,6 +307,7 @@ export const liveItemAlternativeEnclosure: ItemUpdate = {
     return { alternativeEnclosures: update };
   },
 };
+addSubTag("liveItem", liveItemAlternativeEnclosure);
 
 /**
  * https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#integrity

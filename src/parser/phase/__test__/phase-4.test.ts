@@ -2,7 +2,6 @@
 import invariant from "tiny-invariant";
 
 import * as helpers from "../../__test__/helpers";
-import { parseFeed } from "../../index";
 import { Episode, FeedObject } from "../../types";
 import { Phase4LiveStatus, Phase4Medium } from "../phase-4";
 
@@ -59,7 +58,7 @@ describe("phase 4", () => {
     };
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
       invariant(result);
 
       expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
@@ -113,7 +112,7 @@ describe("phase 4", () => {
         assertHost(r4);
       };
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
       expect(result).toHaveProperty("value");
       assertBlockProperties(result);
@@ -135,7 +134,7 @@ describe("phase 4", () => {
       `
       );
 
-      const result = parseFeed(
+      const result = helpers.parseValidFeed(
         helpers.spliceFirstItem(
           xml,
           `<podcast:value type="lightning" method="keysend" suggested="0.00000015000">
@@ -165,31 +164,31 @@ describe("phase 4", () => {
 
       expect(result).toHaveProperty("value");
       assertBlockProperties(result);
-      expect(result.value.recipients).toHaveLength(1);
-      assertAlice(result.value.recipients[0]);
+      expect(result.value?.recipients).toHaveLength(1);
+      assertAlice(result.value?.recipients[0]);
 
       const [first, second, third] = result.items;
       expect(first).toHaveProperty("value");
       assertBlockProperties(first);
-      expect(first.value.recipients).toHaveLength(2);
-      assertAlice(first.value.recipients[0]);
-      assertBob(first.value.recipients[1]);
+      expect(first.value?.recipients).toHaveLength(2);
+      assertAlice(first.value?.recipients[0]);
+      assertBob(first.value?.recipients[1]);
 
       expect(second).toHaveProperty("value");
       assertBlockProperties(second);
-      expect(second.value.recipients).toHaveLength(1);
-      assertAlice(second.value.recipients[0]);
+      expect(second.value?.recipients).toHaveLength(1);
+      assertAlice(second.value?.recipients[0]);
 
       expect(third).toHaveProperty("value");
       assertBlockProperties(third);
-      expect(third.value.recipients).toHaveLength(1);
-      assertAlice(third.value.recipients[0]);
+      expect(third.value?.recipients).toHaveLength(1);
+      assertAlice(third.value?.recipients[0]);
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
     it("allows for only item level blocks", () => {
-      const result = parseFeed(
+      const result = helpers.parseValidFeed(
         helpers.spliceFirstItem(
           feed,
           `<podcast:value type="lightning" method="keysend" suggested="0.1">
@@ -222,9 +221,9 @@ describe("phase 4", () => {
       const [first, second, third] = result.items;
       expect(first).toHaveProperty("value");
       assertBlockProperties(first);
-      expect(first.value.recipients).toHaveLength(2);
-      assertAlice(first.value.recipients[0]);
-      assertBob(first.value.recipients[1]);
+      expect(first.value?.recipients).toHaveLength(2);
+      assertAlice(first.value?.recipients[0]);
+      assertBob(first.value?.recipients[1]);
 
       expect(second).not.toHaveProperty("value");
 
@@ -264,15 +263,15 @@ describe("phase 4", () => {
         expect(block.value).toHaveProperty("method", "keysend");
         expect(block.value).toHaveProperty("suggested", 0.00000015);
 
-        expect(block.value.recipients).toHaveLength(3);
+        expect(block.value?.recipients).toHaveLength(3);
 
-        const [r1, r2, r3] = block.value.recipients;
+        const [r1, r2, r3] = block.value?.recipients ?? [];
         assertAlice(r1);
         assertBob(r2);
         assertCarol(r3);
       };
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
       expect(result).toHaveProperty("value");
 
@@ -291,7 +290,7 @@ describe("phase 4", () => {
   describe("podcast:medium", () => {
     const supportedName = "medium";
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
       invariant(result);
 
       expect(result).not.toHaveProperty("medium");
@@ -305,7 +304,7 @@ describe("phase 4", () => {
         <podcast:medium>podcast</podcast:medium>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Podcast);
@@ -322,7 +321,7 @@ describe("phase 4", () => {
         <podcast:medium>podcast</podcast:medium>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Audiobook);
@@ -338,7 +337,7 @@ describe("phase 4", () => {
         <podcast:medium>audiobook</podcast:medium>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("medium", Phase4Medium.Audiobook);
@@ -351,7 +350,7 @@ describe("phase 4", () => {
     const supportedName = "images";
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
       invariant(result);
 
       expect(result).not.toHaveProperty("podcastImages");
@@ -375,54 +374,54 @@ describe("phase 4", () => {
           />
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
         invariant(result);
 
         expect(result.podcastImages).toHaveLength(4);
 
-        expect(result.podcastImages[0]).toHaveProperty(
+        expect(result.podcastImages?.[0]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-massive.jpg 1500w"
         );
-        expect(result.podcastImages[0].parsed).toHaveProperty(
+        expect(result.podcastImages?.[0].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-massive.jpg"
         );
-        expect(result.podcastImages[0].parsed).toHaveProperty("width", 1500);
-        expect(result.podcastImages[0].parsed).not.toHaveProperty("density");
+        expect(result.podcastImages?.[0].parsed).toHaveProperty("width", 1500);
+        expect(result.podcastImages?.[0].parsed).not.toHaveProperty("density");
 
-        expect(result.podcastImages[1]).toHaveProperty(
+        expect(result.podcastImages?.[1]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-middle.jpg 600w"
         );
-        expect(result.podcastImages[1].parsed).toHaveProperty(
+        expect(result.podcastImages?.[1].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-middle.jpg"
         );
-        expect(result.podcastImages[1].parsed).toHaveProperty("width", 600);
-        expect(result.podcastImages[1].parsed).not.toHaveProperty("density");
+        expect(result.podcastImages?.[1].parsed).toHaveProperty("width", 600);
+        expect(result.podcastImages?.[1].parsed).not.toHaveProperty("density");
 
-        expect(result.podcastImages[2]).toHaveProperty(
+        expect(result.podcastImages?.[2]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-small.jpg 300w"
         );
-        expect(result.podcastImages[2].parsed).toHaveProperty(
+        expect(result.podcastImages?.[2].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-small.jpg"
         );
-        expect(result.podcastImages[2].parsed).toHaveProperty("width", 300);
-        expect(result.podcastImages[2].parsed).not.toHaveProperty("density");
+        expect(result.podcastImages?.[2].parsed).toHaveProperty("width", 300);
+        expect(result.podcastImages?.[2].parsed).not.toHaveProperty("density");
 
-        expect(result.podcastImages[3]).toHaveProperty(
+        expect(result.podcastImages?.[3]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-tiny.jpg 150w"
         );
-        expect(result.podcastImages[3].parsed).toHaveProperty(
+        expect(result.podcastImages?.[3].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-tiny.jpg"
         );
-        expect(result.podcastImages[3].parsed).toHaveProperty("width", 150);
-        expect(result.podcastImages[3].parsed).not.toHaveProperty("density");
+        expect(result.podcastImages?.[3].parsed).toHaveProperty("width", 150);
+        expect(result.podcastImages?.[3].parsed).not.toHaveProperty("density");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -438,25 +437,25 @@ describe("phase 4", () => {
           />
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
         invariant(result);
 
         expect(result.podcastImages).toHaveLength(3);
 
-        expect(result.podcastImages[0]).toHaveProperty("raw", "elva-fairy-320w.jpg");
-        expect(result.podcastImages[0].parsed).toHaveProperty("url", "elva-fairy-320w.jpg");
-        expect(result.podcastImages[0].parsed).not.toHaveProperty("width");
-        expect(result.podcastImages[0].parsed).not.toHaveProperty("density");
+        expect(result.podcastImages?.[0]).toHaveProperty("raw", "elva-fairy-320w.jpg");
+        expect(result.podcastImages?.[0].parsed).toHaveProperty("url", "elva-fairy-320w.jpg");
+        expect(result.podcastImages?.[0].parsed).not.toHaveProperty("width");
+        expect(result.podcastImages?.[0].parsed).not.toHaveProperty("density");
 
-        expect(result.podcastImages[1]).toHaveProperty("raw", "elva-fairy-480w.jpg 1.5x");
-        expect(result.podcastImages[1].parsed).toHaveProperty("url", "elva-fairy-480w.jpg");
-        expect(result.podcastImages[1].parsed).not.toHaveProperty("width");
-        expect(result.podcastImages[1].parsed).toHaveProperty("density", 1.5);
+        expect(result.podcastImages?.[1]).toHaveProperty("raw", "elva-fairy-480w.jpg 1.5x");
+        expect(result.podcastImages?.[1].parsed).toHaveProperty("url", "elva-fairy-480w.jpg");
+        expect(result.podcastImages?.[1].parsed).not.toHaveProperty("width");
+        expect(result.podcastImages?.[1].parsed).toHaveProperty("density", 1.5);
 
-        expect(result.podcastImages[2]).toHaveProperty("raw", "elva-fairy-640w.jpg 2x");
-        expect(result.podcastImages[2].parsed).toHaveProperty("url", "elva-fairy-640w.jpg");
-        expect(result.podcastImages[2].parsed).not.toHaveProperty("width");
-        expect(result.podcastImages[2].parsed).toHaveProperty("density", 2);
+        expect(result.podcastImages?.[2]).toHaveProperty("raw", "elva-fairy-640w.jpg 2x");
+        expect(result.podcastImages?.[2].parsed).toHaveProperty("url", "elva-fairy-640w.jpg");
+        expect(result.podcastImages?.[2].parsed).not.toHaveProperty("width");
+        expect(result.podcastImages?.[2].parsed).toHaveProperty("density", 2);
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -475,55 +474,55 @@ describe("phase 4", () => {
           />
           `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
         invariant(result);
 
         expect(result).not.toHaveProperty("podcastImages");
         expect(result.items[2].podcastImages).toHaveLength(4);
 
-        expect(result.items[2].podcastImages[0]).toHaveProperty(
+        expect(result.items[2].podcastImages?.[0]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-massive.jpg 1500w"
         );
-        expect(result.items[2].podcastImages[0].parsed).toHaveProperty(
+        expect(result.items[2].podcastImages?.[0].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-massive.jpg"
         );
-        expect(result.items[2].podcastImages[0].parsed).toHaveProperty("width", 1500);
-        expect(result.items[2].podcastImages[0].parsed).not.toHaveProperty("density");
+        expect(result.items[2].podcastImages?.[0].parsed).toHaveProperty("width", 1500);
+        expect(result.items[2].podcastImages?.[0].parsed).not.toHaveProperty("density");
 
-        expect(result.items[2].podcastImages[1]).toHaveProperty(
+        expect(result.items[2].podcastImages?.[1]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-middle.jpg 600w"
         );
-        expect(result.items[2].podcastImages[1].parsed).toHaveProperty(
+        expect(result.items[2].podcastImages?.[1].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-middle.jpg"
         );
-        expect(result.items[2].podcastImages[1].parsed).toHaveProperty("width", 600);
-        expect(result.items[2].podcastImages[1].parsed).not.toHaveProperty("density");
+        expect(result.items[2].podcastImages?.[1].parsed).toHaveProperty("width", 600);
+        expect(result.items[2].podcastImages?.[1].parsed).not.toHaveProperty("density");
 
-        expect(result.items[2].podcastImages[2]).toHaveProperty(
+        expect(result.items[2].podcastImages?.[2]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-small.jpg 300w"
         );
-        expect(result.items[2].podcastImages[2].parsed).toHaveProperty(
+        expect(result.items[2].podcastImages?.[2].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-small.jpg"
         );
-        expect(result.items[2].podcastImages[2].parsed).toHaveProperty("width", 300);
-        expect(result.items[2].podcastImages[2].parsed).not.toHaveProperty("density");
+        expect(result.items[2].podcastImages?.[2].parsed).toHaveProperty("width", 300);
+        expect(result.items[2].podcastImages?.[2].parsed).not.toHaveProperty("density");
 
-        expect(result.items[2].podcastImages[3]).toHaveProperty(
+        expect(result.items[2].podcastImages?.[3]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-tiny.jpg 150w"
         );
-        expect(result.items[2].podcastImages[3].parsed).toHaveProperty(
+        expect(result.items[2].podcastImages?.[3].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-tiny.jpg"
         );
-        expect(result.items[2].podcastImages[3].parsed).toHaveProperty("width", 150);
-        expect(result.items[2].podcastImages[3].parsed).not.toHaveProperty("density");
+        expect(result.items[2].podcastImages?.[3].parsed).toHaveProperty("width", 150);
+        expect(result.items[2].podcastImages?.[3].parsed).not.toHaveProperty("density");
 
         expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
       });
@@ -537,22 +536,22 @@ describe("phase 4", () => {
             />
             `
         );
-        const result = parseFeed(xml);
+        const result = helpers.parseValidFeed(xml);
         invariant(result);
 
         expect(result).not.toHaveProperty("podcastImages");
         expect(result.items[2].podcastImages).toHaveLength(1);
 
-        expect(result.items[2].podcastImages[0]).toHaveProperty(
+        expect(result.items[2].podcastImages?.[0]).toHaveProperty(
           "raw",
           "https://example.com/images/ep1/pci_avatar-massive.jpg 1500q"
         );
-        expect(result.items[2].podcastImages[0].parsed).toHaveProperty(
+        expect(result.items[2].podcastImages?.[0].parsed).toHaveProperty(
           "url",
           "https://example.com/images/ep1/pci_avatar-massive.jpg"
         );
-        expect(result.items[2].podcastImages[0].parsed).not.toHaveProperty("width");
-        expect(result.items[2].podcastImages[0].parsed).not.toHaveProperty("density");
+        expect(result.items[2].podcastImages?.[0].parsed).not.toHaveProperty("width");
+        expect(result.items[2].podcastImages?.[0].parsed).not.toHaveProperty("density");
       });
     });
   });
@@ -561,7 +560,7 @@ describe("phase 4", () => {
     const supportedName = "liveItem";
 
     it("correctly identifies a basic feed", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
       invariant(result);
 
       expect(result).not.toHaveProperty("podcastLiveItems");
@@ -595,38 +594,38 @@ describe("phase 4", () => {
         </podcast:liveItem>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
       expect(result.podcastLiveItems).toHaveLength(3);
 
-      expect(result.podcastLiveItems[0]).toHaveProperty("status", Phase4LiveStatus.Live);
-      expect(result.podcastLiveItems[0]).toHaveProperty(
+      expect(result.podcastLiveItems?.[0]).toHaveProperty("status", Phase4LiveStatus.Live);
+      expect(result.podcastLiveItems?.[0]).toHaveProperty(
         "start",
         new Date("2021-09-26T07:30:00.000-0600")
       );
-      expect(result.podcastLiveItems[0]).toHaveProperty(
+      expect(result.podcastLiveItems?.[0]).toHaveProperty(
         "end",
         new Date("2021-09-26T08:30:00.000-0600")
       );
 
-      expect(result.podcastLiveItems[1]).toHaveProperty("status", Phase4LiveStatus.Pending);
-      expect(result.podcastLiveItems[1]).toHaveProperty(
+      expect(result.podcastLiveItems?.[1]).toHaveProperty("status", Phase4LiveStatus.Pending);
+      expect(result.podcastLiveItems?.[1]).toHaveProperty(
         "start",
         new Date("2021-09-27T07:30:00.000-0600")
       );
-      expect(result.podcastLiveItems[1]).toHaveProperty(
+      expect(result.podcastLiveItems?.[1]).toHaveProperty(
         "end",
         new Date("2021-09-27T08:30:00.000-0600")
       );
 
-      expect(result.podcastLiveItems[2]).toHaveProperty("status", Phase4LiveStatus.Ended);
-      expect(result.podcastLiveItems[2]).toHaveProperty(
+      expect(result.podcastLiveItems?.[2]).toHaveProperty("status", Phase4LiveStatus.Ended);
+      expect(result.podcastLiveItems?.[2]).toHaveProperty(
         "start",
         new Date("2021-09-28T07:30:00.000-0600")
       );
-      expect(result.podcastLiveItems[2]).toHaveProperty(
+      expect(result.podcastLiveItems?.[2]).toHaveProperty(
         "end",
         new Date("2021-09-28T08:30:00.000-0600")
       );
@@ -646,7 +645,7 @@ describe("phase 4", () => {
         </podcast:liveItem>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
@@ -668,6 +667,69 @@ describe("phase 4", () => {
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
 
+    it("supports a liveItem with value tags", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:liveItem status="livE" start="2021-09-26T07:30:00.000-0600" end="2021-09-26T08:30:00.000-0600">
+          <title>Podcasting 2.0 Live Stream</title>
+          <guid>e32b4890-983b-4ce5-8b46-f2d6bc1d8819</guid>
+          <enclosure url="https://example.com/pc20/livestream?format=.mp3" type="audio/mpeg" length="312" />
+          <podcast:contentLink href="https://example.com/html/livestream">Listen Live!</podcast:contentLink>
+          <podcast:value type="lightning" method="keysend" suggested="0.00000015000">
+            <podcast:valueRecipient
+                name="Alice (Podcaster)"
+                type="node"
+                address="02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52"
+                split="40"
+            />
+            <podcast:valueRecipient
+                name="Bob (Podcaster)"
+                type="node"
+                address="032f4ffbbafffbe51726ad3c164a3d0d37ec27bc67b29a159b0f49ae8ac21b8508"
+                split="40"
+            />
+            <podcast:valueRecipient
+                name="Carol (Producer)"
+                type="node"
+                address="02dd306e68c46681aa21d88a436fb35355a8579dd30201581cefa17cb179fc4c15"
+                split="15"
+            />
+            <podcast:valueRecipient
+                name="Hosting Provider"
+                type="node"
+                address="03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a"
+                split="5"
+                fee="true"
+            />
+        </podcast:value>
+        </podcast:liveItem>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("podcastLiveItems");
+
+      expect(result.podcastLiveItems).toHaveLength(1);
+      invariant(result.podcastLiveItems);
+
+      const [lit] = result.podcastLiveItems;
+      expect(lit).not.toHaveProperty("item");
+      expect(lit).toHaveProperty("status", Phase4LiveStatus.Live);
+      expect(lit).toHaveProperty("start", new Date("2021-09-26T07:30:00.000-0600"));
+      expect(lit).toHaveProperty("end", new Date("2021-09-26T08:30:00.000-0600"));
+
+      expect(lit).toHaveProperty("value");
+      expect(lit.value).toHaveProperty("type", "lightning");
+      expect(lit.value).toHaveProperty("method", "keysend");
+      expect(lit.value).toHaveProperty("suggested", 0.00000015);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    // skipping this as it feel like its been superseded in spirit by the child item tag
+    // see https://github.com/Podcastindex-org/podcast-namespace/discussions/502
     it("supports chat liveItem", () => {
       const xml = helpers.spliceFeed(
         feed,
@@ -680,7 +742,7 @@ describe("phase 4", () => {
         </podcast:liveItem>
         `
       );
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");
@@ -688,7 +750,9 @@ describe("phase 4", () => {
       expect(result.podcastLiveItems).toHaveLength(1);
       invariant(result.podcastLiveItems);
 
-      expect(result.podcastLiveItems[0]).toHaveProperty("chat", "https://talky.io");
+      expect(result.podcastLiveItems[0]).toHaveProperty("chat");
+      expect(result.podcastLiveItems[0].chat).toHaveProperty("phase", "4");
+      expect(result.podcastLiveItems[0].chat).toHaveProperty("url", "https://talky.io");
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
@@ -726,7 +790,7 @@ describe("phase 4", () => {
         `
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
       invariant(result);
 
       expect(result).toHaveProperty("podcastLiveItems");

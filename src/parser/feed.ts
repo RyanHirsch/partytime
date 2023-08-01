@@ -15,8 +15,8 @@ import {
   sanitizeMultipleSpaces,
   sanitizeNewLines,
 } from "./shared";
-import { ItunesFeedType } from "./types";
-import type { FeedObject, FeedType, XmlNode } from "./types";
+import { BasicFeed, ItunesFeedType } from "./types";
+import type { FeedType, XmlNode } from "./types";
 import { categoryLookup } from "./itunes-categories";
 
 function getTitle(feed: XmlNode): string {
@@ -616,7 +616,7 @@ function getTimeToLive(feed: XmlNode): undefined | { ttl: number } {
   return undefined;
 }
 
-export function handleFeed(feed: XmlNode, feedType: FeedType): FeedObject {
+export function handleFeed(feed: XmlNode, feedType: FeedType): BasicFeed {
   return {
     lastUpdate: new Date(),
     type: feedType,

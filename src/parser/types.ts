@@ -19,10 +19,11 @@ import type {
   Phase4PodcastImage,
   Phase4PodcastLiveItem,
 } from "./phase/phase-4";
+import type { Phase5Blocked, Phase5BlockedPlatforms, Phase5SocialInteract } from "./phase/phase-5";
+import type { Phase6RemoteItem, Phase6TxtEntry } from "./phase/phase-6";
 import {
   PhasePendingPodcastId,
   PhasePendingSocial,
-  PhasePendingSocialInteract,
   PhasePendingPodcastRecommendation,
   PhasePendingGateway,
 } from "./phase/phase-pending";
@@ -68,7 +69,7 @@ export enum ItunesFeedType {
   Serial = "serial",
 }
 
-export interface FeedObject {
+export interface BasicFeed {
   type: FeedType;
   // #region RSS 2.0 Spec Required
   // https://validator.w3.org/feed/docs/rss2.html
@@ -128,6 +129,17 @@ export interface FeedObject {
     height?: number;
   };
 
+  /** podcasting 2.0 phase compliance */
+  pc20support: Record<number, string[]>;
+
+  items: Episode[];
+  newestItemPubDate?: Date;
+  oldestItemPubDate?: Date;
+  /** Date this feed was parsed */
+  lastUpdate: Date;
+}
+
+export interface FeedObject extends BasicFeed {
   // #region Phase 1
   podcastOwner?: string;
   /**
@@ -157,9 +169,17 @@ export interface FeedObject {
   // #endregion
   // #region Phase 4
   value?: Phase4Value;
+  podcastLiveItems?: Phase4PodcastLiveItem[];
+  // #endregion
+  // #region Phase 5
+  podcastBlocked: Phase5Blocked;
+  podcastBlockedPlatforms?: Phase5BlockedPlatforms;
+  // #endregion
+  // #region Phase 6
+  podcastTxt?: Phase6TxtEntry[];
+  podcastRemoteItems?: Phase6RemoteItem[];
   // #endregion
   // #region Pending Phase
-  podcastLiveItems?: Phase4PodcastLiveItem[];
   /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */
   podcastId?: PhasePendingPodcastId[];
   /** PENDING AND LIKELY TO CHANGE where listeners can comment, share, or like podcast episodes */
@@ -169,15 +189,6 @@ export interface FeedObject {
   podcastImages?: Phase4PodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
-
-  /** podcasting 2.0 phase compliance */
-  pc20support: Record<number, string[]>;
-
-  items: Episode[];
-  newestItemPubDate?: Date;
-  oldestItemPubDate?: Date;
-  /** Date this feed was parsed */
-  lastUpdate: Date;
 }
 
 export type Enclosure = {
@@ -231,8 +242,14 @@ export interface Episode {
   // #region Phase 4
   value?: Phase4Value;
   // #endregion
+  // #region Phase 5
+  podcastSocialInteraction?: Phase5SocialInteract[];
+  // #endregion
+  // #region Phase 6
+  podcastTxt?: Phase6TxtEntry[];
+  podcastRemoteItems?: Phase6RemoteItem[];
+  // #endregion
   // #region Pending Phase
-  podcastSocialInteraction?: PhasePendingSocialInteract[];
   podcastImages?: Phase4PodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   podcastGateway?: PhasePendingGateway;

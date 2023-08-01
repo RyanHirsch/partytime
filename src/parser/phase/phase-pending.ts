@@ -9,6 +9,8 @@ import {
 } from "../shared";
 import type { XmlNode } from "../types";
 
+import type { Phase4PodcastLiveItem } from "./phase-4";
+import { addSubTag } from "./helpers";
 import { XmlNodeSource } from "./types";
 
 export type PhasePendingPodcastId = {
@@ -115,71 +117,6 @@ export const social = {
   },
 };
 
-export type PhasePendingSocialInteract = {
-  uri: string;
-  protocol: string;
-  platform?: string;
-  /** The account id (on the commenting platform) of the account that created this root post. */
-  accountId?: string;
-  /** The public url (on the commenting platform) of the account that created this root post. */
-  accountUrl?: string;
-  url?: string;
-  priority?: number;
-};
-export const socialInteraction = {
-  phase: Infinity,
-  name: "social",
-  tag: "podcast:socialInteract",
-  nodeTransform: ensureArray,
-  supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
-    type === XmlNodeSource.Item &&
-    ensureArray(node).some(
-      (n) => Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n))
-    ),
-  fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
-    const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n));
-
-    return {
-      podcastSocialInteraction: node
-        .reduce<PhasePendingSocialInteract[]>((acc, n) => {
-          if (isValidItemNode(n)) {
-            const url = getText(n);
-            const accountId = getAttribute(n, "podcastAccountId") ?? getAttribute(n, "accountId");
-            const accountUrl =
-              getAttribute(n, "podcastAccountUrl") ?? getAttribute(n, "accountUrl");
-            return [
-              ...acc,
-              {
-                protocol: getKnownAttribute(n, "protocol"),
-                uri: getAttribute(n, "uri") || url,
-                ...(url ? { url } : undefined),
-                ...(accountId ? { accountId } : undefined),
-                ...(accountUrl ? { accountUrl } : undefined),
-                ...extractOptionalIntegerAttribute(n, "priority"),
-                ...extractOptionalStringAttribute(n, "platform"),
-              },
-            ];
-          }
-
-          return acc;
-        }, [])
-        .sort((a, b) => {
-          if (a.priority && !b.priority) {
-            return -1;
-          }
-          if (b.priority && !a.priority) {
-            return 1;
-          }
-          if (a.priority && b.priority) {
-            return a.priority - b.priority;
-          }
-          return 0;
-        }),
-    };
-  },
-};
-
 export type PhasePendingPodcastRecommendation = {
   url: string;
   type: string;
@@ -227,3 +164,65 @@ export const podcastGateway = {
     };
   },
 };
+
+export type PhasePendingChat = {
+  phase: "pending";
+  /** (required) The [protocol](https://github.com/Podcastindex-org/podcast-namespace/blob/main/proposal-docs/chat/chatprotocols.txt) in use on the server */
+  protocol: string;
+  /** (recommended) The account id of the podcaster on the server or platform being connected to. */
+  accountId?: string;
+  /** (optional) The fqdn of a chat server that serves as the "bootstrap" server to connect to. */
+  server?: string;
+  /** (optional) Some chat systems have a notion of a chat "space" or "room" or "topic". This attribute will serve
+that purpose. */
+  space?: string;
+  /** (optional) A url to an html rendered version of the chat for loading in a web page or web view. */
+  embedUrl?: string;
+};
+
+const knownChatProtocols = `
+irc
+xmpp
+nostr
+matrix
+`
+  .split("\n")
+  .map((x) => x.trim())
+  .filter(Boolean);
+
+function sanitizeProtocol(proto: string): string {
+  const known = knownChatProtocols.find((x) => x === proto.toLowerCase());
+
+  if (known) {
+    return known;
+  }
+
+  console.warn(`Unknown protocol ${proto}, calling .toLowerCase() and passing it through`);
+
+  return proto.toLowerCase();
+}
+
+export const podcastChat = {
+  phase: Infinity,
+  name: "chat",
+  tag: "podcast:chat",
+  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).find((n) => getAttribute(n, "protocol")),
+  supportCheck: (node: XmlNode): boolean => Boolean(getAttribute(node, "protocol")),
+  fn(node: XmlNode): { chat: PhasePendingChat } {
+    const protocol = getKnownAttribute(node, "protocol");
+    return {
+      chat: {
+        phase: "pending",
+        protocol: sanitizeProtocol(protocol),
+        ...extractOptionalStringAttribute(node, "accountId"),
+        ...extractOptionalStringAttribute(node, "server"),
+        ...extractOptionalStringAttribute(node, "space"),
+        ...extractOptionalStringAttribute(node, "embedUrl"),
+      },
+    };
+  },
+};
+
+addSubTag<Phase4PodcastLiveItem>("liveItem", podcastChat);

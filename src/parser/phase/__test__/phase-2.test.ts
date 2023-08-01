@@ -1,6 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import * as helpers from "../../__test__/helpers";
-import { parseFeed } from "../../index";
 
 describe("phase 2", () => {
   let feed;
@@ -12,7 +11,7 @@ describe("phase 2", () => {
     const supportedName = "person";
 
     it("correctly identifies non-supporting feeds", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       expect(result).not.toHaveProperty("podcastPeople");
 
@@ -28,12 +27,12 @@ describe("phase 2", () => {
         <podcast:person role="co-host">Jane Smith</podcast:person>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("podcastPeople");
       expect(result.podcastPeople).toHaveLength(2);
 
-      const [john, jane] = result.podcastPeople;
+      const [john, jane] = result.podcastPeople ?? [];
 
       expect(john).toHaveProperty("name", "John Smith");
       expect(john).toHaveProperty("href", "https://example.com/johnsmith/blog");
@@ -54,10 +53,10 @@ describe("phase 2", () => {
         `<podcast:person role="guest">Jack</podcast:person>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result.items[0].podcastPeople).toHaveLength(1);
-      const [jack] = result.items[0].podcastPeople;
+      const [jack] = result.items[0].podcastPeople ?? [];
 
       expect(jack).toHaveProperty("name", "Jack");
       expect(jack).toHaveProperty("role", "Guest");
@@ -72,11 +71,11 @@ describe("phase 2", () => {
         `<podcast:person role="talking head" group="human">Jane Smith</podcast:person>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("podcastPeople");
 
-      const [jane] = result.podcastPeople;
+      const [jane] = result.podcastPeople ?? [];
 
       expect(jane).toHaveProperty("name", "Jane Smith");
       expect(jane).toHaveProperty("role", "Host");
@@ -90,7 +89,7 @@ describe("phase 2", () => {
     const supportedName = "location";
 
     it("correctly identifies non-supporting feeds", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       expect(result).not.toHaveProperty("podcastLocation");
 
@@ -105,7 +104,7 @@ describe("phase 2", () => {
         `<podcast:location geo="geo:30.2672,97.7431" osm="R113314"></podcast:location>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("podcastLocation");
 
@@ -115,7 +114,7 @@ describe("phase 2", () => {
     it("requires only a name (node text)", () => {
       const xml = helpers.spliceFeed(feed, `<podcast:location>Austin, TX</podcast:location>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("podcastLocation");
       expect(result.podcastLocation).toHaveProperty("name", "Austin, TX");
@@ -132,7 +131,7 @@ describe("phase 2", () => {
         <podcast:location geo="geo:-27.86159,153.3169" osm="W43678282">Dreamworld (Queensland)</podcast:location>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).toHaveProperty("podcastLocation");
       expect(result.podcastLocation).toHaveProperty("name", "Austin, TX");
@@ -145,7 +144,7 @@ describe("phase 2", () => {
     it("supports item level location name", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:location>Austin, TX</podcast:location>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("podcastLocation");
       const [first] = result.items;
@@ -163,7 +162,7 @@ describe("phase 2", () => {
         `<podcast:location geo="geo:-27.86159,153.3169" osm="W43678282">Dreamworld (Queensland)</podcast:location>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(result).not.toHaveProperty("podcastLocation");
 
@@ -182,7 +181,7 @@ describe("phase 2", () => {
     const supportedName = "season";
 
     it("correctly identifies non-supporting feeds", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       result.items.forEach((item) => expect(item).not.toHaveProperty("podcastSeason"));
 
@@ -192,7 +191,7 @@ describe("phase 2", () => {
     it("only supports item level", () => {
       const xml = helpers.spliceFeed(feed, `<podcast:season>5</podcast:season>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(helpers.getPhaseSupport(result, 2)).not.toContain(supportedName);
     });
@@ -200,7 +199,7 @@ describe("phase 2", () => {
     it("requires a number (node text)", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:season></podcast:season>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).not.toHaveProperty("podcastSeason");
@@ -211,7 +210,7 @@ describe("phase 2", () => {
     it("requires only a number (node text)", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:season>5</podcast:season>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).toHaveProperty("podcastSeason");
@@ -223,7 +222,7 @@ describe("phase 2", () => {
     it("supports only integers", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:season>5.1</podcast:season>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).toHaveProperty("podcastSeason");
@@ -238,7 +237,7 @@ describe("phase 2", () => {
         `<podcast:season name="Race for the Whitehouse 2020">3</podcast:season>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       result.items.forEach((item) => {
         expect(item).toHaveProperty("podcastSeason");
@@ -253,7 +252,7 @@ describe("phase 2", () => {
     const supportedName = "episode";
 
     it("correctly identifies non-supporting feeds", () => {
-      const result = parseFeed(feed);
+      const result = helpers.parseValidFeed(feed);
 
       result.items.forEach((item) => expect(item).not.toHaveProperty("podcastEpisode"));
 
@@ -263,7 +262,7 @@ describe("phase 2", () => {
     it("only supports item level", () => {
       const xml = helpers.spliceFeed(feed, `<podcast:episode>3</podcast:episode>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       expect(helpers.getPhaseSupport(result, 2)).not.toContain(supportedName);
     });
@@ -271,7 +270,7 @@ describe("phase 2", () => {
     it("requires a number (node text)", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:episode></podcast:episode>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).not.toHaveProperty("podcastEpisode");
@@ -282,7 +281,7 @@ describe("phase 2", () => {
     it("requires only a number (node text)", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:episode>5</podcast:episode>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).toHaveProperty("podcastEpisode");
@@ -294,7 +293,7 @@ describe("phase 2", () => {
     it("supports decimals", () => {
       const xml = helpers.spliceFirstItem(feed, `<podcast:episode>5.1</podcast:episode>`);
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       const [first] = result.items;
       expect(first).toHaveProperty("podcastEpisode");
@@ -309,7 +308,7 @@ describe("phase 2", () => {
         `<podcast:episode display="Ch.3">204</podcast:episode>`
       );
 
-      const result = parseFeed(xml);
+      const result = helpers.parseValidFeed(xml);
 
       result.items.forEach((item) => {
         expect(item).toHaveProperty("podcastEpisode");

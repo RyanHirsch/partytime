@@ -12,6 +12,8 @@ import * as phase1 from "./phase-1";
 import * as phase2 from "./phase-2";
 import * as phase3 from "./phase-3";
 import * as phase4 from "./phase-4";
+import * as phase5 from "./phase-5";
+import * as phase6 from "./phase-6";
 import * as pending from "./phase-pending";
 import { XmlNodeSource } from "./types";
 
@@ -45,7 +47,7 @@ export type FeedUpdate = {
 };
 
 /** Describes an Item processing object intended to provide extensible item parsing */
-export type ItemUpdate = {
+export type ItemUpdate<T = Episode> = {
   /** What phase was this added to the namespace */
   phase: number;
   /** What is the name of the tag, expected to "transcript" for <podcast:transcript> */
@@ -53,7 +55,7 @@ export type ItemUpdate = {
   /** What is the name of feature, falls back to tag if missing */
   name?: string;
   /** Processing function to return an object to be merged with the current item */
-  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<Episode>;
+  fn: (node: XmlNode, feed: RSSFeed, type: XmlNodeSource) => Partial<T>;
   /** An optional function to transform the node before calling both the support and processing functions */
   nodeTransform?: NodeTransform;
   /** An optional function to determine if the tag meets the requirements for processing (eg. has required attributes or value) */
@@ -80,6 +82,11 @@ const feeds: FeedUpdate[] = [
   phase4.podcastImages,
   phase4.liveItem,
 
+  phase5.block,
+
+  phase6.txt,
+  phase6.remoteItem,
+
   pending.id,
   pending.social,
   pending.podcastRecommendations,
@@ -101,7 +108,10 @@ const items: ItemUpdate[] = [
   phase4.value,
   phase4.podcastImages,
 
-  pending.socialInteraction,
+  phase5.socialInteraction,
+
+  phase6.txt,
+
   pending.podcastRecommendations,
   pending.podcastGateway,
 ];
