@@ -6,7 +6,6 @@ import {
   getAttribute,
   getKnownAttribute,
   getText,
-  pubDateToDate,
 } from "../shared";
 import type { XmlNode } from "../types";
 
@@ -116,32 +115,15 @@ export const social = {
   },
 };
 
-function getSocialPlatform(n: XmlNode): string | null {
-  return (getAttribute(n, "platform") || getAttribute(n, "protocol")) ?? null;
-}
-
-function getSocialAccount(n: XmlNode): string | null {
-  return (getAttribute(n, "podcastAccountId") || getAttribute(n, "accountId")) ?? null;
-}
-function getSocialUrl(n: XmlNode): string | null {
-  return (getAttribute(n, "uri") || getText(n)) ?? null;
-}
-function getSocialProfileUrl(n: XmlNode): string | null {
-  return getAttribute(n, "accountUrl") ?? null;
-}
-
 export type PhasePendingSocialInteract = {
-  /** slug of social protocol being used */
-  platform: string;
-  /** account id of posting party */
-  id: string;
-  /** uri of root post/comment */
-  url: string;
-  /** url to posting party's platform profile */
-  profileUrl?: string;
-  /** DEPRECATED */
-  pubDate?: Date;
-  /** the order of rendering */
+  uri: string;
+  protocol: string;
+  platform?: string;
+  /** The account id (on the commenting platform) of the account that created this root post. */
+  accountId?: string;
+  /** The public url (on the commenting platform) of the account that created this root post. */
+  accountUrl?: string;
+  url?: string;
   priority?: number;
 };
 export const socialInteraction = {
@@ -151,32 +133,49 @@ export const socialInteraction = {
   nodeTransform: ensureArray,
   supportCheck: (node: XmlNode[], type: XmlNodeSource): boolean =>
     type === XmlNodeSource.Item &&
-    node.some((n) => Boolean(getSocialPlatform(n)) && Boolean(getSocialUrl(n))),
+    ensureArray(node).some(
+      (n) => Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n))
+    ),
   fn(node: XmlNode[]): { podcastSocialInteraction: PhasePendingSocialInteract[] } {
     const isValidItemNode = (n: XmlNode): boolean =>
-      Boolean(getSocialPlatform(n)) && Boolean(getSocialUrl(n));
+      Boolean(getAttribute(n, "protocol")) && Boolean(getAttribute(n, "uri") || getText(n));
 
     return {
-      podcastSocialInteraction: node.reduce<PhasePendingSocialInteract[]>((acc, n) => {
-        if (isValidItemNode(n)) {
-          const profileUrl = getSocialProfileUrl(n);
-          const pubDateText = getAttribute(n, "pubDate");
-          const pubDateAsDate = pubDateText && pubDateToDate(pubDateText);
-          return [
-            ...acc,
-            {
-              platform: getSocialPlatform(n)!,
-              id: getSocialAccount(n) ?? "", // per https://podcastindex.social/@mitch/109821341789189954
-              url: getSocialUrl(n)!,
-              ...extractOptionalFloatAttribute(n, "priority"),
-              ...(pubDateAsDate ? { pubDate: pubDateAsDate } : undefined),
-              ...(profileUrl ? { profileUrl } : undefined),
-            },
-          ];
-        }
+      podcastSocialInteraction: node
+        .reduce<PhasePendingSocialInteract[]>((acc, n) => {
+          if (isValidItemNode(n)) {
+            const url = getText(n);
+            const accountId = getAttribute(n, "podcastAccountId") ?? getAttribute(n, "accountId");
+            const accountUrl =
+              getAttribute(n, "podcastAccountUrl") ?? getAttribute(n, "accountUrl");
+            return [
+              ...acc,
+              {
+                protocol: getKnownAttribute(n, "protocol"),
+                uri: getAttribute(n, "uri") || url,
+                ...(url ? { url } : undefined),
+                ...(accountId ? { accountId } : undefined),
+                ...(accountUrl ? { accountUrl } : undefined),
+                ...extractOptionalIntegerAttribute(n, "priority"),
+                ...extractOptionalStringAttribute(n, "platform"),
+              },
+            ];
+          }
 
-        return acc;
-      }, []),
+          return acc;
+        }, [])
+        .sort((a, b) => {
+          if (a.priority && !b.priority) {
+            return -1;
+          }
+          if (b.priority && !a.priority) {
+            return 1;
+          }
+          if (a.priority && b.priority) {
+            return a.priority - b.priority;
+          }
+          return 0;
+        }),
     };
   },
 };

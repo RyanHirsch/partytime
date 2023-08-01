@@ -58,6 +58,7 @@ export type Phase1Transcript = {
   rel?: "captions";
 };
 
+const JSON_MIMETYPE = "application/json";
 export enum TranscriptType {
   Plain = "text/plain",
   HTML = "text/html",
@@ -76,7 +77,7 @@ function deriveMimeType(typeAttribute: string | null): TranscriptType {
       return TranscriptType.Plain;
     case "text/html":
       return TranscriptType.HTML;
-    case "application/json":
+    case JSON_MIMETYPE:
       return TranscriptType.JSON;
     default:
       console.warn("Unexpected transcript type", typeAttribute);
@@ -185,12 +186,12 @@ export const chapters: ItemUpdate = {
   tag: "podcast:chapters",
   name: "chapters",
   nodeTransform: firstIfArray,
-  supportCheck: (node) => Boolean(getAttribute(node, "url")) && Boolean(getAttribute(node, "type")),
+  supportCheck: (node) => Boolean(getAttribute(node, "url")),
   fn(node) {
     return {
       podcastChapters: {
         url: getKnownAttribute(node, "url"),
-        type: getKnownAttribute(node, "type"),
+        type: getAttribute(node, "type") ?? JSON_MIMETYPE,
       },
     };
   },
