@@ -64,6 +64,7 @@ export enum TranscriptType {
   HTML = "text/html",
   SRT = "application/srt",
   JSON = "application/json",
+  VTT = "text/vtt",
   UNKNOWN = "unknown",
 }
 
@@ -79,6 +80,8 @@ function deriveMimeType(typeAttribute: string | null): TranscriptType {
       return TranscriptType.HTML;
     case JSON_MIMETYPE:
       return TranscriptType.JSON;
+    case "text/vtt":
+      return TranscriptType.VTT;
     default:
       console.warn("Unexpected transcript type", typeAttribute);
       console.warn(" Please open an issue - https://github.com/RyanHirsch/partytime/issues");
