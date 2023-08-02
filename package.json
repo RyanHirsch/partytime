@@ -30,6 +30,7 @@
     "test:watch": "jest --watch",
     "start:dev": "esr src/dev.ts",
     "dev": "esr src/dev.ts",
+    "debug": "node --inspect-brk -r esbuild-runner/register ",
     "dev:watch": "ts-node-dev --respawn --no-notify src/dev.ts",
     "deps": "npm-run-all -p deps:*",
     "deps:person": "./scripts/update-person-enum.sh",

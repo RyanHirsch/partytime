@@ -763,12 +763,37 @@ describe("feed handling", () => {
         feed,
         `
         <itunes:author>Founders Fund</itunes:author>
-
         `
       );
 
       const result = parseFeed(xml);
-      expect(result).toHaveProperty("author", "Founders Fund");
+      expect(result).toHaveProperty("author", ["Founders Fund"]);
+    });
+
+    it("extracts multiple authors", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:author>Founders Fund</itunes:author>
+        <itunes:author>Person Fund</itunes:author>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("author", ["Founders Fund", "Person Fund"]);
+    });
+
+    it("ignores empty nodes", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <itunes:author></itunes:author>
+        <itunes:author>  </itunes:author>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).not.toHaveProperty("author");
     });
   });
 
