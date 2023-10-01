@@ -85,4 +85,32 @@ describe("real-world feeds", () => {
       expect(result?.title).toEqual("1865");
     });
   });
+
+  describe("Sentimental Garbage Feed", () => {
+    let xml = "";
+    beforeEach(async () => {
+      xml = await helpers.loadFixture(`real-world/sentimental-garbage.xml`);
+    });
+
+    it("parses the season", () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      expect(result?.items).toHaveLength(138);
+      expect(result?.items[0].itunesSeason).toEqual(10);
+      expect(result?.items[0].itunesEpisode).toEqual(29);
+
+      expect(result?.items[1].itunesSeason).toEqual(10);
+      expect(result?.items[1].itunesEpisode).toEqual(28);
+    });
+  });
+  describe("Homegrown Hits Feed", () => {
+    let xml = "";
+    beforeEach(async () => {
+      xml = await helpers.loadFixture(`real-world/homegrown-hits.xml`);
+    });
+
+    it("parses the items", () => {
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      expect(result?.items).toHaveLength(4);
+    });
+  });
 });

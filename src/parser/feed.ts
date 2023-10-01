@@ -185,7 +185,7 @@ function getItunesImage(feed: XmlNode): undefined | { itunesImage: string } {
 
   const fallback = firstWithAttributes(target, ["href"]);
   if (fallback) {
-    return { itunesImage: getKnownAttribute(target, "href") };
+    return { itunesImage: getKnownAttribute(fallback, "href") };
   }
 
   const lastFallback = firstWithValue(target);
