@@ -26,3 +26,4 @@ export {
 } from "./parser/phase/phase-5";
 export { Phase6TxtEntry } from "./parser/phase/phase-6";
 export { PhasePendingPodcastId, PhasePendingSocial } from "./parser/phase/phase-pending";
+export { PersonRole, PersonGroup } from "./parser/person-enum";
