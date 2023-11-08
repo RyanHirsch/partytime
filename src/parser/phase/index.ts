@@ -86,6 +86,7 @@ const feeds: FeedUpdate[] = [
 
   phase6.txt,
   phase6.remoteItem,
+  phase6.podroll,
 
   pending.id,
   pending.social,

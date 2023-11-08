@@ -35,25 +35,26 @@ export const txt = {
 };
 
 export type Phase6RemoteItem = {
-  itemGuid: string;
   feedGuid: string;
+  itemGuid?: string;
   feedUrl?: string;
   medium?: Phase4Medium;
 };
 
 export const remoteItem = {
   phase: 6,
+  // eslint-disable-next-line sonarjs/no-duplicate-string
   tag: "podcast:remoteItem",
   name: "remoteItem",
   nodeTransform: (node: XmlNode[] | XmlNode): XmlNode[] =>
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray(node).filter((n) => getAttribute(n, "itemGuid") && getAttribute(n, "feedGuid")),
+    ensureArray(node).filter((n) => getAttribute(n, "feedGuid")),
   supportCheck: (nodes: XmlNode[]): boolean => nodes.length > 0,
   fn(nodes: XmlNode[]): { podcastRemoteItems: Phase6RemoteItem[] } {
     return {
       podcastRemoteItems: nodes.map((n) => ({
-        itemGuid: getKnownAttribute(n, "itemGuid"),
         feedGuid: getKnownAttribute(n, "feedGuid"),
+        ...extractOptionalStringAttribute(n, "itemGuid"),
         ...extractOptionalStringAttribute(n, "feedUrl"),
         ...(getAttribute(n, "medium")
           ? { medium: lookup(Phase4Medium, getKnownAttribute(n, "medium")) }
@@ -147,3 +148,25 @@ export const valueTimeSplit = {
 };
 
 addSubTag("value", valueTimeSplit);
+
+export const podroll = {
+  phase: 6,
+  tag: "podcast:podroll",
+  name: "podroll",
+  nodeTransform: (node: XmlNode[] | XmlNode): XmlNode[] =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).filter((n) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      const extractedRemoteItem = n["podcast:remoteItem"];
+      return extractedRemoteItem && remoteItem.nodeTransform(extractedRemoteItem).length > 0;
+    }),
+  supportCheck: (nodes: XmlNode[]): boolean => nodes.length > 0,
+  fn(nodes: XmlNode[]): { podroll: Phase6RemoteItem[] } {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    const extractedRemoteItems = remoteItem.nodeTransform(nodes[0]["podcast:remoteItem"]);
+
+    return {
+      podroll: remoteItem.fn(extractedRemoteItems).podcastRemoteItems,
+    };
+  },
+};
