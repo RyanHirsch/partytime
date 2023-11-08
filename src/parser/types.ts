@@ -178,6 +178,7 @@ export interface FeedObject extends BasicFeed {
   // #region Phase 6
   podcastTxt?: Phase6TxtEntry[];
   podcastRemoteItems?: Phase6RemoteItem[];
+  podroll?: Phase6RemoteItem[];
   // #endregion
   // #region Pending Phase
   /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */

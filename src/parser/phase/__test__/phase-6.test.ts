@@ -361,4 +361,96 @@ describe("phase 6", () => {
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
+
+  describe("podroll", () => {
+    const supportedName = "podroll";
+
+    it("extracts a single remoteItem", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:podroll>
+        <podcast:remoteItem feedGuid="29cdca4a-32d8-56ba-b48b-09a011c5daa9" />
+    </podcast:podroll>
+          `
+      );
+      const result = helpers.parseValidFeed(xml);
+      expect(result.podroll).toHaveLength(1);
+      expect(result.podroll?.[0]).toHaveProperty(
+        "feedGuid",
+        "29cdca4a-32d8-56ba-b48b-09a011c5daa9"
+      );
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts a multiple remoteItems", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:podroll>
+        <podcast:remoteItem feedGuid="29cdca4a-32d8-56ba-b48b-09a011c5daa9" />
+        <podcast:remoteItem feedGuid="396d9ae0-da7e-5557-b894-b606231fa3ea" />
+        <podcast:remoteItem feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f810" />
+    </podcast:podroll>
+          `
+      );
+      const result = helpers.parseValidFeed(xml);
+      expect(result.podroll).toHaveLength(3);
+      expect(result.podroll?.[0]).toHaveProperty(
+        "feedGuid",
+        "29cdca4a-32d8-56ba-b48b-09a011c5daa9"
+      );
+      expect(result.podroll?.[1]).toHaveProperty(
+        "feedGuid",
+        "396d9ae0-da7e-5557-b894-b606231fa3ea"
+      );
+      expect(result.podroll?.[2]).toHaveProperty(
+        "feedGuid",
+        "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+      );
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts advanced remoteItems", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:podroll>
+        <podcast:remoteItem
+        feedGuid="917393e3-1b1e-5cef-ace4-edaa54e1f810"
+        feedUrl="https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f810/rss.xml"
+        itemGuid="asdf089j0-ep240-20230510"
+        medium="music"
+    />
+    </podcast:podroll>
+          `
+      );
+      const result = helpers.parseValidFeed(xml);
+      expect(result.podroll).toHaveLength(1);
+      expect(result.podroll?.[0]).toHaveProperty(
+        "feedGuid",
+        "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+      );
+      expect(result.podroll?.[0]).toHaveProperty(
+        "feedUrl",
+        "https://feeds.example.org/917393e3-1b1e-5cef-ace4-edaa54e1f810/rss.xml"
+      );
+      expect(result.podroll?.[0]).toHaveProperty("itemGuid", "asdf089j0-ep240-20230510");
+      expect(result.podroll?.[0]).toHaveProperty("medium", "music");
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("skips when no remoteItems", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:podroll>
+    </podcast:podroll>
+          `
+      );
+      const result = helpers.parseValidFeed(xml);
+      expect(result).not.toHaveProperty("podroll");
+      expect(helpers.getPhaseSupport(result, phase)).not.toContain(supportedName);
+    });
+  });
 });
