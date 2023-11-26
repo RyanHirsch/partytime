@@ -26,7 +26,6 @@ import {
   PhasePendingSocial,
   PhasePendingPodcastRecommendation,
   PhasePendingGateway,
-  PhasePendingLiveUpdates,
 } from "./phase/phase-pending";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -188,8 +187,6 @@ export interface FeedObject extends BasicFeed {
   podcastSocial?: PhasePendingSocial[];
   /** PENDING AND LIKELY TO CHANGE This tag tells the an application what the content contained within the feed IS, as opposed to what the content is ABOUT in the case of a category. */
   medium?: Phase4Medium;
-  /** PENDING AND LIKELY TO CHANGE */
-  liveUpdates?: PhasePendingLiveUpdates;
   podcastImages?: Phase4PodcastImage[];
   podcastRecommendations?: PhasePendingPodcastRecommendation[];
   // #endregion
