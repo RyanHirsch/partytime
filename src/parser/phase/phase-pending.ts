@@ -226,3 +226,40 @@ export const podcastChat = {
 };
 
 addSubTag<Phase4PodcastLiveItem>("liveItem", podcastChat);
+
+export type PhasePendingLiveUpdates = {
+  uri: string;
+  protocol: "socket.io" | "websocket" | "xmpp" | "unknown";
+};
+function getLiveUpdateProtocol(node: XmlNode): "socket.io" | "websocket" | "xmpp" | "unknown" {
+  switch (getAttribute(node, "protocol")) {
+    case "socket.io":
+      return "socket.io" as const;
+    case "webscocket":
+      return "websocket" as const;
+    case "xmpp":
+      return "xmpp" as const;
+    default:
+      console.warn(`Unknown update protocol ${getAttribute(node, "protocol") ?? "null"}`);
+      return "unknown" as const;
+  }
+}
+export const podcastLiveUpdates = {
+  phase: Infinity,
+  name: "liveValue",
+  tag: "podcast:liveValue",
+  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    ensureArray(node).find((n) => getAttribute(n, "protocol") && getAttribute(n, "uri")),
+  supportCheck: (node: XmlNode): boolean =>
+    Boolean(getAttribute(node, "protocol")) && Boolean(getAttribute(node, "uri")),
+  fn(node: XmlNode): { liveUpdates: PhasePendingLiveUpdates } {
+    return {
+      liveUpdates: {
+        uri: getKnownAttribute(node, "uri"),
+        protocol: getLiveUpdateProtocol(node),
+      },
+    };
+  },
+};
+addSubTag("liveItem", podcastLiveUpdates);

@@ -586,4 +586,83 @@ describe("phase pending", () => {
       expect(firstLIT.chat).not.toHaveProperty("embedUrl");
     });
   });
+
+  describe("liveValue", () => {
+    function addLiveValueToFeed(thisFeed: string, liveValue: string): string {
+      return helpers.spliceFeed(
+        thisFeed,
+        `
+        <podcast:liveItem status="pending" start="2023-10-05T24:00:00.000 -0500"
+            end="2023-10-06T01:00:000 -0500">
+            <title>Homegrown Hits Episode 04 LIVE</title>
+            ${liveValue}
+            <enclosure length="33" type="audio/mpeg"
+                url="https://stream.bowlafterbowl.com/listen/bowlafterbowl/stream.mp3" />
+            <guid isPermaLink="false">81884459-5474-430a-a72f-c784b59219c9</guid>
+            <itunes:image
+                href="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" />
+            <itunes:subtitle>Homegrown Hits Episode 04 Live</itunes:subtitle>
+            <itunes:summary>
+                <![CDATA[ <p>Homegrown Hits LIVE Episode 04</p> <p>September 21st 2023</p> <p>Get a modern app at podcastapps.com to listen live and support artists directly!</p> ]]>
+            </itunes:summary>
+            <link>https://homegrownhits.xyz</link>
+            <podcast:person href="https://bowlafterbowl.com"
+                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:person href="" img="" group="cast" role="host">MaryKateUltra</podcast:person>
+            <podcast:person group="cast" role="host">Daisy B. Cooper</podcast:person>
+            <podcast:images
+                srcset="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif 1080w" />
+            <podcast:chat server="irc.zeronode.net" protocol="irc" accountId="DuhLaurien"
+                space="#HomegrownHits"
+                embedUrl="https://kiwiirc.com/nextclient/irc.zeronode.net/?nick=Dude?#HomegrownHits" />
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien"
+                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
+                    type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
+                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
+                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
+                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
+                    customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node"
+                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
+                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node"
+                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
+                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node"
+                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
+                    split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node"
+                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
+                    split="1" />
+            </podcast:value>
+        </podcast:liveItem>
+        `
+      );
+    }
+    it("extracts the uri", () => {
+      const liveValue = `<podcast:liveValue uri="https://curiohoster.com/event?event_id=00f1a2a1-f360-4be4-a87b-967dd3a850a4" protocol="socket.io"/>`;
+      const result = helpers.parseValidFeed(addLiveValueToFeed(feed, liveValue));
+
+      expect(result.podcastLiveItems).toHaveLength(1);
+      const [firstLIT] = result.podcastLiveItems ?? [];
+
+      expect(firstLIT.liveUpdates).toHaveProperty(
+        "uri",
+        "https://curiohoster.com/event?event_id=00f1a2a1-f360-4be4-a87b-967dd3a850a4"
+      );
+    });
+    it("extracts the the protocol", () => {
+      const liveValue = `<podcast:liveValue uri="https://curiohoster.com/event?event_id=00f1a2a1-f360-4be4-a87b-967dd3a850a4" protocol="socket.io"/>`;
+      const result = helpers.parseValidFeed(addLiveValueToFeed(feed, liveValue));
+
+      expect(result.podcastLiveItems).toHaveLength(1);
+      const [firstLIT] = result.podcastLiveItems ?? [];
+
+      expect(firstLIT.liveUpdates).toHaveProperty("protocol", "socket.io");
+    });
+  });
 });
