@@ -1,13 +1,8 @@
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-    xmlns:content="http://purl.org/rss/1.0/modules/content/"
-    xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md"
-    version="2.0">
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:podcast="https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md" version="2.0">
     <channel>
         <title>Homegrown Hits</title>
         <description>You host it, we toast it.</description>
         <language>en</language>
-        <itunes:image
-            href="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif"/>
         <link>https://homegrownhits.xyz</link>
         <image>
             <url>https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png</url>
@@ -20,41 +15,20 @@
         <itunes:category text="Music" />
         <podcast:medium>podcast</podcast:medium>
         <podcast:guid>ac746d09-7c3b-5bcd-b28a-f12d6456ca8f</podcast:guid>
-        <podcast:images
-            srcset="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif 500w" />
-        <itunes:image
-            href="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif" />
-        <podcast:person href="https://bowlafterbowl.com"
-            img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+        <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-03.jpg" />
+        <itunes:image href="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" />
+        <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
             DuhLaurien</podcast:person>
-        <podcast:person href="https://homegrownhits.xyz"
-            img="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png"
-            group="cast" role="host">MaryKateUltra</podcast:person>
-        <podcast:person href="https://homegrownhits.xyz"
-            img="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png"
-            group="cast" role="host">Daisy B. Cooper</podcast:person>
+        <podcast:person href="https://homegrownhits.xyz" img="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" group="cast" role="host">MaryKateUltra</podcast:person>
+        <podcast:person href="https://homegrownhits.xyz" img="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" group="cast" role="host">Daisy B. Cooper</podcast:person>
         <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-            <podcast:valueRecipient name="DuhLaurien"
-                address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                type="node" split="30" />
-            <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-            <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
-                address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
-            <podcast:valueRecipient name="SirVoBlitz" type="node"
-                address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-            <podcast:valueRecipient name="cottongin" type="node"
-                address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-            <podcast:valueRecipient name="BoostBot" type="node"
-                address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                split="1" />
-            <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                split="1" />
+            <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+            <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+            <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+            <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+            <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+            <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+            <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
         </podcast:value>
         <podcast:complete>no</podcast:complete>
         <podcast:block>no</podcast:block>
@@ -64,70 +38,929 @@
         </itunes:owner>
         <itunes:keywords>boost boostagram value4value bitcoin music satoshis podcasting 2.0
             selfhosted marykateultra duhlaurien daisy cooper</itunes:keywords>
-        <itunes:explicit>true</itunes:explicit>
-        <itunes:author>DuhLaurien</itunes:author>
+        <itunes:explicit>yes</itunes:explicit>
+        <itunes:author>Daisy B. Cooper, DuhLaurien, Mary-Kate Ultra</itunes:author>
         <managingEditor>show@homegrownhits.xyz</managingEditor>
         <pubDate>Wed, 13 Sep 2023 21:00:19 -0500</pubDate>
         <lastBuildDate>Thu, 14 Sep 2023 05:40:00 -0500</lastBuildDate>
-        <podcast:liveItem status="pending" start="2023-10-05T24:00:00.000 -0500"
-            end="2023-10-06T01:00:000 -0500">
-            <title>Homegrown Hits Episode 04 LIVE</title>
-            <podcast:liveValue uri="https://curiohoster.com/event?event_id=00f1a2a1-f360-4be4-a87b-967dd3a850a4" protocol="socket.io"/> 
-            <enclosure length="33" type="audio/mpeg"
-                url="https://stream.bowlafterbowl.com/listen/bowlafterbowl/stream.mp3" />
+        <podcast:liveItem status="live" start="2023-12-07T19:59:59 -0500" end="2023-12-07T01:00:000 -0500" chat="https://kiwiirc.com/nextclient/#irc://irc.zeronode.net:+6697/?nick=Dude?#homegrownhits">
+            <title>Homegrown Hits Episode 13 LIVE</title>
+            <podcast:liveValue uri="https://curiohoster.com/event?event_id=943b4c3c-2c6b-4f14-a9d3-85c98b508f6a" protocol="socket.io"/> 
+            <enclosure length="33" type="audio/mpeg" url="https://stream.bowlafterbowl.com/listen/bowlafterbowl/stream.mp3" />
             <guid isPermaLink="false">81884459-5474-430a-a72f-c784b59219c9</guid>
-            <itunes:image
-                href="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" />
-            <itunes:subtitle>Homegrown Hits Episode 04 Live</itunes:subtitle>
+            <itunes:image href="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif" />
+            <itunes:subtitle>Homegrown Hits Episode 13 Live</itunes:subtitle>
             <itunes:summary>
-                <![CDATA[ <p>Homegrown Hits LIVE Episode 04</p> <p>September 21st 2023</p> <p>Get a modern app at podcastapps.com to listen live and support artists directly!</p> ]]>
+                <![CDATA[ <p>Homegrown Hits LIVE Episode 131</p> <p>December 12th 2023</p> <p>Get a modern app at podcastapps.com to listen live and support artists directly!</p> ]]>
             </itunes:summary>
             <link>https://homegrownhits.xyz</link>
-            <podcast:person href="https://bowlafterbowl.com"
-                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
                 DuhLaurien</podcast:person>
             <podcast:person href="" img="" group="cast" role="host">MaryKateUltra</podcast:person>
             <podcast:person group="cast" role="host">Daisy B. Cooper</podcast:person>
-            <podcast:images
-                srcset="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif 1080w" />
-            <podcast:chat server="irc.zeronode.net" protocol="irc" accountId="DuhLaurien"
-                space="#HomegrownHits"
-                embedUrl="https://kiwiirc.com/nextclient/irc.zeronode.net/?nick=Dude?#HomegrownHits" />
+            <podcast:images srcset="https://behindthesch3m3s.com/wp-content/uploads/2023/09/homegrown-hits-smoke-dance-pink.gif 1080w" />
+            <podcast:chat server="irc.zeronode.net" protocol="irc" accountId="DuhLaurien" space="#HomegrownHits" embedUrl="https://kiwiirc.com/nextclient/irc.zeronode.net/?nick=Dude?#HomegrownHits" />
             <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-                <podcast:valueRecipient name="DuhLaurien"
-                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                    type="node" split="30" />
-                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
-                <podcast:valueRecipient name="SirVoBlitz" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-                <podcast:valueRecipient name="cottongin" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-                <podcast:valueRecipient name="BoostBot" type="node"
-                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                    split="1" />
-                <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                    split="1" />
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
             </podcast:value>
         </podcast:liveItem>
         <item>
+            <title>Homegrown Hits - Episode 12</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-12.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-12.mp3" length="112945037" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-12.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-12.jpg" />
+            <guid isPermaLink="false">3ceffbc1-3b98-460d-81ca-a22770de3aba</guid>
+            <description>
+                <![CDATA[We’re all far apart once more, but the tunes keep us close at heart. DuhLaurien has got her own war station permanently set up—these ladies are outta the kitchen for good!
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/3074902b-b2dc-5877-bfc3-30f5df0fbe6a/aHR0cHM6Ly93d3cuZG9lcmZlbHZlcnNlLmNvbS90cmFja3MvbGV0LWdvLm1wMw'>Middle Season - Let Go (What's Holding You Back)</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/e745b541-8bc1-42b5-9d2d-5c3a67817d47/aHR0cHM6Ly93d3cuaG9nc3RvcnkubmV0L3VwbG9hZHMvNDQvY29sZF9mdXNpb25fcmVib3JuLm1wMw'>John Fletcher - Cold Fusion Reborn</a></p> 
+
+                <p><a href='https://lnbeats.com/album/2b62ef49-fcff-523c-b81a-0a7dde2b0609'>The Doerfels - Way In My Life</a></p>
+                
+                <p><a href='https://lnbeats.com/album/970cd229-dd92-5ba9-9356-00cd23c261f4/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMXBvaW50My9NaWR3ZXN0ZXJuX0FwYXRoeS8xcG9pbnQzJTIwLSUyMENvbGRlciUyMFRoYW4lMjBhJTIwRGVhZCUyMFN1biUyMCU1QjM5NzQxMzgzMSU1RC5tcDM'>1point3 - Colder Than a Dead Sun</a></p>
+                
+                <p><a href='https://lnbeats.com/album/c73b1a23-1c28-5edb-94c3-10d1745d0877/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wOC9UaGUtRGVhdGgtb2YtUm9jay1hbmQtUm9sbF9JLUxpa2UtYS1Mb3QubXAz'>The Death of Rock and Roll - I Like a Lot</a></p>
+                
+                <p><a href='https://lnbeats.com/album/69c634ad-afea-5826-ad9a-8e1f06d6470b/aHR0cHM6Ly93d3cuc2lydGp0aGV3cmF0aGZ1bC5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDgvS3VydGlzZHJ1bXMtVjFfQ2hyaXN0aWFuLVZhbHVlcy5tcDM'>Kurtisdrums - Christian Values</a></p>
+                
+                <p><a href='https://lnbeats.com/album/a8240fe1-0900-5931-98fe-07f60c7eb9c9/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvUGhpbF9Pd2Vucy9Ta2F0ZW5pZ3MvVW5pbnRlbmRlZCUyMENvbnNlcXVlbmNlcy9Ta2F0ZW5pZ3MlMjAtJTIwU2VlbWVkJTIwTGlrZSUyMGElMjBHb29kJTIwSWRlYSUyMChUd2Vha2VyJTIwUmVtaXgpJTIwJTVCNzAzNDQzMjIyJTVELm1wMw'>Skatenigs - Seemed Like A Good Idea (Tweaker Remix)</a></p>
+
+                <p><a href='https://lnbeats.com/album/279e168b-5bb7-5b22-8705-b8133ab8c866/aHR0cHM6Ly9mZWVkLmZhbHNlZmluaXNoLmNsdWIvVGVtcGxlcy9UZW1wbGVzJTIwLSUyMGxhZGVzL1RlbXBsZXMlMjAtJTIwbGFkZXMlMjAtJTIwMDUlMjBIYWxjeW9uLm1wMw'>Temples - Halcyon</a></p>
+
+                <p><a href='https://lnbeats.com/album/a5ad6f3f-a279-504c-bc6a-30054e6b50e1/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS9zdHJlYW0vMzE5NzkxMDk1LWpha2UtaGlkZXItOTM0Njg5OTcxLW15LXNvbmctMy5tNGE'>Jake Hider - Desperate Pleasure</a></p>
+
+               <p>SPECIAL THANKS TO OUR SPLENDID PRODUCERS:</p>
+                <p>HarvHat, Cottongin, ChadF, DotarTed, NetNed, Boolysteed, Tjunta, Piranesi & Tamarack</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 30 Nov 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="Steven Bell" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="eChoVKtO1KujpAA5HCoB" split="1"/>
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+        <podcast:valueTimeSplit
+   startTime="171.839"
+   remotePercentage="95"
+   duration="249.984"
+>
+  <podcast:remoteItem 
+    feedGuid="3074902b-b2dc-5877-bfc3-30f5df0fbe6a"
+    itemGuid="c59c7ffe-3847-4d55-ac27-5a1c1fbe6140"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="673.779"
+   remotePercentage="95"
+   duration="257.192"
+>
+  <podcast:remoteItem 
+    feedGuid="e745b541-8bc1-42b5-9d2d-5c3a67817d47"
+    itemGuid="d9f4fc8c-30f5-4406-8d93-5ebf2384905f"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="1045.301"
+   remotePercentage="95"
+   duration="192.05225"
+>
+  <podcast:remoteItem 
+    feedGuid="2b62ef49-fcff-523c-b81a-0a7dde2b0609"
+    itemGuid="27663b18-4c67-4d48-9f69-1641cdbc1de1"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="2049.65"
+   remotePercentage="95"
+   duration="181.106939"
+>
+  <podcast:remoteItem 
+    feedGuid="970cd229-dd92-5ba9-9356-00cd23c261f4"
+    itemGuid="c30db575-e570-4ed6-8d09-7a0723dc9c39"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="2476.299"
+   remotePercentage="95"
+   duration="204.896"
+>
+  <podcast:remoteItem 
+    feedGuid="c73b1a23-1c28-5edb-94c3-10d1745d0877"
+    itemGuid="882b5d1b-0646-42cb-861f-a65345d66e9a"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="2769.353"
+   remotePercentage="95"
+   duration="142.915875"
+>
+  <podcast:remoteItem 
+    feedGuid="69c634ad-afea-5826-ad9a-8e1f06d6470b"
+    itemGuid="d9967416-d0d3-4559-b111-98d47fb657e7"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="3003.241"
+   remotePercentage="95"
+   duration="270.315102"
+>
+  <podcast:remoteItem 
+    feedGuid="a8240fe1-0900-5931-98fe-07f60c7eb9c9"
+    itemGuid="ee090630-3d12-4632-9274-6650b7f79501"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="3590.934"
+   remotePercentage="95"
+   duration="329.038367"
+>
+  <podcast:remoteItem 
+    feedGuid="279e168b-5bb7-5b22-8705-b8133ab8c866"
+    itemGuid="59447bc2-916b-4fc2-aa34-338e113ae23c"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="4438.071"
+   remotePercentage="95"
+   duration="165.697596"
+>
+  <podcast:remoteItem 
+    feedGuid="a5ad6f3f-a279-504c-bc6a-30054e6b50e1"
+    itemGuid="tag:soundcloud,2010:tracks/319789777"
+  />
+</podcast:valueTimeSplit></podcast:value>
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 11</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-11.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-11.mp3" length="578071" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-11.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-11.jpg" />
+            <guid isPermaLink="false">57ce7a62-e49d-4552-9269-c5fa09f7c6ee</guid>
+            <description>
+                <![CDATA[We couldn’t let a Thursday slip by without playing some tunes for our hitters! Mary-Kate Ultra flew up to a cozy Pennsylvanian homestead and Daisy B. Cooper graciously shared her mic…in the flesh! Don’t worry, DuhLaurien astral projected into our bonfire smoke. Happy Thanksgiving y’all, we are so grateful for you.
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/680882f9-f371-5eeb-bd90-6767d528854f/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvUGFuemVlL1dlc3Rlcm4lMjB3YXlzLm1wMw'>Panzee - Western Ways</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/d46367eb-be3c-548a-9c27-fbf1dcf27f30/aHR0cHM6Ly9hYmxlYW5kdGhld29sZi5jb20vc3RhdGljL21lZGlhL211c2ljLzAxX01ha2luQmVhbnMubXAz'>Able and The Wolf - Makin' Beans</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/29397cc2-4bd3-583e-93b8-9f5aebc3d22b/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvU2lzdGElMjBGaXN0YS9QYXAlMjBTbWVhcnMlMjBBcmUlMjBGb3IlMjBQdXNzaWVzL1Npc3RhJTIwRmlzdGElMjAtJTIwTG92ZSUyMERydW5rJTIwJTVCNTA0NjUxODMyJTVELm1wMw'>Sista Fista - Love Drunk</a></p>
+                
+                <p><a href='https://lnbeats.com/album/962b4cdd-1d7e-521a-a6cf-9df4b88c870a/aHR0cHM6Ly9mZWVkLmZhbHNlZmluaXNoLmNsdWIvVGVtcGxlcy9UZW1wbGVzJTIwLSUyMENvc21vZHJvbWUvVGVtcGxlcyUyMC0lMjBDb3Ntb2Ryb21lJTIwLSUyMDAzJTIwRG93c2luZy5tcDM'>Dowsing - Temples</a></p>
+                
+                <p><a href='https://lnbeats.com/album/90412406-f04d-44a2-a33b-8c87e137c291/aHR0cHM6Ly93d3cuaG9nc3RvcnkubmV0L3VwbG9hZHMvcWlzaWxsL3Bvd2VyLm1wMw'>Qisill - Power</a></p>
+                
+                <p><a href='https://lnbeats.com/album/2b62ef49-fcff-523c-b81a-0a7dde2b0609/aHR0cHM6Ly93d3cuZG9lcmZlbHZlcnNlLmNvbS90cmFja3MvYmxvb2RzaG90LWxpZXMtYWNvdXN0aWMubXAz'>Bloodshot Lies (Acoustic) - The Doerfels</a></p>
+
+                <p><a href='https://lnbeats.com/album/3db6aa74-e382-588c-b4ac-8a237f941515/aHR0cHM6Ly93d3cuZmFsc2VmaW5pc2guY2x1Yi93cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wNS8wNS4tV2hhdC1UaGV5LVNheS1YWFhfMjRCaXRfQXJpYV9NYXN0ZXJfTVRDLm1wMw'>False Finish - What They Say</a></p>
+
+                <p><a href='https://lnbeats.com/album/3c87f137-9507-5bc6-858f-825eeb3988cd/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvVGhlX0Nvb3Blcl9GcmllbmRseV9GZWVsX0dvb2RfR3JvdXAvT25fTXlfV2F5L3RoZS1jb29wZXItZnJpZW5kbHktZmVlbC1nb29kLWdyb3VwX3Jvc2V0dGUtdGhlLXRoYW5rc2dpdmluZy10dXJrZXkubXAz'>The Cooper Friendly Feel Good Group - Rosette (The Thanksgiving Turkey)</a></p>
+
+                <p><a href='https://lnbeats.com/album/92bb13ad-3ba7-5537-bf9a-893e311f4dbd/aHR0cHM6Ly90cmFmZmljLmxpYnN5bi5jb20vZm9yY2Vkbi9kYjgzMWZlNC04ZDg1LTQ5NDItYmJmYy01NjFkODBiYTFhNTMvNC5fZXZlcnlkYXlfZXhwbG9zaW9uc19yZW1hc3QubXAz'>The Everyday - Everyday Explosions</a></p>
+
+               <p>THANKFUL FOR OUR GRACIOUS PRODUCERS:</p>
+                <p>Boo-Bury, NetNed, HeyCitizen, Harvhat, ChadF, DotardTed, Cottongin, TheBearSnare.com, SirSeatSitter, Boolysteed, Tjunta & Piranesi</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 23 Nov 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+        <podcast:valueTimeSplit
+                startTime="183.714"
+                remotePercentage="95"
+                duration="175.088"
+             >
+               <podcast:remoteItem 
+                 feedGuid="680882f9-f371-5eeb-bd90-6767d528854f"
+                 itemGuid="8fb11ed6-9f55-4ac5-a8d1-2438a997c4d6"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="417.488"
+                remotePercentage="95"
+                duration="187.376327"
+             >
+               <podcast:remoteItem 
+                 feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30"
+                 itemGuid="c7003607-233e-40e8-b2fa-6465127d0076"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="1083.462"
+                remotePercentage="95"
+                duration="160.600816"
+             >
+               <podcast:remoteItem 
+                 feedGuid="29397cc2-4bd3-583e-93b8-9f5aebc3d22b"
+                 itemGuid="caf7ae96-4be2-4204-8487-a56523f9405e"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="1317.281"
+                remotePercentage="95"
+                duration="276.297143"
+             >
+               <podcast:remoteItem 
+                 feedGuid="962b4cdd-1d7e-521a-a6cf-9df4b88c870a"
+                 itemGuid="c0213487-5f21-4d53-a4a4-d08f31c90c2e"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="2150.801"
+                remotePercentage="95"
+                duration="243.872"
+             >
+               <podcast:remoteItem 
+                 feedGuid="90412406-f04d-44a2-a33b-8c87e137c291"
+                 itemGuid="f050666a-3575-497c-9d4e-034a0a40c591"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="2535.779"
+                remotePercentage="95"
+                duration="232.2"
+             >
+               <podcast:remoteItem 
+                 feedGuid="2b62ef49-fcff-523c-b81a-0a7dde2b0609"
+                 itemGuid="9de8e45c-f543-4f6d-8e63-2482c22c9f66"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="3099.857"
+                remotePercentage="95"
+                duration="237.66205"
+             >
+               <podcast:remoteItem 
+                 feedGuid="3db6aa74-e382-588c-b4ac-8a237f941515"
+                 itemGuid="36d3103e-e0e2-4cf9-ad27-074fc2079946"
+               />
+             </podcast:valueTimeSplit>
+             <podcast:valueTimeSplit
+                startTime="4183.053"
+                remotePercentage="95"
+                duration="261"
+             >
+               <podcast:remoteItem 
+                 feedGuid="92bb13ad-3ba7-5537-bf9a-893e311f4dbd"
+               />
+             </podcast:valueTimeSplit> 
+            </podcast:value>
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 10</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-10.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-10.mp3" length="125589285" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-10.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-10.jpg" />
+            <guid isPermaLink="false">95bc5a25-a353-427a-a841-6a454b437334</guid>
+            <description>
+                <![CDATA[WE HAD A JAM-PACKED EPISODE TONIGHT FOR OUR FIRST EPISODE IN THE DOUBLE DIGITS!!!!!!!!!!
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/29397cc2-4bd3-583e-93b8-9f5aebc3d22b/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvU2lzdGElMjBGaXN0YS9QYXAlMjBTbWVhcnMlMjBBcmUlMjBGb3IlMjBQdXNzaWVzL1Npc3RhJTIwRmlzdGElMjAtJTIwR29vZCUyMEdpcmxzJTIwJTVCNTUzNTEwODk2JTVELm1wMw'>Sista Fista - Good Girls</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/1e7ed1fa-0456-5860-9b34-825d1335d8f8/aHR0cHM6Ly93d3cuc2lydGp0aGV3cmF0aGZ1bC5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDgvTm9zdGFsZ2ljX05PU1RBTEdJQy5tcDM'>CityBeach - NOSTALGIC</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/659f95a4-1291-5e03-ab86-2deac518f652/aHR0cHM6Ly93d3cuaG9nc3RvcnkubmV0L3VwbG9hZHMvZGlhcGVyX2luX3RoZV9yb2FkLm1wMw'>Fletcher and Blaney - Diaper in the Road</a></p>
+                
+                <p><a href='https://lnbeats.com/album/d577b6cd-8c41-548b-abba-60e1502a94df/aHR0cHM6Ly9wb2Rkb3dubG9hZC5qdXN0Y2FzdC5jb20vanVzdGNhc3QvanMtcHJvZHVjdGlvbi91c2VyY29udGVudC80NDcyMS0xMjQ2NTE1L2ZpbGVzLzE2NDcwMTQ5OTEyODEtQ291bnRyeUJhZG1pbnRvbi5tcDM'>Robert Willey - Country Badminton</a></p>
+                
+                <p><a href='https://lnbeats.com/album/a07dc3e7-5afb-5721-9f9c-f6d6f5781d2f/aHR0cHM6Ly90cmFmZmljLmxpYnN5bi5jb20vZm9yY2Vkbi9kYjgzMWZlNC04ZDg1LTQ5NDItYmJmYy01NjFkODBiYTFhNTMvM19TdW5zaGluZV9Gb3JldmVyX0xlYXZlc18xMl8xNF8xOS5tcDM'>Ariel Powell - Sunshine Forever</a></p>
+                
+                <p><a href='https://lnbeats.com/album/03f39d9f-1b25-5b35-bc6c-779e2155f106/aHR0cHM6Ly9jZG4ua29sb21vbmEuY29tL3BvZGNhc3RzL2xpZ2h0bmluZy10aHJhc2hlcy9rb2xvbW9uYS9zY3Jld2luZy1hcm91bmQvU2hhZG93LVJhbnRpbmdzLUtvbG9tb25hU2hvdy1zMDFlMDMubXAz'>Kolomona Myer - Shadow Rantings</a></p>
+
+                <p><a href='https://lnbeats.com/album/25916787-3a83-5fde-a68a-9dcf4ffaba5f/aHR0cDovL3JvY2tucm9sbGJyZWFraGVhcnQuY29tL21zcC9STlJCSC90cmFjayUyMDIvUm9ja25Sb2xsJTIwRGVtb24ubXAz'>Rock'n'Roll Breakheart - Rock'n'Roll Demon</a></p>
+
+                <p><a href='https://lnbeats.com/album/db3d5116-4b47-56e4-acd3-ec56109c7f0e/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvRW1wYXRoJTIwRXllcy9FdGhlcmFsL0VtcGF0aCUyMEV5ZXMlMjAtJTIwUGFuYWNlYSUyMCU1QjMyMTQxMjc3ODAlNUQubXAz'>Empath Eyes - Panacea</a></p>
+
+                <p><a href='https://lnbeats.com/album/bac17f09-ef21-5218-811b-8e61775c9d67/aHR0cHM6Ly93d3cuc2lydGp0aGV3cmF0aGZ1bC5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDgvUm9ja3N0YXJfUm9ja3N0YXIubXAz'>Sir Brian with an I - Rockstar</a></p>
+
+                <p><a href='https://lnbeats.com/album/378ffb10-c09a-5fe2-a95b-65aa8279e91b'>The Tjukebox - NOW! That's What I Call Value!</a></p>
+
+                <p><a href='https://lnbeats.com/album/75d02f1d-604c-5d31-a9e6-5a3da0ae591e'>OC Rippers - Cheap Date</a></a></p>
+
+               <p>SPECIAL THANKS TO OUR 10/10 PRODUCERS:</p>
+                <p>Boo-Bury, ChadF, DotardTed, SircussMedia, Fletcher, SirTruckDriver, Tjunta, Piranesi, Boolysteed, NetNed, Sir TJ the Wrathful, harvhat, cottongin, HeyCitizen, and Mike Neumann</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 16 Nov 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit
+   startTime="48.966"
+   remotePercentage="95"
+   duration="167.57551"
+>
+  <podcast:remoteItem 
+    feedGuid="29397cc2-4bd3-583e-93b8-9f5aebc3d22b"
+    itemGuid="dc557dfe-11d0-4a46-aa73-d75a08676f2b"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="394.078"
+   remotePercentage="95"
+   duration="259.18695"
+>
+  <podcast:remoteItem 
+    feedGuid="1e7ed1fa-0456-5860-9b34-825d1335d8f8"
+    itemGuid="76ae1822-d630-4af4-b2b3-253bf8033459"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="1147.947"
+   remotePercentage="95"
+   duration="75.120125"
+>
+  <podcast:remoteItem 
+    feedGuid="659f95a4-1291-5e03-ab86-2deac518f652"
+    itemGuid="f01f1701-c54a-47c9-86f5-04002acc4130"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="1491.845"
+   remotePercentage="95"
+   duration="207.8825"
+>
+  <podcast:remoteItem 
+    feedGuid="d577b6cd-8c41-548b-abba-60e1502a94df"
+    itemGuid="https://justcast.com/shows/44721/audioposts/1246515"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="1825.67"
+   remotePercentage="95"
+   duration="190"
+>
+  <podcast:remoteItem 
+    feedGuid="a07dc3e7-5afb-5721-9f9c-f6d6f5781d2f"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="2271.85"
+   remotePercentage="95"
+   duration="308.218776"
+>
+  <podcast:remoteItem 
+    feedGuid="03f39d9f-1b25-5b35-bc6c-779e2155f106"
+    itemGuid="dbdc2432-6840-4ee4-a6db-da5e63e98e0b"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="2763.165"
+   remotePercentage="95"
+   duration="92.133875"
+>
+  <podcast:remoteItem 
+    feedGuid="25916787-3a83-5fde-a68a-9dcf4ffaba5f"
+    itemGuid="dd067a4c-43fe-4e8a-b945-b1053e38fd6d"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="3180.361"
+   remotePercentage="95"
+   duration="190.275918"
+>
+  <podcast:remoteItem 
+    feedGuid="db3d5116-4b47-56e4-acd3-ec56109c7f0e"
+    itemGuid="8bc31b39-1495-4d7f-bb33-f9a3f33db39f"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="3574.845"
+   remotePercentage="95"
+   duration="199.94125"
+>
+  <podcast:remoteItem 
+    feedGuid="bac17f09-ef21-5218-811b-8e61775c9d67"
+    itemGuid="33a56f6c-f8f5-460a-a09b-6449343c22a8"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="4662.397"
+   remotePercentage="95"
+   duration="118.02125"
+>
+  <podcast:remoteItem 
+    feedGuid="378ffb10-c09a-5fe2-a95b-65aa8279e91b"
+    itemGuid="d79e1cb8-3f22-436c-a56a-2edadf9cfaa7"
+  />
+</podcast:valueTimeSplit>
+<podcast:valueTimeSplit
+   startTime="5150.278"
+   remotePercentage="95"
+   duration="82.571791"
+>
+  <podcast:remoteItem 
+    feedGuid="75d02f1d-604c-5d31-a9e6-5a3da0ae591e"
+    itemGuid="3444610c-d5c1-4763-8ab3-971d880dedb7"
+  />
+</podcast:valueTimeSplit>
+            </podcast:value>
+          
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 09</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-09.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-09.mp3" length="119570796" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-09.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-09.jpg" />
+            <guid isPermaLink="false">78579c3e-dd82-49cd-891d-dbb244676f44</guid>
+            <description>
+                <![CDATA[Our last episode in the single digits! The first one up tonight was a last minute pick! DuhLaurien caught it in the wild #HomegrownHits chat.
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/a2d2e313-9cbd-5169-b89c-ab07b33ecc33/aHR0cHM6Ly9maWxlcy5oZXljaXRpemVuLnh5ei9Tb25ncy9BbGJ1bXMvVGhlLUhleWNpdGl6ZW4tRXhwZXJpZW5jZS9UaGVQbGF0Zm9ybS5tcDM?'>Hey Citizen - The Platform</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/d972eddd-cef6-5e84-b802-84ebc0f454b5/aHR0cHM6Ly9kdG5tdXNpYzF3LnNmbzMuY2RuLmRpZ2l0YWxvY2VhbnNwYWNlcy5jb20vTXVzaWNBbGJ1bS9yZWVscmljaGFyZC9FbGVtZW50WmVyby8xMFNhdHNDb21tYW5kbWVudHMubXAz?'>Reel Richard - 10 Sats Commandments</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/86f9ba78-7c4a-5bd2-a382-c6a88e9a96a0/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvSm9obnNvbiUyMENpdHkvRWFybHklMjBEZW1vcyUyMEkvSm9obnNvbiUyMENpdHklMjAtJTIwQWxsJTIwdGhlJTIwU21hcnQlMjBQZW9wbGUlMjAlNUIxODQ0MTI3ODcwJTVELm1wMw?'>Johnson CIty - Early Demos I</a></p>
+                
+                <p><a href='https://lnbeats.com/album/6181593c-412e-5f71-8f17-de49f58aee14/aHR0cHM6Ly93d3cubGV1ZW5iZXJnbXVzaWMuY29tL3BvZGNhc3QvaGVyZS1mb3IteW91LzAxX0hlcmVfRm9yX1lvdS5tcDM?'>Christian Leuenberg - Here For You</a></p>
+                
+                <p><a href='https://lnbeats.com/album/826666ad-c321-5431-987f-5921d90d1b2f/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvU2lyJTIwU2VhdCUyMFNpdHRlci9NaXN0ZXIlMjBSb2FuZSUyMENvdW50eS9DaGFybGllJTIwQnJvd24ubXAz?'>The Roco Boise - Charlie Brown</a></p>
+                
+                <p><a href='https://lnbeats.com/album/7c94197d-0189-55c9-abb0-6dd0b45caeea/aHR0cDovL2JvYmNhdGluZGV4LnVzLXNvdXRoZWFzdC0xLmxpbm9kZW9iamVjdHMuY29tLzAxX1N1bnNoaW5lLm1wMw?'>You Were My Sunshine - Able Kirby></a></p>
+
+                <p><a href='https://lnbeats.com/album/f21daf71-4c7b-5fe1-82c6-3a1c2a48c764/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvRnVja3Rvd25fUG93ZXJfQm95c19Ob19Oby9Db2tlX0RpY2tfVGl0dGllc19TYXJjYXNtL0Z1Y2t0b3duJTIwUG93ZXIlMjBCb3lzJTIwJTI2JTIwTm8lMjBObyUyMC0lMjBFdmVyeW9uZSUyMFBlZyUyMFlvdXIlMjBKZWFucyUyMCU1QjM3NDEwNDMxNDAlNUQubXAz?'>Fucktown Power Boys & No No - Peg Your Jeans</a></p>
+
+                <p>CHECK OUT THESE LINKS:</p>
+                
+                <p><a href='https://konsensus.network/bundles/the-knut-experience'>Inspiration for 10 Sats Commandments comes from Knut Svanholm's book Bitcoin: Everything Divided by 21 Million</a></p>
+
+                <p><a href='https://bowlafterbowl.com/episode-280'>Bowl After Bowl Episode 280: Mary-Kate Ultra and MakeHeroism Bowls With Buds</a></p>
+            
+               <p><a href='http://homegrownhits.xyz/'>Find the song request form, DeMu catalog and MORE on the Homegrown Hits website</p></a>
+
+               <p><a href='http://kosmi.gg/@hyperspaceout'>Play Games SUNDAY @7PM</a></p>
+
+               <p>RANDOM QUESTION OF THE WEEK: Do you think playlist algorithms are designed to make people feel worse?</p>
+
+            <p><a href='https://link.sbstck.com/redirect/e2372dc7-1f9e-4415-a17c-118bf06630f5?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>Spotify making algorithm that know when you're sad or mad</a></p>
+
+               <p>SPECIAL THANKS TO OUR MARVELOUS PRODUCERS:</p>
+                <p>Fletcher (Special Birthday Boy), Boolysteed, Harvhat, DotardTed, Ostein Berge, Lavish, Dirty_Jersey_Whore, John Siebert, ChadF, Medus, SirTruckDriver, Sir TJ the Wrathful, Tjunta, NetNed, HeyCitizen, cottongin, Lavish</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 09 Nov 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="141.376" remotePercentage="95" duration="294.864">
+                    <podcast:remoteItem feedGuid="a2d2e313-9cbd-5169-b89c-ab07b33ecc33" itemGuid="d2346732-acc5-4256-afe5-0a0f3e670e6b" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="968.466" remotePercentage="95" duration="121.4203">
+                    <podcast:remoteItem feedGuid="d972eddd-cef6-5e84-b802-84ebc0f454b5" itemGuid="99c7a4f1-cb30-4601-a0d0-07f29de75977" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1603.196" remotePercentage="95" duration="204.016327">
+                    <podcast:remoteItem feedGuid="86f9ba78-7c4a-5bd2-a382-c6a88e9a96a0" itemGuid="16e84f15-af1f-474f-9af1-19ba0fc6a589" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2068.73" remotePercentage="95" duration="296.0432">
+                    <podcast:remoteItem feedGuid="6181593c-412e-5f71-8f17-de49f58aee14" itemGuid="01hereforyou" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2742.908" remotePercentage="95" duration="127.503673">
+                    <podcast:remoteItem feedGuid="826666ad-c321-5431-987f-5921d90d1b2f" itemGuid="e3dba488-48bd-46c8-847d-b33419b9ab56" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3101.298" remotePercentage="95" duration="296.594286">
+                    <podcast:remoteItem feedGuid="7c94197d-0189-55c9-abb0-6dd0b45caeea" itemGuid="http://bobcatindex.us-southeast-1.linodeobjects.com/01_Sunshine.mp3" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="4735.136" remotePercentage="95" duration="251.846531">
+                    <podcast:remoteItem feedGuid="f21daf71-4c7b-5fe1-82c6-3a1c2a48c764" itemGuid="bec0407e-930c-4f4d-8262-40a986488706" />
+                </podcast:valueTimeSplit>
+            </podcast:value>
+          
+        </item>
+
+        <item>
+            <title>Homegrown Hits - Episode 08</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-08.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-08.mp3" length="104494841" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-08.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-08.jpg" />
+            <guid isPermaLink="false">483bd760-ba3e-48e8-98ee-31c854808639</guid>
+            <description>
+                <![CDATA[Last week, we had two live boosters singing praises of The HeyCitizen Experience! So we brought “Milves In Teslas” so we are bringing a bonus track! This week, we shake our heads at the SHOCKING <insert sarcasm> Spotify news. Also…Cats, shrooms, in outer space? Homegrown Hits merch? Maybe!
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/b27c1f56-dff1-5fdd-bdee-a00e50c4c3f1/aHR0cHM6Ly9waGFudG9tcG93ZXJtdXNpY2ZlZWRzLm55YzMuZGlnaXRhbG9jZWFuc3BhY2VzLmNvbS9sb2NhbF96ZXJvLzA3JTIwQ2F0YWNvbWIsJTIwJUMyJUE5JTIwMjAwMiwlMjAlMjBBbmdlbCUyMEZlYXRoZXJzLm1wMw'>Local Zero – Catacomb</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/9b5fd385-f87d-5173-a641-5cdc3982d92e/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvTWlrZV9FcHRpbmcvMzIlMjBUcmFjayUyMFN1cGVyJTIwSmFtL01pa2UlMjBFcHRpbmclMjAtJTIwU2l0dGluZyUyMGF0JTIwdGhlJTIwQ291bnRlci5tcDM'>Mike Epting - Sitting At The Counter</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/6df28ecd-8029-59a3-a771-48f37f71e19a/aHR0cHM6Ly90cmFmZmljLmxpYnN5bi5jb20vZm9yY2Vkbi9kYjgzMWZlNC04ZDg1LTQ5NDItYmJmYy01NjFkODBiYTFhNTMvMDRfLV9Td2FuLm1wMw'>Noisediver - Swan</a></p>
+                
+                <p><a href='https://lnbeats.com/album/b8b6971e-403e-568f-a4e6-7aa2b45e50d4/aHR0cHM6Ly93d3cuZG9lcmZlbHZlcnNlLmNvbS90cmFja3MvYmxvb2RzaG90LWxpZXMubXAz'>The Doerfels - Bloodshot Lies</a></p>
+                
+                <p><a href='https://lnbeats.com/album/726cfda1-f992-5468-8a0b-b0b9f83dee3c/aHR0cHM6Ly90aGVzeW50aGVzYXRzZXJzLm55YzMuY2RuLmRpZ2l0YWxvY2VhbnNwYWNlcy5jb20vUmh5dGhtaWNCb296ZS8wMyUyMC0lMjBCYWJ5JTIwQmVkJTIwQnVncy5tcDM'>The Synthesatsers - Baby Bed Bugs</a></p>
+                
+                <p><a href='https://lnbeats.com/album/e0956f26-8f56-5166-8892-4ce4635862e3/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wNy9NaW51cy00X1N1bnNldC5tcDM'>Minus-4 - Sunset</a></p>
+
+                <p><a href='https://lnbeats.com/album/a2d2e313-9cbd-5169-b89c-ab07b33ecc33/aHR0cHM6Ly9maWxlcy5oZXljaXRpemVuLnh5ei9Tb25ncy9BbGJ1bXMvVGhlLUhleWNpdGl6ZW4tRXhwZXJpZW5jZS9NaWx2ZXNJblRlc2xhcy5tcDM'>HeyCitizen - Milves in Teslas</a></p>
+                
+                <p><a href='https://www.msn.com/en-us/music/news/spotify-plans-to-pay-less-popular-artists-less-money-for-streams/ar-AA1iUMaF#:~:text=Spotify%20is%20planning%20to%20pay,the%20first%20quarter%20in%202024'>Spotify Plants to Pay Less-Popular Artists Less Money for Streams</a></p>
+
+                <p><a href='https://stream.bowlafterbowl.com/public/bowlafterbowl'>Mary-Kate Ultra and MakeHeroism will be on Bowls With Buds SATURDAY 11/04 at 8:00 PM Central</a></p>
+            
+               <p><a href='http://homegrownhits.xyz/'>Homegrown Hits Website (THANK YOU MakeHeroism)</p></a>
+               <p><a href='http://kosmi.gg/@hyperspaceout'>Games SUNDAY @7PM</a></p>
+
+               <p><a href='https://homegrownhits.xyz/'>Request a song!</a></p>
+
+               <p>SPECIAL THANKS TO OUR SPOOKY PRODUCERS:</p>
+                <p>Boolysteed, HarvHat, Sir Truck Driver, DotardTed, Bearsnarerecords, Piranesi, Tjunta, HarvHat, DirtyJerseyWhore, NetNed,  HeyCitizen</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 02 Nov 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="384.417" remotePercentage="95" duration="212.297167">
+                    <podcast:remoteItem feedGuid="b27c1f56-dff1-5fdd-bdee-a00e50c4c3f1" itemGuid="78a357ce-8d57-4635-a66e-1363ed789896" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="950.27" remotePercentage="95" duration="368.504">
+                    <podcast:remoteItem feedGuid="9b5fd385-f87d-5173-a641-5cdc3982d92e" itemGuid="97ccdaf7-9f63-4711-a446-b4026f12ffbc" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2015.414" remotePercentage="95" duration="243.01475">
+                    <podcast:remoteItem feedGuid="6df28ecd-8029-59a3-a771-48f37f71e19a" itemGuid="3f585f82-b6a3-41ba-ae32-fb1acd2afe03" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2654.224" remotePercentage="95" duration="216.058792">
+                    <podcast:remoteItem feedGuid="b8b6971e-403e-568f-a4e6-7aa2b45e50d4" itemGuid="72a3b402-8491-4cd9-823e-a621fd81b86f" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3091.553" remotePercentage="95" duration="178.416327">
+                    <podcast:remoteItem feedGuid="726cfda1-f992-5468-8a0b-b0b9f83dee3c" itemGuid="9b0e44c7-bbb2-4eb9-a6ef-08afceb9b1ca" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3772.414" remotePercentage="95" duration="313.051429">
+                    <podcast:remoteItem feedGuid="e0956f26-8f56-5166-8892-4ce4635862e3" itemGuid="bb11e3bb-0b85-4319-be75-d91c12e34816" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="4082.809" remotePercentage="95" duration="279.312">
+                    <podcast:remoteItem feedGuid="a2d2e313-9cbd-5169-b89c-ab07b33ecc33" itemGuid="44c77db1-0ce2-4e2b-8cae-4b93d8585e50" />
+                </podcast:valueTimeSplit>
+            </podcast:value>
+        </item>
+
+        <item>
+            <title>Homegrown Hits - Episode 07</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-07.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-07.mp3" length="105819178" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-07.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-07.jpg" />
+            <guid isPermaLink="false">cdea9680-7a51-407c-91a6-a6e4a4256a23</guid>
+            <description>
+                <![CDATA[It’s our Halloween episode! Some tracks are SCARY (omg screamo vox??), and some just give us that light autumnal feeling. We received many horror-tastic voicemails, chatted about this time o’ year and imagined some costumes.
+                
+                <p>TRACKS:</p>
+                
+                <p><a href='https://lnbeats.com/album/df430c13-2dae-5aef-8b0d-728148bd3587/aHR0cHM6Ly90cmFmZmljLmxpYnN5bi5jb20vZm9yY2Vkbi9kYjgzMWZlNC04ZDg1LTQ5NDItYmJmYy01NjFkODBiYTFhNTMvWW91cmVfT0tfU0tZX0dSSURfXzVfOF8yMy5tcDM'>Ariel Powell – It's You're Ok</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/163a7548-9f53-5314-8fd5-8382e7c13805/aHR0cHM6Ly9mZWVkLmZhbHNlZmluaXNoLmNsdWIvS1JZQS9EYW5jZSUyMEZvcmV2ZXIlMjBOb3cvS1JZQSUyMC0lMjBEYW5jZSUyMEZvcmV2ZXIlMjBOb3clMjAtJTIwMDElMjBXb3VsZG4ndCUyMFlvdS0ubXAz'>KRYA – Wouldn't You (Dance Forever Now)</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/9c4017a3-5a53-5b3d-b2bd-783fbf2afae9/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvSm9obnNvbiUyMENpdHkvSGltYWxheWEvRWFybCUyMEphY2tzb24lMjBhbmQlMjBBbmR5JTIwQXJ0aHVyJTIwLSUyMEJhYnklMkMlMjBub3QlMjBzbyUyMHJvdWdoLm1wMw'>Johnson City – Baby. Not So Rough!</a></p>
+                
+                <p><a href='https://lnbeats.com/album/d46367eb-be3c-548a-9c27-fbf1dcf27f30/aHR0cHM6Ly9hYmxlYW5kdGhld29sZi5jb20vc3RhdGljL21lZGlhL211c2ljLzAyX1dpbGxvd0Jyb3duLm1wMw'>Able and The Wolf – Willow Brown (ft. Scream Mails)</a></p>
+                
+                <p><a href='https://lnbeats.com/album/e0b445a5-b6e5-5eae-9110-02535157ccad/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvRGlyZV9EZXNjZW50L2Rldm91cmVkLm1wMw'>Dire Descent - Devoured</a></p>
+                
+                <p><a href='https://lnbeats.com/album/483dde8e-7e94-59a7-8eb0-2b0dc64a87bd/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMy8wOC9Tb21lYm9keV9TaXgtRmVldC1Eb3duLm1wMw'>Rusty Gate – Six Feet Under</a></p>
+                
+                <p>CHECK OUT THESE LINKS, BROS:</p>
+               <p><a href='http://homegrownhits.xyz/'>Homegrown Hits Website (THANK YOU MakeHeroism)</p></a>
+               <p><a href='http://kosmi.gg/@hyperspaceout'>Games SUNDAY @7PM</a></p>
+
+               <p>SPECIAL THANKS TO OUR SPOOKY PRODUCERS:</p>
+                <p>Wiirdo, Fletcher, boolysteed, Tjunta, ChadF, SirTruckDriver, harvhat, boo-bury, HeyCitizen, NAMillennial, netned, CSB</p>
+               ]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 26 Oct 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="329" remotePercentage="95" duration="245.072">
+                    <podcast:remoteItem feedGuid="df430c13-2dae-5aef-8b0d-728148bd3587" itemGuid="081e64e3-2d6d-42e5-aedf-228b22accaad" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="945" remotePercentage="95" duration="349.33551">
+                    <podcast:remoteItem feedGuid="163a7548-9f53-5314-8fd5-8382e7c13805" itemGuid="06978af0-a524-4383-b36e-2c5d68f40349" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1680" remotePercentage="95" duration="170.065063">
+                    <podcast:remoteItem feedGuid="9c4017a3-5a53-5b3d-b2bd-783fbf2afae9" itemGuid="6d9149cb-e7c0-463d-910d-dc7345a79aeb" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2405" remotePercentage="95" duration="210.546939">
+                    <podcast:remoteItem feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30" itemGuid="510f7879-071f-468b-91e1-d9766831bd9d" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2979" remotePercentage="95" duration="219.096875">
+                    <podcast:remoteItem feedGuid="e0b445a5-b6e5-5eae-9110-02535157ccad" itemGuid="5d087790-6b8b-4d06-bbd1-fbcc5599f619" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="4016" remotePercentage="95" duration="400.222056">
+                    <podcast:remoteItem feedGuid="483dde8e-7e94-59a7-8eb0-2b0dc64a87bd" itemGuid="98c0be12-c49e-4536-9eef-d3d5300d3fe3" />
+                </podcast:valueTimeSplit>
+            </podcast:value>
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 06</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-06.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-06.mp3" length="89578283" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-06.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-06.jpg" />
+            <guid isPermaLink="false">06d439e4-8ec0-403d-a7f1-4a9b2905a5a5</guid>
+            <description>
+                <![CDATA[We’re feeling fall festive this week! DuhLaurien armed with her brand new Rodecaster to guide us through the harvest season and beyond.
+                
+                <p>We’re more grateful than ever to have real people hosting their own music, especially given the given the recent news about Bandcamp. In case you need another reason to self-host, here ya go, sluggers:</p>
+
+                <p><a href="https://link.sbstck.com/redirect/e0cbbbf6-d238-464d-8cc4-bc9f16f64b87?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg">Bandcamp, Oakland-based music industry darling, gutted by 50% layoff</a></p>
+                
+                <p>“Bandcamp was purchased by Epic Games — maker of Fortnite and Gears of War — in early 2022. In September 2023, Epic announced its plan to sell Bandcamp to Songtradr, a Santa Monica company that specializes in music licenses.”</p>
+
+                    <p>Songtradr (Songtraitor?) has been around since 2014. In 2019, it became the largest music licensing platform in the world.</p>
+                    
+                    <p>Naturally, laying off half of Bandcamp’s workforce has artists worried about the horrific changes to come with the platform. Peruse the interweb, and you’ll see many worried musicians afraid of what is to come.</p>
+                    
+                    <p>In light of the news that we’d like to share this term with you all: Enshittification - A seemingly inevitable consequence arising from the combination of the ease of changing how a platform allocates value, combined with the nature of a “two sided market,” where a platform sits between buyers and sellers, holding each hostage to the other, taking off an ever-larger share of the value that passes between them.”</p>
+
+                    <p>MORE BREAKING NEWS—</p>
+
+<p>That groovy hit “This will need to be deleted later” has been deleted. I’m sorry Dave…we’re gonna need this single.</p>
+
+                <p>SPECIAL THANKS TO OUR SUPPORTIVE PRODUCERS:</p>
+                <p>Lavish, Tjunta, harvhat, Boolysteed, Wiirdo, HeyCitizen, Phifer & for anyone we missed - we'll get back next time, loves!</p>
+                
+                <p>TRACK LIST:</p>
+                
+                <p><a href='https://link.sbstck.com/redirect/423dcab7-5b03-477f-a19f-15ed24116d30?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>Dane Ray Coleman – It's Not Fair That You Exist</a></p> 
+                
+                <p><a href='https://link.sbstck.com/redirect/8b883f7b-569d-47ca-b355-0599b591c815?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>HeyCitizen – MoeFactz</a></p> 
+                
+                <p><a href='https://link.sbstck.com/redirect/c07ad6f0-b0e4-400b-9146-b695a25fb251?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>Croatoan – Voluntary</a></p>
+                
+                <p><a href='https://link.sbstck.com/redirect/8d31e22c-2dd5-4f37-95ae-18559af78743?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>Mayday Mayday – Higher (ft. Sir Brian With an I)</a></p>
+                
+                <p><a href='https://link.sbstck.com/redirect/175681cd-5276-426f-a947-4445e45d63cb?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>The Death of Rock and Roll - Long Hard Nightstick</a></p>
+                
+                <p><a href='https://link.sbstck.com/redirect/99effccf-a864-4222-84a1-3f7543c42c6b?j=eyJ1IjoiOXoxZmgifQ.ZNcDmwDsV3dRFo-yEX8GUh72dfmqxMornATm42qrVPg'>False Finish – Wake Up (Good Morning!)</a></p>]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 19 Oct 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="292.0253000000119" remotePercentage="95" duration="259.57875">
+                    <podcast:remoteItem feedGuid="3d92b2f6-4aac-5f24-bffe-2536eb579286" itemGuid="54455e07-6319-427f-b549-8b038f909e38" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="830.1751999999881" remotePercentage="95" duration="297.624">
+                    <podcast:remoteItem feedGuid="a2d2e313-9cbd-5169-b89c-ab07b33ecc33" itemGuid="d489101a-4e62-492f-812e-9fe51def9423" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1354.625699999988" remotePercentage="95" duration="119.216">
+                    <podcast:remoteItem feedGuid="95be9fe7-30ac-40aa-a86c-bded32942a91" itemGuid="b5fb945d-bf94-4828-b75a-0903586b5887" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1895.4756999999881" remotePercentage="95" duration="183.536333">
+                    <podcast:remoteItem feedGuid="b12040fe-8aa9-575a-b952-205977d237d7" itemGuid="c1c02ad4-0372-4247-8cde-c7ad7d388237" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2608.0255" remotePercentage="95" duration="186.2">
+                    <podcast:remoteItem feedGuid="c73b1a23-1c28-5edb-94c3-10d1745d0877" itemGuid="0f27f38c-a795-44e4-8ae0-43cb819fbfaf" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3515.026599999964" remotePercentage="95" duration="233.560825">
+                    <podcast:remoteItem feedGuid="3db6aa74-e382-588c-b4ac-8a237f941515" itemGuid="731e0ffe-e07d-4426-aae5-0cce8dcf6b03" />
+                </podcast:valueTimeSplit>
+            </podcast:value>
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 05</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-05.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-05.mp3" length="53489949" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-05.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-05.jpg" />
+            <guid isPermaLink="false">3c2eaea2-1464-4ac3-a608-d36d26517131</guid>
+            <description>
+                <![CDATA[A very special episode indeed as today DuhLaurien celebrates another beautiful day of birth on tonight’s episode of Homegrown Hits! Boosters sent in some heartwarming birthday boosts! Daisy Boo Cooper even surprised us at the end!
+                
+                <p>SPECIAL THANKS TO OUR GLORIOUS PRODUCERS:</p>
+                <p>Dirty_Jersey_Whore (Make Good <3), Anonymous (we luv ur mystique), ChadF, harvhat, NetNed, Boolysteed, NAM, Boo-bury, Medus, Sir TJ The Wrathful</p>
+                
+                
+                <p>TRACK LIST:</p>
+                
+                <p><a href='https://lnbeats.com/album/a22aefb0-fd07-5bba-862b-ceb35ea04146/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvUGhpbF9Pd2Vucy9Ta2F0ZW5pZ3MvU2hvdyUyME1lJTIwV2hlcmUlMjBUaGV5JTIwVG91Y2hlZCUyMFlvdS9Ta2F0ZW5pZ3MlMjAtJTIwU2hpdCUyMEF1dGhvcml0eSUyMCU1QjMxNjE1MjkxMTclNUQubXAz'>Skatenigs – Shit Authority</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/b95514f8-0087-5777-a4a8-e0e44cb0233d/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvSm9obnNvbiUyMENpdHkvRmllcmNlJTIwS2l0dGVuL0pvaG5zb24lMjBDaXR5JTIwLSUyMFNlbGwlMjBpdCUyMHRvJTIwbXklMjBTb3VsJTIwJTVCNzQwNTA2Nzc2JTVELm1wMw'>Johnson City – Sell It To My Soul</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/75d02f1d-604c-5d31-a9e6-5a3da0ae591e/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvT0MlMjBSaXBwZXJzL0hhcHB5JTIwSG91cnMlMjBBaXIlMjBUcmF2ZWwlMjBDbHViJTIwMjAyMy8wOCUyME11cmRlciUyMDE2NDQlMjBXQVYlMjhDRCUyOS53YXY'>OC Rippers – Murder</a></p>
+                
+                <p><a href='https://lnbeats.com/album/a71b097b-4cf0-5e74-b6a9-1271373bb396/aHR0cHM6Ly9mZWVkLmJvd2xhZnRlcmJvd2wuY29tL2RlbXUvd2FpdC1pcy1vdmVyL3RoZS13YWl0LWlzLW92ZXIubXAz'>The Wolf – The Wait Is Over</a></p>
+                
+                <p><a href='https://lnbeats.com/album/659f95a4-1291-5e03-ab86-2deac518f652/aHR0cHM6Ly93d3cuaG9nc3RvcnkubmV0L3VwbG9hZHMvbGFkeV9vZl90aGVfZXZlbmluZ19mZWF0X2xhdXJpZW5fcm9zZS5tcDM'>Fletcher and Blaney ft. Laurien – Lady of the Evening</a></p>
+                <p><em>Check out the isolated vocals Fletcher shared on his last <a href="https://podcastindex.org/podcast/946122?episode=15576942002">Bowls With Buds</a> featuring Carolyn Blaney</em></p>
+                
+                <p><a href='https://lnbeats.com/album/d70b0052-0121-5bfc-a1ac-3a8ebb7615f3/aHR0cHM6Ly90cmFmZmljLmxpYnN5bi5jb20vZm9yY2Vkbi9kYjgzMWZlNC04ZDg1LTQ5NDItYmJmYy01NjFkODBiYTFhNTMvMDJfLV9UaGVfTGlnaHRuaW5ncm9kX1NhbGVzbWFuXy1fQ291cGxlc19DcmFzaF9Eb3duLm1wMw'>The Lightningrod Salesman – Couples Crash Down</a></p>
+                
+                 
+                <p>CHECK THESE OUT:</p>
+                <p><a href="https://meduspod.com/">MedusPod Episode 21</a>/p>
+                <p><a href="https://homegrownhits.substack.com/p/s1e5-another-dance-around-the-sun">Homegrown Hits Substack</a></p>
+                <p><a href="https://homegrownhits.xyz">Homegrown Hits Website</a></p>
+                <p><a href="https://app.kosmi.io/room/@hyperspaceout">The Hyper Spaceout games</a></p>
+                
+                <p>SPECIAL THANKS TO OUR MAGICAL PRODUCERS:</p>
+                <p>harvhat, ChadF, boo-bury, SirSeatSitter, Sir TJ the Wrathful, Boolysteed, Anonymous, Oystein Berge, Sir Spencer, NetNed, HeyCitizen, KR, Medus, Phifer, and Lavish!</p>]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 12 Oct 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="129.802" remotePercentage="95" duration="205.061">
+                    <podcast:remoteItem feedGuid="a22aefb0-fd07-5bba-862b-ceb35ea04146" itemGuid="1c95859f-5cf1-46a3-9763-a5dfa3e9154f" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="872.6756000000015" remotePercentage="95" duration="215.510204">
+                    <podcast:remoteItem feedGuid="b95514f8-0087-5777-a4a8-e0e44cb0233d" itemGuid="84dc3d5b-e94b-46ca-9ef7-4c0293ed7c96" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1342.426400000006" remotePercentage="95" duration="130.643492">
+                    <podcast:remoteItem feedGuid="75d02f1d-604c-5d31-a9e6-5a3da0ae591e" itemGuid="07cb8642-11d2-4981-aec2-2f177c3fc96a" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1755.6753000000044" remotePercentage="95" duration="213.288">
+                    <podcast:remoteItem feedGuid="a71b097b-4cf0-5e74-b6a9-1271373bb396" itemGuid="a45376c3-c8b3-4173-80c4-4cdfa266e0db" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2314.600200000003" remotePercentage="95" duration="213.056">
+                    <podcast:remoteItem feedGuid="659f95a4-1291-5e03-ab86-2deac518f652" itemGuid="c3676f74-777f-4930-88db-44fff3926ad2" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3703.8269" remotePercentage="95" duration="255">
+                    <podcast:remoteItem feedGuid="d70b0052-0121-5bfc-a1ac-3a8ebb7615f3" itemGuid="93cded36-95cb-469a-93bf-816f1fa51c05"/>
+                </podcast:valueTimeSplit>
+            </podcast:value>
+        </item>
+        <item>
+            <title>Homegrown Hits - Episode 04</title>
+            <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-04.jpg" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-04.mp3" length="53489949" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+                DuhLaurien</podcast:person>
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-04.json" type="application/json+chapters" />
+            <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-04.jpg" />
+            <guid isPermaLink="false">b7141353-0a54-47ff-91f3-27818bdb7d44</guid>
+            <description>
+                <![CDATA[We had a ball with our live listeners on the 40th Thursday of the year! The sound of the bowling pins (boostagrams) crashing as the music played sounded juuust right. Daisy B. Cooper sent her regards, along with two beautiful selections for our ear holes! One of her picks and one of DuhLaurien’s were both created by one of our callers, Andy of Panzee and Johnson City! He graciously thanked us for playing his music. Thank you, Andy. Your input and decades worth of art is invaluable to this V4V show.
+                
+                <p>SPECIAL THANKS TO OUR GLORIOUS PRODUCERS:</p>
+                <p>Dirty_Jersey_Whore (Make Good <3), Anonymous (we luv ur mystique), ChadF, harvhat, NetNed, Boolysteed, NAM, Boo-bury, Medus, Sir TJ The Wrathful</p>
+                
+                
+                <p>TRACK LISTING:</p>
+                
+                <p><a href='https://lnbeats.com/album/9e2c9377-40d6-5e26-a019-4052910936f6/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvVEhFTSUyMFRFRVRIL3pzdGRlbW8vVEhFTSUyMFRFRVRIJTIwLSUyME1vdXRoJTIwU2luJTIwJTVCMTM0MzAzMjc5NCU1RC5tcDM'>THEM TEETH – Mouth Sin</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/121c26b0-33f8-5cb9-9e14-d706bd3f5db8/aHR0cHM6Ly93aGl0ZXRyaWFuZ2xlcy5jb20vTXVzaWMvcGl0aWZ1bF85Lm1wMw'>White Triangles – Pitiful</a></p> 
+                
+                <p><a href='https://lnbeats.com/album/55e08e3a-4b9f-5579-a976-0997b06470ee/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvSm9obnNvbiUyMENpdHkvQ3JhenklMjBDbG91ZC9Kb2huc29uJTIwQ2l0eSUyMC0lMjBUaGlzJTIwU2ljayUyMEZlZWxpbmclMjAlNUI0MDAzNDIwNjM0JTVELm1wMw'>Johnson City – This Sick Feeling</a></p>
+                
+                <p><a href='https://lnbeats.com/album/680882f9-f371-5eeb-bd90-6767d528854f/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvQW5keSUyMEEvUGFuemVlL1RoZSUyMHJhdHMlMjBnbyUyMGRvd24ubXAz'>Panzee – The rats go down</a></p>
+                
+                <p><a href='https://lnbeats.com/album/99a14604-f38b-5e9d-8679-9314d1207cd4/aHR0cHM6Ly9tdXNpYy5iZWhpbmR0aGVzY2gzbTNzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvTWlrZV9FcHRpbmcvJTI0MkhvbGxhLyUyNDIlMjBIb2xsYSUyMC0lMjBIb2x5JTIwV2F0ZXIud2F2'>$2 Holla – Holy Water</a></p>
+                
+                <p><a href='https://lnbeats.com/album/69c634ad-afea-5826-ad9a-8e1f06d6470b/aHR0cHM6Ly93d3cuc2lydGp0aGV3cmF0aGZ1bC5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjMvMDgvS3VydGlzZHJ1bXMtVjFfTXktSGlnaGx5LVBvbGlzaGVkLU5vc2UubXAz'>Kurtisdrums – My High Polished Nose</a></p>
+                
+                 
+                <p>A wild Nam dropped by and informed us he will be recording a back-up stream for our show! Nam co-hosts a V4V media deconstruction show every Tuesday night with John G. Dew on the No Agenda stream. Check ‘em out: https://namillennial.com/ </p>
+                
+                <p>Sir Spencer is an eagle scout GOD for providing us with yet another drop-free stream since he nuked the Azura cast!</p>]]>
+            </description>
+            <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
+            <pubDate>Thu, 05 Oct 2023 16:20:00 -0500</pubDate>
+            <author>DuhLaurien</author>
+            <itunes:author>DuhLaurien</itunes:author>
+            <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
+            <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="269.657" remotePercentage="95" duration="238.871563">
+                    <podcast:remoteItem feedGuid="9e2c9377-40d6-5e26-a019-4052910936f6" itemGuid="2173cbfa-7ab4-41a7-aeed-3004705adaaf" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="831.804" remotePercentage="95" duration="95.84325">
+                    <podcast:remoteItem feedGuid="121c26b0-33f8-5cb9-9e14-d706bd3f5db8" itemGuid="51c64565-b2f3-418a-a85f-51ba5c7095e2" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1106.126" remotePercentage="95" duration="210.599184">
+                    <podcast:remoteItem feedGuid="55e08e3a-4b9f-5579-a976-0997b06470ee" itemGuid="ac78781e-7254-46a9-b58c-c81d82344895" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1828.870" remotePercentage="95" duration="196.112">
+                    <podcast:remoteItem feedGuid="680882f9-f371-5eeb-bd90-6767d528854f" itemGuid="0d606916-9651-4d6a-a7ab-c4c2585c7eba" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2196.080" remotePercentage="95" duration="208.474921">
+                    <podcast:remoteItem feedGuid="99a14604-f38b-5e9d-8679-9314d1207cd4" itemGuid="02f5de9c-3e64-4df5-ac27-03fb6ac612bb" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3359.115" remotePercentage="95" duration="137.136">
+                    <podcast:remoteItem feedGuid="69c634ad-afea-5826-ad9a-8e1f06d6470b" itemGuid="06bc2b9d-db3c-4b6c-8cbf-c3ec814518b7" />
+                </podcast:valueTimeSplit>
+            </podcast:value>
+        </item>
+        <item>
             <title>Homegrown Hits - Episode 03</title>
             <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-03.jpg" />
-            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-03.mp3"
-                length="53489949" type="audio/mpeg" />
-            <podcast:person href="https://bowlafterbowl.com"
-                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-03.mp3" length="53489949" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
                 DuhLaurien</podcast:person>
-            <podcast:chapters
-                url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-03.json"
-                type="application/json+chapters" />
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-03.json" type="application/json+chapters" />
             <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-03.jpg" />
             <guid isPermaLink="false">0f47d504-adac-4ccb-8071-97b3a369d541</guid>
             <description>
@@ -160,7 +993,7 @@
 
                                 <p>Listen to Bowls With Buds Steven B. interview on 10/01 around 4:20 PM CT following No Agenda: https://stream.bowlafterbowl.com/public/bowlafterbowl</p>
 
-                                <p>Pop in & play trivia/party games following Bowls With Buds this Sunday: https://mk.spook.social/@hyperspaceout</p>]]>     
+                                <p>Pop in & play trivia/party games following Bowls With Buds this Sunday: https://mk.spook.social/@hyperspaceout</p>]]>
             </description>
             <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
             <pubDate>Thu, 28 Sep 2023 16:20:00 -0500</pubDate>
@@ -168,100 +1001,40 @@
             <itunes:author>DuhLaurien</itunes:author>
             <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
             <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-                <podcast:valueRecipient name="DuhLaurien"
-                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                    type="node" split="30" />
-                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
-                <podcast:valueRecipient name="SirVoBlitz" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-                <podcast:valueRecipient name="cottongin" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-                <podcast:valueRecipient name="BoostBot" type="node"
-                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                    split="1" />
-                <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                    split="1" />
-                    <podcast:valueTimeSplit
-                    startTime="219"
-                    remotePercentage="95"
-                    duration="239.15102"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="970cd229-dd92-5ba9-9356-00cd23c261f4"
-                     itemGuid="27c735f0-23b9-4f47-9d33-12687e90e75a"
-                   />
-                 </podcast:valueTimeSplit>
-                 <podcast:valueTimeSplit
-                    startTime="1372"
-                    remotePercentage="95"
-                    duration="285.622813"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="3d92b2f6-4aac-5f24-bffe-2536eb579286"
-                     itemGuid="d8371b67-1b2a-4b40-8556-e274e994c667"
-                   />
-                 </podcast:valueTimeSplit>
-                 <podcast:valueTimeSplit
-                    startTime="2115"
-                    remotePercentage="95"
-                    duration="120.398367"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="3c87f137-9507-5bc6-858f-825eeb3988cd"
-                     itemGuid="4eec9e5d-181b-48ce-8eed-e17df00d2ae5"
-                   />
-                 </podcast:valueTimeSplit>
-                 <podcast:valueTimeSplit
-                    startTime="2236"
-                    remotePercentage="95"
-                    duration="275.67542"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="72f2cafd-0535-5089-a2ff-6a54e396d30e"
-                     itemGuid="20fb6e8e-1548-46b8-842c-aea761ce295d"
-                   />
-                 </podcast:valueTimeSplit>
-                 <podcast:valueTimeSplit
-                    startTime="2694"
-                    remotePercentage="95"
-                    duration="237.139592"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="82cbf41e-dffa-5b43-a339-b0af58471dae"
-                     itemGuid="fd3abbe8-d009-4fac-8093-e35353d12b68"
-                   />
-                 </podcast:valueTimeSplit>
-                 <podcast:valueTimeSplit
-                    startTime="3684"
-                    remotePercentage="95"
-                    duration="196.284082"
-                 >
-                   <podcast:remoteItem 
-                     feedGuid="f21daf71-4c7b-5fe1-82c6-3a1c2a48c764"
-                     itemGuid="c47651c1-714b-4ba5-8d29-ce113423adfd"
-                   />
-                 </podcast:valueTimeSplit>
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="219" remotePercentage="95" duration="239.15102">
+                    <podcast:remoteItem feedGuid="970cd229-dd92-5ba9-9356-00cd23c261f4" itemGuid="27c735f0-23b9-4f47-9d33-12687e90e75a" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="1372" remotePercentage="95" duration="285.622813">
+                    <podcast:remoteItem feedGuid="3d92b2f6-4aac-5f24-bffe-2536eb579286" itemGuid="d8371b67-1b2a-4b40-8556-e274e994c667" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2115" remotePercentage="95" duration="120.398367">
+                    <podcast:remoteItem feedGuid="3c87f137-9507-5bc6-858f-825eeb3988cd" itemGuid="4eec9e5d-181b-48ce-8eed-e17df00d2ae5" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2236" remotePercentage="95" duration="275.67542">
+                    <podcast:remoteItem feedGuid="72f2cafd-0535-5089-a2ff-6a54e396d30e" itemGuid="20fb6e8e-1548-46b8-842c-aea761ce295d" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="2694" remotePercentage="95" duration="237.139592">
+                    <podcast:remoteItem feedGuid="82cbf41e-dffa-5b43-a339-b0af58471dae" itemGuid="fd3abbe8-d009-4fac-8093-e35353d12b68" />
+                </podcast:valueTimeSplit>
+                <podcast:valueTimeSplit startTime="3684" remotePercentage="95" duration="196.284082">
+                    <podcast:remoteItem feedGuid="f21daf71-4c7b-5fe1-82c6-3a1c2a48c764" itemGuid="c47651c1-714b-4ba5-8d29-ce113423adfd" />
+                </podcast:valueTimeSplit>
             </podcast:value>
         </item>
         <item>
             <title>Homegrown Hits - Episode 02</title>
             <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-02.jpg" />
-            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-02.mp3"
-                length="53489949" type="audio/mpeg" />
-            <podcast:person href="https://bowlafterbowl.com"
-                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-02.mp3" length="53489949" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
                 DuhLaurien</podcast:person>
-            <podcast:chapters
-                url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-02.json"
-                type="application/json+chapters" />
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-02.json" type="application/json+chapters" />
             <podcast:images srcset="https://feed.homegrownhits.xyz/assets/images/episode-02.jpg" />
             <guid isPermaLink="false">30e6c103-908e-48d0-a3f1-f4bc1ab4a425</guid>
             <description>
@@ -294,7 +1067,7 @@
                  
                 Emo Storm Trooper is beautifully clever. An older song by Miles Fonda and Sir TJ The Wrathful which TJ has revived through self-hosting. Here is the paragraph TJ wrote to describe it: “Miles Daniel Fonda passed away on January 21, 2023. Born on April 15, 1988, he was blessed with great artistic and musical talents, as well as writing abilities. Miles leaves behind his beautiful son Kaden, and 94% of boosts go to a wallet set up for Kaden. Miles-vocals Sir TJ-guitar Written and Recorded in approximately 2005” 
                 
-                This is why the movement matters.]]>     
+                This is why the movement matters.]]>
             </description>
             <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
             <pubDate>Thu, 21 Sep 2023 16:20:00 -0500</pubDate>
@@ -302,96 +1075,33 @@
             <itunes:author>DuhLaurien</itunes:author>
             <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
             <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-                <podcast:valueRecipient name="DuhLaurien"
-                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                    type="node" split="30" />
-                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
-                <podcast:valueRecipient name="SirVoBlitz" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-                <podcast:valueRecipient name="cottongin" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-                <podcast:valueRecipient name="BoostBot" type="node"
-                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                    split="1" />
-                <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                    split="1" />
-                <podcast:valueTimeSplit
-                    startTime="579"
-                    remotePercentage="95"
-                    duration="277.786"
-                >
-                    <podcast:remoteItem
-                        feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b"
-                        itemGuid="https://podcastindex.org/podcast/4148683#2"
-                    />
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="579" remotePercentage="95" duration="277.786">
+                    <podcast:remoteItem feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" itemGuid="https://podcastindex.org/podcast/4148683#2" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="1294"
-                    remotePercentage="95"
-                    duration="175.1825"
-                >
-                    <podcast:remoteItem
-                        feedGuid="d50e670d-282f-5892-a360-ff407f5da2a2"
-                        itemGuid="a196d8b9-fee3-4e9b-9511-5b5ac48654d8"
-                    />
+                <podcast:valueTimeSplit startTime="1294" remotePercentage="95" duration="175.1825">
+                    <podcast:remoteItem feedGuid="d50e670d-282f-5892-a360-ff407f5da2a2" itemGuid="a196d8b9-fee3-4e9b-9511-5b5ac48654d8" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="1753"
-                    remotePercentage="95"
-                    duration="143.942625"
-                >
-                    <podcast:remoteItem
-                        feedGuid="9c4017a3-5a53-5b3d-b2bd-783fbf2afae9"
-                        itemGuid="3d96ace6-eacb-455c-8b34-7fb644aa984a"
-                    />
+                <podcast:valueTimeSplit startTime="1753" remotePercentage="95" duration="143.942625">
+                    <podcast:remoteItem feedGuid="9c4017a3-5a53-5b3d-b2bd-783fbf2afae9" itemGuid="3d96ace6-eacb-455c-8b34-7fb644aa984a" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="2132"
-                    remotePercentage="95"
-                    duration="264.530917"
-                >
-                    <podcast:remoteItem
-                        feedGuid="d4bd6713-ce91-5420-97d9-f6cbb68687c6"
-                        itemGuid="737958a6-9d6c-44df-ae35-db190bcc5ddc"
-                    />
+                <podcast:valueTimeSplit startTime="2132" remotePercentage="95" duration="264.530917">
+                    <podcast:remoteItem feedGuid="d4bd6713-ce91-5420-97d9-f6cbb68687c6" itemGuid="737958a6-9d6c-44df-ae35-db190bcc5ddc" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="2546"
-                    remotePercentage="95"
-                    duration="282.723292"
-                >
-                    <podcast:remoteItem
-                        feedGuid="f7d933c8-032a-52e5-9598-e34d833a3e8e"
-                        itemGuid="64dc3bca-a8d2-47f8-9a74-fee2066d969a"
-                    />
+                <podcast:valueTimeSplit startTime="2546" remotePercentage="95" duration="282.723292">
+                    <podcast:remoteItem feedGuid="f7d933c8-032a-52e5-9598-e34d833a3e8e" itemGuid="64dc3bca-a8d2-47f8-9a74-fee2066d969a" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="2986"
-                    remotePercentage="95"
-                    duration="248.293917"
-                >
-                    <podcast:remoteItem
-                        feedGuid="1e683ce1-0af5-50ac-9fbd-668519174391"
-                        itemGuid="5c8e3b28-30c9-47ba-b253-54b2f33904f5"
-                    />
+                <podcast:valueTimeSplit startTime="2986" remotePercentage="95" duration="248.293917">
+                    <podcast:remoteItem feedGuid="1e683ce1-0af5-50ac-9fbd-668519174391" itemGuid="5c8e3b28-30c9-47ba-b253-54b2f33904f5" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit
-                    startTime="3550"
-                    remotePercentage="95"
-                    duration="276.1143"
-                >
-                    <podcast:remoteItem
-                        feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6"
-                        itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/10.-Have-Fun._24Bit_Aria_Master_MTC.mp3"
-                    />
+                <podcast:valueTimeSplit startTime="3550" remotePercentage="95" duration="276.1143">
+                    <podcast:remoteItem feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6" itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/10.-Have-Fun._24Bit_Aria_Master_MTC.mp3" />
                 </podcast:valueTimeSplit>
             </podcast:value>
         </item>
@@ -399,16 +1109,11 @@
             <title>Homegrown Hits - Episode 01</title>
             <description> You host it, we toast it! </description>
             <itunes:image href="https://feed.homegrownhits.xyz/assets/images/episode-01.jpg" />
-            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-01.mp3"
-                length="13043247" type="audio/mpeg" />
-            <podcast:person href="https://bowlafterbowl.com"
-                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-01.mp3" length="13043247" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
                 DuhLaurien</podcast:person>
-            <podcast:chapters
-                url="https://feed.homegrownhits.xyz/assets/chapters/chapters-episode-01.json"
-                type="application/json+chapters" />
-            <podcast:images
-                srcset="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png 1080w" />
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/chapters-episode-01.json" type="application/json+chapters" />
+            <podcast:images srcset="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png 1080w" />
             <guid isPermaLink="false">8a131e24-93fd-4144-8c24-c5a27034c244</guid>
             <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
             <pubDate>Thu, 14 Sep 2023 05:52:00 -0500</pubDate>
@@ -416,80 +1121,51 @@
             <itunes:author>DuhLaurien</itunes:author>
             <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
             <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-                <podcast:valueRecipient name="DuhLaurien"
-                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                    type="node" split="30" />
-                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
-                <podcast:valueRecipient name="SirVoBlitz" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-                <podcast:valueRecipient name="cottongin" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-                <podcast:valueRecipient name="BoostBot" type="node"
-                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                    split="1" />
-                <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                    split="1" />
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="daisybcooper@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="XZ62AStTe4Y63R54VoTf" split="33" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
                 <podcast:valueTimeSplit startTime="0.1" remotePercentage="100" duration="399">
                     <podcast:remoteItem feedGuid="ac746d09-7c3b-5bcd-b28a-f12d6456ca8f" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="400" remotePercentage="95" duration="189">
-                    <podcast:remoteItem feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30"
-                        itemGuid="baa182e9-d088-4cc1-a3f7-e4af48ff112a" />
+                    <podcast:remoteItem feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30" itemGuid="baa182e9-d088-4cc1-a3f7-e4af48ff112a" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="589" remotePercentage="100" duration="331">
                     <podcast:remoteItem feedGuid="ac746d09-7c3b-5bcd-b28a-f12d6456ca8f" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="920" remotePercentage="95" duration="176">
-                    <podcast:remoteItem feedGuid="483dde8e-7e94-59a7-8eb0-2b0dc64a87bd"
-                        itemGuid="72e3bd99-49c5-4884-958c-8af44c55de3a" />
+                    <podcast:remoteItem feedGuid="483dde8e-7e94-59a7-8eb0-2b0dc64a87bd" itemGuid="72e3bd99-49c5-4884-958c-8af44c55de3a" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="1198" remotePercentage="95" duration="252.34285">
-                    <podcast:remoteItem feedGuid="121c26b0-33f8-5cb9-9e14-d706bd3f5db8"
-                        itemGuid="7ab94c20-332c-40c6-a60c-f8e5885ce242" />
+                    <podcast:remoteItem feedGuid="121c26b0-33f8-5cb9-9e14-d706bd3f5db8" itemGuid="7ab94c20-332c-40c6-a60c-f8e5885ce242" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="1622.801900000006" remotePercentage="95"
-                    duration="226.491">
-                    <podcast:remoteItem feedGuid="659f95a4-1291-5e03-ab86-2deac518f652"
-                        itemGuid="9ee4bfee-0359-4454-b1dc-b68c6f67e2ec" />
+                <podcast:valueTimeSplit startTime="1622.801900000006" remotePercentage="95" duration="226.491">
+                    <podcast:remoteItem feedGuid="659f95a4-1291-5e03-ab86-2deac518f652" itemGuid="9ee4bfee-0359-4454-b1dc-b68c6f67e2ec" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="2096.025100000024" remotePercentage="95"
-                    duration="234">
-                    <podcast:remoteItem feedGuid="95be9fe7-30ac-40aa-a86c-bded32942a91"
-                        itemGuid="319ff63e-5541-42b0-8cc2-5a549cf6c44e" />
+                <podcast:valueTimeSplit startTime="2096.025100000024" remotePercentage="95" duration="234">
+                    <podcast:remoteItem feedGuid="95be9fe7-30ac-40aa-a86c-bded32942a91" itemGuid="319ff63e-5541-42b0-8cc2-5a549cf6c44e" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="2329" remotePercentage="100" duration="1031">
                     <podcast:remoteItem feedGuid="ac746d09-7c3b-5bcd-b28a-f12d6456ca8f" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="3361.775900000006" remotePercentage="95"
-                    duration="269.08735">
-                    <podcast:remoteItem feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6"
-                        itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/03.-Rings-of-Saturn_24Bit_Aria_Master_MTC.mp3" />
+                <podcast:valueTimeSplit startTime="3361.775900000006" remotePercentage="95" duration="269.08735">
+                    <podcast:remoteItem feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6" itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/03.-Rings-of-Saturn_24Bit_Aria_Master_MTC.mp3" />
                 </podcast:valueTimeSplit>
             </podcast:value>
         </item>
         <item>
             <title>Homegrown Hits - Episode 00</title>
             <description> This is a Homegrown Hits test.</description>
-            <itunes:image
-                href="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" />
-            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-00.mp3"
-                length="13043247" type="audio/mpeg" />
-            <podcast:person href="https://bowlafterbowl.com"
-                img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
+            <itunes:image href="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png" />
+            <enclosure url="https://feed.homegrownhits.xyz/assets/episodes/episode-00.mp3" length="13043247" type="audio/mpeg" />
+            <podcast:person href="https://bowlafterbowl.com" img="https://ableandthewolf.com/static/media/laurien.png" group="cast" role="host">
                 DuhLaurien</podcast:person>
-            <podcast:chapters
-                url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-00.json"
-                type="application/json+chapters" />
-            <podcast:images
-                srcset="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png 1080w" />
+            <podcast:chapters url="https://feed.homegrownhits.xyz/assets/chapters/ch-episode-00.json" type="application/json+chapters" />
+            <podcast:images srcset="https://bowlafterbowl.com/wp-content/uploads/2023/09/HomegrownHitsArt.png 1080w" />
             <guid isPermaLink="false">Homegrown Hits Test</guid>
             <itunes:subtitle>You host it, we toast it.</itunes:subtitle>
             <pubDate>Wed, 13 Sep 2023 21:00:19 -0500</pubDate>
@@ -497,48 +1173,27 @@
             <itunes:author>DuhLaurien</itunes:author>
             <itunes:keywords>homegrown hits sovereign boostagram music value4value</itunes:keywords>
             <podcast:value type="lightning" method="keysend" suggested="0.00000069420">
-                <podcast:valueRecipient name="DuhLaurien"
-                    address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5"
-                    type="node" split="30" />
-                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node"
-                    address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace"
-                    customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
-                <podcast:valueRecipient name="Daisy" type="node" address="" split="33"
-                    customKey="696969" customValue="eChoVKtO1KujpAA5HCoB" />
-                <podcast:valueRecipient name="SirVoBlitz" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
-                <podcast:valueRecipient name="cottongin" type="node"
-                    address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3"
-                    customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
-                <podcast:valueRecipient name="BoostBot" type="node"
-                    address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67"
-                    split="1" />
-                <podcast:valueRecipient name="BoostAfterBoost" type="node"
-                    address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53"
-                    split="1" />
-                <podcast:valueTimeSplit startTime="1.4519000000059605" remotePercentage="95"
-                    duration="257.828571">
-                    <podcast:remoteItem feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30"
-                        itemGuid="8958b128-e10b-4132-975c-65df41bb45ec" />
+                <podcast:valueRecipient name="DuhLaurien" address="03ba0dc26e137f7fc5406908aaf614807cde5010a56b39973d68377fb0aa77e5d5" type="node" split="30" />
+                <podcast:valueRecipient name="marykateultra@fountain.fm" type="node" address="0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace" customKey="112111100" customValue="vI2zSit4cEphEcc8ciDS" split="33" />
+                <podcast:valueRecipient name="Daisy" type="node" address="" split="33" customKey="696969" customValue="eChoVKtO1KujpAA5HCoB" />
+                <podcast:valueRecipient name="SirVoBlitz" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="wTNpYiVzK1EqHwFuK4kY" split="1" />
+                <podcast:valueRecipient name="cottongin" type="node" address="030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3" customKey="696969" customValue="5mZYvK0KkmbXcam43VC6" split="1" />
+                <podcast:valueRecipient name="BoostBot" type="node" address="03d55f4d4c870577e98ac56605a54c5ed20c8897e41197a068fd61bdb580efaa67" split="1" />
+                <podcast:valueRecipient name="BoostAfterBoost" type="node" address="03ecb3ee55ba6324d40bea174de096dc9134cb35d990235723b37ae9b5c49f4f53" split="1" />
+                <podcast:valueTimeSplit startTime="1.4519000000059605" remotePercentage="95" duration="257.828571">
+                    <podcast:remoteItem feedGuid="d46367eb-be3c-548a-9c27-fbf1dcf27f30" itemGuid="8958b128-e10b-4132-975c-65df41bb45ec" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="273.075799999997" remotePercentage="95"
-                    duration="269.08735">
-                    <podcast:remoteItem feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6"
-                        itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/03.-Rings-of-Saturn_24Bit_Aria_Master_MTC.mp3" />
+                <podcast:valueTimeSplit startTime="273.075799999997" remotePercentage="95" duration="269.08735">
+                    <podcast:remoteItem feedGuid="1978f891-7683-5789-a222-bd1a9bd309a6" itemGuid="https://www.falsefinish.club/wp-content/uploads/2023/05/03.-Rings-of-Saturn_24Bit_Aria_Master_MTC.mp3" />
                 </podcast:valueTimeSplit>
                 <podcast:valueTimeSplit startTime="259.302" remotePercentage="95" duration="7200">
                     <podcast:remoteItem feedGuid="ac746d09-7c3b-5bcd-b28a-f12d6456ca8f" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="542.4510999999941" remotePercentage="95"
-                    duration="210.254189">
-                    <podcast:remoteItem feedGuid="659f95a4-1291-5e03-ab86-2deac518f652"
-                        itemGuid="7470d39e-6a8a-4356-9349-b9887d0970be" />
+                <podcast:valueTimeSplit startTime="542.4510999999941" remotePercentage="95" duration="210.254189">
+                    <podcast:remoteItem feedGuid="659f95a4-1291-5e03-ab86-2deac518f652" itemGuid="7470d39e-6a8a-4356-9349-b9887d0970be" />
                 </podcast:valueTimeSplit>
-                <podcast:valueTimeSplit startTime="795.575200000003" remotePercentage="95"
-                    duration="72.840998">
-                    <podcast:remoteItem feedGuid="b328828c-9ba0-5b1d-be33-4cce51968ae1"
-                        itemGuid="d047262b-072e-4527-aa87-fab9e4e44848" />
+                <podcast:valueTimeSplit startTime="795.575200000003" remotePercentage="95" duration="72.840998">
+                    <podcast:remoteItem feedGuid="b328828c-9ba0-5b1d-be33-4cce51968ae1" itemGuid="d047262b-072e-4527-aa87-fab9e4e44848" />
                 </podcast:valueTimeSplit>
             </podcast:value>
         </item>

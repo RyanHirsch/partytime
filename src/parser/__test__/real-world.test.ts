@@ -103,14 +103,20 @@ describe("real-world feeds", () => {
     });
   });
   describe("Homegrown Hits Feed", () => {
-    let xml = "";
-    beforeEach(async () => {
-      xml = await helpers.loadFixture(`real-world/homegrown-hits.xml`);
-    });
-
-    it("parses the items", () => {
+    it("parses the items", async () => {
+      const xml = await helpers.loadFixture(`real-world/homegrown-hits-og.xml`);
       const result = parseFeed(xml, { allowMissingGuid: true });
       expect(result?.items).toHaveLength(4);
+    });
+    it("extracts the live items with questionable dates", async () => {
+      const xml = await helpers.loadFixture(`real-world/homegrown-hits.xml`);
+
+      const result = parseFeed(xml, { allowMissingGuid: true });
+      expect(result?.podcastLiveItems).toHaveLength(1);
+      const [liveItem] = result?.podcastLiveItems || [];
+      expect(liveItem).toHaveProperty("status", "live");
+      const startTime = new Date("2023-12-08T00:59:59.000Z");
+      expect(liveItem).toHaveProperty("start", startTime);
     });
   });
 });

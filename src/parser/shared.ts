@@ -57,6 +57,11 @@ export function pubDateToTimestamp(pubDate: number | string | Date) {
   return pubDateParsed;
 }
 
+const alternateParsing = [
+  (dateString: string): Date => {
+    return new Date(dateString.replace("T", " "));
+  },
+];
 export function pubDateToDate(pubDate: number | string | Date): Date | null {
   if (typeof pubDate === "number") {
     if (new Date(pubDate).getFullYear() === 1970) {
@@ -64,8 +69,14 @@ export function pubDateToDate(pubDate: number | string | Date): Date | null {
     }
     return new Date(pubDate);
   }
+  if (pubDate instanceof Date) {
+    return pubDate;
+  }
 
-  const dateFromString = new Date(pubDate);
+  let dateFromString = new Date(pubDate);
+  for (let i = 0; i < alternateParsing.length && Number.isNaN(dateFromString.getTime()); i++) {
+    dateFromString = alternateParsing[i](pubDate);
+  }
   if (Number.isNaN(dateFromString.getTime())) {
     return null;
   }
