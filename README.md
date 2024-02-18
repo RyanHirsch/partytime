@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/podcast-partytime.svg)](https://www.npmjs.com/package/podcast-partytime)
 
-Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime. It is up to you, the consumer of this package, to fetch the feed which needs to be parsed. When fetching the feed YOU SHOULD INCLUDE A PROPER USER-AGENT. You can test by fetching and checking the description of `https://podnews.net/rss`.
+Podcast feed parser, originally extracted from podcast index - https://github.com/Podcastindex-org/aggregator/tree/master/partytime. It is up to you, the consumer of this package, to fetch the feed which needs to be parsed. When fetching the feed YOU SHOULD INCLUDE A PROPER USER-AGENT.
 
 This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `pc20support` element.
 
