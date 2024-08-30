@@ -6,6 +6,8 @@ Podcast feed parser, originally extracted from podcast index - https://github.co
 
 This package will also identify [new namespace elements](https://github.com/Podcastindex-org/podcast-namespace) and call out the "phases" implemented by the feed in a `pc20support` element.
 
+By default, this will produce log messages that are warnings or errors, but this can be controlled via an environment variable, `PARTYTIME_LOG` can be set to whatever log level you may want.
+
 ## Usage
 
 ```sh
@@ -22,9 +24,9 @@ import pt from "podcast-partytime";
 pt.checkFeedByUri("https://www.spreaker.com/show/3128218/episodes/feed").then(console.log);
 
 fetch("http://mp3s.nashownotes.com/pc20rss.xml", {
-   headers: {
+  headers: {
     "user-agent": "partytime/example",
-    }
+  },
 })
   .then((resp) => resp.text())
   .then((xml) =>
@@ -38,9 +40,9 @@ fetch("http://mp3s.nashownotes.com/pc20rss.xml", {
 
 // Parse Feed
 fetch("http://mp3s.nashownotes.com/pc20rss.xml", {
-   headers: {
+  headers: {
     "user-agent": "partytime/example",
-    }
+  },
 })
   .then((resp) => resp.text())
   .then((xml) => console.log(pt.parseFeed(xml)));
