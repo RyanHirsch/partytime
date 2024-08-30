@@ -5,9 +5,9 @@ import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
 
+import fetch from "node-fetch";
+import invariant from "tiny-invariant";
 import stringify from "fast-json-stable-stringify";
-import { getStream$ } from "podping-client";
-import { take } from "rxjs/operators";
 
 import { logger } from "./logger";
 import { parseFeed } from "./parser";
@@ -165,18 +165,13 @@ async function getFeed(uri: string): Promise<void> {
 
 if (process.argv[2] === "--latest") {
   runPromise(
-    new Promise((resolve) => {
-      getStream$()
-        .pipe(take(1))
-        .subscribe({
-          next(val) {
-            resolve(getFeed(val.url));
-          },
-          complete() {
-            logger.info("complete");
-          },
-        });
+    fetch(`https://api.podcastindex.org/api/1.0/recent/feeds?max=10`, {
+      headers: getHeaders(),
     })
+      .then((resp) => resp.json())
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      .then((json) => json.feeds.map((x: { url: string }) => x.url))
+      .then((feedUrls: Array<string>) => Promise.all(feedUrls.map((x) => getFeed(x))))
   );
 } else if (process.argv[2]) {
   runPromise(getFeed(process.argv[2]));
@@ -189,4 +184,26 @@ function runPromise(prom: Promise<any>): void {
       (err) => logger.error(err)
     )
     .finally(() => process.exit());
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+function getHeaders() {
+  const key = process.env.PI_API_KEY;
+  const secret = process.env.PI_API_SECRET;
+  invariant(key);
+  invariant(secret);
+  const apiHeaderTime = Math.floor(Date.now() / 1000);
+  const sha1Algorithm = "sha1";
+  const sha1Hash = crypto.createHash(sha1Algorithm);
+  const data4Hash = `${key}${secret}${apiHeaderTime}`;
+  sha1Hash.update(data4Hash);
+  const hash4Header = sha1Hash.digest("hex");
+
+  return {
+    "Content-Type": "application/json",
+    "X-Auth-Date": `${apiHeaderTime}`,
+    "X-Auth-Key": key,
+    Authorization: hash4Header,
+    "User-Agent": `custom/1.0.0`,
+  };
 }
