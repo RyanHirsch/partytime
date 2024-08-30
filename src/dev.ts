@@ -5,15 +5,14 @@ import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
 
+import fetch from "node-fetch";
+import invariant from "tiny-invariant";
 import stringify from "fast-json-stable-stringify";
-import { getStream$ } from "podping-client";
-import { take } from "rxjs/operators";
 
 import { logger } from "./logger";
 import { parseFeed } from "./parser";
 // import { checkFeedByUri } from "./cor";
 import { getFeedText } from "./shared";
-import invariant from "tiny-invariant";
 
 const feeds: Array<{ name: string; url: string }> = [
   // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
@@ -170,8 +169,9 @@ if (process.argv[2] === "--latest") {
       headers: getHeaders(),
     })
       .then((resp) => resp.json())
-      .then((json) => json.feeds.map((x) => x.url))
-      .then((feeds) => Promise.all(feeds.map((x) => getFeed(x))))
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      .then((json) => json.feeds.map((x: { url: string }) => x.url))
+      .then((feedUrls: Array<string>) => Promise.all(feedUrls.map((x) => getFeed(x))))
   );
 } else if (process.argv[2]) {
   runPromise(getFeed(process.argv[2]));
@@ -186,6 +186,7 @@ function runPromise(prom: Promise<any>): void {
     .finally(() => process.exit());
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function getHeaders() {
   const key = process.env.PI_API_KEY;
   const secret = process.env.PI_API_SECRET;
