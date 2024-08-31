@@ -8,8 +8,8 @@ import {
   getText,
 } from "../shared";
 import type { XmlNode } from "../types";
+import { logger } from "../../logger";
 
-import type { Phase4PodcastLiveItem } from "./phase-4";
 import { addSubTag } from "./helpers";
 import { XmlNodeSource } from "./types";
 
@@ -165,68 +165,6 @@ export const podcastGateway = {
   },
 };
 
-export type PhasePendingChat = {
-  phase: "pending";
-  /** (required) The [protocol](https://github.com/Podcastindex-org/podcast-namespace/blob/main/proposal-docs/chat/chatprotocols.txt) in use on the server */
-  protocol: string;
-  /** (recommended) The account id of the podcaster on the server or platform being connected to. */
-  accountId?: string;
-  /** (optional) The fqdn of a chat server that serves as the "bootstrap" server to connect to. */
-  server?: string;
-  /** (optional) Some chat systems have a notion of a chat "space" or "room" or "topic". This attribute will serve
-that purpose. */
-  space?: string;
-  /** (optional) A url to an html rendered version of the chat for loading in a web page or web view. */
-  embedUrl?: string;
-};
-
-const knownChatProtocols = `
-irc
-xmpp
-nostr
-matrix
-`
-  .split("\n")
-  .map((x) => x.trim())
-  .filter(Boolean);
-
-function sanitizeProtocol(proto: string): string {
-  const known = knownChatProtocols.find((x) => x === proto.toLowerCase());
-
-  if (known) {
-    return known;
-  }
-
-  console.warn(`Unknown protocol ${proto}, calling .toLowerCase() and passing it through`);
-
-  return proto.toLowerCase();
-}
-
-export const podcastChat = {
-  phase: Infinity,
-  name: "chat",
-  tag: "podcast:chat",
-  nodeTransform: (node: XmlNode | XmlNode[]): XmlNode =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    ensureArray(node).find((n) => getAttribute(n, "protocol")),
-  supportCheck: (node: XmlNode): boolean => Boolean(getAttribute(node, "protocol")),
-  fn(node: XmlNode): { chat: PhasePendingChat } {
-    const protocol = getKnownAttribute(node, "protocol");
-    return {
-      chat: {
-        phase: "pending",
-        protocol: sanitizeProtocol(protocol),
-        ...extractOptionalStringAttribute(node, "accountId"),
-        ...extractOptionalStringAttribute(node, "server"),
-        ...extractOptionalStringAttribute(node, "space"),
-        ...extractOptionalStringAttribute(node, "embedUrl"),
-      },
-    };
-  },
-};
-
-addSubTag<Phase4PodcastLiveItem>("liveItem", podcastChat);
-
 export type PhasePendingLiveUpdates = {
   uri: string;
   protocol: "socket.io" | "websocket" | "xmpp" | "unknown";
@@ -240,7 +178,7 @@ function getLiveUpdateProtocol(node: XmlNode): "socket.io" | "websocket" | "xmpp
     case "xmpp":
       return "xmpp" as const;
     default:
-      console.warn(`Unknown update protocol ${getAttribute(node, "protocol") ?? "null"}`);
+      logger.warn(`Unknown update protocol ${getAttribute(node, "protocol") ?? "null"}`);
       return "unknown" as const;
   }
 }
