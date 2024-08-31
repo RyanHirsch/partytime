@@ -13,6 +13,8 @@ describe("phase 7", () => {
   });
 
   describe("chat", () => {
+    const supportedName = "chat";
+
     function spliceInLiveItem(thisFeed: string, chatBlock: string, item = 0): string {
       if (item > 2) {
         throw new Error("Only three items eligible, zero based index");
@@ -154,6 +156,7 @@ describe("phase 7", () => {
       expect(result.chat).toHaveProperty("protocol", "xmpp");
       expect(result.chat).toHaveProperty("accountId", "jsmith@jabber.example.org");
       expect(result.chat).toHaveProperty("space", "myawesomepodcast@jabber.example.org");
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
 });
