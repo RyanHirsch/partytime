@@ -13,13 +13,11 @@ import { Phase4PodcastLiveItem } from "./phase-4";
 export type Phase7Chat = {
   phase: "7";
   /** (required) The fqdn of a chat server that serves as the "bootstrap" server to connect to. */
-  erver: string;
+  server: string;
   /** (required) The [protocol](https://github.com/Podcastindex-org/podcast-namespace/blob/main/proposal-docs/chat/chatprotocols.txt) in use on the server */
   protocol: string;
   /** (recommended) The account id of the podcaster on the server or platform being connected to. */
   accountId?: string;
-  /** (optional) The fqdn of a chat server that serves as the "bootstrap" server to connect to. */
-  server?: string;
   /** (optional) Some chat systems have a notion of a chat "space" or "room" or "topic". This attribute will serve
 that purpose. */
   space?: string;
