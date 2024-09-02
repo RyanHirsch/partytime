@@ -39,6 +39,7 @@ export type Phase6RemoteItem = {
   itemGuid?: string;
   feedUrl?: string;
   medium?: Phase4Medium;
+  title?: string;
 };
 
 export const remoteItem = {
@@ -56,6 +57,7 @@ export const remoteItem = {
         feedGuid: getKnownAttribute(n, "feedGuid"),
         ...extractOptionalStringAttribute(n, "itemGuid"),
         ...extractOptionalStringAttribute(n, "feedUrl"),
+        ...extractOptionalStringAttribute(n, "title"),
         ...(getAttribute(n, "medium")
           ? { medium: lookup(Phase4Medium, getKnownAttribute(n, "medium")) }
           : undefined),

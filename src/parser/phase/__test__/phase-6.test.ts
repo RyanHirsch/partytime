@@ -340,7 +340,7 @@ describe("phase 6", () => {
           <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#1" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" />
           <podcast:remoteItem itemGuid="https://podcastindex.org/podcast/4148683#3" feedGuid="a94f5cc9-8c58-55fc-91fe-a324087a655b" />
           <podcast:remoteItem itemGuid="tag:soundcloud,2010:tracks/319791095" feedGuid="a5ad6f3f-a279-504c-bc6a-30054e6b50e1" />
-          <podcast:remoteItem itemGuid="tag:soundcloud,2010:tracks/319789777" feedGuid="a5ad6f3f-a279-504c-bc6a-30054e6b50e1" />
+          <podcast:remoteItem itemGuid="tag:soundcloud,2010:tracks/319789777" feedGuid="a5ad6f3f-a279-504c-bc6a-30054e6b50e1" title="some title"/>
       </channel>
   </rss>`);
 
@@ -358,6 +358,7 @@ describe("phase 6", () => {
       expect(third).toHaveProperty("feedGuid", "a5ad6f3f-a279-504c-bc6a-30054e6b50e1");
       expect(fourth).toHaveProperty("itemGuid", "tag:soundcloud,2010:tracks/319789777");
       expect(fourth).toHaveProperty("feedGuid", "a5ad6f3f-a279-504c-bc6a-30054e6b50e1");
+      expect(fourth).toHaveProperty("title", "some title");
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
