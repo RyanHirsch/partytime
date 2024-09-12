@@ -1,3 +1,5 @@
+import invariant from "tiny-invariant";
+
 import { logger } from "../../logger";
 import {
   ensureArray,
@@ -72,3 +74,35 @@ export const podcastChat = {
 };
 
 addSubTag<Phase4PodcastLiveItem>("liveItem", podcastChat);
+
+function getPublisherRemoteItem(node: XmlNode): XmlNode | undefined {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+  const remoteItem = node["podcast:remoteItem"];
+  return ensureArray(remoteItem).find(
+    (n) => getAttribute(n, "medium") === "publisher" && getAttribute(n, "feedGuid")
+  );
+}
+export type Phase7Publisher = {
+  feedGuid: string;
+  feedUrl?: string;
+};
+export const podcastPublisher = {
+  phase: 7,
+  name: "publisher",
+  tag: "podcast:publisher",
+  supportCheck: (node: XmlNode): boolean => {
+    if (Array.isArray(node)) return false;
+    return Boolean(getPublisherRemoteItem(node));
+  },
+  fn(node: XmlNode): { podcastPublisher: Phase7Publisher } {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const publisherItem = getPublisherRemoteItem(node);
+    invariant(publisherItem);
+    return {
+      podcastPublisher: {
+        feedGuid: getKnownAttribute(publisherItem, "feedGuid"),
+        ...extractOptionalStringAttribute(publisherItem, "feedUrl"),
+      },
+    };
+  },
+};

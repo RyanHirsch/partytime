@@ -21,7 +21,7 @@ import type {
 } from "./phase/phase-4";
 import type { Phase5Blocked, Phase5BlockedPlatforms, Phase5SocialInteract } from "./phase/phase-5";
 import type { Phase6RemoteItem, Phase6TxtEntry } from "./phase/phase-6";
-import type { Phase7Chat } from "./phase/phase-7";
+import type { Phase7Chat, Phase7Publisher } from "./phase/phase-7";
 import {
   PhasePendingPodcastId,
   PhasePendingSocial,
@@ -183,6 +183,7 @@ export interface FeedObject extends BasicFeed {
   // #endregion
   //
   chat?: Phase7Chat;
+  podcastPublisher?: Phase7Publisher;
 
   // #region Pending Phase
   /** PENDING AND LIKELY TO CHANGE indicates a listing on multiple platforms, directories, hosts, apps and services. */

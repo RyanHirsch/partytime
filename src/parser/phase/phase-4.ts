@@ -110,6 +110,8 @@ export enum Phase4Medium {
   Newsletter = "newsletter",
   /** a feed of informally written articles. Similar to newsletter but more informal as in a traditional blog platform style */
   Blog = "blog",
+  /** a feed of podcasts from the same publisher */
+  Publisher = "publisher",
 }
 export const medium: FeedUpdate = {
   tag: "podcast:medium",

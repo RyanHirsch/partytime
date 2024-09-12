@@ -90,6 +90,7 @@ const feeds: FeedUpdate[] = [
   phase6.podroll,
 
   phase7.podcastChat,
+  phase7.podcastPublisher,
 
   pending.id,
   pending.social,
