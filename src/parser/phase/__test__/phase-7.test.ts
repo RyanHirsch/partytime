@@ -159,4 +159,23 @@ describe("phase 7", () => {
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
   });
+  describe("publisher", () => {
+    const supportedName = "publisher";
+    it("extracts a valid publisher from the feed", () => {
+      const chatBlock = `<podcast:publisher>
+          <podcast:remoteItem medium="publisher" feedGuid="003af0a0-6a45-55bf-b765-68e3d349551a" feedUrl="https://agilesetmedia.com/assets/static/feeds/publisher.xml"/>
+      </podcast:publisher>`;
+      const result = helpers.parseValidFeed(spliceFeed(feed, chatBlock));
+
+      expect(result.podcastPublisher).toHaveProperty(
+        "feedGuid",
+        "003af0a0-6a45-55bf-b765-68e3d349551a"
+      );
+      expect(result.podcastPublisher).toHaveProperty(
+        "feedUrl",
+        "https://agilesetmedia.com/assets/static/feeds/publisher.xml"
+      );
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+  });
 });
