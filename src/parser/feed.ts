@@ -525,11 +525,11 @@ function getPubSub(
   return { pubsub };
 }
 
-function getAuthor(feed: XmlNode): undefined | { author: string } {
-  const node = firstWithValue(feed["itunes:author"]);
+function getAuthor(feed: XmlNode): undefined | { author: string[] } {
+  const nodes = ensureArray(feed["itunes:author"]).filter((n) => getText(n));
 
-  if (node) {
-    return { author: getText(node) };
+  if (nodes.length > 0) {
+    return { author: nodes };
   }
   return undefined;
 }
