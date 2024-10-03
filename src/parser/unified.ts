@@ -87,6 +87,13 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
     feedObj.pubDate = feedObj.newestItemPubDate;
   }
 
+  if (feedObj.newestItemPubDate && feedObj.pubDate) {
+    feedObj.lastPubDate =
+      feedObj.newestItemPubDate > feedObj.pubDate ? feedObj.newestItemPubDate : feedObj.pubDate;
+  } else if (feedObj.pubDate) {
+    feedObj.lastPubDate = feedObj.pubDate;
+  }
+
   if (Object.keys(phaseSupport).length > 0) {
     feedObj.pc20support = Object.entries(phaseSupport).reduce(
       (phases, [phase, kv]) => ({ ...phases, [phase]: Object.keys(kv) }),

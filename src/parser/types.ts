@@ -106,6 +106,8 @@ export interface BasicFeed {
   pubDate?: Date;
   /** The last time the content of the channel changed. */
   lastBuildDate?: Date;
+  /** Most recent pubDate found via channel or item pubDates */
+  lastPubDate?: Date;
 
   itunesType?: ItunesFeedType;
   /**

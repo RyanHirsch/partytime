@@ -471,6 +471,85 @@ describe("feed handling", () => {
     });
   });
 
+  describe("lastPubDate", () => {
+    it("extracts the channel pubDate and sets it to lastPubDate", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <pubDate>Tue, 18 May 2021 13:49:20 -0000</pubDate>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("lastPubDate", new Date("Tue, 18 May 2021 13:49:20 -0000"));
+    });
+
+    it("extracts the item pub date and sets it to lastPubDate", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <item>
+          <title>Test</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          <pubDate>Tue, 19 May 2021 13:49:20 -0000</pubDate>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("lastPubDate", new Date("Tue, 19 May 2021 13:49:20 -0000"));
+    });
+
+    it("uses the lastest pubDate as the lastPub date when channel and items have a pubDate", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <pubDate>Tue, 18 May 2021 13:49:20 -0000</pubDate>
+        <item>
+          <title>Test</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          <pubDate>Wed, 19 May 2021 13:49:20 -0000</pubDate>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("lastPubDate", new Date("Tue, 19 May 2021 13:49:20 -0000"));
+    });
+
+    it("uses the lastest pubDate as the lastPub date when channel and multiple items have a pubDate", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <pubDate>Tue, 18 May 2021 13:49:20 -0000</pubDate>
+        <item>
+          <title>Test</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          <pubDate>Tue, 11 May 2022 13:49:20 -0000</pubDate>
+        </item>
+        <item>
+          <title>Test2</title>
+          <guid isPermaLink="true">https://example.com/ep0004</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-26-Final.mp3" length="76606111" type="audio/mpeg"/>
+          <pubDate>Tue, 25 May 2022 13:49:20 -0000</pubDate>
+        </item>
+        <item>
+          <title>Test</title>
+          <guid isPermaLink="true">https://example.com/ep0003</guid>
+          <enclosure url="https://mp3s.nashownotes.com/PC20-17-2020-12-25-Final.mp3" length="76606111" type="audio/mpeg"/>
+          <pubDate>Mon, 24 13:49:20 -0000</pubDate>
+        </item>
+        `
+      );
+
+      const result = parseFeed(xml);
+      expect(result).toHaveProperty("lastPubDate", new Date("Tue, 25 May 2022 13:49:20 -0000"));
+    });
+  });
+
   describe("lastBuildDate", () => {
     it("extracts node value", () => {
       const xml = helpers.spliceFeed(
