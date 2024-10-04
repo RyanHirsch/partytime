@@ -21,6 +21,7 @@ import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
 import { handleFeed } from "./feed";
 import type { Phase4Value } from "./phase/phase-4";
+import { Phase2SeasonNumber } from "./phase/phase-2";
 
 export type ParserOptions = {
   allowMissingGuid?: boolean;
@@ -92,6 +93,23 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
       feedObj.newestItemPubDate > feedObj.pubDate ? feedObj.newestItemPubDate : feedObj.pubDate;
   } else if (feedObj.pubDate) {
     feedObj.lastPubDate = feedObj.pubDate;
+  }
+
+  const tempSeasons = [] as Array<Phase2SeasonNumber>;
+  for (const i of feedObj.items) {
+    if (i.podcastSeason) {
+      const existingValue = tempSeasons.find((x) => x.number === i.podcastSeason.number);
+      if (existingValue && !existingValue.name && i.podcastSeason.name) {
+        existingValue.name = i.podcastSeason.name;
+      } else if (!existingValue) {
+        tempSeasons.push(i.podcastSeason);
+      }
+    }
+  }
+  if (tempSeasons.length > 0) {
+    feedObj.podcastSeasons = tempSeasons
+      .sort((a, b) => a.number - b.number)
+      .reduce((agg, curr) => ({ ...agg, [curr.number]: curr }), {});
   }
 
   if (Object.keys(phaseSupport).length > 0) {
