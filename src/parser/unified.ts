@@ -16,7 +16,7 @@ import mergeDeepRight from "ramda/src/mergeDeepRight";
 import { logger } from "../logger";
 
 import { ensureArray } from "./shared";
-import type { Episode, FeedObject, FeedType, PhaseUpdate, XmlNode } from "./types";
+import type { BasicFeed, Episode, FeedObject, FeedType, PhaseUpdate, XmlNode } from "./types";
 import { updateFeed, updateItem } from "./phase";
 import { handleItem, isValidItem } from "./item";
 import { handleFeed } from "./feed";
@@ -26,6 +26,29 @@ import { Phase2SeasonNumber } from "./phase/phase-2";
 export type ParserOptions = {
   allowMissingGuid?: boolean;
 };
+
+function handlePodcastSeasons(feedObj: BasicFeed) {
+  const tempSeasons = [] as Array<Phase2SeasonNumber>;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const i of feedObj.items) {
+    if (i.podcastSeason) {
+      const existingValue = tempSeasons.find((x) => x.number === i.podcastSeason.number);
+      if (existingValue && !existingValue.name && i.podcastSeason.name) {
+        existingValue.name = i.podcastSeason.name;
+      } else if (!existingValue) {
+        tempSeasons.push(i.podcastSeason);
+      }
+    }
+  }
+  if (tempSeasons.length > 0) {
+    return {
+      podcastSeasons: tempSeasons
+        .sort((a, b) => a.number - b.number)
+        .reduce((agg, curr) => ({ ...agg, [curr.number]: curr }), {}),
+    };
+  }
+  return undefined;
+}
 
 export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: ParserOptions) {
   const epochDate = new Date(0);
@@ -95,23 +118,6 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
     feedObj.lastPubDate = feedObj.pubDate;
   }
 
-  const tempSeasons = [] as Array<Phase2SeasonNumber>;
-  for (const i of feedObj.items) {
-    if (i.podcastSeason) {
-      const existingValue = tempSeasons.find((x) => x.number === i.podcastSeason.number);
-      if (existingValue && !existingValue.name && i.podcastSeason.name) {
-        existingValue.name = i.podcastSeason.name;
-      } else if (!existingValue) {
-        tempSeasons.push(i.podcastSeason);
-      }
-    }
-  }
-  if (tempSeasons.length > 0) {
-    feedObj.podcastSeasons = tempSeasons
-      .sort((a, b) => a.number - b.number)
-      .reduce((agg, curr) => ({ ...agg, [curr.number]: curr }), {});
-  }
-
   if (Object.keys(phaseSupport).length > 0) {
     feedObj.pc20support = Object.entries(phaseSupport).reduce(
       (phases, [phase, kv]) => ({ ...phases, [phase]: Object.keys(kv) }),
@@ -122,5 +128,6 @@ export function unifiedParser(theFeed: XmlNode, type: FeedType, options?: Parser
   return {
     podcastBlocked: "no",
     ...feedObj,
+    ...handlePodcastSeasons(feedObj),
   } as FeedObject;
 }
