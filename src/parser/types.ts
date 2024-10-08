@@ -143,6 +143,8 @@ export interface BasicFeed {
 }
 
 export interface FeedObject extends BasicFeed {
+  podcastSeasons?: Record<number, Phase2SeasonNumber>;
+
   // #region Phase 1
   podcastOwner?: string;
   /**
