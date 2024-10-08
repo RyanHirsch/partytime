@@ -30,13 +30,13 @@ export type ParserOptions = {
 function handlePodcastSeasons(feedObj: BasicFeed) {
   const tempSeasons = [] as Array<Phase2SeasonNumber>;
   // eslint-disable-next-line no-restricted-syntax
-  for (const i of feedObj.items) {
-    if (i.podcastSeason) {
-      const existingValue = tempSeasons.find((x) => x.number === i.podcastSeason.number);
-      if (existingValue && !existingValue.name && i.podcastSeason.name) {
-        existingValue.name = i.podcastSeason.name;
+  for (const { podcastSeason } of feedObj.items) {
+    if (podcastSeason) {
+      const existingValue = tempSeasons.find((x) => x.number === podcastSeason.number);
+      if (existingValue && !existingValue.name && podcastSeason.name) {
+        existingValue.name = podcastSeason.name;
       } else if (!existingValue) {
-        tempSeasons.push(i.podcastSeason);
+        tempSeasons.push(podcastSeason);
       }
     }
   }
