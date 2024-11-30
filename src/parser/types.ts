@@ -119,7 +119,7 @@ export interface BasicFeed {
   categories?: string[];
 
   pubsub?: { hub?: string; self?: string; next?: string };
-  author?: string;
+  author?: string[];
   owner?: {
     email: string;
     name: string;
