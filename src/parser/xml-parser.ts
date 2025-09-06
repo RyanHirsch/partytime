@@ -21,11 +21,39 @@ const parserOptions = {
   stopNodes: ["parse-me-as-string"],
 };
 
+/**
+ * Preprocesses XML by minifying it to fix common formatting issues
+ * This is much simpler and more robust than complex regex patterns
+ */
+function preprocessXml(xml: string): string {
+  return xml
+    // Normalize line endings
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    
+    // Remove all unnecessary whitespace and newlines
+    .replace(/\s+/g, ' ')
+    
+    // Fix spacing around equals signs in attributes
+    .replace(/\s*=\s*/g, '=')
+    .replace(/=\s*"/g, '="')
+    .replace(/=\s*'/g, "='")
+    
+    // Clean up tag boundaries
+    .replace(/>\s*</g, '><')
+    .replace(/\s*\/>/g, '/>')
+    
+    // Trim the result
+    .trim();
+}
+
 export function validate(xml: string): true | ValidationError {
-  return parser.validate(xml.trim());
+  const preprocessed = preprocessXml(xml.trim());
+  return parser.validate(preprocessed);
 }
 
 export function parse(xml: string): XmlNode {
+  const preprocessed = preprocessXml(xml.trim());
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return parser.parse(xml.trim(), parserOptions);
+  return parser.parse(preprocessed, parserOptions);
 }
