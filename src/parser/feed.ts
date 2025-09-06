@@ -109,6 +109,17 @@ function getSubtitle(feed: XmlNode): undefined | { subtitle: string } {
   return undefined;
 }
 
+function getItunesTitle(feed: XmlNode): undefined | { itunesTitle: string } {
+  const node = firstWithValue(feed["itunes:title"]);
+  if (node) {
+    const nodeValue = getText(node);
+    if (nodeValue) {
+      return { itunesTitle: sanitizeMultipleSpaces(sanitizeNewLines(nodeValue)) };
+    }
+  }
+  return undefined;
+}
+
 function getLink(feed: XmlNode): string {
   const node = firstWithValue(feed.link);
 
@@ -641,6 +652,7 @@ export function handleFeed(feed: XmlNode, feedType: FeedType): BasicFeed {
     ...getImage(feed),
     ...getSummary(feed),
     ...getSubtitle(feed),
+    ...getItunesTitle(feed),
     ...getCopyright(feed),
     ...getWebmaster(feed),
     ...getManagingEditor(feed),

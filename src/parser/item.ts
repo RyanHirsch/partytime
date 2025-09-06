@@ -109,6 +109,15 @@ export function getTitle(item: XmlNode): undefined | { title: string } {
   return undefined;
 }
 
+export function getItunesTitle(item: XmlNode): undefined | { itunesTitle: string } {
+  const node = firstWithValue(item["itunes:title"]);
+  const itunesTitle = sanitizeMultipleSpaces(sanitizeNewLines(getText(node)));
+  if (itunesTitle) {
+    return { itunesTitle };
+  }
+  return undefined;
+}
+
 export function getDescription(item: XmlNode): undefined | { description: string } {
   const node = firstWithValue(item.description);
 
@@ -305,6 +314,7 @@ export function handleItem(item: XmlNode, _feed: BasicFeed): Episode {
     duration: getDuration(item),
     explicit: getExplicit(item),
     ...getTitle(item),
+    ...getItunesTitle(item),
     ...getAuthor(item),
     ...getLink(item),
     ...getItunesImage(item),
