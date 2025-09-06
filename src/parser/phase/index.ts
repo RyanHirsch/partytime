@@ -92,6 +92,9 @@ const feeds: FeedUpdate[] = [
   phase7.podcastChat,
   phase7.podcastPublisher,
 
+  // Phase 8 - Currently no tags implemented
+  // phase8.* tags will be added here as they are implemented
+
   pending.id,
   pending.social,
   pending.podcastRecommendations,
