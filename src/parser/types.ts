@@ -75,6 +75,7 @@ export interface BasicFeed {
   // #region RSS 2.0 Spec Required
   // https://validator.w3.org/feed/docs/rss2.html
   title: string;
+  itunesTitle?: string;
   link: string;
   description: string;
   // #endregion
@@ -210,6 +211,7 @@ export type Enclosure = {
 export interface Episode {
   author?: string;
   title?: string;
+  itunesTitle?: string;
   subtitle?: string;
   link?: string;
   duration: number;
