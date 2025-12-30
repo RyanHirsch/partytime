@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "fast-xml-parser": "^3.18.0",
+    "fast-xml-parser": "^5.3.3",
     "he": "^1.2.0",
     "node-fetch": "^2.6.1",
     "pino": "^7.0.5",

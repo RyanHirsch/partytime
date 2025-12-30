@@ -1,31 +1,31 @@
-import parser, { ValidationError } from "fast-xml-parser";
+import { XMLParser, XMLValidator, ValidationError } from "fast-xml-parser";
 import he from "he";
 
 import { XmlNode } from "./types";
 
 const parserOptions = {
   attributeNamePrefix: "@_",
-  attrNodeName: "attr", // default is 'false'
+  attributesGroupName: "attr",
   textNodeName: "#text",
   ignoreAttributes: false,
-  ignoreNameSpace: false,
+  removeNSPrefix: false,
   allowBooleanAttributes: false,
-  parseNodeValue: true,
+  parseTagValue: true,
   parseAttributeValue: false,
   trimValues: true,
-  // cdataTagName: "__cdata", //default is 'false'
-  // cdataPositionChar: "\\c",
-  parseTrueNumberOnly: false,
-  arrayMode: false, // "strict"
-  tagValueProcessor: (val: string) => he.decode(val), // default is a=>a
-  stopNodes: ["parse-me-as-string"],
+  tagValueProcessor: (_tagName: string, tagValue: string) => he.decode(tagValue),
+  stopNodes: ["*.parse-me-as-string"],
 };
 
+const xmlParser = new XMLParser(parserOptions);
+
 export function validate(xml: string): true | ValidationError {
-  return parser.validate(xml.trim());
+  return XMLValidator.validate(xml.trim());
 }
 
 export function parse(xml: string): XmlNode {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return parser.parse(xml.trim(), parserOptions);
+  return xmlParser.parse(xml.trim());
 }
+
+export type { ValidationError };

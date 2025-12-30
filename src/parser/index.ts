@@ -10,6 +10,8 @@ import { ParserOptions, unifiedParser } from "./unified";
 import { parse, validate } from "./xml-parser";
 import { FeedObject, FeedType } from "./types";
 
+export type { FeedObject } from "./types";
+
 export function parseFeed(xml: string, options?: ParserOptions): FeedObject | null {
   const parsedContent = validate(xml.trim());
   if (parsedContent === true) {
