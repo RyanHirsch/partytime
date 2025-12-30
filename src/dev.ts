@@ -1,202 +1,187 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-await-in-loop */
 import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
 
 import fetch from "node-fetch";
-import invariant from "tiny-invariant";
-import stringify from "fast-json-stable-stringify";
 
 import { logger } from "./logger";
-import { parseFeed } from "./parser";
-// import { checkFeedByUri } from "./cor";
+import { parseFeed, FeedObject } from "./parser";
 import { getFeedText } from "./shared";
 
 const feeds: Array<{ name: string; url: string }> = [
-  // { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
-  // // Recent soundbites
+  { name: "Podcasting 2.0", url: "http://mp3s.nashownotes.com/pc20rss.xml" },
   // { name: "Golden Nuggets", url: "https://feeds.buzzsprout.com/1293872.rss" },
-  // // Value Block
   // { name: "PodClock", url: "https://podnews.net/clock-rss" },
-  // // Location
   // { name: "That's all I got", url: "https://kevinbae.com/feed/podcast" },
-  // // nested categories
-  // { name: "livetpajorden", url: "https://rss.acast.com/http-acast.com-acast.com-livetpajorden" },
-  // // Example
-  // {
-  //   name: "Local Example",
-  //   url: `file://${path.resolve(__dirname, "parser/__test__/fixtures/example.xml")}`,
-  // },
-  // {
-  //   name: "Animated No Agenda",
-  //   url: "https://noagendatube.com/feeds/videos.xml?videoChannelId=73&format=podcast",
-  // },
-  // {
-  //   name: "Chad Hartman",
-  //   url:
-  //     "https://www.omnycontent.com/d/playlist/4b5f9d6d-9214-48cb-8455-a73200038129/1c3da022-ec7e-4a7f-91dc-a78e00380a9d/44fb8925-fb04-4712-903e-a78e00380aa1/podcast.rss",
-  // },
-  // { name: "Channel History Hit", url: "http://rss.acast.com/channelhistoryhit" },
-  // { name: "Chaosradio", url: "https://chaosradio.de/feed/m4a" },
-  // { name: "Chaosradio Freiburg", url: "https://rdl.de/podcast/all/35236" },
-  // {
-  //   name: "Cheat Sheet Podcast from The Daily Beast",
-  //   url: "https://rss.acast.com/cheat-sheet-podcast",
-  // },
-  // { name: "Chompers", url: "https://feeds.megaphone.fm/chompers" },
-  // {
-  //   name: 'Chris Walker - "The Innerwealth Podcast"',
-  //   url: "http://feeds.soundcloud.com/users/soundcloud:users:2321682/sounds.rss",
-  // },
-  // { name: "Christopher Walch – SDWT", url: "https://anchor.fm/s/5720588/podcast/rss" },
-  // { name: "Clark Film", url: "https://clarkfilm.libsyn.com/rss" },
-  // {
-  //   name: "Cliffo and Gabi - Hit Queensland",
-  //   url:
-  //     "https://www.omnycontent.com/d/playlist/566281f8-200e-4c9f-8378-a4870055423b/dbd79469-2427-4cb3-bd47-a636000b0b05/984b7b50-dc38-4e9b-b153-a636000b985b/podcast.rss",
-  // },
-  // { name: "Coach's Fitness Journey", url: "https://anchor.fm/s/e5ef6d8/podcast/rss" },
-  // { name: "CoinDesk Podcast Network", url: "https://rss.art19.com/late-confirmation" },
-  // { name: "CommSec", url: "https://commsecpodcasts.podbean.com/feed.xml" },
-  // {
-  //   name: "Confidence &amp; Self Esteem Podcast",
-  //   url: "https://www.spreaker.com/show/3128218/episodes/feed",
-  // },
-  // {
-  //   name: "Connect FM Podcasts",
-  //   url: "http://feeds.soundcloud.com/users/soundcloud:users:79112501/sounds.rss",
-  // },
-  // {
-  //   name: "Conservative Business Journal Podcast",
-  //   url: "https://conservativebusinessjournal.libsyn.com/rss",
-  // },
-  // { name: "Cooper And Anthony Show", url: "https://anchor.fm/s/245b3618/podcast/rss" },
-  // {
-  //   name: "Costa Rica Pura Vida Lifestyle Podcast",
-  //   url: "https://anchor.fm/s/1347e704/podcast/rss",
-  // },
-  // {
-  //   name: "Crime Stories with Nancy Grace",
-  //   url: "https://rss.art19.com/crime-stories-with-nancy-grace",
-  // },
-  // { name: "Gabfest", url: "https://gabfest.wordpress.com/feed/atom/" },
-  // { name: "The Her Freedom Podcast", url: "http://herfreedomaudio.blogspot.de/atom.xml" },
-  // { name: "Causality", url: "https://engineered.network/causality/feed/index.xml" },
-  // { name: "Dudes and Dads", url: "https://feeds.podcastmirror.com/dudesanddadspodcast" },
 ];
 
 export async function checkAll(): Promise<void> {
   for (let i = 0; i < feeds.length; i += 1) {
     const { name, url } = feeds[i];
     logger.info(`Parsing ${name}: ${url}`);
-    // eslint-disable-next-line no-await-in-loop
-    await getFeed(url);
+    await getFeed(url, { save: false });
   }
 }
 
-function save<T>({
-  relativePath,
-  data,
-  parser,
-}: {
-  relativePath: string;
-  data: T;
-  parser: (d: T) => string;
-}): Promise<void> {
-  const filePath = path.resolve(__dirname, relativePath);
-  logger.info(`Save ${filePath}`);
-  return new Promise((resolve, reject) =>
-    fs.writeFile(filePath, parser(data), (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(undefined);
-      }
-    })
-  );
+interface GetFeedOptions {
+  save?: boolean;
+  verbose?: boolean;
 }
 
 const urlToFile: Array<{ uri: string; uriHash: string; title: string; parsed: string }> = [];
-async function getFeed(uri: string): Promise<void> {
-  const uriHash = crypto.createHash("md5").update(uri).digest("hex");
+
+async function getFeed(uri: string, options: GetFeedOptions = {}): Promise<void> {
+  const { save: shouldSave = false, verbose = true } = options;
 
   const xml = await getFeedText(uri);
-  const xmlSave = save({
-    relativePath: `../raw/${uriHash}.txt`,
-    data: xml,
-    parser: (x) => x,
-  });
+
+  if (verbose) {
+    console.log(`\n📡 Fetched ${xml.length} bytes from ${uri}\n`);
+  }
 
   const feedObject = parseFeed(xml);
   if (!feedObject) {
-    logger.warn(`Failed to parse xml from ${uri}`);
+    console.error(`❌ Failed to parse xml from ${uri}`);
     return;
   }
 
+  if (verbose) {
+    console.log(`✅ Successfully parsed feed: "${feedObject.title}"`);
+    console.log(`   Episodes: ${feedObject.items?.length ?? 0}`);
+    console.log(`   PC2.0 Support: ${JSON.stringify(feedObject.pc20support)}`);
+    console.log("");
+    console.log(JSON.stringify(feedObject, null, 2));
+  }
+
+  if (shouldSave) {
+    saveFeedData(uri, xml, feedObject);
+  }
+}
+
+function saveFeedData(uri: string, xml: string, feedObject: FeedObject): void {
+  const uriHash = crypto.createHash("md5").update(uri).digest("hex");
+
+  // Ensure directories exist
+  const rawDir = path.resolve(__dirname, "../raw");
+  const resultsDir = path.resolve(__dirname, "../results");
+
+  if (!fs.existsSync(rawDir)) {
+    fs.mkdirSync(rawDir, { recursive: true });
+  }
+  if (!fs.existsSync(resultsDir)) {
+    fs.mkdirSync(resultsDir, { recursive: true });
+  }
+
+  // Save raw XML
+  const xmlPath = path.resolve(rawDir, `${uriHash}.txt`);
+  fs.writeFileSync(xmlPath, xml);
+  logger.info(`Saved raw XML to ${xmlPath}`);
+
+  // Save parsed JSON
+  const parsedFilename = `${feedObject.title
+    .toLowerCase()
+    .replace(/'/g, "")
+    .replace(/\W+/g, "-")}.json`;
+  const parsedPath = path.resolve(resultsDir, parsedFilename);
+  fs.writeFileSync(parsedPath, JSON.stringify({ ...feedObject, url: uri }, null, 2));
+  logger.info(`Saved parsed feed to ${parsedPath}`);
+
+  // Update list
   urlToFile.push({
     uri,
     uriHash,
     title: feedObject.title,
-    parsed: `${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`,
+    parsed: parsedFilename,
   });
-  const listSave = save({
-    relativePath: `../raw/list.json`,
-    data: urlToFile,
-    parser: (list) => JSON.stringify(list, null, 2),
-  });
-
-  const parsed = path.resolve(
-    __dirname,
-    "..",
-    `results/${feedObject.title.toLowerCase().replace(/'/g, "").replace(/\W+/g, "-")}.json`
-  );
-  logger.info(`Parsed feed object ${parsed}`);
-  fs.writeFileSync(parsed, stringify({ ...feedObject, url: uri }));
-  await Promise.all([xmlSave, listSave]);
-
-  // const corsSupport = await checkFeedByUri(uri);
-  // logger.info(corsSupport);
-
-  // eslint-disable-next-line no-underscore-dangle,  @typescript-eslint/no-unsafe-member-access
-  logger.info(feedObject.pc20support);
+  const listPath = path.resolve(rawDir, "list.json");
+  fs.writeFileSync(listPath, JSON.stringify(urlToFile, null, 2));
 }
 
-if (process.argv[2] === "--latest") {
-  runPromise(
-    fetch(`https://api.podcastindex.org/api/1.0/recent/feeds?max=10`, {
-      headers: getHeaders(),
-    })
-      .then((resp) => resp.json())
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-      .then((json) => json.feeds.map((x: { url: string }) => x.url))
-      .then((feedUrls: Array<string>) => Promise.all(feedUrls.map((x) => getFeed(x))))
-  );
-} else if (process.argv[2]) {
-  runPromise(getFeed(process.argv[2]));
+function printUsage(): void {
+  console.log(`
+Usage: yarn dev [options] [url]
+
+Options:
+  --latest        Fetch and parse latest feeds from Podcast Index API
+                  (requires PI_API_KEY and PI_API_SECRET env vars)
+  --save          Save raw XML and parsed JSON to disk
+  --all           Parse all feeds in the predefined list
+  <url>           Parse a specific feed URL
+
+Examples:
+  yarn dev http://mp3s.nashownotes.com/pc20rss.xml
+  yarn dev --save http://mp3s.nashownotes.com/pc20rss.xml
+  yarn dev --all
+  yarn dev --latest
+`);
 }
 
-function runPromise(prom: Promise<any>): void {
-  prom
-    .then(
-      () => logger.info("done"),
-      (err) => logger.error(err)
-    )
-    .finally(() => process.exit());
+async function main(): Promise<void> {
+  const args = process.argv.slice(2);
+
+  if (args.length === 0) {
+    printUsage();
+    return;
+  }
+
+  const shouldSave = args.includes("--save");
+  const filteredArgs = args.filter((arg) => arg !== "--save");
+
+  if (filteredArgs.includes("--latest")) {
+    await runLatest(shouldSave);
+  } else if (filteredArgs.includes("--all")) {
+    for (const feed of feeds) {
+      console.log(`\n${"=".repeat(60)}`);
+      console.log(`Parsing: ${feed.name}`);
+      console.log(`${"=".repeat(60)}`);
+      await getFeed(feed.url, { save: shouldSave });
+    }
+  } else if (filteredArgs.length > 0) {
+    const url = filteredArgs.find((arg) => !arg.startsWith("--"));
+    if (url) {
+      await getFeed(url, { save: shouldSave });
+    } else {
+      printUsage();
+    }
+  } else {
+    printUsage();
+  }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function getHeaders() {
+async function runLatest(shouldSave: boolean): Promise<void> {
   const key = process.env.PI_API_KEY;
   const secret = process.env.PI_API_SECRET;
-  invariant(key);
-  invariant(secret);
+
+  if (!key || !secret) {
+    console.error(
+      "❌ PI_API_KEY and PI_API_SECRET environment variables are required for --latest"
+    );
+    console.error("   Set them in your environment or .env file");
+    process.exit(1);
+  }
+
+  const response = await fetch(`https://api.podcastindex.org/api/1.0/recent/feeds?max=10`, {
+    headers: getHeaders(key, secret),
+  });
+  const json = (await response.json()) as { feeds: Array<{ url: string; title: string }> };
+
+  for (const feed of json.feeds) {
+    console.log(`\n${"=".repeat(60)}`);
+    console.log(`Parsing: ${feed.title}`);
+    console.log(`${"=".repeat(60)}`);
+    await getFeed(feed.url, { save: shouldSave });
+  }
+}
+
+function getHeaders(key: string, secret: string): Record<string, string> {
   const apiHeaderTime = Math.floor(Date.now() / 1000);
-  const sha1Algorithm = "sha1";
-  const sha1Hash = crypto.createHash(sha1Algorithm);
-  const data4Hash = `${key}${secret}${apiHeaderTime}`;
-  sha1Hash.update(data4Hash);
+  const sha1Hash = crypto.createHash("sha1");
+  sha1Hash.update(`${key}${secret}${apiHeaderTime}`);
   const hash4Header = sha1Hash.digest("hex");
 
   return {
@@ -204,6 +189,16 @@ function getHeaders() {
     "X-Auth-Date": `${apiHeaderTime}`,
     "X-Auth-Key": key,
     Authorization: hash4Header,
-    "User-Agent": `custom/1.0.0`,
+    "User-Agent": `partytime/dev`,
   };
 }
+
+main()
+  .then(() => {
+    console.log("\n✅ Done");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error("\n❌ Error:", err);
+    process.exit(1);
+  });

@@ -97,3 +97,30 @@ The sample feeds below were chosen for their varied nature. Including things lik
 ## Development
 
 Update dependencies (person enum and valid license list) via `yarn deps` or `npm run deps`.
+
+### Testing the Parser with Live Feeds
+
+Use the dev script to quickly test the parser against live podcast feeds:
+
+```sh
+# Parse a specific feed URL
+yarn dev http://mp3s.nashownotes.com/pc20rss.xml
+
+# Parse and save the raw XML and parsed JSON to disk
+yarn dev --save http://mp3s.nashownotes.com/pc20rss.xml
+
+# Parse all feeds in the predefined list
+yarn dev --all
+
+# Fetch and parse latest feeds from Podcast Index API
+# (requires PI_API_KEY and PI_API_SECRET environment variables)
+yarn dev --latest
+```
+
+The dev script will output:
+- The byte count of the fetched feed
+- Success/failure status
+- Episode count and Podcasting 2.0 namespace support summary
+- Full parsed JSON output
+
+To add more feeds to the predefined list, edit the `feeds` array in `src/dev.ts`.
