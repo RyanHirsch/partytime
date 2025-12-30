@@ -344,6 +344,66 @@ describe("phase 4", () => {
 
       expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
     });
+
+    it("extracts list variant medium types", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>podcastL</podcast:medium>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("medium", Phase4Medium.PodcastL);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts list variant with different casing", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>PODCASTL</podcast:medium>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("medium", Phase4Medium.PodcastL);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts course medium type", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>course</podcast:medium>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("medium", Phase4Medium.Course);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
+
+    it("extracts mixed medium type", () => {
+      const xml = helpers.spliceFeed(
+        feed,
+        `
+        <podcast:medium>mixed</podcast:medium>
+        `
+      );
+      const result = helpers.parseValidFeed(xml);
+      invariant(result);
+
+      expect(result).toHaveProperty("medium", Phase4Medium.Mixed);
+
+      expect(helpers.getPhaseSupport(result, phase)).toContain(supportedName);
+    });
   });
 
   describe("podcast:images", () => {

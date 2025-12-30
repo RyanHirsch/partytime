@@ -321,6 +321,22 @@ export function lookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof 
   return undefined;
 }
 
+export function lookupCaseInsensitive<E extends StringEnum>(
+  stringEnum: E,
+  s: string
+): E[keyof E] | undefined {
+  const lowerInput = s.toLowerCase();
+  // eslint-disable-next-line no-restricted-syntax
+  for (const enumKey of keysOf(stringEnum)) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    if (stringEnum[enumKey].toLowerCase() === lowerInput) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion, @typescript-eslint/no-unsafe-return
+      return stringEnum[enumKey] as E[keyof E];
+    }
+  }
+  return undefined;
+}
+
 export function knownLookup<E extends StringEnum>(stringEnum: E, s: string): E[keyof E] {
   const lookupValue = lookup(stringEnum, s);
   if (lookupValue) {

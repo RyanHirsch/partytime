@@ -9,6 +9,7 @@ import {
   getText,
   knownLookup,
   lookup,
+  lookupCaseInsensitive,
   pubDateToDate,
 } from "../shared";
 import type { EmptyObj, Episode, XmlNode } from "../types";
@@ -106,12 +107,36 @@ export enum Phase4Medium {
   Film = "film",
   /** Specific types of audio with one item per feed, or where items represent chapters within the book */
   Audiobook = "audiobook",
-  /** a feed of curated written articles. Newsletter articles now sometimes have an spoken version audio enclosure attached */
+  /** A feed of curated written articles. Newsletter articles now sometimes have a spoken version audio enclosure attached */
   Newsletter = "newsletter",
-  /** a feed of informally written articles. Similar to newsletter but more informal as in a traditional blog platform style */
+  /** A feed of informally written articles. Similar to newsletter but more informal as in a traditional blog platform style */
   Blog = "blog",
-  /** a feed of podcasts from the same publisher */
+  /** A feed of podcasts from the same publisher */
   Publisher = "publisher",
+  /** A feed of educational content organized into a course with episodes representing lessons or modules */
+  Course = "course",
+  /** A feed containing a mix of different media types combined together */
+  Mixed = "mixed",
+
+  // List variants - feeds that aggregate or list other content of a specific medium type
+  /** A list feed that aggregates multiple podcast feeds */
+  PodcastL = "podcastL",
+  /** A list feed that aggregates multiple music feeds */
+  MusicL = "musicL",
+  /** A list feed that aggregates multiple video feeds */
+  VideoL = "videoL",
+  /** A list feed that aggregates multiple film feeds */
+  FilmL = "filmL",
+  /** A list feed that aggregates multiple audiobook feeds */
+  AudiobookL = "audiobookL",
+  /** A list feed that aggregates multiple newsletter feeds */
+  NewsletterL = "newsletterL",
+  /** A list feed that aggregates multiple blog feeds */
+  BlogL = "blogL",
+  /** A list feed that aggregates multiple publisher feeds */
+  PublisherL = "publisherL",
+  /** A list feed that aggregates multiple course feeds */
+  CourseL = "courseL",
 }
 export const medium: FeedUpdate = {
   tag: "podcast:medium",
@@ -120,13 +145,13 @@ export const medium: FeedUpdate = {
   nodeTransform: (node: XmlNode) =>
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     ensureArray<XmlNode>(node).find(
-      (n) => getText(n) && lookup(Phase4Medium, getText(n).toLowerCase())
+      (n) => getText(n) && lookupCaseInsensitive(Phase4Medium, getText(n))
     ),
   supportCheck: (node: XmlNode) => Boolean(node) && Boolean(getText(node)),
   fn(node: XmlNode): { medium: Phase4Medium } {
     const nodeValue = getText(node);
     if (nodeValue) {
-      const parsed = lookup(Phase4Medium, nodeValue.toLowerCase());
+      const parsed = lookupCaseInsensitive(Phase4Medium, nodeValue);
       if (parsed) {
         return { medium: parsed };
       }
